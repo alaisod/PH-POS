@@ -384,7 +384,7 @@ class Delivery extends CI_Model
 				$suggestions[]=array('value'=> $key, 'label' => $value['name'],'avatar'=>$value['avatar'],'subtitle'=>$value['subtitle']);		
 			}
 		
-		if(count($suggestions > $limit))
+		if(count($suggestions) > $limit)
 		{
 			$suggestions = array_slice($suggestions, 0,$limit);
 		}

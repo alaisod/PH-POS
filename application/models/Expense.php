@@ -247,7 +247,7 @@ class Expense extends CI_Model {
 	  			$suggestions[]=array('label'=> $temp_suggestion,'subtitle' => '', 'avatar' => base_url()."assets/img/expense.png" );		
 	  		}
         //only return $limit suggestions
-        if (count($suggestions > $limit)) {
+        if (count($suggestions) > $limit) {
             $suggestions = array_slice($suggestions, 0, $limit);
         }
         return $suggestions;

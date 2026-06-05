@@ -27,7 +27,7 @@ class Supplier extends Person
 		
 		$people=$this->db->dbprefix('people');
 		$suppliers=$this->db->dbprefix('suppliers');
-		$data=$this->db->query("SELECT *,${people}.person_id as pid 
+		$data=$this->db->query("SELECT *,{people}.person_id as pid 
 						FROM ".$people."
 						JOIN ".$suppliers." ON 										                       
 						".$people.".person_id = ".$suppliers.".person_id
@@ -387,11 +387,11 @@ class Supplier extends Person
 				
 					if ($this->get_custom_field($k,'type') != 'date')
 					{
-						$this->db->like("custom_field_${k}_value",$search,'both');
+						$this->db->like("custom_field_{k}_value",$search,'both');
 					}
 					else
 					{
-						$this->db->where("FROM_UNIXTIME(custom_field_${k}_value, '%Y-%m-%d') = ".$this->db->escape(date('Y-m-d', strtotime($search))), NULL, false);					
+						$this->db->where("FROM_UNIXTIME(custom_field_{k}_value, '%Y-%m-%d') = ".$this->db->escape(date('Y-m-d', strtotime($search))), NULL, false);					
 					}
 					$this->db->limit($limit);
 					$by_custom_field = $this->db->get();
@@ -446,11 +446,11 @@ class Supplier extends Person
 				{
 					if ($this->get_custom_field($k,'type') != 'date')
 					{
-						$custom_fields[$k]="custom_field_${k}_value LIKE '%".$this->db->escape_like_str($search)."%'";
+						$custom_fields[$k]="custom_field_{k}_value LIKE '%".$this->db->escape_like_str($search)."%'";
 					}
 					else
 					{							
-						$custom_fields[$k]= "FROM_UNIXTIME(custom_field_${k}_value, '%Y-%m-%d') = ".$this->db->escape(date('Y-m-d', strtotime($search)));					
+						$custom_fields[$k]= "FROM_UNIXTIME(custom_field_{k}_value, '%Y-%m-%d') = ".$this->db->escape(date('Y-m-d', strtotime($search)));					
 					}
 					
 				}	
@@ -502,11 +502,11 @@ class Supplier extends Person
 				{
 					if ($this->get_custom_field($k,'type') != 'date')
 					{
-						$custom_fields[$k]="custom_field_${k}_value LIKE '%".$this->db->escape_like_str($search)."%'";
+						$custom_fields[$k]="custom_field_{k}_value LIKE '%".$this->db->escape_like_str($search)."%'";
 					}
 					else
 					{							
-						$custom_fields[$k]= "FROM_UNIXTIME(custom_field_${k}_value, '%Y-%m-%d') = ".$this->db->escape(date('Y-m-d', strtotime($search)));					
+						$custom_fields[$k]= "FROM_UNIXTIME(custom_field_{k}_value, '%Y-%m-%d') = ".$this->db->escape(date('Y-m-d', strtotime($search)));					
 					}
 					
 				}	
@@ -602,7 +602,7 @@ class Supplier extends Person
 			if($this->Supplier->get_custom_field($k) !== false)
 			{
 				$field = array();
-				$field['sort_column'] = $this->db->dbprefix('suppliers').".custom_field_${k}_value";
+				$field['sort_column'] = $this->db->dbprefix('suppliers').".custom_field_{k}_value";
 				$field['label']= $this->Supplier->get_custom_field($k);
 			
 				if ($this->Supplier->get_custom_field($k,'type') == 'checkbox')
@@ -631,7 +631,7 @@ class Supplier extends Person
 					$format_function = 'strsame';
 				}
 				$field['format_function'] = $format_function;
-				$columns["custom_field_${k}_value"] = $field;
+				$columns["custom_field_{k}_value"] = $field;
 			}
 		}
 		
@@ -653,7 +653,7 @@ class Supplier extends Person
 			$config_data = unserialize($this->config->item('supplier_custom_field_prefs'));
 		}
 		
-		return isset($config_data["custom_field_${number}_${key}"]) && $config_data["custom_field_${number}_${key}"] ? $config_data["custom_field_${number}_${key}"] : FALSE;
+		return isset($config_data["custom_field_{number}_{key}"]) && $config_data["custom_field_{number}_{key}"] ? $config_data["custom_field_{number}_{key}"] : FALSE;
 	}
 }
 ?>
