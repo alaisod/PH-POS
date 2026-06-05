@@ -8,6 +8,10 @@
 	 	 $company = ($company = $this->Location->get_info_for_key('company')) ? $company : $this->config->item('company');
 		 echo !is_on_demo_host() ?  $company.' -- '.lang('common_powered_by').' PHP Point Of Sale' : 'Demo - PHP Point Of Sale | Easy to use Online POS Software' ?></title>
 	<link rel="icon" href="<?php echo base_url();?>favicon.ico" type="image/x-icon"/>	
+	<!-- Google Fonts: Prompt + Sarabun for Thai support -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
 	<base href="<?php echo base_url();?>" />
 	

@@ -159,12 +159,15 @@ class Register extends CI_Model
 	{
 		$this->db->truncate('register_currency_denominations');
 		
-		for($k = 0; $k< count($names); $k++)
+		if ($names !== null && is_array($names))
 		{
-			$name = $names[$k];
-			$value = $values[$k];
-			
-			$this->db->insert('register_currency_denominations', array('name' => $name, 'value' => (float)$value));
+			for($k = 0; $k< count($names); $k++)
+			{
+				$name = $names[$k];
+				$value = $values[$k];
+				
+				$this->db->insert('register_currency_denominations', array('name' => $name, 'value' => (float)$value));
+			}
 		}
 		
 		return true;

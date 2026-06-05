@@ -53,8 +53,15 @@ class Receivings extends Secure_area
 	{
 		//allow parallel searchs to improve performance.
 		session_write_close();
-		$suggestions = $this->Supplier->get_supplier_search_suggestions($this->input->get('term'),100);
-		echo json_encode($suggestions);
+		try
+		{
+			$suggestions = $this->Supplier->get_supplier_search_suggestions($this->input->get('term'),100);
+			echo json_encode($suggestions);
+		}
+		catch(\Throwable $e)
+		{
+			echo json_encode(array('error' => $e->getMessage()));
+		}
 	}
 
 	function select_supplier()
@@ -85,8 +92,15 @@ class Receivings extends Secure_area
 	{
 		//allow parallel searchs to improve performance.
 		session_write_close();
-		$suggestions = $this->Location->get_locations_search_suggestions($this->input->get('term'),100);
-		echo json_encode($suggestions);
+		try
+		{
+			$suggestions = $this->Location->get_locations_search_suggestions($this->input->get('term'),100);
+			echo json_encode($suggestions);
+		}
+		catch(\Throwable $e)
+		{
+			echo json_encode(array('error' => $e->getMessage()));
+		}
 	}
 
 	function select_location()

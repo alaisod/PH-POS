@@ -1,1 +1,58 @@
-/***********************theme colors*****************************/
+/************theme fonts********************/
+:root {
+  --main-font: 'Prompt', 'Sarabun', 'Helvetica Neue', 'Nunito', sans-serif;
+  --heading-font: 'Prompt', 'Sarabun', sans-serif;
+  --content-font: 'Sarabun', 'Helvetica Neue', sans-serif;
+  --content-font-bold: 'Prompt', sans-serif;
+
+  /***********************theme colors*****************************/
+  --primary-color: #FFB800;
+  --primary-dark: #D49B00;
+  --primary-darker: #B88400;
+  --primary-light: #FFD54F;
+  --primary-lighter: #FFF3C4;
+
+  --left-bar-bg: #1E1E1E;
+  --left-bar-hover: #2D2D2D;
+  --left-bar-text: #CCCCCC;
+  --left-bar-text-hover: #FFFFFF;
+  --left-bar-icon: #FFB800;
+  --left-bar-border: #333333;
+
+  --top-bar-bg: #FFFFFF;
+  --input-bg: #f2f4f7;
+  --light-border: #e9ecf2;
+  --dark-border: #d7dce5;
+  --content-color: #000000;
+  --light-color: #aaaaaa;
+  --heading-color: #555555;
+  --icon-color: #FFB800;
+  --page-color: #e9ebee;
+
+  --flatRed: #fb5d5d;
+  --flatGreen: #6fd64b;
+  --flatOrange: #f7941d;
+  --flatBlue: #FFB800;
+
+  --primary: #FFB800;
+  --success: #a0d269;
+  --info: #6cadd1;
+  --warning: #eac841;
+  --danger: #df6c6e;
+
+  /*****************theme parametres*******************/
+  --leftbarwidth: 205px;
+  --minibarwidth: 90px;
+  --mediumbarwidth: 180px;
+  --topbarheight: 60px;
+  --logobarheight: 60px;
+  --maincontentpadding: 10px;
+
+  /*sidebar-parametres*/
+  --navlist-height: 40px;
+  --sidebar-padding: 20px;
+  --sidebar-fontsize: 14px;
+  --sidebar-fontweight: 300;
+  --icon-padding: 20px;
+  --icon-size: 18px;
+}

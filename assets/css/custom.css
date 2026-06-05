@@ -59,7 +59,7 @@
   letter-spacing: 0.25px;
 }
 .select2-container-multi .select2-choices .select2-search-choice {
-  background-color: #489ee7 !important;
+  background-color: #FFB800 !important;
   background-image: none !important;
   box-shadow: none !important;
   border: 0px !important;
@@ -90,7 +90,7 @@
   letter-spacing: 0.25px;
 }
 .select2-results .select2-result-selectable.select2-highlighted {
-  background-color: #489ee7 !important;
+  background-color: #FFB800 !important;
 }
 .select2-results .select2-result-selectable.select2-highlighted .select2-result-label {
   color: #ffffff;
@@ -215,7 +215,7 @@
 }
 .message-body .text-left > h1 {
   font-size: 14px;
-  color: #489ee7;
+  color: #FFB800;
   display: inline-block;
   width: 120px;
   overflow: hidden;
@@ -649,11 +649,11 @@ a.expand_all {
   margin-top: -8px;
 }
 .piluku-dropdown .dropdown-menu li.active {
-  color: #489ee7;
+  color: #FFB800;
   background: transparent !important;
 }
 .piluku-dropdown .dropdown-menu li.active a {
-  color: #489ee7;
+  color: #FFB800;
   background: transparent !important;
 }
 .piluku-dropdown .dropdown-menu li a {
@@ -665,7 +665,7 @@ a.expand_all {
   transition: all 0.2s ease-out;
 }
 .piluku-dropdown .dropdown-menu li a:hover {
-  color: #489ee7;
+  color: #FFB800;
   background: transparent;
 }
 .piluku-dropdown .dropdown-menu li:last-child a {
@@ -706,7 +706,7 @@ a.expand_all {
 }
 .no-hover a {
   text-decoration: none;
-  color: #489ee7;
+  color: #FFB800;
 }
 .no-hover:hover td,
 .no-hover:hover th {
@@ -794,7 +794,7 @@ toast {
   height: 36px;
   line-height: 36.5px;
   background-color: #FFFFFF;
-  color: #489ee7;
+  color: #FFB800;
   margin-left: 0px;
   margin-right: 0px;
 }
@@ -820,7 +820,7 @@ toast {
 .dataTables_paginate .ui-button:hover,
 .pagination-top a:hover,
 .pagination.alternate a:hover {
-  background-color: #489ee7;
+  background-color: #FFB800;
   color: #FFFFFF;
   cursor: pointer;
 }

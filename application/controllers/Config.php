@@ -152,6 +152,9 @@ class Config extends Secure_area
 		$this->load->helper('demo');
 		$this->load->model('Appfile');
 		
+		try
+		{
+		
 		if(!empty($_FILES["company_logo"]) && $_FILES["company_logo"]["error"] == UPLOAD_ERR_OK && !is_on_demo_host())
 		{
 			$allowed_extensions = array('png', 'jpg', 'jpeg', 'gif');
@@ -755,6 +758,11 @@ class Config extends Secure_area
 		else
 		{
 			echo json_encode(array('success'=>false,'message'=>lang('config_saved_unsuccessfully')));
+		}
+		}
+		catch(\Throwable $e)
+		{
+			echo json_encode(array('success'=>false,'message'=>$e->getMessage()));
 		}
 	}
 	

@@ -273,25 +273,28 @@ class Appconfig extends CI_Model
 	{
 		$this->db->truncate('currency_exchange_rates');
 		
-		for($k = 0; $k< count($currency_exchange_rates_to); $k++)
+		if ($currency_exchange_rates_to !== null && is_array($currency_exchange_rates_to))
 		{
-			$currency_exchange_rate_to = $currency_exchange_rates_to[$k];
-			$currency_exchange_rate_symbol = $currency_exchange_rates_symbol[$k];
-			$currency_exchange_rate = $currency_exchange_rates_rate[$k];			
-			$currency_exchange_rate_symbol_location = $currency_exchange_rates_symbol_location[$k];
-			$currency_exchange_rate_number_of_decimals = $currency_exchange_rates_number_of_decimals[$k];
-			$currency_exchange_rate_thousands_separator = $currency_exchange_rates_thousands_separator[$k];
-			$currency_exchange_rate_decimal_point = $currency_exchange_rates_decimal_point[$k];
-				
-			$this->db->insert('currency_exchange_rates', array(
-				'currency_symbol' => $currency_exchange_rate_symbol,
-				'currency_code_to' => $currency_exchange_rate_to,
-				'exchange_rate' => $currency_exchange_rate,
-				'currency_symbol_location' => $currency_exchange_rate_symbol_location,
-				'number_of_decimals' => $currency_exchange_rate_number_of_decimals,
-				'thousands_separator' => $currency_exchange_rate_thousands_separator,
-				'decimal_point' => $currency_exchange_rate_decimal_point,
-			));
+			for($k = 0; $k< count($currency_exchange_rates_to); $k++)
+			{
+				$currency_exchange_rate_to = $currency_exchange_rates_to[$k];
+				$currency_exchange_rate_symbol = $currency_exchange_rates_symbol[$k];
+				$currency_exchange_rate = $currency_exchange_rates_rate[$k];			
+				$currency_exchange_rate_symbol_location = $currency_exchange_rates_symbol_location[$k];
+				$currency_exchange_rate_number_of_decimals = $currency_exchange_rates_number_of_decimals[$k];
+				$currency_exchange_rate_thousands_separator = $currency_exchange_rates_thousands_separator[$k];
+				$currency_exchange_rate_decimal_point = $currency_exchange_rates_decimal_point[$k];
+					
+				$this->db->insert('currency_exchange_rates', array(
+					'currency_symbol' => $currency_exchange_rate_symbol,
+					'currency_code_to' => $currency_exchange_rate_to,
+					'exchange_rate' => $currency_exchange_rate,
+					'currency_symbol_location' => $currency_exchange_rate_symbol_location,
+					'number_of_decimals' => $currency_exchange_rate_number_of_decimals,
+					'thousands_separator' => $currency_exchange_rate_thousands_separator,
+					'decimal_point' => $currency_exchange_rate_decimal_point,
+				));
+			}
 		}
 		
 		return true;

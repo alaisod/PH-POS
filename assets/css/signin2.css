@@ -9,6 +9,7 @@ body {
   overflow-x: visible !important;
   overflow-y: visible !important;
   background: #e9ebee;
+  font-family: 'Prompt', 'Sarabun', 'Helvetica Neue', 'Nunito', sans-serif;
 }
 .flip-container {
   width: 520px;
@@ -51,7 +52,7 @@ body {
   outline: none;
 }
 .flip-container .bottom_info a:hover {
-  color: #489ee7;
+  color: #FFB800;
 }
 .flip-container .bottom_info #spin {
   font-size: 20px;
@@ -76,7 +77,7 @@ body {
 .flip-container .heading {
   text-align: center;
   color: white;
-  background-color: #489ee7;
+  background-color: #1A1A1A;
   margin: -30px;
   margin-bottom: 30px;
 }
@@ -134,7 +135,7 @@ body {
 .msg-demo h3 {
   margin-top: 0px;
   line-height: 52px;
-  color: #489ee7;
+  color: #FFB800;
   font-size: 20px;
 }
 .form-control::-moz-placeholder {
