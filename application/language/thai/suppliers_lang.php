@@ -1,5 +1,5 @@
 <?php
-$lang['suppliers_new']='ผู้จัดจำหน่ายใหม่';
+$lang['suppliers_new']='เพิ่มผู้จัดจำหน่าย';
 
 
 $lang['suppliers_confirm_delete']='คุณแน่ใจหรือไม่ว่าต้องการลบผู้จัดจำหน่ายที่เลือก?';

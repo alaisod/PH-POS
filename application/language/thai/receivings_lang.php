@@ -9,7 +9,7 @@ $lang['receivings_cost']='ต้นทุน';
 $lang['receivings_quantity']='จำนวน';
 $lang['receivings_discount']='ส่วนลด %';
 $lang['receivings_edit']='แก้ไข';
-$lang['receivings_new_supplier'] = 'ผู้จัดจำหน่ายใหม่';
+$lang['receivings_new_supplier'] = 'เพิ่มผู้จัดจำหน่าย';
 $lang['receivings_new_location'] = 'สาขาใหม่';
 
 $lang['receivings_select_supplier']='เลือกผู้จัดจำหน่าย (ไม่บังคับ)';

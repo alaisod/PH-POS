@@ -1180,7 +1180,7 @@ class Customers extends Person_controller
 		{
 			if ($this->Customer->get_custom_field($k) !== FALSE)
 			{
-				$custom_fields[] = "custom_field_${k}_value";
+				$custom_fields[] = "custom_field_{$k}_value";
 			}
 		}
 		

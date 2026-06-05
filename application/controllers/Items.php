@@ -1181,9 +1181,9 @@ class Items extends Secure_area implements Idata_controller
 					if (isset($item_location_data['tax_names']))
 					{
 						$location_items_taxes_data = array();
-						$tax_names = $item_location_data['tax_names'];
-						$tax_percents = $item_location_data['tax_percents'];
-						$tax_cumulatives = $item_location_data['tax_cumulatives'];
+						$tax_names = isset($item_location_data['tax_names']) ? $item_location_data['tax_names'] : array();
+						$tax_percents = isset($item_location_data['tax_percents']) ? $item_location_data['tax_percents'] : array();
+						$tax_cumulatives = isset($item_location_data['tax_cumulatives']) ? $item_location_data['tax_cumulatives'] : array();
 						for($k=0;$k<count($tax_percents);$k++)
 						{
 							if (is_numeric($tax_percents[$k]))
@@ -1223,9 +1223,9 @@ class Items extends Secure_area implements Idata_controller
 				}
 			}
 			$items_taxes_data = array();
-			$tax_names = $this->input->post('tax_names');
-			$tax_percents = $this->input->post('tax_percents');
-			$tax_cumulatives = $this->input->post('tax_cumulatives');
+			$tax_names = $this->input->post('tax_names') ?: array();
+			$tax_percents = $this->input->post('tax_percents') ?: array();
+			$tax_cumulatives = $this->input->post('tax_cumulatives') ?: array();
 			for($k=0;$k<count($tax_percents);$k++)
 			{
 				if (is_numeric($tax_percents[$k]))
@@ -1478,9 +1478,9 @@ class Items extends Secure_area implements Idata_controller
 			if (isset($item_data['override_default_tax']) && $item_data['override_default_tax'])
 			{
 				$items_taxes_data = array();
-				$tax_names = $this->input->post('tax_names');
-				$tax_percents = $this->input->post('tax_percents');
-				$tax_cumulatives = $this->input->post('tax_cumulatives');
+				$tax_names = $this->input->post('tax_names') ?: array();
+				$tax_percents = $this->input->post('tax_percents') ?: array();
+				$tax_cumulatives = $this->input->post('tax_cumulatives') ?: array();
 
 				for($k=0;$k<count($tax_percents);$k++)
 				{
