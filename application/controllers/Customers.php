@@ -362,9 +362,9 @@ class Customers extends Person_controller
 			}
 			
 			$customers_taxes_data = array();
-			$tax_names = $this->input->post('tax_names');
-			$tax_percents = $this->input->post('tax_percents');
-			$tax_cumulatives = $this->input->post('tax_cumulatives');
+			$tax_names = $this->input->post('tax_names') ?: array();
+			$tax_percents = $this->input->post('tax_percents') ?: array();
+			$tax_cumulatives = $this->input->post('tax_cumulatives') ?: array();
 			for($k=0;$k<count($tax_percents);$k++)
 			{
 				if (is_numeric($tax_percents[$k]))
