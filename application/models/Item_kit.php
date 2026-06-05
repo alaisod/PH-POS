@@ -406,7 +406,7 @@ class Item_kit extends CI_Model
 			}
 		
 		//only return $limit suggestions
-		if(count($suggestions > $limit))
+		if(count($suggestions) > $limit)
 		{
 			$suggestions = array_slice($suggestions, 0,$limit);
 		}
@@ -532,7 +532,7 @@ class Item_kit extends CI_Model
 		$suggestions = array_values($suggestions);
 		
 		//only return $limit suggestions
-		if(count($suggestions > $limit))
+		if(count($suggestions) > $limit)
 		{
 			$suggestions = array_slice($suggestions, 0,$limit);
 		}

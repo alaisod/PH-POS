@@ -294,13 +294,20 @@ class Sales extends Secure_area
 	}
 	
 	function item_search()
+{
+	//allow parallel searchs to improve performance.
+	session_write_close();
+	try
 	{
-		//allow parallel searchs to improve performance.
-		session_write_close();
 		$suggestions = $this->Item->get_item_search_suggestions($this->input->get('term'),'unit_price',100);
 		$suggestions = array_merge($suggestions, $this->Item_kit->get_item_kit_search_suggestions_sales_recv($this->input->get('term'),'unit_price', 100));
 		echo json_encode($suggestions);
 	}
+	catch(\Throwable $e)
+	{
+		echo json_encode(array('error' => $e->getMessage()));
+	}
+}
 
 	function customer_search()
 	{
