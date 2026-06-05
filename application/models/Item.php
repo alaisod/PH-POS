@@ -2181,8 +2181,7 @@ class Item extends CI_Model
 	
 	function get_default_columns()
 	{
-		return array('item_id','item_number','name','category_id','size','cost_price','unit_price','quantity');
-
+		return array('item_number','product_id','name','category','cost_price','unit_price','quantity');
 	}
 }
 ?>
