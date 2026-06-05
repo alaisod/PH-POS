@@ -2543,9 +2543,17 @@ class Items extends Secure_area implements Idata_controller
 			return NULL;
 		}
 		if ($key == 'cost_price'){
+			if($value === '' || $value === NULL)
+			{
+				return 0;
+			}
 			return make_currency_no_money($value);
 		}
 		if ($key == 'unit_price'){
+			if($value === '' || $value === NULL)
+			{
+				return 0;
+			}
 			return make_currency_no_money($value);
 		}
 		if ($key == 'min_edit_price') {
@@ -2609,6 +2617,11 @@ class Items extends Secure_area implements Idata_controller
 			if(is_numeric($value))
 			{
 				return $value;
+			}
+			
+			if ($key == 'reorder_level')
+			{
+				return 3;
 			}
 			return NULL;
 		}
@@ -2751,7 +2764,7 @@ class Items extends Secure_area implements Idata_controller
 			{
 				return $value;
 			}
-			return '';
+			return 0;
 		}
 		if ($key == 'unit_price'){
 			return make_currency_no_money($value);
