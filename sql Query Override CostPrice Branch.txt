@@ -1,0 +1,20 @@
+//1. set ขายส่ง >> Branch CostPrice 
+UPDATE `phppos_location_items` 
+INNER JOIN `phppos_items_tier_prices`  
+ON  `phppos_location_items`.`item_id` = `phppos_items_tier_prices`.`item_id`  
+SET `phppos_location_items`.`cost_price`=`phppos_items_tier_prices`.`unit_price` 
+WHERE `phppos_location_items`.`item_id` = `phppos_items_tier_prices`.`item_id`
+AND 
+
+//2. set unit Price >> Branch unit Price 
+UPDATE `phppos_location_items` 
+INNER JOIN `phppos_items` 
+ON  `phppos_location_items`.`item_id` = `phppos_items` .`item_id`  
+SET `phppos_location_items`.`unit_price`=`phppos_items` .`unit_price` 
+WHERE `phppos_location_items`.`item_id` = `phppos_items` .`item_id`
+
+
+//3. with out Moco Store
+UPDATE `phppos_location_items` 
+SET `phppos_location_items`.`unit_price`= null, `phppos_location_items`.`cost_price` = null
+WHERE  `phppos_location_items`.`location_id` = 1
