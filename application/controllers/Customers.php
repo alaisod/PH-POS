@@ -723,22 +723,22 @@ class Customers extends Person_controller
 		$this->load->model('Tier');
 		$fields = array();
 		
-		$fields[] = array('Name' => lang('common_first_name'), 'key' => 'first_name');
-		$fields[] = array('Name' => lang('common_last_name'), 'key' => 'last_name');
-		$fields[] = array('Name' => lang('common_email'), 'key' => 'email');
-		$fields[] = array('Name' => lang('common_phone_number'), 'key' => 'phone_number');
-		$fields[] = array('Name' => lang('common_address_1'), 'key' => 'address_1');
-		$fields[] = array('Name' => lang('common_address_2'), 'key' => 'address_2');
-		$fields[] = array('Name' => lang('common_city'), 'key' => 'city');
-		$fields[] = array('Name' => lang('common_state'), 'key' => 'state');
-		$fields[] = array('Name' => lang('common_zip'), 'key' => 'zip');
-		$fields[] = array('Name' => lang('common_country'), 'key' => 'country');
-		$fields[] = array('Name' => lang('common_comments'), 'key' => 'comments');
-		$fields[] = array('Name' => lang('customers_account_number'), 'key' => 'account_number');
-		$fields[] = array('Name' => lang('customers_taxable'), 'key' => 'taxable');
-		$fields[] = array('Name' => lang('customers_tax_certificate'), 'key' => 'tax_certificate');
-		$fields[] = array('Name' => lang('customers_company_name'), 'key' => 'company_name');
-		$fields[] = array('Name' => lang('common_tier_name'), 'key' => 'tier_id');
+		$fields[] = array('Name' => 'First Name', 'key' => 'first_name');
+		$fields[] = array('Name' => 'Last Name', 'key' => 'last_name');
+		$fields[] = array('Name' => 'E-Mail', 'key' => 'email');
+		$fields[] = array('Name' => 'Phone Number', 'key' => 'phone_number');
+		$fields[] = array('Name' => 'Address 1', 'key' => 'address_1');
+		$fields[] = array('Name' => 'Address 2', 'key' => 'address_2');
+		$fields[] = array('Name' => 'City', 'key' => 'city');
+		$fields[] = array('Name' => 'State/Province', 'key' => 'state');
+		$fields[] = array('Name' => 'Zip', 'key' => 'zip');
+		$fields[] = array('Name' => 'Country', 'key' => 'country');
+		$fields[] = array('Name' => 'Comments', 'key' => 'comments');
+		$fields[] = array('Name' => 'Account Number', 'key' => 'account_number');
+		$fields[] = array('Name' => 'Taxable', 'key' => 'taxable');
+		$fields[] = array('Name' => 'Tax Certificate', 'key' => 'tax_certificate');
+		$fields[] = array('Name' => 'Company Name', 'key' => 'company_name');
+		$fields[] = array('Name' => 'Tier Name', 'key' => 'tier_id');
 		
 		for($k=1;$k<=NUMBER_OF_PEOPLE_CUSTOM_FIELDS;$k++)
 		{
@@ -750,18 +750,18 @@ class Customers extends Person_controller
 		
 		if ($this->config->item('customers_store_accounts'))
 		{
-			$fields[] = array('Name' => lang('common_balance'), 'key' => 'balance');
-			$fields[] = array('Name' => lang('common_credit_limit'), 'key' => 'credit_limit');
+			$fields[] = array('Name' => 'Balance', 'key' => 'balance');
+			$fields[] = array('Name' => 'Credit limit', 'key' => 'credit_limit');
 		}
 		
 		if ($this->config->item('enable_customer_loyalty_system') && $this->config->item('loyalty_option') == 'advanced')
 		{
-			$fields[] = array('Name' => lang('common_points'), 'key' => 'points');
-			$fields[] = array('Name' => lang('customers_amount_to_spend_for_next_point'), 'key' => 'current_spend_for_points');
-			$fields[] = array('Name' => lang('common_disable_loyalty'), 'key' => 'disable_loyalty');
+			$fields[] = array('Name' => 'Points', 'key' => 'points');
+			$fields[] = array('Name' => 'Amount To Spend For Next Point', 'key' => 'current_spend_for_points');
+			$fields[] = array('Name' => 'Disable Loyalty', 'key' => 'disable_loyalty');
 		}
 				
-		$fields[] = array('Name' => lang('customers_customer_id'), 'key' => 'person_id');
+		$fields[] = array('Name' => 'Customer Id', 'key' => 'person_id');
 		
 		$id = 0;
 		foreach($fields as &$field)

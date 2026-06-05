@@ -363,8 +363,8 @@ $.ajax({
 			         show_feedback('error', messages, <?php echo json_encode(lang('common_error')); ?>);
 			  },
 		    fields: [
-		        { title: "Spreadsheet Column", name: "Spreadsheet Column", align: "left", width: 100},
-		        { title: "Database Field", name: "Database Field", type: "select", align: "left", items: databaseFields, valueField: "Id", textField: "Name", valueType: "number", selectedIndex: -1, validate: "unique"},
+		        { title: <?php echo json_encode(lang('common_spreadsheet_column')); ?>, name: "Spreadsheet Column", align: "left", width: 100},
+		        { title: <?php echo json_encode(lang('common_database_field')); ?>, name: "Database Field", type: "select", align: "left", items: databaseFields, valueField: "Id", textField: "Name", valueType: "number", selectedIndex: -1, validate: "unique"},
 		    ]
 		});
 });

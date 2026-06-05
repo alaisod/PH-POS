@@ -1923,58 +1923,58 @@ class Items extends Secure_area implements Idata_controller
 		$this->load->model('Tier');
 		$fields = array();
 
-		$fields[] = array('Name' => lang('common_item_number'), 'key' => 'item_number');
-		$fields[] = array('Name' => lang('common_product_id'), 'key' => 'product_id');
-		$fields[] = array('Name' => lang('common_item_name'), 'key' => 'name');
-		$fields[] = array('Name' => lang('common_category'), 'key' => 'category_id');
-		$fields[] = array('Name' => lang('common_supplier_id'), 'key' => 'supplier_id');
-		$fields[] = array('Name' => lang('common_cost_price'), 'key' => 'cost_price');
-		$fields[] = array('Name' => lang('common_unit_price'), 'key' => 'unit_price');
-		$fields[] = array('Name' => lang('common_min_edit_price'), 'key' => 'min_edit_price');
-		$fields[] = array('Name' => lang('common_max_edit_price'), 'key' => 'max_edit_price');
-		$fields[] = array('Name' => lang('common_max_discount_percent'), 'key' => 'max_discount_percent');
-		$fields[] = array('Name' => lang('items_promo_price'), 'key' => 'promo_price');
-		$fields[] = array('Name' => lang('items_promo_start_date'), 'key' => 'start_date');
-		$fields[] = array('Name' => lang('items_promo_end_date'), 'key' => 'end_date');
+		$fields[] = array('Name' => 'Item Number', 'key' => 'item_number');
+		$fields[] = array('Name' => 'Product ID', 'key' => 'product_id');
+		$fields[] = array('Name' => 'Item Name', 'key' => 'name');
+		$fields[] = array('Name' => 'Category', 'key' => 'category_id');
+		$fields[] = array('Name' => 'Supplier Id', 'key' => 'supplier_id');
+		$fields[] = array('Name' => 'Cost Price', 'key' => 'cost_price');
+		$fields[] = array('Name' => 'Selling Price', 'key' => 'unit_price');
+		$fields[] = array('Name' => 'Minimum Manual Edit Price', 'key' => 'min_edit_price');
+		$fields[] = array('Name' => 'Maximum Manual Edit Price', 'key' => 'max_edit_price');
+		$fields[] = array('Name' => 'Max Discount', 'key' => 'max_discount_percent');
+		$fields[] = array('Name' => 'Promo Price', 'key' => 'promo_price');
+		$fields[] = array('Name' => 'Promo Start Date', 'key' => 'start_date');
+		$fields[] = array('Name' => 'Promo End Date', 'key' => 'end_date');
 		
 		foreach($this->Tier->get_all()->result() as $tier)
 		{
 			$fields[] = array('Name' => $tier->name, 'key' => 'tier');
 		}
 		
-		$fields[] = array('Name' => lang('items_price_includes_tax'), 'key' => 'tax_included');
-		$fields[] = array('Name' => lang('items_is_service'), 'key' => 'is_service');
-		$fields[] = array('Name' => lang('items_quantity'), 'key' => 'quantity');
-		$fields[] = array('Name' => lang('items_reorder_level'), 'key' => 'reorder_level');
-		$fields[] = array('Name' => lang('common_replenish_level'), 'key' => 'replenish_level');
-		$fields[] = array('Name' => lang('common_description'), 'key' => 'description');
-		$fields[] = array('Name' => lang('items_allow_alt_desciption'), 'key' => 'allow_alt_description');
-		$fields[] = array('Name' => lang('items_is_serialized'), 'key' => 'is_serialized');
-		$fields[] = array('Name' => lang('common_size'), 'key' => 'size');
-		$fields[] = array('Name' => lang('reports_commission'), 'key' => 'commission');
-		$fields[] = array('Name' => lang('items_commission_percent_based_on_profit'), 'key' => 'commission_percent_type');
-		$fields[] = array('Name' => lang('common_tax_class'), 'key' => 'tax_class_id');
-		$fields[] = array('Name' => lang('common_tags'), 'key' => 'tags');
-		$fields[] = array('Name' => lang('items_days_to_expiration'), 'key' => 'expire_days');
-		$fields[] = array('Name' => lang('common_change_cost_price_during_sale'), 'key' => 'change_cost_price');
-		$fields[] = array('Name' => lang('common_manufacturer'), 'key' => 'manufacturer_id');
-		$fields[] = array('Name' => lang('items_location_at_store'), 'key' => 'location');
+		$fields[] = array('Name' => 'Price Includes Tax', 'key' => 'tax_included');
+		$fields[] = array('Name' => 'Is Service Item', 'key' => 'is_service');
+		$fields[] = array('Name' => 'Quantity', 'key' => 'quantity');
+		$fields[] = array('Name' => 'Reorder Level', 'key' => 'reorder_level');
+		$fields[] = array('Name' => 'Replenish Level', 'key' => 'replenish_level');
+		$fields[] = array('Name' => 'Description', 'key' => 'description');
+		$fields[] = array('Name' => 'Allow Alt Description', 'key' => 'allow_alt_description');
+		$fields[] = array('Name' => 'Item Has Serial Number', 'key' => 'is_serialized');
+		$fields[] = array('Name' => 'Size', 'key' => 'size');
+		$fields[] = array('Name' => 'Commission', 'key' => 'commission');
+		$fields[] = array('Name' => 'Commission Percent Based On Profit?', 'key' => 'commission_percent_type');
+		$fields[] = array('Name' => 'Tax Group', 'key' => 'tax_class_id');
+		$fields[] = array('Name' => 'Tags', 'key' => 'tags');
+		$fields[] = array('Name' => 'Days To Expiration', 'key' => 'expire_days');
+		$fields[] = array('Name' => 'Change Cost Price During Sale', 'key' => 'change_cost_price');
+		$fields[] = array('Name' => 'Manufacturer', 'key' => 'manufacturer_id');
+		$fields[] = array('Name' => 'Location At Store', 'key' => 'location');
 		if ($this->config->item('enable_customer_loyalty_system') && $this->config->item('loyalty_option') == 'advanced')
 		{
-			$fields[] = array('Name' => lang('common_disable_loyalty'), 'key' => 'disable_loyalty');
+			$fields[] = array('Name' => 'Disable Loyalty', 'key' => 'disable_loyalty');
 		}
 		
 		if ($this->config->item('enable_ebt_payments'))
 		{
-			$fields[] = array('Name' => lang('common_ebt'), 'key' => 'is_ebt_item');
+			$fields[] = array('Name' => 'EBT', 'key' => 'is_ebt_item');
 		}
 		
 		if($this->config->item("ecommerce_platform"))
 		{
-			$fields[] = array('Name' => lang('items_is_ecommerce'), 'key' => 'is_ecommerce');
+			$fields[] = array('Name' => 'Is Ecommerce', 'key' => 'is_ecommerce');
 		}
 		
-		$fields[] = array('Name' => lang('common_item_id'), 'key' => 'item_id');
+		$fields[] = array('Name' => 'Item Id', 'key' => 'item_id');
 		
 		$id = 0;
 		foreach($fields as &$field)
