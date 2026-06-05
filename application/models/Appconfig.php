@@ -146,7 +146,7 @@ class Appconfig extends CI_Model
 			//Check for duplicate taxes
 			for($k = 1;$k<=5;$k++)
 			{
-				$current_tax = $data["default_tax_{k}_name"].$data["default_tax_{k}_rate"];
+				$current_tax = $data["default_tax_{$k}_name"].$data["default_tax_{$k}_rate"];
 			
 				for ($j = 1;$j<=5;$j++)
 				{

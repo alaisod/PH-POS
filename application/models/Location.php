@@ -96,9 +96,9 @@ class Location extends CI_Model
 		//Check for duplicate taxes
 		for($k = 1;$k<=5;$k++)
 		{
-			if (isset($location_data["default_tax_{k}_name"]) && isset($location_data["default_tax_{k}_rate"]))
+			if (isset($location_data["default_tax_{$k}_name"]) && isset($location_data["default_tax_{$k}_rate"]))
 			{
-				$current_tax = $location_data["default_tax_{k}_name"].$location_data["default_tax_{k}_rate"];
+				$current_tax = $location_data["default_tax_{$k}_name"].$location_data["default_tax_{$k}_rate"];
 			
 				for ($j = 1;$j<=5;$j++)
 				{

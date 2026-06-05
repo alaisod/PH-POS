@@ -583,20 +583,27 @@ class Items extends Secure_area implements Idata_controller
 		return $data;
 	}
 	function view($item_id=-1,$redirect=0, $sale_or_receiving = 'sale')
-	{		
-		$this->load->model('Item_taxes');
-		$this->load->model('Tier');
-		$this->load->model('Item_location');
-		$this->load->model('Item_location_taxes');
-		$this->load->model('Supplier');
-		$this->load->model('Item_taxes_finder');
-		$this->check_action_permission('add_update');
-    $this->load->helper('report');
-		
-		$data = $this->_get_item_data($item_id);
-		$data['redirect']=$redirect;
-		$data['sale_or_receiving']=$sale_or_receiving;			
-		$this->load->view("items/form",$data);
+	{
+		try
+		{
+			$this->load->model('Item_taxes');
+			$this->load->model('Tier');
+			$this->load->model('Item_location');
+			$this->load->model('Item_location_taxes');
+			$this->load->model('Supplier');
+			$this->load->model('Item_taxes_finder');
+			$this->check_action_permission('add_update');
+	    $this->load->helper('report');
+			
+			$data = $this->_get_item_data($item_id);
+			$data['redirect']=$redirect;
+			$data['sale_or_receiving']=$sale_or_receiving;			
+			$this->load->view("items/form",$data);
+		}
+		catch(\Throwable $e)
+		{
+			show_error($e->getMessage());
+		}
 	}
 	function clone_item($item_id)
 	{		

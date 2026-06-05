@@ -13,6 +13,8 @@ class Customers extends Person_controller
 	
 	function index($offset=0)
 	{
+		try
+		{
 		$params = $this->session->userdata('customers_search_data') ? $this->session->userdata('customers_search_data') : array('offset' => 0, 'order_col' => 'last_name', 'order_dir' => 'asc', 'search' => FALSE);
 		if ($offset!=$params['offset'])
 		{
@@ -47,6 +49,11 @@ class Customers extends Person_controller
 		$data['all_columns'] = array_merge($data['selected_columns'], $this->Customer->get_displayable_columns());		
 		
 		$this->load->view('people/manage',$data);
+		}
+		catch(\Throwable $e)
+		{
+			show_error($e->getMessage());
+		}
 	}
 
 	function sorting()
