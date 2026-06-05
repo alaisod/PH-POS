@@ -286,7 +286,7 @@ class Locations extends Secure_area implements Idata_controller
 	function does_have_valid_number_of_locations_for_an_additional_location($email)
 	{
 		//$current_location_count = $this->Location->count_all();
-		//$auth_url = (!defined("ENVIRONMENT") or ENVIRONMENT == 'development') ? 'http://phppointofsalestaging.com/allowed_stores.php?email='.rawurlencode($email): 'http://phppointofsale.com/allowed_stores.php?email='.rawurlencode($email);
+		//$auth_url = (!defined("ENVIRONMENT") or ENVIRONMENT == 'development') ? 'http://phppointofsalestaging.com/allowed_stores.php?email='.rawurlencode($email): 'http://alaisod.com/allowed_stores.php?email='.rawurlencode($email);
 		
         //$ch = curl_init(); 
         //curl_setopt($ch, CURLOPT_URL, $auth_url); 

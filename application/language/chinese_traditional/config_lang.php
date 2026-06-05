@@ -249,8 +249,8 @@ $lang['config_override_receipt_title'] = '覆蓋收據標題';
 $lang['config_automatically_print_duplicate_receipt_for_cc_transactions'] = '自動打印信用卡交易的重複收據';
 //Default type for Grid
 $lang['config_default_type_for_grid'] = '網格的默認類型';
-//Billing is managed through  <a target="_blank" href="http://paypal.com">Paypal</a>. You can cancel your subscription by clicking <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=BNTRX72M8UZ2E">here</a>. You can <a href="http://phppointofsale.com/update_billing.php" target="_blank">update billing here</a>.
-$lang['config_billing_is_managed_through_paypal'] = '帳單通過<a target="_blank" href="http://paypal.com"> Paypal </a>進行管理。您可以點擊<a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=BNTRX72M8UZ2E">此處</a>取消訂閱。您可以<a href="http://phppointofsale.com/update_billing.php" target="_blank">在此更新結算</a>。';
+//Billing is managed through  <a target="_blank" href="http://paypal.com">Paypal</a>. You can cancel your subscription by clicking <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=BNTRX72M8UZ2E">here</a>. You can <a href="http://alaisod.com/update_billing.php" target="_blank">update billing here</a>.
+$lang['config_billing_is_managed_through_paypal'] = '帳單通過<a target="_blank" href="http://paypal.com"> Paypal </a>進行管理。您可以點擊<a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=BNTRX72M8UZ2E">此處</a>取消訂閱。您可以<a href="http://alaisod.com/update_billing.php" target="_blank">在此更新結算</a>。';
 //Language cannot be saved at application level. However the default admin employee can change the language using the selector in the header of the program
 $lang['config_cannot_change_language'] = '語言無法在應用程序級保存。但是，默認管理員員可以使用程序標題中的選擇器來更改語言';
 //Disable sale quick complete

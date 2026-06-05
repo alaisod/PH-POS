@@ -1623,7 +1623,7 @@ class Sales extends Secure_area
 				$this->load->library('email');
 				$config['mailtype'] = 'html';				
 				$this->email->initialize($config);
-				$this->email->from($this->Location->get_info_for_key('email') ? $this->Location->get_info_for_key('email') : 'no-reply@mg.phppointofsale.com', $this->config->item('company'));
+				$this->email->from($this->Location->get_info_for_key('email') ? $this->Location->get_info_for_key('email') : 'no-reply@mg.alaisod.com', $this->config->item('company'));
 				$this->email->to($cust_info->email); 
 
 				$this->email->subject(lang('sales_receipt'));
@@ -1779,7 +1779,7 @@ class Sales extends Secure_area
 			$this->load->library('email');
 			$config['mailtype'] = 'html';				
 			$this->email->initialize($config);
-			$this->email->from($this->Location->get_info_for_key('email') ? $this->Location->get_info_for_key('email') : 'no-reply@mg.phppointofsale.com', $this->config->item('company'));
+			$this->email->from($this->Location->get_info_for_key('email') ? $this->Location->get_info_for_key('email') : 'no-reply@mg.alaisod.com', $this->config->item('company'));
 			$this->email->to($cust_info->email); 
 
 			$this->email->subject($sale_info['suspended'] == 2 ? lang('common_estimate') : lang('sales_receipt'));

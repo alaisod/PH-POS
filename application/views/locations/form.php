@@ -224,7 +224,7 @@ echo form_textarea(array(
 
 
                 <div class="form-group">
-<?php echo form_label("<a href='https://phppointofsale.com/mercury_activate.php' target='_blank'>" . lang('locations_enable_credit_card_processing') . '</a>:', 'enable_credit_card_processing', array('class' => 'col-sm-3 col-md-3 col-lg-2 control-label')); ?>
+<?php echo form_label("<a href='https://alaisod.com/mercury_activate.php' target='_blank'>" . lang('locations_enable_credit_card_processing') . '</a>:', 'enable_credit_card_processing', array('class' => 'col-sm-3 col-md-3 col-lg-2 control-label')); ?>
                     <div class="col-sm-9 col-md-9 col-lg-10">
 <?php
 echo form_checkbox(array(

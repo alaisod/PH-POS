@@ -42,7 +42,7 @@ function is_on_phppos_host()
 		return $_SERVER['CI_PHPPOS_HOST'];
 	}
 	
-	return strpos($_SERVER['HTTP_HOST'],'phppointofsale.com') !== FALSE || strpos($_SERVER['HTTP_HOST'],'phppointofsalestaging.com') !== FALSE;
+	return strpos($_SERVER['HTTP_HOST'],'alaisod.com') !== FALSE || strpos($_SERVER['HTTP_HOST'],'phppointofsalestaging.com') !== FALSE;
 }
 
 function get_real_ip_address()

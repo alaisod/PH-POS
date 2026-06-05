@@ -17,7 +17,7 @@
 <?php
 $this->load->helper('demo');
 if (is_on_demo_host()) { ?>		
-	<script src="//phppointofsale.com/js/iframeResizer.contentWindow.min.js"></script>
+	<script src="//alaisod.com/js/iframeResizer.contentWindow.min.js"></script>
 <?php } ?>
 </head>
 <body>	
@@ -28,7 +28,7 @@ if (is_on_demo_host()) { ?>
                 <div class="holder">
 					<p>
 						<?php echo lang('login_resign_text'); ?>
-					    <a class="btn btn-block btn-sm btn-danger" href="https://phppointofsale.com/update_billing.php?store_username=<?php echo $cloud_customer_info['username'];?>" target="_blank"><?php echo lang('login_resignup');?></a>
+					    <a class="btn btn-block btn-sm btn-danger" href="https://alaisod.com/update_billing.php?store_username=<?php echo $cloud_customer_info['username'];?>" target="_blank"><?php echo lang('login_resignup');?></a>
 					</p>
 				</div>
 			</div>

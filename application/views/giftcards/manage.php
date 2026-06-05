@@ -177,7 +177,7 @@ function init_table_sorting()
 							?>
 						</li>
 						<li>
-							<?php echo anchor("http://giftcards.phppointofsale.com",
+							<?php echo anchor("http://giftcards.alaisod.com",
 							'<span class="ion-loop"> '.lang("giftcards_buy").'</span>',
 								array('class'=>'hidden-xs', 'target'=>'_blank'));
 							?>

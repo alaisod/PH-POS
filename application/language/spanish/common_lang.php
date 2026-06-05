@@ -26,7 +26,7 @@ $lang['common_you_are_using_phppos']='Está utilizando PHP POS Versión';
 $lang['common_please_visit_my']='Todos los derechos reservados para PHP POS.';
 $lang['common_website']=' ';
 $lang['common_fields_required_message']='Es necesario rellenar los campos marcados con rojo';
-$lang['common_learn_about_project']=' Para obtener más información visite nuestro sitio web: <a target="_blank" href="http://phppointofsale.com/">phppointofsale.com</a>';
+$lang['common_learn_about_project']=' Para obtener más información visite nuestro sitio web: <a target="_blank" href="http://alaisod.com/">alaisod.com</a>';
 $lang['common_searched_for']='Su búsqueda para';
 $lang['common_first_name_required']='Es necesario ingresar el/los nombre (s)';
 $lang['common_last_name_required']='Es necesario ingresar el/los apellido (s)';

@@ -10,7 +10,7 @@ if (is_on_phppos_host()) {
 				   <div class="alert alert-success">
 				    <?php echo lang('login_trail_info'). ' '.date(get_date_format(), strtotime($cloud_customer_info['trial_end_date'])).'. '.lang('login_trial_info_2'); ?>
 				    </div>
-				    <a class="btn btn-block btn-success" href="https://phppointofsale.com/update_billing.php?store_username=<?php echo $cloud_customer_info['username'];?>&username=<?php echo $this->Employee->get_logged_in_employee_info()->username; ?>&password=<?php echo $this->Employee->get_logged_in_employee_info()->password; ?>" target="_blank"><?php echo lang('common_update_billing_info');?></a>
+				    <a class="btn btn-block btn-success" href="https://alaisod.com/update_billing.php?store_username=<?php echo $cloud_customer_info['username'];?>&username=<?php echo $this->Employee->get_logged_in_employee_info()->username; ?>&password=<?php echo $this->Employee->get_logged_in_employee_info()->password; ?>" target="_blank"><?php echo lang('common_update_billing_info');?></a>
 					</div>
 				</div>
 			</div>
@@ -24,7 +24,7 @@ if (is_on_phppos_host()) {
 				   <div class="alert alert-danger">
 				        <?php echo lang('login_payment_failed_text'); ?>
 				    </div>
-				    <a class="btn btn-block btn-success" href="https://phppointofsale.com/update_billing.php?store_username=<?php echo $cloud_customer_info['username'];?>&username=<?php echo $this->Employee->get_logged_in_employee_info()->username; ?>&password=<?php echo $this->Employee->get_logged_in_employee_info()->password; ?>" target="_blank"><?php echo lang('common_update_billing_info');?></a>
+				    <a class="btn btn-block btn-success" href="https://alaisod.com/update_billing.php?store_username=<?php echo $cloud_customer_info['username'];?>&username=<?php echo $this->Employee->get_logged_in_employee_info()->username; ?>&password=<?php echo $this->Employee->get_logged_in_employee_info()->password; ?>" target="_blank"><?php echo lang('common_update_billing_info');?></a>
 					</div>
 				</div>
 			</div>
@@ -37,7 +37,7 @@ if (is_on_phppos_host()) {
 				    <div class="alert alert-danger">
 				        <?php echo lang('login_resign_text'); ?>
 				    </div>
-					<a class="btn btn-block btn-sm btn-success" href="https://phppointofsale.com/update_billing.php?store_username=<?php echo $cloud_customer_info['username'];?>&username=<?php echo $this->Employee->get_logged_in_employee_info()->username; ?>&password=<?php echo $this->Employee->get_logged_in_employee_info()->password; ?>" target="_blank"><?php echo lang('login_resignup');?></a>
+					<a class="btn btn-block btn-sm btn-success" href="https://alaisod.com/update_billing.php?store_username=<?php echo $cloud_customer_info['username'];?>&username=<?php echo $this->Employee->get_logged_in_employee_info()->username; ?>&password=<?php echo $this->Employee->get_logged_in_employee_info()->password; ?>" target="_blank"><?php echo lang('login_resignup');?></a>
 				</ul>
 			</div>
 		</div>

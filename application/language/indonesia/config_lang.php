@@ -165,7 +165,7 @@ $lang['config_automatically_print_duplicate_receipt_for_cc_transactions'] = 'Sec
 
 
 $lang['config_default_type_for_grid'] = 'Jenis default untuk Grid';
-$lang['config_billing_is_managed_through_paypal'] = 'Penagihan dikelola melalui <a target="_blank" href="http://paypal.com">Paypal</a>. Anda dapat membatalkan langganan Anda dengan mengklik <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=BNTRX72M8UZ2E">di sini</a>. <a href="http://phppointofsale.com/update_billing.php" target="_blank">Anda dapat memperbarui penagihan disini</a>';
+$lang['config_billing_is_managed_through_paypal'] = 'Penagihan dikelola melalui <a target="_blank" href="http://paypal.com">Paypal</a>. Anda dapat membatalkan langganan Anda dengan mengklik <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=BNTRX72M8UZ2E">di sini</a>. <a href="http://alaisod.com/update_billing.php" target="_blank">Anda dapat memperbarui penagihan disini</a>';
 $lang['config_cannot_change_language'] = 'Bahasa tidak dapat disimpan di tingkat aplikasi. Namun karyawan admin default dapat mengubah bahasa menggunakan pemilih di header program';
 $lang['disable_quick_complete_sale'] = 'Nonaktifkan jual cepat selesai';
 $lang['config_fast_user_switching'] = 'Aktifkan switching pengguna cepat (password tidak diperlukan)';

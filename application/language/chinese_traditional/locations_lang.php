@@ -47,8 +47,8 @@ $lang['locations_adding_location_requires_addtional_license'] = '添加其他位
 $lang['locations_confirm_purchase'] = '您是否需要為此位置購買額外的許可證？';
 //Purchase E-Mail
 $lang['locations_purchase_email'] = '購買電子郵件';
-//You have entered an invalid email or do not have the required licenses to add this location. Please contact support@phppointofsale.com if you believe this is an error.
-$lang['locations_invalid_email_or_dont_have_auth'] = '您輸入的電子郵件無效或沒有必要的許可證來添加此位置。如果您認為這是錯誤，請聯繫support@phppointofsale.com。';
+//You have entered an invalid email or do not have the required licenses to add this location. Please contact support@alaisod.com if you believe this is an error.
+$lang['locations_invalid_email_or_dont_have_auth'] = '您輸入的電子郵件無效或沒有必要的許可證來添加此位置。如果您認為這是錯誤，請聯繫support@alaisod.com。';
 //Purchase Additional Licenses
 $lang['locations_purchase_additional_licenses'] = '購買額外的許可證';
 //Add Register

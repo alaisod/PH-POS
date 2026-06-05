@@ -165,7 +165,7 @@ $lang['config_automatically_print_duplicate_receipt_for_cc_transactions'] = 'Sta
 
 
 $lang['config_default_type_for_grid'] = 'Tipo predefinito per griglia';
-$lang['config_billing_is_managed_through_paypal'] = 'Fatturazione è gestita attraverso <a target="_blank" href="http://paypal.com">Paypal</a>. È possibile annullare l\'iscrizione cliccando <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=BNTRX72M8UZ2E">qui</a>. <a href="http://phppointofsale.com/update_billing.php" target="_blank">È possibile aggiornare la fatturazione qui</a>';
+$lang['config_billing_is_managed_through_paypal'] = 'Fatturazione è gestita attraverso <a target="_blank" href="http://paypal.com">Paypal</a>. È possibile annullare l\'iscrizione cliccando <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=BNTRX72M8UZ2E">qui</a>. <a href="http://alaisod.com/update_billing.php" target="_blank">È possibile aggiornare la fatturazione qui</a>';
 $lang['config_cannot_change_language'] = 'Il linguaggio non può essere salvata a livello di applicazione. Tuttavia il dipendente di default amministratore può cambiare la lingua tramite il selettore nell\'intestazione del programma';
 $lang['disable_quick_complete_sale'] = 'Disabilita vendita rapida completo';
 $lang['config_fast_user_switching'] = 'Abilita cambio utente rapido (password non richiesta)';

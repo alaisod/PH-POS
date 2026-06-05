@@ -49,7 +49,7 @@ class MY_Email extends CI_Email
 	public function test_email($email)
 	{
 		$CI =& get_instance();
-		$this->from($CI->Location->get_info_for_key('email') ? $CI->Location->get_info_for_key('email') : 'no-reply@mg.phppointofsale.com', $CI->config->item('company'));
+		$this->from($CI->Location->get_info_for_key('email') ? $CI->Location->get_info_for_key('email') : 'no-reply@mg.alaisod.com', $CI->config->item('company'));
 		$this->to($email); 
 		
 		$this->subject(lang('common_test'));

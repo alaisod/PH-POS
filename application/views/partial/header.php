@@ -171,7 +171,7 @@
 <?php
 $this->load->helper('demo');
 if (is_on_demo_host()) { ?>		
-	<script src="//phppointofsale.com/js/iframeResizer.contentWindow.min.js"></script>
+	<script src="//alaisod.com/js/iframeResizer.contentWindow.min.js"></script>
 <?php } ?>
 </head>
 <body>
@@ -374,7 +374,7 @@ if (is_on_demo_host()) { ?>
 							<span class="avatar_info visible-sm visible-md visible-lg"><?php echo $user_info->first_name." ".$user_info->last_name; ?></span></a>
 							<ul class="dropdown-menu user-dropdown animated fadeInUp wow avatar_drop neat_drop" data-wow-duration="1500ms"  role="menu">
 							<li>
-									<a tabindex = "-1" id="support_link" target="_blank" href="http://support.phppointofsale.com/"><i class="ion-help-buoy"></i><span class="text"><?php echo lang('common_support'); ?></span></a>									
+									<a tabindex = "-1" id="support_link" target="_blank" href="http://support.alaisod.com/"><i class="ion-help-buoy"></i><span class="text"><?php echo lang('common_support'); ?></span></a>									
 							</li>
 							
 								<?php if ($this->Employee->has_module_permission('config', $user_info->person_id)) {?>
@@ -386,7 +386,7 @@ if (is_on_demo_host()) { ?>
 								$this->load->helper('update');
 								if (is_on_phppos_host() && !is_on_demo_host() && !empty($cloud_customer_info)) {?>
 								<li>
-									<a tabindex = "-1" id="update_billing_link" target="_blank" href="https://phppointofsale.com/update_billing.php?store_username=<?php echo $cloud_customer_info['username'];?>&username=<?php echo $this->Employee->get_logged_in_employee_info()->username; ?>&password=<?php echo $this->Employee->get_logged_in_employee_info()->password; ?>"><i class="ion-card"></i><span class="text"><?php echo lang('common_update_billing_info'); ?></span></a>									
+									<a tabindex = "-1" id="update_billing_link" target="_blank" href="https://alaisod.com/update_billing.php?store_username=<?php echo $cloud_customer_info['username'];?>&username=<?php echo $this->Employee->get_logged_in_employee_info()->username; ?>&password=<?php echo $this->Employee->get_logged_in_employee_info()->password; ?>"><i class="ion-card"></i><span class="text"><?php echo lang('common_update_billing_info'); ?></span></a>									
 								</li>
 								
 								<?php } ?>

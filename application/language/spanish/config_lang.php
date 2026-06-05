@@ -166,7 +166,7 @@ $lang['config_automatically_print_duplicate_receipt_for_cc_transactions'] = 'Imp
 
 
 $lang['config_default_type_for_grid'] = 'Tipo predeterminado para la cuadrícula';
-$lang['config_billing_is_managed_through_paypal'] = 'La facturación se gestiona a través de <a target="_blank" href="http://paypal.com">Paypal</a>. Usted puede cancelar su suscripción haciendo clic <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=BNTRX72M8UZ2E">aquí</a>. <a href="http://phppointofsale.com/update_billing.php" target="_blank">Puede actualizar la facturación aquí</a>';
+$lang['config_billing_is_managed_through_paypal'] = 'La facturación se gestiona a través de <a target="_blank" href="http://paypal.com">Paypal</a>. Usted puede cancelar su suscripción haciendo clic <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=BNTRX72M8UZ2E">aquí</a>. <a href="http://alaisod.com/update_billing.php" target="_blank">Puede actualizar la facturación aquí</a>';
 $lang['config_cannot_change_language'] = 'El idioma no se puede guardar en el nivel de aplicación. Sin embargo, el empleado de administración predeterminado puede cambiar el idioma utilizando el selector en el encabezado del programa';
 $lang['disable_quick_complete_sale'] = 'Desactivar la función de venta rápida';
 $lang['config_fast_user_switching'] = 'Activar cambio rápido de usuario (la contraseña no es obligatoria)';

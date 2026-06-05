@@ -13,7 +13,7 @@ $lang['login_reset_password_message'] = 'Solicitou a redefinição da palavra-pa
 $lang['login_password_reset_has_been_sent'] = 'Um email de redefinição de palavra-passe foi enviada para o seu email. Por favor, verifique seu email e clique no link.';
 $lang['login_password_has_been_reset'] = 'A sua palavra-passe foi redefinida, por favor clique no link a seguir:';
 $lang['login_passwords_must_match_and_be_at_least_8_characters'] = 'Palavras-passe devem corresponder e ter, pelo menos, 8 caracteres';
-$lang['login_subscription_terminated'] = 'A sua subscrição foi terminada, por favor, entre em contacto com support@phppointofsale.com para discutir';
+$lang['login_subscription_terminated'] = 'A sua subscrição foi terminada, por favor, entre em contacto com support@alaisod.com para discutir';
 
 
 

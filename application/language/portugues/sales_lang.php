@@ -127,7 +127,7 @@ $lang['sales_cc_processing_cancelled'] = 'Processamento de Cartão de Crédito C
 
 $lang['sales_partial_credit'] = 'Cartão de Crédito Parcial';
 $lang['sales_credit_card_partially_charged_please_complete_sale_with_another_payment_method'] = 'Cartão de crédito parcialmente cobrado, por favor, preencha venda com outra forma de pagamento';
-$lang['sales_attempted_to_reverse_transactions_failed_please_contact_support'] = 'Tentativa de reverter a transação de Cartão de Crédito falhou, por favor, entre em contacto com support@phppointofsale.com';
+$lang['sales_attempted_to_reverse_transactions_failed_please_contact_support'] = 'Tentativa de reverter a transação de Cartão de Crédito falhou, por favor, entre em contacto com support@alaisod.com';
 $lang['sales_acknowledge_payment_failed_please_contact_support'] = 'Confirme que Pagamento falhou, por favor contacte o apoio';
 $lang['sales_credit_card_processing_success'] = 'Cartão de Crédito foi cobrado com sucesso';
 $lang['sales_ref_no'] = 'Nº de referência';

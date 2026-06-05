@@ -62,7 +62,7 @@ $this->load->helper('update');
 	    'window_name' => '_blank'
 		);
 		
-		return $title . ' ' . anchor_popup('https://support.phppointofsale.com/v'.
+		return $title . ' ' . anchor_popup('https://support.alaisod.com/v'.
 							DOCUMENTATION_VERSION .'/docs/' . $doc . '#' . $section,
 							' <span class="glyphicon glyphicon-info-sign"></span>', $popupAtts);
 	}
@@ -93,10 +93,10 @@ $this->load->helper('update');
 						<?php } else { ?>
 							<div class="row">
 								<div class="col-md-4 col-md-offset-2">
-									<a class="btn btn-block btn-update-billing btn-primary" href="https://phppointofsale.com/update_billing.php?store_username=<?php echo $cloud_customer_info['username'];?>&username=<?php echo $this->Employee->get_logged_in_employee_info()->username; ?>&password=<?php echo $this->Employee->get_logged_in_employee_info()->password; ?>" target="_blank"><?php echo lang('common_update_billing_info');?></a>				
+									<a class="btn btn-block btn-update-billing btn-primary" href="https://alaisod.com/update_billing.php?store_username=<?php echo $cloud_customer_info['username'];?>&username=<?php echo $this->Employee->get_logged_in_employee_info()->username; ?>&password=<?php echo $this->Employee->get_logged_in_employee_info()->password; ?>" target="_blank"><?php echo lang('common_update_billing_info');?></a>				
 								</div>
 								<div class="col-md-4">
-									<a class="btn btn-block btn-update-billing btn-default" href="https://phppointofsale.com/update_billing.php?store_username=<?php echo $cloud_customer_info['username'];?>&username=<?php echo $this->Employee->get_logged_in_employee_info()->username; ?>&password=<?php echo $this->Employee->get_logged_in_employee_info()->password; ?>&cancel=1" target="_blank"><?php echo lang('config_cancel_account');?></a>
+									<a class="btn btn-block btn-update-billing btn-default" href="https://alaisod.com/update_billing.php?store_username=<?php echo $cloud_customer_info['username'];?>&username=<?php echo $this->Employee->get_logged_in_employee_info()->username; ?>&password=<?php echo $this->Employee->get_logged_in_employee_info()->password; ?>&cancel=1" target="_blank"><?php echo lang('config_cancel_account');?></a>
 								</div>
 							</div>
 						<?php } ?>

@@ -127,7 +127,7 @@ $lang['sales_cc_processing_cancelled'] = 'Credit Card Processing Cancelled';
 
 $lang['sales_partial_credit'] = 'Partial Credit Card';
 $lang['sales_credit_card_partially_charged_please_complete_sale_with_another_payment_method'] = 'Credit Card partially charged, please complete sale with another payment';
-$lang['sales_attempted_to_reverse_transactions_failed_please_contact_support'] = 'Attempted to reverse Credit Card transaction failed, please contact support@phppointofsale.com';
+$lang['sales_attempted_to_reverse_transactions_failed_please_contact_support'] = 'Attempted to reverse Credit Card transaction failed, please contact support@alaisod.com';
 $lang['sales_acknowledge_payment_failed_please_contact_support'] = 'Acknowledge Payment failed, please contact support';
 $lang['sales_credit_card_processing_success'] = 'Credit Card has successfully been charged';
 $lang['sales_ref_no'] = 'Reference No.';

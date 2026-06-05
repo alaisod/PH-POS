@@ -126,7 +126,7 @@ $lang['sales_cc_processing_cancelled'] = 'Verwerking van de Creditcard geanuleer
 $lang['sales_partial_credit'] = 'Gedeeltelijke CreditCard';
 $lang['sales_credit_card_partially_charged_please_complete_sale_with_another_payment_method'] = 'CreditCard gedeeltelijk betaald, vul dan verkoop met een andere betaling
 ';
-$lang['sales_attempted_to_reverse_transactions_failed_please_contact_support'] = 'Poging om te keren Credit Card transactie is mislukt, neem dan contact support@phppointofsale.com';
+$lang['sales_attempted_to_reverse_transactions_failed_please_contact_support'] = 'Poging om te keren Credit Card transactie is mislukt, neem dan contact support@alaisod.com';
 $lang['sales_acknowledge_payment_failed_please_contact_support'] = 'Betaling mislukt, neem dan contact op met ondersteuning';
 $lang['sales_credit_card_processing_success'] = 'CreditCard betaling succesvol';
 $lang['sales_ref_no'] = 'Referentie Nr.';
