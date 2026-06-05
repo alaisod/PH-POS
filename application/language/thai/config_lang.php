@@ -1,421 +1,380 @@
 <?php
-$lang['config_info']='Store Configuration Information';
+$lang['config_info']='ข้อมูลการตั้งค่าร้านค้า';
 
-$lang['config_address']='Company Address';
-$lang['config_phone']='Company Phone';
-$lang['config_prefix']='Sale ID Prefix';
+$lang['config_address']='ที่อยู่บริษัท';
+$lang['config_phone']='โทรศัพท์บริษัท';
+$lang['config_prefix']='คำนำหน้ารหัสการขาย';
 
-$lang['config_fax']='Fax';
-$lang['config_default_tax_rate']='Default Tax Rate %';
+$lang['config_fax']='แฟกซ์';
+$lang['config_default_tax_rate']='อัตราภาษีเริ่มต้น %';
 
+$lang['config_company_required']='กรุณากรอกชื่อบริษัท';
 
-$lang['config_company_required']='Company name is a required field';
+$lang['config_phone_required']='กรุณากรอกโทรศัพท์บริษัท';
+$lang['config_sale_prefix_required']='กรุณากรอกคำนำหน้ารหัสการขาย';
+$lang['config_default_tax_rate_required']='กรุณากรอกอัตราภาษีเริ่มต้น';
+$lang['config_default_tax_rate_number']='อัตราภาษีเริ่มต้นต้องเป็นตัวเลข';
+$lang['config_company_website_url']='เว็บไซต์บริษัทไม่ใช่ URL ที่ถูกต้อง (http://...)';
 
-$lang['config_phone_required']='Company phone is a required field';
-$lang['config_sale_prefix_required']='Sale ID prefix is a required field';
-$lang['config_default_tax_rate_required']='The default tax rate is a required field';
-$lang['config_default_tax_rate_number']='The default tax rate must be a number';
-$lang['config_company_website_url']='Company website is not a valid URL (http://...)';
+$lang['config_saved_unsuccessfully']='บันทึกการตั้งค่าไม่สำเร็จ ไม่อนุญาตให้เปลี่ยนแปลงการตั้งค่าในโหมดเดโม่หรือบันทึกภาษีไม่ถูกต้อง';
+$lang['config_return_policy_required']='กรุณากรอกนโยบายการรับคืน';
+$lang['config_print_after_sale']='พิมพ์ใบเสร็จหลังการขาย';
+$lang['config_automatically_email_receipt']='ส่งอีเมลใบเสร็จอัตโนมัติ';
+$lang['config_barcode_price_include_tax']='รวมภาษีในบาร์โค้ด';
+$lang['disable_confirmation_sale']='ปิดการยืนยันสำหรับการขายที่เสร็จสมบูรณ์';
 
-$lang['config_saved_unsuccessfully']='Failed to save configuration. Configuration changes are not allowed in demo mode or taxes weren\'t saved correctly';
-$lang['config_return_policy_required']='Return policy is a required field';
-$lang['config_print_after_sale']='Print receipt after sale';
-$lang['config_automatically_email_receipt']='Automatically Email receipt';
-$lang['config_barcode_price_include_tax']='Include tax on barcodes';
-$lang['disable_confirmation_sale']='Disable confirmation for complete sale';
+$lang['config_currency_symbol'] = 'สัญลักษณ์สกุลเงิน';
+$lang['config_backup_database'] = 'สำรองฐานข้อมูล';
+$lang['config_restore_database'] = 'กู้คืนฐานข้อมูล';
 
+$lang['config_number_of_items_per_page'] = 'จำนวนสินค้าต่อหน้า';
+$lang['config_date_format'] = 'รูปแบบวันที่';
+$lang['config_time_format'] = 'รูปแบบเวลา';
 
-$lang['config_currency_symbol'] = 'Currency Symbol';
-$lang['config_backup_database'] = 'Backup Database';
-$lang['config_restore_database'] = 'Restore Database';
+$lang['config_optimize_database'] = 'ปรับแต่งฐานข้อมูล';
+$lang['config_database_optimize_successfully'] = 'ปรับแต่งฐานข้อมูลสำเร็จ';
+$lang['config_payment_types'] = 'ประเภทการชำระเงิน';
+$lang['select_sql_file'] = 'เลือกไฟล์ .sql';
 
-$lang['config_number_of_items_per_page'] = 'Number Of Items Per Page';
-$lang['config_date_format'] = 'Date Format';
-$lang['config_time_format'] = 'Time Format';
+$lang['restore_heading'] = 'สิ่งนี้ช่วยให้คุณกู้คืนฐานข้อมูลของคุณ';
 
+$lang['type_file'] = 'เลือกไฟล์ .sql จากคอมพิวเตอร์ของคุณ';
 
+$lang['restore'] = 'กู้คืน';
 
-$lang['config_optimize_database'] = 'Optimize Database';
-$lang['config_database_optimize_successfully'] = 'Optimized Database Successfully';
-$lang['config_payment_types'] = 'Payment Types';
-$lang['select_sql_file'] = 'select .sql file';
+$lang['required_sql_file'] = 'ไม่ได้เลือกไฟล์ sql';
 
-$lang['restore_heading'] = 'This allows you to restore your database';
+$lang['restore_db_success'] = 'กู้คืนฐานข้อมูลสำเร็จ';
 
-$lang['type_file'] = 'select .sql file from your computer';
+$lang['db_first_alert'] = 'คุณแน่ใจหรือไม่ว่าต้องการกู้คืนฐานข้อมูล?';
+$lang['db_second_alert'] = 'ข้อมูลปัจจุบันจะหายไป ดำเนินการต่อ?';
+$lang['password_error'] = 'รหัสผ่านไม่ถูกต้อง';
+$lang['password_required'] = 'กรุณากรอกรหัสผ่าน';
+$lang['restore_database_title'] = 'กู้คืนฐานข้อมูล';
 
-$lang['restore'] = 'restore';
+$lang['config_environment'] = 'สภาพแวดล้อม';
 
-$lang['required_sql_file'] = 'No sql file is selected';
+$lang['config_sandbox'] = 'แซนด์บ็อกซ์';
+$lang['config_production'] = 'การผลิต';
 
-$lang['restore_db_success'] = 'DataBase is restored successfully';
+$lang['config_default_payment_type'] = 'ประเภทการชำระเงินเริ่มต้น';
+$lang['config_speed_up_note'] = 'แนะนำเฉพาะเมื่อคุณมีสินค้าหรือลูกค้ามากกว่า 10,000 รายการ';
+$lang['config_hide_signature'] = 'ซ่อนลายเซ็น';
+$lang['config_round_cash_on_sales'] = 'ปัดเศษเป็น .05 ที่ใกล้ที่สุดในใบเสร็จ';
+$lang['config_customers_store_accounts'] = 'บัญชีร้านค้าของลูกค้า';
+$lang['config_change_sale_date_when_suspending'] = 'เปลี่ยนวันที่ขายเมื่อระงับการขาย';
+$lang['config_change_sale_date_when_completing_suspended_sale'] = 'เปลี่ยนวันที่ขายเมื่อเสร็จสิ้นการขายที่ถูกระงับ';
+$lang['config_price_tiers'] = 'ระดับราคา';
+$lang['config_add_tier'] = 'เพิ่มระดับ';
+$lang['config_show_receipt_after_suspending_sale'] = 'แสดงใบเสร็จหลังระงับการขาย';
+$lang['config_backup_overview'] = 'ภาพรวมการสำรองข้อมูล';
+$lang['config_backup_overview_desc'] = 'การสำรองข้อมูลของคุณสำคัญมาก แต่อาจเป็นปัญหาได้หากมีข้อมูลจำนวนมาก หากคุณมีรูปภาพ สินค้า และยอดขายจำนวนมาก อาจเพิ่มขนาดของฐานข้อมูลของคุณ';
+$lang['config_backup_options'] = 'เรามีตัวเลือกมากมายสำหรับการสำรองข้อมูลเพื่อช่วยให้คุณตัดสินใจดำเนินการ';
+$lang['config_backup_simple_option'] = 'คลิก "สำรองฐานข้อมูล" สิ่งนี้จะพยายามดาวน์โหลดฐานข้อมูลทั้งหมดของคุณเป็นไฟล์ หากคุณได้รับหน้าจอว่างหรือไม่สามารถดาวน์โหลดไฟล์ได้ ให้ลองตัวเลือกอื่น';
+$lang['config_backup_phpmyadmin_1'] = 'PHPMyAdmin เป็นเครื่องมือยอดนิยมสำหรับจัดการฐานข้อมูลของคุณ หากคุณใช้เวอร์ชันดาวน์โหลดพร้อมตัวติดตั้ง สามารถเข้าถึงได้โดยไปที่';
+$lang['config_backup_phpmyadmin_2'] = 'ชื่อผู้ใช้ของคุณคือ root และรหัสผ่านคือสิ่งที่คุณใช้ระหว่างการติดตั้ง PHP POS ครั้งแรก เมื่อเข้าสู่ระบบแล้วให้เลือกฐานข้อมูลของคุณจากแผงด้านซ้าย จากนั้นเลือกส่งออกและส่งแบบฟอร์ม';
+$lang['config_backup_control_panel'] = 'หากคุณติดตั้งบนเซิร์ฟเวอร์ของคุณเองที่มีแผงควบคุมเช่น cpanel ให้มองหาโมดูลสำรองข้อมูลซึ่งมักจะให้คุณดาวน์โหลดข้อมูลสำรองของฐานข้อมูลของคุณ';
+$lang['config_backup_mysqldump'] = 'หากคุณสามารถเข้าถึงเชลล์และ mysqldump บนเซิร์ฟเวอร์ของคุณ คุณสามารถลองเรียกใช้โดยคลิกลิงก์ด้านล่าง มิฉะนั้นคุณจะต้องลองตัวเลือกอื่น';
+$lang['config_mysqldump_failed'] = 'การสำรองข้อมูล mysqldump ล้มเหลว อาจเกิดจากข้อจำกัดของเซิร์ฟเวอร์หรือคำสั่งอาจไม่พร้อมใช้งาน กรุณาลองวิธีสำรองข้อมูลอื่น';
 
-$lang['db_first_alert'] = 'Are you sure of restoring the database?';
-$lang['db_second_alert'] = 'Present data will be lost , continue?';
-$lang['password_error'] = 'Password incorrect';
-$lang['password_required'] = 'Password field cannot be blank';
-$lang['restore_database_title'] = 'Restore Database';
+$lang['config_looking_for_location_settings'] = 'กำลังมองหาตัวเลือกการกำหนดค่าอื่นๆ? ไปที่';
+$lang['config_module'] = 'โมดูล';
+$lang['config_automatically_calculate_average_cost_price_from_receivings'] = 'คำนวณราคาต้นทุนเฉลี่ยจากการรับสินค้า';
+$lang['config_averaging_method'] = 'วิธีการเฉลี่ย';
+$lang['config_historical_average'] = 'ค่าเฉลี่ยในอดีต';
+$lang['config_moving_average'] = 'ค่าเฉลี่ยเคลื่อนที่';
 
-
-
-$lang['config_environment'] = 'Environment';
-
-
-$lang['config_sandbox'] = 'Sandbox';
-$lang['config_production'] = 'Production';
-
-$lang['config_default_payment_type'] = 'Default Payment Type';
-$lang['config_speed_up_note'] = 'Only recommend if you have more than 10,000 items or customers';
-$lang['config_hide_signature'] = 'Hide Signature';
-$lang['config_round_cash_on_sales'] = 'Round to nearest .05 on receipt';
-$lang['config_customers_store_accounts'] = 'Customers Store Accounts';
-$lang['config_change_sale_date_when_suspending'] = 'Change sale date when suspending sale';
-$lang['config_change_sale_date_when_completing_suspended_sale'] = 'Change sale date when completing suspended sale';
-$lang['config_price_tiers'] = 'Price tiers';
-$lang['config_add_tier'] = 'Add tier';
-$lang['config_show_receipt_after_suspending_sale'] = 'Show receipt after suspending sale';
-$lang['config_backup_overview'] = 'Backup Overview';
-$lang['config_backup_overview_desc'] = 'Backing up your data is very important, but can be troublesome with large amount of data. If you have lots of images, items, and sales this can increase the size of your database.';
-$lang['config_backup_options'] = 'We offer many options for backup to help you decide how to proceed';
-$lang['config_backup_simple_option'] = 'Clicking "Backup database". This will attempt to download your whole database to a file. If you get a blank screen or can\'t download the file, try one of the other options.';
-$lang['config_backup_phpmyadmin_1'] = 'PHPMyAdmin is a popular tool for managing your databases. If you are using the download version with installer, it can be accessed by going to';
-$lang['config_backup_phpmyadmin_2'] = 'Your username is root and password is what you used during initial installation of PHP POS. Once logged in select your database from the panel on the left. Then select export and then submit the form.';
-$lang['config_backup_control_panel'] = 'If you have installed on your own server that has a control panel such as cpanel, look for the backup module which will often let you download backups of your database.';
-$lang['config_backup_mysqldump'] = 'If you have access to the shell and mysqldump on your server, you can try to execute it by clicking the below link. Otherwise  you will need to try other options.';
-$lang['config_mysqldump_failed'] = 'mysqldump backup has failed. This could be due to a server restriction or the command might not be available. Please try another backup method';
-
-
-
-$lang['config_looking_for_location_settings'] = 'Looking for other configuration options? Go to';
-$lang['config_module'] = 'Module';
-$lang['config_automatically_calculate_average_cost_price_from_receivings'] = 'Calculate Average Cost Price from Receivings';
-$lang['config_averaging_method'] = 'Averaging Method';
-$lang['config_historical_average'] = 'Historical Average';
-$lang['config_moving_average'] = 'Moving Average';
-
-$lang['config_hide_dashboard_statistics'] = 'Hide Dashboard Statistics';
-$lang['config_hide_store_account_payments_in_reports'] = 'Hide Store Account Payments In Reports';
-$lang['config_id_to_show_on_sale_interface'] = 'Item ID to Show on Sales Interface';
-$lang['config_auto_focus_on_item_after_sale_and_receiving'] = 'Auto Focus On Item Field When using Sales/Receivings Interfaces';
-$lang['config_automatically_show_comments_on_receipt'] = 'Automatically Show Comments on Receipt';
-$lang['config_hide_customer_recent_sales'] = 'Hide Recent Sales for Customer';
-$lang['config_spreadsheet_format'] = 'Spreadsheet Format';
+$lang['config_hide_dashboard_statistics'] = 'ซ่อนสถิติแดชบอร์ด';
+$lang['config_hide_store_account_payments_in_reports'] = 'ซ่อนการชำระเงินบัญชีร้านค้าในรายงาน';
+$lang['config_id_to_show_on_sale_interface'] = 'รหัสสินค้าที่แสดงบนหน้าจอขาย';
+$lang['config_auto_focus_on_item_after_sale_and_receiving'] = 'โฟกัสอัตโนมัติที่ฟิลด์สินค้าเมื่อใช้หน้าจอขาย/รับสินค้า';
+$lang['config_automatically_show_comments_on_receipt'] = 'แสดงความคิดเห็นบนใบเสร็จอัตโนมัติ';
+$lang['config_hide_customer_recent_sales'] = 'ซ่อนการขายล่าสุดสำหรับลูกค้า';
+$lang['config_spreadsheet_format'] = 'รูปแบบสเปรดชีต';
 $lang['config_csv'] = 'CSV';
 $lang['config_xlsx'] = 'XLSX';
-$lang['config_disable_giftcard_detection'] = 'Disable Giftcard Detection';
-$lang['config_disable_subtraction_of_giftcard_amount_from_sales'] = 'Disable giftcard subtraction when using giftcard during sale';
-$lang['config_always_show_item_grid'] = 'Always Show Item Grid';
-$lang['config_legacy_detailed_report_export'] = 'Legacy Detailed Report Excel Export';
-$lang['config_print_after_receiving'] = 'Print receipt after receiving';
-$lang['config_company_info'] = 'Company Information';
+$lang['config_disable_giftcard_detection'] = 'ปิดการตรวจจับบัตรของขวัญ';
+$lang['config_disable_subtraction_of_giftcard_amount_from_sales'] = 'ปิดการลบยอดบัตรของขวัญเมื่อใช้บัตรของขวัญระหว่างการขาย';
+$lang['config_always_show_item_grid'] = 'แสดงตารางสินค้าเสมอ';
+$lang['config_legacy_detailed_report_export'] = 'ส่งออกรายงานละเอียดแบบเดิมเป็น Excel';
+$lang['config_print_after_receiving'] = 'พิมพ์ใบเสร็จหลังรับสินค้า';
+$lang['config_company_info'] = 'ข้อมูลบริษัท';
 
+$lang['config_suspended_sales_layaways_info'] = 'การขายที่ถูกระงับ/การวางเงินมัดจำ';
+$lang['config_application_settings_info'] = 'การตั้งค่าแอปพลิเคชัน';
+$lang['config_hide_barcode_on_sales_and_recv_receipt'] = 'ซ่อนบาร์โค้ดบนใบเสร็จ';
+$lang['config_round_tier_prices_to_2_decimals'] = 'ปัดเศษราคาระดับเป็นทศนิยม 2 ตำแหน่ง';
+$lang['config_group_all_taxes_on_receipt'] = 'รวมภาษีทั้งหมดในใบเสร็จ';
+$lang['config_receipt_text_size'] = 'ขนาดตัวอักษรใบเสร็จ';
+$lang['config_small'] = 'เล็ก';
+$lang['config_medium'] = 'กลาง';
+$lang['config_large'] = 'ใหญ่';
+$lang['config_extra_large'] = 'ใหญ่มาก';
+$lang['config_select_sales_person_during_sale'] = 'เลือกพนักงานขายระหว่างการขาย';
+$lang['config_default_sales_person'] = 'พนักงานขายเริ่มต้น';
+$lang['config_require_customer_for_sale'] = 'จำเป็นต้องมีลูกค้าสำหรับการขาย';
 
-$lang['config_suspended_sales_layaways_info'] = 'Suspended Sales/Layaways';
-$lang['config_application_settings_info'] = 'Application Settings';
-$lang['config_hide_barcode_on_sales_and_recv_receipt'] = 'Hide barcode on receipts';
-$lang['config_round_tier_prices_to_2_decimals'] = 'Round tier Prices to 2 decimals';
-$lang['config_group_all_taxes_on_receipt'] = 'Group all taxes on receipt';
-$lang['config_receipt_text_size'] = 'Receipt text size';
-$lang['config_small'] = 'Small';
-$lang['config_medium'] = 'Medium';
-$lang['config_large'] = 'Large';
-$lang['config_extra_large'] = 'Extra large';
-$lang['config_select_sales_person_during_sale'] = 'Select sales person during sale';
-$lang['config_default_sales_person'] = 'Default sales person';
-$lang['config_require_customer_for_sale'] = 'Require customer for sale';
+$lang['config_hide_store_account_payments_from_report_totals'] = 'ซ่อนการชำระเงินบัญชีร้านค้าจากยอดรวมรายงาน';
+$lang['config_disable_sale_notifications'] = 'ปิดการแจ้งเตือนการขาย';
+$lang['config_id_to_show_on_barcode'] = 'รหัสที่แสดงบนบาร์โค้ด';
+$lang['config_currency_denoms'] = 'หน่วยเงินตรา';
+$lang['config_currency_value'] = 'มูลค่าเงินตรา';
+$lang['config_add_currency_denom'] = 'เพิ่มหน่วยเงินตรา';
+$lang['config_enable_timeclock'] = 'เปิดใช้งานการบันทึกเวลา';
+$lang['config_change_sale_date_for_new_sale'] = 'เปลี่ยนวันที่ขายสำหรับการขายใหม่';
+$lang['config_dont_average_use_current_recv_price'] = 'ไม่ต้องเฉลี่ย ใช้ราคาที่รับล่าสุด';
+$lang['config_number_of_recent_sales'] = 'จำนวนการขายล่าสุดของลูกค้าที่จะแสดง';
+$lang['config_hide_suspended_recv_in_reports'] = 'ซ่อนการรับสินค้าที่ถูกระงับในรายงาน';
+$lang['config_calculate_profit_for_giftcard_when'] = 'คำนวณกำไรจากบัตรของขวัญเมื่อ';
+$lang['config_selling_giftcard'] = 'ขายบัตรของขวัญ';
+$lang['config_redeeming_giftcard'] = 'ไถ่ถอนบัตรของขวัญ';
+$lang['config_remove_customer_contact_info_from_receipt'] = 'ลบข้อมูลการติดต่อลูกค้าออกจากใบเสร็จ';
+$lang['config_speed_up_search_queries'] = 'เร่งความเร็วการค้นหา?';$lang['config_redirect_to_sale_or_recv_screen_after_printing_receipt'] = 'เปลี่ยนเส้นทางไปยังหน้าจอการขายหรือรับสินค้าหลังจากพิมพ์ใบเสร็จ';
+$lang['config_enable_sounds'] = 'เปิดใช้งานเสียงสำหรับข้อความสถานะ';
+$lang['config_charge_tax_on_recv'] = 'เรียกเก็บภาษีจากการรับสินค้า';
+$lang['config_report_sort_order'] = 'ลำดับการเรียงรายงาน';
+$lang['config_asc'] = 'เก่าที่สุดก่อน';
+$lang['config_desc'] = 'ใหม่ที่สุดก่อน';
+$lang['config_do_not_group_same_items'] = 'ไม่จัดกลุ่มสินค้าที่เหมือนกัน';
+$lang['config_show_item_id_on_receipt'] = 'แสดงรหัสสินค้าบนใบเสร็จ';
+$lang['config_show_language_switcher'] = 'แสดงสวิตช์ภาษา';
+$lang['config_do_not_allow_out_of_stock_items_to_be_sold'] = 'ไม่อนุญาตให้ขายสินค้าที่หมดสต็อก';
+$lang['config_number_of_items_in_grid'] = 'จำนวนสินค้าต่อหน้าในตาราง';
+$lang['config_edit_item_price_if_zero_after_adding'] = 'แก้ไขราคาสินค้าหากเป็น 0 หลังจากเพิ่มในการขาย';
+$lang['config_override_receipt_title'] = 'แทนที่หัวเรื่องใบเสร็จ';
+$lang['config_automatically_print_duplicate_receipt_for_cc_transactions'] = 'พิมพ์สำเนาใบเสร็จโดยอัตโนมัติสำหรับธุรกรรมบัตรเครดิต';
 
-$lang['config_hide_store_account_payments_from_report_totals'] = 'Hide store account payments from report totals';
-$lang['config_disable_sale_notifications'] = 'Disable sale notifications';
-$lang['config_id_to_show_on_barcode'] = 'ID to show on barcode';
-$lang['config_currency_denoms'] = 'Currency Denominations';
-$lang['config_currency_value'] = 'Currency Value';
-$lang['config_add_currency_denom'] = 'Add currency denomination';
-$lang['config_enable_timeclock'] = 'Enable Time Clock';
-$lang['config_change_sale_date_for_new_sale'] = 'Change Sale Date For New Sale';
-$lang['config_dont_average_use_current_recv_price'] = 'Don\'t average, use current received price';
-$lang['config_number_of_recent_sales'] = 'Number of recent sales by customer to show';
-$lang['config_hide_suspended_recv_in_reports'] = 'Hide suspended Receivings in reports';
-$lang['config_calculate_profit_for_giftcard_when'] = 'Calculate Gift Card Profit When';
-$lang['config_selling_giftcard'] = 'Selling Gift Card';
-$lang['config_redeeming_giftcard'] = 'Redeeming Gift Card';
-$lang['config_remove_customer_contact_info_from_receipt'] = 'Remove customer contact info from receipt';
-$lang['config_speed_up_search_queries'] = 'Speed up search queries?';
-
-
-
-
-$lang['config_redirect_to_sale_or_recv_screen_after_printing_receipt'] = 'Redirect to sale or receiving screen after printing receipt';
-$lang['config_enable_sounds'] = 'Enable sounds for status messages';
-$lang['config_charge_tax_on_recv'] = 'Charge tax on receivings';
-$lang['config_report_sort_order'] = 'Report Sort Order';
-$lang['config_asc'] = 'Oldest first';
-$lang['config_desc'] = 'Newest first';
-$lang['config_do_not_group_same_items'] = 'Do NOT group items that are the same';
-$lang['config_show_item_id_on_receipt'] = 'Show item id on receipt';
-$lang['config_show_language_switcher'] = 'Show Language Switcher';
-$lang['config_do_not_allow_out_of_stock_items_to_be_sold'] = 'Do not allow out of stock items to be sold';
-$lang['config_number_of_items_in_grid'] = 'Number of items per page in grid';
-$lang['config_edit_item_price_if_zero_after_adding'] = 'Edit item price if 0 after adding to sale';
-$lang['config_override_receipt_title'] = 'Override receipt title';
-$lang['config_automatically_print_duplicate_receipt_for_cc_transactions'] = 'Automatically print duplicate receipt for credit card transactions';
-
-
-
-
-
-
-$lang['config_default_type_for_grid'] = 'Default type for Grid';
-$lang['config_billing_is_managed_through_paypal'] = 'Billing is managed through  <a target="_blank" href="http://paypal.com">Paypal</a>. You can cancel your subscription by clicking <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=BNTRX72M8UZ2E">here</a>. You can <a href="http://alaisod.com/update_billing.php" target="_blank">update billing here</a>.';
-$lang['config_cannot_change_language'] = 'Language cannot be saved at application level. However the default admin employee can change the language using the selector in the header of the program';
-$lang['disable_quick_complete_sale'] = 'Disable sale quick complete';
-$lang['config_fast_user_switching'] = 'Enable fast user switching (password not required)';
-$lang['config_require_employee_login_before_each_sale'] = 'Require employee login before each sale';
-$lang['config_reset_location_when_switching_employee'] = 'Reset location when switching employee';
-$lang['config_number_of_decimals'] = 'Number of decimals';
-$lang['config_let_system_decide'] = 'Let system decide (Recommended)';
-$lang['config_thousands_separator'] = 'Thousands Separator';
-$lang['config_enhanced_search_method'] = 'Enhanced Search Method';
-$lang['config_hide_store_account_balance_on_receipt'] = 'Hide store account balance on receipt';
-$lang['config_decimal_point'] = 'Decimal Point';
-$lang['config_hide_out_of_stock_grid'] = 'Hide out of stock items in grid';
-$lang['config_highlight_low_inventory_items_in_items_module'] = 'Highlight low inventory items in items module';
-$lang['config_sort'] = 'Sort';
-$lang['config_enable_customer_loyalty_system'] = 'เปิดใช้งาน โปรแกรมสมนาคุณ';
-$lang['config_spend_to_point_ratio'] = 'อัตราส่วนการใช้จ่าย ต่อ คะแนน';
+$lang['config_default_type_for_grid'] = 'ประเภทเริ่มต้นสำหรับตาราง';
+$lang['config_billing_is_managed_through_paypal'] = 'การเรียกเก็บเงินถูกจัดการผ่าน <a target="_blank" href="http://paypal.com">Paypal</a> คุณสามารถยกเลิกการสมัครสมาชิกได้โดยคลิก <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=BNTRX72M8UZ2E">ที่นี่</a> คุณสามารถ <a href="http://alaisod.com/update_billing.php" target="_blank">อัปเดตการเรียกเก็บเงินที่นี่</a>';
+$lang['config_cannot_change_language'] = 'ไม่สามารถบันทึกภาษาในระดับแอปพลิเคชันได้ อย่างไรก็ตามพนักงานผู้ดูแลระบบเริ่มต้นสามารถเปลี่ยนภาษาได้โดยใช้ตัวเลือกในส่วนหัวของโปรแกรม';
+$lang['disable_quick_complete_sale'] = 'ปิดการขายแบบรวดเร็ว';
+$lang['config_fast_user_switching'] = 'เปิดใช้งานการสลับผู้ใช้อย่างรวดเร็ว (ไม่ต้องใช้รหัสผ่าน)';
+$lang['config_require_employee_login_before_each_sale'] = 'ต้องให้พนักงานเข้าสู่ระบบก่อนการขายแต่ละครั้ง';
+$lang['config_reset_location_when_switching_employee'] = 'รีเซ็ตสาขาเมื่อสลับพนักงาน';
+$lang['config_number_of_decimals'] = 'จำนวนทศนิยม';
+$lang['config_let_system_decide'] = 'ให้ระบบตัดสินใจ (แนะนำ)';
+$lang['config_thousands_separator'] = 'ตัวคั่นพัน';
+$lang['config_enhanced_search_method'] = 'วิธีการค้นหาขั้นสูง';
+$lang['config_hide_store_account_balance_on_receipt'] = 'ซ่อนยอดคงเหลือในบัญชีร้านค้าบนใบเสร็จ';
+$lang['config_decimal_point'] = 'จุดทศนิยม';
+$lang['config_hide_out_of_stock_grid'] = 'ซ่อนสินค้าที่หมดสต็อกในตาราง';
+$lang['config_highlight_low_inventory_items_in_items_module'] = 'เน้นสินค้าสต็อกต่ำในโมดูลสินค้า';
+$lang['config_sort'] = 'เรียงลำดับ';
+$lang['config_enable_customer_loyalty_system'] = 'เปิดใช้งานโปรแกรมสมนาคุณ';
+$lang['config_spend_to_point_ratio'] = 'อัตราส่วนการใช้จ่ายต่อคะแนน';
 $lang['config_point_value'] = 'มูลค่าคะแนน';
 $lang['config_hide_points_on_receipt'] = 'ซ่อนคะแนนสะสมบนใบเสร็จ';
-$lang['config_show_clock_on_header'] = 'Show Clock in Header';
-$lang['config_show_clock_on_header_help_text'] = 'This is visible only on wide screens';
-$lang['config_loyalty_explained_spend_amount'] = 'Enter the amount to spend';
-$lang['config_loyalty_explained_points_to_earn'] = 'Enter points to be earned';
+$lang['config_show_clock_on_header'] = 'แสดงนาฬิกาในส่วนหัว';
+$lang['config_show_clock_on_header_help_text'] = 'จะมองเห็นได้เฉพาะบนหน้าจอกว้างเท่านั้น';
+$lang['config_loyalty_explained_spend_amount'] = 'ป้อนจำนวนเงินที่ต้องใช้';
+$lang['config_loyalty_explained_points_to_earn'] = 'ป้อนคะแนนที่จะได้รับ';
 $lang['config_simple'] = 'จำนวนครั้ง';
 $lang['config_advanced'] = 'สะสมคะแนน';
-$lang['config_loyalty_option'] = 'ตัวเลือก โปรแกรมสมนาคุณ';
-$lang['config_number_of_sales_for_discount'] = 'จำนวนครั้งที่ซื้อ เพื่อรับส่วนลด';
+$lang['config_loyalty_option'] = 'ตัวเลือกโปรแกรมสมนาคุณ';
+$lang['config_number_of_sales_for_discount'] = 'จำนวนครั้งที่ซื้อเพื่อรับส่วนลด';
 $lang['config_discount_percent_earned'] = 'ส่วนลด (%) เมื่อครบกำหนด';
 $lang['hide_sales_to_discount_on_receipt'] = 'ซ่อนข้อมูลบนใบเสร็จ';
-$lang['config_hide_price_on_barcodes'] = 'Hide price on barcodes';
-$lang['config_always_use_average_cost_method'] = 'Always Use Global Average Cost Price For A Sale Item\'s Cost Price. (DO NOT check unless you know what it means)';
+$lang['config_hide_price_on_barcodes'] = 'ซ่อนราคาบนบาร์โค้ด';
+$lang['config_always_use_average_cost_method'] = 'ใช้ราคาต้นทุนเฉลี่ยทั่วโลกสำหรับราคาต้นทุนสินค้าที่ขายเสมอ (อย่าเลือก除非คุณเข้าใจความหมาย)';
 
-$lang['config_test_mode_help'] = 'Sales NOT saved';
-$lang['config_require_customer_for_suspended_sale'] = 'Require customer for suspended sale';
-$lang['config_default_new_items_to_service'] = 'Default New Items as service items';
+$lang['config_test_mode_help'] = 'การขายจะไม่ถูกบันทึก';
+$lang['config_require_customer_for_suspended_sale'] = 'จำเป็นต้องมีลูกค้าสำหรับการขายที่ถูกระงับ';
+$lang['config_default_new_items_to_service'] = 'ตั้งค่าสินค้าใหม่เป็นสินค้าบริการ';
 
+$lang['config_prompt_for_ccv_swipe'] = 'ให้กรอก CCV เมื่อรูดบัตรเครดิต';
+$lang['config_disable_store_account_when_over_credit_limit'] = 'ปิดการใช้งานบัญชีร้านค้าเมื่อเกินวงเงินเครดิต';
+$lang['config_mailing_labels_type'] = 'รูปแบบป้ายจดหมาย';
+$lang['config_phppos_session_expiration'] = 'อายุเซสชัน';
+$lang['config_hours'] = 'ชั่วโมง';
+$lang['config_never'] = 'ไม่เคย';
+$lang['config_on_browser_close'] = 'เมื่อปิดเบราว์เซอร์';
+$lang['config_do_not_allow_below_cost'] = 'ไม่อนุญาตให้ขายสินค้าต่ำกว่าราคาต้นทุน';
+$lang['config_store_account_statement_message'] = 'ข้อความใบแจ้งยอดบัญชีร้านค้า';
+$lang['config_enable_margin_calculator'] = 'เปิดใช้งานเครื่องคำนวณส่วนเพิ่ม';
+$lang['config_enable_quick_edit'] = 'เปิดใช้งานการแก้ไขด่วนในหน้าจัดการ';
+$lang['config_show_orig_price_if_marked_down_on_receipt'] = 'แสดงราคาเดิมบนใบเสร็จหากมีการลดราคา';
+$lang['config_cancel_account'] = 'ยกเลิกบัญชี';
+$lang['config_update_billing'] = 'คุณสามารถอัปเดตและยกเลิกข้อมูลการเรียกเก็บเงินของคุณได้โดยคลิกปุ่มด้านล่าง:';
+$lang['config_include_child_categories_when_searching_or_reporting'] = 'รวมหมวดหมู่ย่อยเมื่อค้นหาหรือรายงาน';
+$lang['config_confirm_error_messages_modal'] = 'ยืนยันข้อความข้อผิดพลาดโดยใช้กล่องโต้ตอบ';
+$lang['config_remove_commission_from_profit_in_reports'] = 'ลบค่าคอมมิชชั่นออกจากกำไรในรายงาน';
+$lang['config_remove_points_from_profit'] = 'ลบการไถ่ถอนคะแนนออกจากกำไร';
+$lang['config_capture_sig_for_all_payments'] = 'บันทึกลายเซ็นสำหรับการขายทั้งหมด';
+$lang['config_suppliers_store_accounts']='บัญชีร้านค้าของผู้จัดจำหน่าย';
+$lang['config_currency_symbol_location'] = 'ตำแหน่งสัญลักษณ์สกุลเงิน';
+$lang['config_before_number'] = 'ก่อนตัวเลข';
+$lang['config_after_number'] = 'หลังตัวเลข';
+$lang['config_hide_desc_on_receipt'] = 'ซ่อนคำอธิบายบนใบเสร็จ';
+$lang['config_default_percent_off'] = 'เปอร์เซ็นต์ส่วนลดเริ่มต้น';
+$lang['config_default_cost_plus_percent'] = 'เปอร์เซ็นต์ต้นทุนบวกเริ่มต้น';
+$lang['config_default_tier_percent_type_for_excel_import'] = 'ประเภทเปอร์เซ็นต์ระดับเริ่มต้นสำหรับการนำเข้า Excel';
+$lang['config_override_tier_name'] = 'แทนที่ชื่อระดับบนใบเสร็จ';
+$lang['config_loyalty_points_without_tax'] = 'คะแนนสะสมที่ได้ไม่รวมภาษี';
+$lang['config_lock_prices_suspended_sales'] = 'ล็อกราคาเมื่อยกเลิกระงับการขายแม้ว่าจะอยู่ในระดับราคา';
+$lang['config_remove_customer_name_from_receipt'] = 'ลบชื่อลูกค้าออกจากใบเสร็จ';
+$lang['config_scale_1'] = 'UPC-12 4 หลักราคา';
+$lang['config_scale_2'] = 'UPC-12 5 หลักราคา';
+$lang['config_scale_3'] = 'EAN-13 5 หลักราคา';
+$lang['config_scale_4'] = 'EAN-13 6 หลักราคา';
+$lang['config_scale_format'] = 'รูปแบบบาร์โค้ดเครื่องชั่ง';
+$lang['config_enable_scale'] = 'เปิดใช้งานเครื่องชั่ง';
 
+$lang['config_woocommerce_settings_info'] = 'การตั้งค่า Woocommerce';
+$lang['config_store_location'] = 'ที่ตั้งร้านค้า';
 
+$lang['config_woo_api_secret'] = 'คีย์ลับ API Woocommerce';
+$lang['config_woo_api_url'] = 'URL API Woocommerce';
+$lang['config_woo_api_key'] = 'คีย์ API Woocommerce';
 
+$lang['config_ecommerce_settings_info'] = 'แพลตฟอร์มอีคอมเมิร์ซ';
+$lang['config_ecommerce_platform'] = 'เลือกแพลตฟอร์ม';
+$lang['config_magento_settings_info'] = 'การตั้งค่า Magento';
+$lang['config_scale_divide_by'] = 'หารราคาเครื่องชั่งด้วย';
+$lang['config_do_not_force_http'] = 'ไม่บังคับ HTTP เมื่อจำเป็นสำหรับการประมวลผลบัตรเครดิต EMV';
+$lang['config_logout_on_clock_out'] = 'ออกจากระบบโดยอัตโนมัติเมื่อบันทึกเวลาออก';
+$lang['config_user_configured_layaway_name'] = 'แทนที่ชื่อการวางเงินมัดจำ';
+$lang['config_virtual_keyboard'] = 'แป้นพิมพ์เสมือน (เปิด/ปิด)';
+$lang['config_use_tax_value_at_all_locations'] = 'ใช้ค่าภาษีในทุกสาขา';
+$lang['config_enable_ebt_payments'] = 'เปิดใช้งานการชำระเงิน EBT';
+$lang['config_item_id_auto_increment'] = 'ค่าเริ่มต้นการเพิ่มอัตโนมัติของรหัสสินค้า';
+$lang['config_change_auto_increment_item_id_unsuccessful'] = 'เกิดข้อผิดพลาดในการเปลี่ยน auto_increment สำหรับรหัสสินค้า';
+$lang['config_item_kit_id_auto_increment'] = 'ค่าเริ่มต้นการเพิ่มอัตโนมัติของรหัสชุดสินค้า';
+$lang['config_sale_id_auto_increment'] = 'ค่าเริ่มต้นการเพิ่มอัตโนมัติของรหัสการขาย';
+$lang['config_receiving_id_auto_increment'] = 'ค่าเริ่มต้นการเพิ่มอัตโนมัติของรหัสการรับสินค้า';
+$lang['config_change_auto_increment_item_kit_id'] = 'เกิดข้อผิดพลาดในการเปลี่ยน auto_increment สำหรับรหัสชุดสินค้า';
+$lang['config_change_auto_increment_sale_id'] = 'เกิดข้อผิดพลาดในการเปลี่ยน auto_increment สำหรับรหัสการขาย';
+$lang['config_change_auto_increment_receiving_id'] = 'เกิดข้อผิดพลาดในการเปลี่ยน auto_increment สำหรับรหัสการรับสินค้า';
+$lang['config_auto_increment_note'] = 'คุณสามารถเพิ่มค่า Auto Increment เท่านั้น การอัปเดตจะไม่ส่งผลต่อรหัสของสินค้า ชุดสินค้า การขาย หรือการรับสินค้าที่มีอยู่แล้ว';
 
+$lang['config_online_price_tier'] = 'ระดับราคาออนไลน์';
+$lang['config_email_settings_info'] = 'การตั้งค่าอีเมล';
 
-$lang['config_prompt_for_ccv_swipe'] = 'Prompt for CCV when swiping credit card';
-$lang['config_disable_store_account_when_over_credit_limit'] = 'Disable store account when over credit limit';
-$lang['config_mailing_labels_type'] = 'Mailing Labels Format';
-$lang['config_phppos_session_expiration'] = 'Session expiration';
-$lang['config_hours'] = 'Hours';
-$lang['config_never'] = 'Never';
-$lang['config_on_browser_close'] = 'On Browser Close';
-$lang['config_do_not_allow_below_cost'] = 'Do NOT allow items to be sold below cost price';
-$lang['config_store_account_statement_message'] = 'Store Account Statement Message';
-$lang['config_enable_margin_calculator'] = 'Enable Mark Up Calculator';
-$lang['config_enable_quick_edit'] = 'Enable quick edit on manage pages';
-$lang['config_show_orig_price_if_marked_down_on_receipt'] = 'Show original price on receipt if marked down';
-$lang['config_cancel_account'] = 'Cancel Account';
-$lang['config_update_billing'] = 'You can update and cancel your billing information by clicking the buttons below:';
-$lang['config_include_child_categories_when_searching_or_reporting'] = 'Include child categories when searching or reporting';
-$lang['config_confirm_error_messages_modal'] = 'Confirm error messages using modal dialogs';
-$lang['config_remove_commission_from_profit_in_reports'] = 'Remove commission from profit in reports';
-$lang['config_remove_points_from_profit'] = 'Remove points redemption from profit';
-$lang['config_capture_sig_for_all_payments'] = 'Capture signature for all sales';
-$lang['config_suppliers_store_accounts'] = 'Suppliers Store Accounts';
-$lang['config_currency_symbol_location'] = 'Currency Symbol Location';
-$lang['config_before_number'] = 'Before Number';
-$lang['config_after_number'] = 'After Number';
-$lang['config_hide_desc_on_receipt'] = 'Hide Description on Receipt';
-$lang['config_default_percent_off'] = 'Default Percent Off';
-$lang['config_default_cost_plus_percent'] = 'Default Cost Plus Percent';
-$lang['config_default_tier_percent_type_for_excel_import'] = 'Default Tier Percent Type for excel import';
-$lang['config_override_tier_name'] = 'Override Tier Name on Receipt';
-$lang['config_loyalty_points_without_tax'] = 'คะแนนสะสมที่ได้ ไม่รวมภาษี';
-$lang['config_lock_prices_suspended_sales'] = 'Lock prices when unsuspending sale even if they belong to a tier';
-$lang['config_remove_customer_name_from_receipt'] = 'Remove Customer Name From Receipt';
-$lang['config_scale_1'] = 'UPC-12 4 price digits';
-$lang['config_scale_2'] = 'UPC-12 5 Price Digits';
-$lang['config_scale_3'] = 'EAN-13 5 price digits';
-$lang['config_scale_4'] = 'EAN-13 6 price digits';
-$lang['config_scale_format'] = 'Scale Barcode Format';
-;
-$lang['config_enable_scale'] = 'Enable Scale';
-
-$lang['config_woocommerce_settings_info'] = 'Woocommerce Settings';
-$lang['config_store_location'] = 'Store Location';
-
-$lang['config_woo_api_secret'] = 'Woocommerce API Secret';
-$lang['config_woo_api_url'] = 'Woocommerce API Url';
-$lang['config_woo_api_key'] = 'Woocommerce API Key';
-
-
-
-
-
-
-
-
-
-
-
-$lang['config_ecommerce_settings_info'] = 'Ecommerce Platform';
-$lang['config_ecommerce_platform'] = 'Select Platform';
-$lang['config_magento_settings_info'] = 'Magento Settings';
-$lang['config_scale_divide_by'] = 'Scale Price Divide By';
-$lang['config_do_not_force_http'] = 'Do not force HTTP when needed for EMV Credit Card Processing';
-$lang['config_logout_on_clock_out'] = 'Log out automatically when clocking out';
-$lang['config_user_configured_layaway_name'] = 'Override Layaway Name';
-$lang['config_virtual_keyboard'] = 'Virtual Keyboard (On/Off)';
-$lang['config_use_tax_value_at_all_locations'] = 'Use Tax Values at ALL locations';
-$lang['config_enable_ebt_payments'] = 'Enable EBT payments';
-$lang['config_item_id_auto_increment'] = 'Item ID Auto Increment Starting Value';
-$lang['config_change_auto_increment_item_id_unsuccessful'] = 'There was an error changing auto_increment for item_id';
-$lang['config_item_kit_id_auto_increment'] = 'Item Kit ID Auto Increment Starting Value';
-$lang['config_sale_id_auto_increment'] = 'Sale ID Auto Increment Starting Value';
-$lang['config_receiving_id_auto_increment'] = 'Receiving ID Auto Increment Starting Value';
-$lang['config_change_auto_increment_item_kit_id'] = 'There was an error changing auto_increment for  Iitem_kit_id';
-$lang['config_change_auto_increment_sale_id'] = 'There was an error changing auto_increment for sale_id';
-$lang['config_change_auto_increment_receiving_id'] = 'There was an error changing auto_increment for receiving_id';
-$lang['config_auto_increment_note'] = 'You can only increase Auto Increment values. Updating them will not affect IDs for items, item kits, sales or receivings that already exist.';
-
-$lang['config_online_price_tier'] = 'Online Price Tier';
-$lang['config_email_settings_info'] = 'Email Settings';
-
-$lang['config_last_sync_date'] = 'Last Sync Date';
-$lang['config_sync'] = 'Sync';
-$lang['config_smtp_crypto'] = 'SMTP Encryption';
-$lang['config_email_protocol'] = 'Mail Sending Protocol';
-$lang['config_smtp_host'] = 'SMTP Server Address';
-$lang['config_smtp_user'] = 'Email Address';
-$lang['config_smtp_pass'] = 'Email Password';
-$lang['config_smtp_port'] = 'SMTP Port';
-$lang['config_email_charset'] = 'Character set';
-$lang['config_email_newline'] = 'Newline character';
+$lang['config_last_sync_date'] = 'วันที่ซิงค์ล่าสุด';
+$lang['config_sync'] = 'ซิงค์';
+$lang['config_smtp_crypto'] = 'การเข้ารหัส SMTP';
+$lang['config_email_protocol'] = 'โปรโตคอลการส่งอีเมล';
+$lang['config_smtp_host'] = 'ที่อยู่เซิร์ฟเวอร์ SMTP';
+$lang['config_smtp_user'] = 'ที่อยู่อีเมล';
+$lang['config_smtp_pass'] = 'รหัสผ่านอีเมล';
+$lang['config_smtp_port'] = 'พอร์ต SMTP';
+$lang['config_email_charset'] = 'ชุดอักขระ';
+$lang['config_email_newline'] = 'อักขระขึ้นบรรทัดใหม่';
 $lang['config_email_crlf'] = 'CRLF';
-$lang['config_smtp_timeout'] = 'SMTP Timeout';
-$lang['config_send_test_email'] = 'Send Test Email';
-$lang['config_please_enter_email_to_send_test_to'] = 'Please enter email address to send test email to';
-$lang['config_email_succesfully_sent'] = 'Email has been sent successfully';
-$lang['config_taxes_info'] = 'Taxes';
-$lang['config_currency_info'] = 'Currency';
+$lang['config_smtp_timeout'] = 'หมดเวลา SMTP';
+$lang['config_send_test_email'] = 'ส่งอีเมลทดสอบ';
+$lang['config_please_enter_email_to_send_test_to'] = 'กรุณาป้อนที่อยู่อีเมลเพื่อส่งอีเมลทดสอบ';
+$lang['config_email_succesfully_sent'] = 'ส่งอีเมลสำเร็จ';
+$lang['config_taxes_info'] = 'ภาษี';
+$lang['config_currency_info'] = 'สกุลเงิน';
+$lang['config_receipt_info'] = 'ใบเสร็จ';
+$lang['config_barcodes_info'] = 'บาร์โค้ด';
+$lang['config_customer_loyalty_info'] = 'โปรแกรมสมนาคุณลูกค้า';
+$lang['config_price_tiers_info'] = 'ระดับราคา';
+$lang['config_auto_increment_ids_info'] = 'หมายเลขรหัส';
+$lang['config_items_info'] = 'สินค้า';
+$lang['config_employee_info'] = 'พนักงาน';
+$lang['config_store_accounts_info'] = 'บัญชีร้านค้า';
+$lang['config_sales_info'] = 'การขาย';
+$lang['config_payment_types_info'] = 'ประเภทการชำระเงิน';
+$lang['config_profit_info'] = 'การคำนวณกำไร';
+$lang['reports_view_dashboard_stats'] = 'ดูสถิติแดชบอร์ด';
+$lang['config_keyword_email'] = 'การตั้งค่าอีเมล';
+$lang['config_keyword_company'] = 'บริษัท';
+$lang['config_keyword_taxes'] = 'ภาษี';
+$lang['config_keyword_currency'] = 'สกุลเงิน';
+$lang['config_keyword_payment'] = 'การชำระเงิน';
+$lang['config_keyword_sales'] = 'การขาย';
+$lang['config_keyword_suspended_layaways'] = 'การขายที่ถูกระงับ';
+$lang['config_keyword_receipt'] = 'ใบเสร็จ';
+$lang['config_keyword_profit'] = 'กำไร';
+$lang['config_keyword_barcodes'] = 'บาร์โค้ด';
+$lang['config_keyword_customer_loyalty'] = 'โปรแกรมสมนาคุณลูกค้า';
+$lang['config_keyword_price_tiers'] = 'ระดับราคา';
+$lang['config_keyword_auto_increment'] = 'การเพิ่มอัตโนมัติของหมายเลขรหัสฐานข้อมูล';
+$lang['config_keyword_items'] = 'สินค้า';
+$lang['config_keyword_employees'] = 'พนักงาน';
+$lang['config_keyword_store_accounts'] = 'บัญชีร้านค้า';
+$lang['config_keyword_application_settings'] = 'การตั้งค่าแอปพลิเคชัน';
+$lang['config_keyword_ecommerce'] = 'แพลตฟอร์มอีคอมเมิร์ซ';
+$lang['config_keyword_woocommerce'] = 'การตั้งค่า woocommerce อีคอมเมิร์ซ';
+$lang['config_billing_info'] = 'ข้อมูลการเรียกเก็บเงิน';
+$lang['config_keyword_billing'] = 'การเรียกเก็บเงิน ยกเลิก อัปเดต';
+$lang['config_woo_version'] = 'เวอร์ชัน WooCommerce';
 
-$lang['config_receipt_info'] = 'Receipt';
+$lang['sync_phppos_item_changes'] = 'ซิงค์การเปลี่ยนแปลงสินค้า';
+$lang['config_sync_phppos_item_changes'] = 'ซิงค์การเปลี่ยนแปลงสินค้า (ซิงค์อัตโนมัติทางเดียว pos->woo)';
+$lang['config_import_ecommerce_items_into_phppos'] = 'นำเข้าสินค้าเข้าสู่ phppos';
+$lang['config_sync_inventory_changes'] = 'ซิงค์การเปลี่ยนแปลงสต็อก (ซิงค์อัตโนมัติสองทาง pos<->woo)';
+$lang['config_export_phppos_tags_to_ecommerce'] = 'ส่งออกแท็กไปยังอีคอมเมิร์ซ';
+$lang['config_export_phppos_categories_to_ecommerce'] = 'ส่งออกหมวดหมู่ไปยังอีคอมเมิร์ซ';
+$lang['config_export_phppos_items_to_ecommerce'] = 'ส่งออกสินค้าไปยังอีคอมเมิร์ซ';
+$lang['config_ecommerce_cron_sync_operations'] = 'การดำเนินการซิงค์อีคอมเมิร์ซ';
+$lang['config_ecommerce_progress'] = 'ความคืบหน้าการซิงค์';
+$lang['confirmation_woocommerce_cron_cancel'] = 'คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการซิงค์?';
+$lang['config_force_https'] = 'กำหนดให้ใช้ https สำหรับโปรแกรม';
 
-$lang['config_barcodes_info'] = 'Barcodes';
-$lang['config_customer_loyalty_info'] = 'Customer Loyalty';
-$lang['config_price_tiers_info'] = 'Price Tiers';
-$lang['config_auto_increment_ids_info'] = 'ID Numbers';
-$lang['config_items_info'] = 'Items';
-$lang['config_employee_info'] = 'Employee';
-$lang['config_store_accounts_info'] = 'Store Accounts';
-$lang['config_sales_info'] = 'Sales';
-$lang['config_payment_types_info'] = 'Payment Types';
-$lang['config_profit_info'] = 'Profit Calculation';
-$lang['reports_view_dashboard_stats'] = 'View Dashboard Statistics';
-$lang['config_keyword_email'] = 'email settings';
-$lang['config_keyword_company'] = 'company';
-$lang['config_keyword_taxes'] = 'taxes';
-$lang['config_keyword_currency'] = 'currency';
-$lang['config_keyword_payment'] = 'payment';
-$lang['config_keyword_sales'] = 'sales';
-$lang['config_keyword_suspended_layaways'] = 'suspended layaways';
-$lang['config_keyword_receipt'] = 'receipt';
-$lang['config_keyword_profit'] = 'profit';
-$lang['config_keyword_barcodes'] = 'barcodes';
-$lang['config_keyword_customer_loyalty'] = 'customer loyalty';
-$lang['config_keyword_price_tiers'] = 'price tiers';
-$lang['config_keyword_auto_increment'] = 'starting auto increment id numbers database';
-$lang['config_keyword_items'] = 'items';
-$lang['config_keyword_employees'] = 'employees';
-$lang['config_keyword_store_accounts'] = 'store accounts';
-$lang['config_keyword_application_settings'] = 'application settings';
-$lang['config_keyword_ecommerce'] = 'ecommerce platform';
-$lang['config_keyword_woocommerce'] = 'woocommerce settings ecommerce';
-$lang['config_billing_info'] = 'Billing Information';
-$lang['config_keyword_billing'] = 'billing cancel update';
-$lang['config_woo_version'] = 'WooCommerce Version';
+$lang['config_keyword_price_rules'] = 'กฎราคา';
+$lang['config_disable_price_rules_dialog'] = 'ปิดกล่องโต้ตอบกฎราคา';
+$lang['config_price_rules_info'] = 'กฎราคา';
 
-$lang['sync_phppos_item_changes'] = 'Sync item changes';
-$lang['config_sync_phppos_item_changes'] = 'Sync item changes (oneway auto sync pos->woo)';
-$lang['config_import_ecommerce_items_into_phppos'] = 'Import items into phppos';
-$lang['config_sync_inventory_changes'] = 'Sync inventory changes (twoway auto sync pos<->woo)';
-$lang['config_export_phppos_tags_to_ecommerce'] = 'Export tags to ecommerce';
-$lang['config_export_phppos_categories_to_ecommerce'] = 'Export categories to ecommerce';
-$lang['config_export_phppos_items_to_ecommerce'] = 'Export items to ecommerce';
-$lang['config_ecommerce_cron_sync_operations'] = 'Ecommerce Sync Operations';
-$lang['config_ecommerce_progress'] = 'Sync Progress';
-$lang['confirmation_woocommerce_cron_cancel'] = 'Are you sure you want to cancel the sync?';
-$lang['config_force_https'] = 'Require https for program';
+$lang['config_prompt_to_use_points'] = 'ให้เลือกใช้คะแนนเมื่อมีคะแนนสะสม';
 
-$lang['config_keyword_price_rules'] = 'Price Rules';
-$lang['config_disable_price_rules_dialog'] = 'Disable Price Rules dialog';
-$lang['config_price_rules_info'] = 'Price Rules';
+$lang['config_always_print_duplicate_receipt_all'] = 'พิมพ์สำเนาใบเสร็จสำหรับทุกรายการเสมอ';
 
-$lang['config_prompt_to_use_points'] = 'Prompt to use points when available';
+$lang['config_orders_and_deliveries_info'] = 'คำสั่งซื้อและการจัดส่ง';
+$lang['config_delivery_methods'] = 'วิธีการจัดส่ง';
+$lang['config_shipping_providers'] = 'ผู้ให้บริการจัดส่ง';
+$lang['config_expand'] = 'ขยาย';
+$lang['config_add_delivery_rate'] = 'เพิ่มอัตราค่าจัดส่ง';
+$lang['config_add_shipping_provider'] = 'เพิ่มผู้ให้บริการจัดส่ง';
+$lang['config_delivery_rates'] = 'อัตราค่าจัดส่ง';
+$lang['config_delivery_fee'] = 'ค่าจัดส่ง';
+$lang['config_keyword_orders_deliveries'] = 'คำสั่งซื้อ การจัดส่ง';
+$lang['config_delivery_fee_tax'] = 'ภาษีค่าจัดส่ง';
+$lang['config_add_rate'] = 'เพิ่มอัตรา';
+$lang['config_delivery_time'] = 'เวลาจัดส่งเป็นวัน';
+$lang['config_delivery_rate'] = 'อัตราค่าจัดส่ง';
+$lang['config_rate_name'] = 'ชื่ออัตรา';
+$lang['config_rate_fee'] = 'ค่าธรรมเนียม';
+$lang['config_rate_tax'] = 'ภาษีอัตรา';
+$lang['config_tax_classes'] = 'กลุ่มภาษี';
+$lang['config_add_tax_class'] = 'เพิ่มกลุ่มภาษี';
 
+$lang['config_wide_printer_receipt_format'] = 'รูปแบบใบเสร็จเครื่องพิมพ์กว้าง';
 
+$lang['config_default_cost_plus_fixed_amount'] = 'ต้นทุนบวกจำนวนคงที่เริ่มต้น';
+$lang['config_default_tier_fixed_type_for_excel_import'] = 'จำนวนคงที่ระดับเริ่มต้นสำหรับการนำเข้า Excel';
+$lang['config_default_reorder_level_when_creating_items'] = 'ระดับการสั่งซื้อซ้ำเริ่มต้นเมื่อสร้างสินค้า';
+$lang['config_remove_customer_company_from_receipt'] = 'ลบชื่อบริษัทลูกค้าออกจากใบเสร็จ';
 
-$lang['config_always_print_duplicate_receipt_all'] = 'Always print duplicate receipt for all transactions';
+$lang['config_import_ecommerce_categories_into_phppos'] = 'นำเข้าหมวดหมู่เข้าสู่ phppos';
+$lang['config_import_ecommerce_tags_into_phppos'] = 'นำเข้าแท็กเข้าสู่ phppos';
 
+$lang['config_shipping_zones'] = 'โซนจัดส่ง';
+$lang['config_add_shipping_zone'] = 'เพิ่มโซนจัดส่ง';
+$lang['config_no_results'] = 'ไม่มีผลลัพธ์';
+$lang['config_zip_search_term'] = 'พิมพ์รหัสไปรษณีย์';
+$lang['config_searching'] = 'กำลังค้นหา...';
+$lang['config_tax_class'] = 'กลุ่มภาษี';
+$lang['config_zone'] = 'โซน';
 
-$lang['config_orders_and_deliveries_info'] = 'Orders And Deliveries';
-$lang['config_delivery_methods'] = 'Delivery Methods';
-$lang['config_shipping_providers'] = 'Shipping Providers';
-$lang['config_expand'] = 'Expand';
-$lang['config_add_delivery_rate'] = 'Add Delivery Rate';
-$lang['config_add_shipping_provider'] = 'Add Shipping Provider';
-$lang['config_delivery_rates'] = 'Delivery Rates';
-$lang['config_delivery_fee'] = 'Delivery Fee';
-$lang['config_keyword_orders_deliveries'] = 'orders delivery deliveries';
-$lang['config_delivery_fee_tax'] = 'Delivery Fee Tax';
-$lang['config_add_rate'] = 'Add Rate';
-$lang['config_delivery_time'] = 'Delivery Time In Days';
-$lang['config_delivery_rate'] = 'Delivery Rate';
-$lang['config_rate_name'] = 'Rate Name';
-$lang['config_rate_fee'] = 'Rate Fee';
-$lang['config_rate_tax'] = 'Rate Tax';
-$lang['config_tax_classes'] = 'Tax Groups';
-$lang['config_add_tax_class'] = 'Add Tax Group';
+$lang['config_zip_codes'] = 'รหัสไปรษณีย์';
+$lang['config_add_zip_code'] = 'เพิ่มรหัสไปรษณีย์';
+$lang['config_ecom_sync_logs'] = 'บันทึกการซิงค์อีคอมเมิร์ซ';
+$lang['config_currency_code'] = 'รหัสสกุลเงิน';
 
-$lang['config_wide_printer_receipt_format'] = 'Wide Printer Receipt Format';
-
-$lang['config_default_cost_plus_fixed_amount'] = 'Default Cost Plus Fixed Amount';
-$lang['config_default_tier_fixed_type_for_excel_import'] = 'Default Tier Fixed Amount for Excel Import';
-$lang['config_default_reorder_level_when_creating_items'] = 'Default Reorder Level When Creating Items';
-$lang['config_remove_customer_company_from_receipt'] = 'Remove customer company name from receipt';
-
-$lang['config_import_ecommerce_categories_into_phppos'] = 'Import categories into phppos';
-$lang['config_import_ecommerce_tags_into_phppos'] = 'Imports tags into phppos';
-
-$lang['config_shipping_zones'] = 'Shipping Zones';
-$lang['config_add_shipping_zone'] = 'Add Shipping Zone';
-$lang['config_no_results'] = 'No Results';
-$lang['config_zip_search_term'] = 'Type in a zipcode';
-$lang['config_searching'] = 'Searching...';
-$lang['config_tax_class'] = 'Tax Group';
-$lang['config_zone'] = 'Zone';
-
-$lang['config_zip_codes'] = 'Zip Codes';
-$lang['config_add_zip_code'] = 'Add Zip Code';
-$lang['config_ecom_sync_logs'] = 'E-Commerce Syncing Logs';
-$lang['config_currency_code'] = 'Currency Code';
-
-$lang['config_add_currency_exchange_rate'] = 'Add Currency Exchange Rate';
-$lang['config_currency_exchange_rates'] = 'Exchange Rates';
-$lang['config_exchange_rate'] = 'Exchange Rate';
-$lang['config_item_lookup_order'] = 'Item Lookup Order';
-$lang['config_item_id'] = 'Item Id';
-$lang['config_reset_ecommerce'] = 'Reset E-Commerce';
-$lang['config_confirm_reset_ecom'] = 'Are you sure you want to reset e-commerce? This will only reset php point of sale so items are no longer linked';
-$lang['config_reset_ecom_successfully'] = 'You have reset E-Commerce successfully';
-$lang['config_number_of_decimals_for_quantity_on_receipt'] = 'Number of Decimals for Quantity On Receipt';
-$lang['config_enable_wic'] = 'Enable WIC';
-$lang['config_store_opening_time'] = 'Store Opening Time';
-$lang['config_store_closing_time'] = 'Store Closing Time';
-$lang['config_limit_manual_price_adj'] = 'Limit Manual Price Adjustments And Discounts';
-$lang['config_always_minimize_menu'] = 'Always Minimize Left Side Bar Menu';
+$lang['config_add_currency_exchange_rate'] = 'เพิ่มอัตราแลกเปลี่ยนสกุลเงิน';
+$lang['config_currency_exchange_rates'] = 'อัตราแลกเปลี่ยน';
+$lang['config_exchange_rate'] = 'อัตราแลกเปลี่ยน';
+$lang['config_item_lookup_order'] = 'ลำดับการค้นหาสินค้า';
+$lang['config_item_id'] = 'รหัสสินค้า';
+$lang['config_reset_ecommerce'] = 'รีเซ็ตอีคอมเมิร์ซ';
+$lang['config_confirm_reset_ecom'] = 'คุณแน่ใจหรือไม่ว่าต้องการรีเซ็ตอีคอมเมิร์ซ? สิ่งนี้จะรีเซ็ตเฉพาะ php point of sale เพื่อให้สินค้าไม่เชื่อมโยงอีกต่อไป';
+$lang['config_reset_ecom_successfully'] = 'คุณได้รีเซ็ตอีคอมเมิร์ซสำเร็จ';
+$lang['config_number_of_decimals_for_quantity_on_receipt'] = 'จำนวนทศนิยมสำหรับจำนวนบนใบเสร็จ';
+$lang['config_enable_wic'] = 'เปิดใช้งาน WIC';
+$lang['config_store_opening_time'] = 'เวลาเปิดร้าน';
+$lang['config_store_closing_time'] = 'เวลาปิดร้าน';
+$lang['config_limit_manual_price_adj'] = 'จำกัดการปรับราคาและส่วนลดด้วยตนเอง';
+$lang['config_always_minimize_menu'] = 'ย่อเมนูแถบด้านข้างซ้ายเสมอ';
 ?>

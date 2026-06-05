@@ -1,10 +1,10 @@
 <?php
-$lang['home_todays_closeout_report'] = 'Today\'s closeout report';
-$lang['home_todays_detailed_sales_report'] = 'Today\'s detailed sales report';
-$lang['home_todays_summary_items_report'] = 'Today\'s summary items report';
+$lang['home_todays_closeout_report'] = 'รายงานปิดการขายประจำวัน';
+$lang['home_todays_detailed_sales_report'] = 'รายงานการขายรายละเอียดประจำวัน';
+$lang['home_todays_summary_items_report'] = 'รายงานสรุปรายการสินค้าประจำวัน';
 
-$lang['home_receivings_start_new_receiving'] = 'Start a New Receiving';
-$lang['home_mercury_activate_promo_text'] = 'PHP Point Of Sale integrates with credit card processing with many vendors. This will allow you to collect payment from popular card brands such as Visa, Mastercard and American Express. Click here to learn more about our offerings.';
-$lang['home_welcome_message'] = 'Welcome to PHP Point Of Sale, choose a common task below to get started!';
-$lang['home_ecommerce_platform_sync'] = 'Ecommerce Platform Sync Status';
+$lang['home_receivings_start_new_receiving'] = 'เริ่มรับสินค้าใหม่';
+$lang['home_mercury_activate_promo_text'] = 'PHP Point Of Sale เชื่อมต่อกับการประมวลผลบัตรเครดิตกับผู้ให้บริการหลายราย ซึ่งจะช่วยให้คุณรับชำระเงินจากบัตรยอดนิยม เช่น Visa, Mastercard และ American Express คลิกที่นี่เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับบริการของเรา';
+$lang['home_welcome_message'] = 'ยินดีต้อนรับสู่ PHP Point Of Sale เลือกงานด้านล่างเพื่อเริ่มต้น!';
+$lang['home_ecommerce_platform_sync'] = 'สถานะการซิงค์แพลตฟอร์มอีคอมเมิร์ซ';
 ?>

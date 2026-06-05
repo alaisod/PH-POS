@@ -2452,7 +2452,7 @@ $this->load->helper('update');
 							'german'    => 'Deutsch',
 							'dutch'    => 'Nederlands',
 							'portugues'    => 'Portugues',
-              'arabic' => 'العَرَبِيةُ‎‎',
+              				'arabic' => 'العَرَبِيةُ',
 							'khmer' => 'Khmer',
 							'chinese' => '中文',
 							'chinese_traditional' => '繁體中文'

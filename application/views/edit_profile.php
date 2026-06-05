@@ -59,6 +59,7 @@
 					<?php echo form_label(lang('common_language').':', 'language',array('class'=>'col-sm-3 col-md-4 col-lg-3 col-sm-3 col-md-4 col-lg-3 control-label  required')); ?>
 						<div class="col-sm-9 col-md-8 col-lg-9">
 						<?php echo form_dropdown('language', array(
+							'thai'  => 'ภาษาไทย',
 							'english'  => 'English',
 							'indonesia'    => 'Indonesia',
 							'spanish'   => 'Español', 
@@ -67,7 +68,7 @@
 							'german'    => 'Deutsch',
 							'dutch'    => 'Nederlands',
 							'portugues'    => 'Portugues',
-							'arabic' => 'العَرَبِيةُ‎‎',
+							'arabic' => 'العَرَبِيةُ',
 							'khmer' => 'Khmer',
 							'chinese' => '中文',
 							'chinese_traditional' => '繁體中文'

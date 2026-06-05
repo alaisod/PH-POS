@@ -1,79 +1,79 @@
 <?php
 
-$lang['price_rules_add_rule'] = 'Create Rule';
-$lang['price_rules_edit_rule'] = 'Edit Rule';
-$lang['price_rules_view_rule'] = 'Price Rule Details';
-$lang['price_rules_delete_rule'] = 'Delete Rule';
-$lang['price_rules_no_rule'] = 'There are no price rules';
-$lang['price_rules_confirm_delete']='Are you sure, you want to delete this price rule & all its details!';
-$lang['price_rules_rule_deleted'] = 'Price Rule deleted successfully';
-$lang['price_rules_cannot_be_deleted']='Price rules can not be deleted';
-$lang['price_rules_none_selected']='No Price Rule Selected';
-$lang['price_rules_write_rule'] = 'You must enter a price rule';
-$lang['price_rules_basic_info']='Price Rule Information';
-$lang['price_rules_success'] = 'Price rule added/updated successfully';
-$lang['price_rules_error'] = 'Error adding/updating Price rule! ';
+$lang['price_rules_add_rule'] = 'สร้างกฎ';
+$lang['price_rules_edit_rule'] = 'แก้ไขกฎ';
+$lang['price_rules_view_rule'] = 'รายละเอียดกฎราคา';
+$lang['price_rules_delete_rule'] = 'ลบกฎ';
+$lang['price_rules_no_rule'] = 'ไม่มีกฎราคา';
+$lang['price_rules_confirm_delete']='คุณแน่ใจหรือไม่ว่าต้องการลบกฎราคานี้และรายละเอียดทั้งหมด!';
+$lang['price_rules_rule_deleted'] = 'ลบกฎราคาสำเร็จ';
+$lang['price_rules_cannot_be_deleted']='ไม่สามารถลบกฎราคาได้';
+$lang['price_rules_none_selected']='ไม่ได้เลือกกฎราคา';
+$lang['price_rules_write_rule'] = 'คุณต้องป้อนกฎราคา';
+$lang['price_rules_basic_info']='ข้อมูลกฎราคา';
+$lang['price_rules_success'] = 'เพิ่ม/อัปเดตกฎราคาสำเร็จ';
+$lang['price_rules_error'] = 'เกิดข้อผิดพลาดในการเพิ่ม/อัปเดตกฎราคา!';
 
-$lang['price_rules_id']='ID';
-$lang['price_rules_name']='Rule Name';
-$lang['price_rules_start_date']='Start Date';
-$lang['price_rules_end_date']='End Date';
-$lang['price_rules_status']='Status';
-$lang['price_rules_type']='Rule Type';
+$lang['price_rules_id']='รหัส';
+$lang['price_rules_name']='ชื่อกฎ';
+$lang['price_rules_start_date']='วันที่เริ่มต้น';
+$lang['price_rules_end_date']='วันที่สิ้นสุด';
+$lang['price_rules_status']='สถานะ';
+$lang['price_rules_type']='ประเภทกฎ';
 
-$lang['price_rules_title_required']='Price Rule Title is required';
-$lang['price_rules_start_date_required']='Start Date is required';
-$lang['price_rules_end_date_required']='End Date is required';
-$lang['price_rules_items_required']='You must select at least 1 item';
+$lang['price_rules_title_required']='กรุณากรอกชื่อกฎราคา';
+$lang['price_rules_start_date_required']='กรุณากรอกวันที่เริ่มต้น';
+$lang['price_rules_end_date_required']='กรุณากรอกวันที่สิ้นสุด';
+$lang['price_rules_items_required']='คุณต้องเลือกสินค้าอย่างน้อย 1 รายการ';
 
-$lang['price_rules_search_term']='Type in a search term';
-$lang['price_rules_no_results']='No results';
-$lang['price_rules_searching']='Searching...';
-$lang['common_discount'] = 'Discount';
+$lang['price_rules_search_term']='พิมพ์คำค้นหา';
+$lang['price_rules_no_results']='ไม่มีผลลัพธ์';
+$lang['price_rules_searching']='กำลังค้นหา...';
+$lang['common_discount'] = 'ส่วนลด';
 
-$lang['price_rules_select_type']='Select A Rule Type';
+$lang['price_rules_select_type']='เลือกประเภทกฎ';
 
-$lang['buy_x_get_y_free_amount']='BOGO amount to buy';
-$lang['buy_x_get_discount']='Buy X Get Discount';
+$lang['buy_x_get_y_free_amount']='จำนวนที่ซื้อแบบ BOGO';
+$lang['buy_x_get_discount']='ซื้อ X รับส่วนลด';
 
-$lang['price_break_rule']='Price Break Rule';
+$lang['price_break_rule']='กฎลดราคาตามจำนวน';
 
-$lang['price_rules_description']='Item Name';
-$lang['price_rules_qty_to_buy']='Quantity to Buy';
-$lang['price_rules_total_discount_on_qty']='Total Discount';
-$lang['price_rules_discount_per_unit']='Discount Per Item';
-$lang['price_rules_current_unit_cost_price']='Item Cost Price';
-$lang['price_rules_current_unit_sale_price']='Item Selling Price';
-$lang['price_rules_total_qty_price']='Total Price After Discount';
-$lang['price_rules_add_price_break_rule']='Add Item Row';
-$lang['qty_discount']='Disc.';
+$lang['price_rules_description']='ชื่อสินค้า';
+$lang['price_rules_qty_to_buy']='จำนวนที่ต้องซื้อ';
+$lang['price_rules_total_discount_on_qty']='ส่วนลดรวม';
+$lang['price_rules_discount_per_unit']='ส่วนลดต่อชิ้น';
+$lang['price_rules_current_unit_cost_price']='ราคาต้นทุนสินค้า';
+$lang['price_rules_current_unit_sale_price']='ราคาขายสินค้า';
+$lang['price_rules_total_qty_price']='ราคารวมหลังหักส่วนลด';
+$lang['price_rules_add_price_break_rule']='เพิ่มแถวสินค้า';
+$lang['qty_discount']='ส่วนลด';
 
-$lang['buy_x_get_y_free'] = 'Buy X Get Y Free (BOGO)';
-$lang['spend_x_get_discount'] = 'Spend X Get Discount';
+$lang['buy_x_get_y_free'] = 'ซื้อ X แถม Y ฟรี (BOGO)';
+$lang['spend_x_get_discount'] = 'ใช้จ่าย X รับส่วนลด';
 
-$lang['price_rules_active'] = 'Active';
+$lang['price_rules_active'] = 'เปิดใช้งาน';
 
-$lang['price_rules_select_items'] = 'Select Items';
-$lang['price_rules_select_item_kits'] = 'Select Item Kits';
-$lang['price_rules_select_categories'] = 'Select Categories';
-$lang['price_rules_select_tags'] = 'Select Tags';
-$lang['price_rules_unlimited'] = 'Unlimited';
-$lang['price_rules_num_times_to_apply'] = 'Maximum Allowed Per Sale';
-$lang['simple_discount'] = 'Simple Discount';
-$lang['price_rules_price_breaks'] = 'Price Breaks';
-$lang['price_rules_flat_discount_per_unit'] = 'Flat Discount Per Item';
-$lang['price_rules_percent_discount_per_unit'] = 'Percent Off Per Item';
-$lang['common_price_rules'] = 'Price Rules';
-$lang['price_rules_new'] = 'New Price Rule';
-$lang['price_rules_update'] = 'Update Price Rule';
-$lang['price_rules_items_to_buy'] = 'Quantity to Buy';
-$lang['price_rules_items_to_get'] = 'Quantity to Get';
-$lang['price_rules_spend_amount'] = 'Spend Amount';
-$lang['price_rules_percent_off'] = 'Percent Off';
-$lang['price_rules_fixed_off'] = 'Fixed Off';
+$lang['price_rules_select_items'] = 'เลือกสินค้า';
+$lang['price_rules_select_item_kits'] = 'เลือกชุดสินค้า';
+$lang['price_rules_select_categories'] = 'เลือกหมวดหมู่';
+$lang['price_rules_select_tags'] = 'เลือกแท็ก';
+$lang['price_rules_unlimited'] = 'ไม่จำกัด';
+$lang['price_rules_num_times_to_apply'] = 'จำนวนสูงสุดที่อนุญาตต่อการขาย';
+$lang['simple_discount'] = 'ส่วนลดทั่วไป';
+$lang['price_rules_price_breaks'] = 'ราคาตามจำนวน';
+$lang['price_rules_flat_discount_per_unit'] = 'ส่วนลดคงที่ต่อชิ้น';
+$lang['price_rules_percent_discount_per_unit'] = 'เปอร์เซ็นต์ส่วนลดต่อชิ้น';
+$lang['common_price_rules'] = 'กฎราคา';
+$lang['price_rules_new'] = 'กฎราคาใหม่';
+$lang['price_rules_update'] = 'อัปเดตกฎราคา';
+$lang['price_rules_items_to_buy'] = 'จำนวนที่ต้องซื้อ';
+$lang['price_rules_items_to_get'] = 'จำนวนที่ได้รับ';
+$lang['price_rules_spend_amount'] = 'จำนวนเงินที่ใช้';
+$lang['price_rules_percent_off'] = 'เปอร์เซ็นต์ส่วนลด';
+$lang['price_rules_fixed_off'] = 'ส่วนลดคงที่';
 
-$lang['advanced_discount'] = 'Advanced Discount';
-$lang['price_rules_requires_coupon'] = 'Requires Coupon';
+$lang['advanced_discount'] = 'ส่วนลดขั้นสูง';
+$lang['price_rules_requires_coupon'] = 'ต้องใช้คูปอง';
 
-$lang['price_rules_show_coupon_on_receipt'] = 'Print Coupon on Receipt';
+$lang['price_rules_show_coupon_on_receipt'] = 'พิมพ์คูปองบนใบเสร็จ';
 ?>

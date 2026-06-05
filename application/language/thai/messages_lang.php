@@ -1,10 +1,10 @@
 <?php
-$lang['messages_sent_messages'] = 'Sent Messages';
-$lang['messages_no_messages'] = 'There are no messages';
-$lang['messages_inbox'] = 'Inbox';
-$lang['messages_message_deleted'] = 'Message deleted successfully';
-$lang['messages_employees_required'] = 'You must select at least one employee';
-$lang['messages_locations_required'] = 'You must select at least one location';
-$lang['messages_must_write_message'] = 'You must enter a message';
-$lang['messages_new_message'] = 'New Message';
+$lang['messages_sent_messages'] = 'ข้อความที่ส่ง';
+$lang['messages_no_messages'] = 'ไม่มีข้อความ';
+$lang['messages_inbox'] = 'กล่องขาเข้า';
+$lang['messages_message_deleted'] = 'ลบข้อความสำเร็จ';
+$lang['messages_employees_required'] = 'คุณต้องเลือกพนักงานอย่างน้อยหนึ่งคน';
+$lang['messages_locations_required'] = 'คุณต้องเลือกสาขาอย่างน้อยหนึ่งสาขา';
+$lang['messages_must_write_message'] = 'คุณต้องป้อนข้อความ';
+$lang['messages_new_message'] = 'ข้อความใหม่';
 ?>

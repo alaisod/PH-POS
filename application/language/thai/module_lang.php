@@ -1,82 +1,82 @@
 <?php
-$lang['module_home']='Home';
+$lang['module_home']='หน้าแรก';
 
-$lang['module_customers']='Customers';
-$lang['module_customers_desc']='Add, Update, Delete, and Search customers';
+$lang['module_customers']='ลูกค้า';
+$lang['module_customers_desc']='เพิ่ม, อัปเดต, ลบ และค้นหาลูกค้า';
 
-$lang['module_suppliers']='Suppliers';
-$lang['module_suppliers_desc']='Add, Update, Delete, and Search suppliers';
+$lang['module_suppliers']='ผู้จัดจำหน่าย';
+$lang['module_suppliers_desc']='เพิ่ม, อัปเดต, ลบ และค้นหาผู้จัดจำหน่าย';
 
-$lang['module_employees']='Employees';
-$lang['module_employees_desc']='Add, Update, Delete, and Search employees';
+$lang['module_employees']='พนักงาน';
+$lang['module_employees_desc']='เพิ่ม, อัปเดต, ลบ และค้นหาพนักงาน';
 
-$lang['module_sales']='Sales';
-$lang['module_sales_desc']='Process sales and returns';
+$lang['module_sales']='การขาย';
+$lang['module_sales_desc']='ดำเนินการขายและคืนสินค้า';
 
-$lang['module_reports']='Reports';
-$lang['module_reports_desc']='View and generate reports';
+$lang['module_reports']='รายงาน';
+$lang['module_reports_desc']='ดูและสร้างรายงาน';
 
-$lang['module_items']='Items';
-$lang['module_items_desc']='Add, Update, Delete, and Search items';
+$lang['module_items']='สินค้า';
+$lang['module_items_desc']='เพิ่ม, อัปเดต, ลบ และค้นหาสินค้า';
 
-$lang['module_config']='Store Config';
-$lang['module_config_desc']='Change the store\'s configuration';
+$lang['module_config']='ตั้งค่าร้าน';
+$lang['module_config_desc']='เปลี่ยนการตั้งค่าร้านค้า';
 
-$lang['module_receivings']='Receiving';
-$lang['module_receivings_desc']='Process Purchase orders';
+$lang['module_receivings']='รับสินค้า';
+$lang['module_receivings_desc']='ดำเนินการใบสั่งซื้อ';
 
-$lang['module_giftcards']='Gift Cards';
-$lang['module_giftcards_desc']='Add, Update, Delete and Search gift cards';
+$lang['module_giftcards']='บัตรของขวัญ';
+$lang['module_giftcards_desc']='เพิ่ม, อัปเดต, ลบ และค้นหาบัตรของขวัญ';
 
-$lang['module_item_kits']='Item Kits';
-$lang['module_item_kits_desc']='Add, Update, Delete and Search Item Kits';
-
-
-$lang['module_locations']='Locations';
-$lang['module_locations_desc']='Add, Update, Delete, and Search locations';
-
-$lang['module_action_add_update'] = 'Add, Update';
-$lang['module_action_delete'] = 'Delete';
-$lang['module_action_search_customers'] = 'Search customers';
-$lang['module_action_search_items'] = 'Search items';
-$lang['module_action_search_giftcards'] = 'Search Giftcards';
-$lang['module_action_search_item_kits'] = 'Search Item Kits';
-$lang['module_action_search_suppliers'] = 'Search suppliers';
-$lang['module_see_cost_price'] = 'See cost price';
-$lang['module_action_search_employees'] = 'Search employees';
-$lang['module_edit_sale_price'] = 'Edit Sale Price';
-$lang['module_edit_sale'] = 'Edit Sale';
-$lang['module_give_discount'] = 'Give Discount';
-$lang['module_action_delete_sale'] = 'Delete Sale';
-$lang['module_action_delete_suspended_sale'] = 'Delete Suspended Sale';
-$lang['module_action_search_locations'] = 'Search locations';
-$lang['module_action_assign_all_locations'] = 'Assign all locations';
-$lang['module_action_delete_taxes'] = 'Delete Taxes';
-$lang['statistics'] = 'Statistics';
-$lang['module_expenses']='Expenses';
-$lang['module_expenses_desc'] = 'Add, Update, Delete, and Search expenses';
-$lang['module_messages'] = 'Messages';
-$lang['module_messages_desc'] = 'Send, receive, and view messages';
-$lang['module_action_edit_receiving'] = 'Edit receiving';
-$lang['module_action_delete_receiving'] = 'Delete receiving';
-$lang['module_edit_sale_cost_price'] = 'Edit sale cost price';
-$lang['module_edit_customer_points'] = 'Edit customer points/Number of sales until discount';
-$lang['module_edit_giftcard_value'] = 'Edit Giftcard value';
+$lang['module_item_kits']='ชุดสินค้า';
+$lang['module_item_kits_desc']='เพิ่ม, อัปเดต, ลบ และค้นหาชุดสินค้า';
 
 
-$lang['module_price_rules']='Price Rules';
-$lang['module_price_rules_desc']='Add, Update, Delete and Search Pricing Rules';
+$lang['module_locations']='สาขา';
+$lang['module_locations_desc']='เพิ่ม, อัปเดต, ลบ และค้นหาสาขา';
 
-$lang['module_action_search_price_rules']='Search Price Rules';
-$lang['module_action_view_price_rules']='Manage Price Rules';
-$lang['module_action_add_update_price_rule'] = 'Edit Price Rule';
-$lang['module_action_delete_price_rule'] = 'Delete Price Rule';
-$lang['module_price_rules.php'] = 'Price Rules';
-$lang['module_action_search_sales'] = 'Search Sales';
-$lang['deliveries_add_update'] = 'Add Deliveries';
-$lang['deliveries_edit'] = 'Edit Deliveries';
-$lang['deliveries_delete'] = 'Delete Deliveries';
-$lang['deliveries_search'] = 'Search Deliveries';
-$lang['module_deliveries'] = 'Deliveries';
-$lang['module_deliveries_desc'] = 'Add, Update, Delete, and Search Deliveries';
+$lang['module_action_add_update'] = 'เพิ่ม, อัปเดต';
+$lang['module_action_delete'] = 'ลบ';
+$lang['module_action_search_customers'] = 'ค้นหาลูกค้า';
+$lang['module_action_search_items'] = 'ค้นหาสินค้า';
+$lang['module_action_search_giftcards'] = 'ค้นหาบัตรของขวัญ';
+$lang['module_action_search_item_kits'] = 'ค้นหาชุดสินค้า';
+$lang['module_action_search_suppliers'] = 'ค้นหาผู้จัดจำหน่าย';
+$lang['module_see_cost_price'] = 'ดูราคาต้นทุน';
+$lang['module_action_search_employees'] = 'ค้นหาพนักงาน';
+$lang['module_edit_sale_price'] = 'แก้ไขราคาขาย';
+$lang['module_edit_sale'] = 'แก้ไขการขาย';
+$lang['module_give_discount'] = 'ให้ส่วนลด';
+$lang['module_action_delete_sale'] = 'ลบการขาย';
+$lang['module_action_delete_suspended_sale'] = 'ลบการขายที่ระงับ';
+$lang['module_action_search_locations'] = 'ค้นหาสาขา';
+$lang['module_action_assign_all_locations'] = 'กำหนดทุกสาขา';
+$lang['module_action_delete_taxes'] = 'ลบภาษี';
+$lang['statistics'] = 'สถิติ';
+$lang['module_expenses']='ค่าใช้จ่าย';
+$lang['module_expenses_desc'] = 'เพิ่ม, อัปเดต, ลบ และค้นหาค่าใช้จ่าย';
+$lang['module_messages'] = 'ข้อความ';
+$lang['module_messages_desc'] = 'ส่ง, รับ และดูข้อความ';
+$lang['module_action_edit_receiving'] = 'แก้ไขการรับสินค้า';
+$lang['module_action_delete_receiving'] = 'ลบการรับสินค้า';
+$lang['module_edit_sale_cost_price'] = 'แก้ไขราคาต้นทุนการขาย';
+$lang['module_edit_customer_points'] = 'แก้ไขคะแนนลูกค้า/จำนวนการขายจนถึงส่วนลด';
+$lang['module_edit_giftcard_value'] = 'แก้ไขมูลค่าบัตรของขวัญ';
+
+
+$lang['module_price_rules']='กฎราคา';
+$lang['module_price_rules_desc']='เพิ่ม, อัปเดต, ลบ และค้นหากฎราคา';
+
+$lang['module_action_search_price_rules']='ค้นหากฎราคา';
+$lang['module_action_view_price_rules']='จัดการกฎราคา';
+$lang['module_action_add_update_price_rule'] = 'แก้ไขกฎราคา';
+$lang['module_action_delete_price_rule'] = 'ลบกฎราคา';
+$lang['module_price_rules.php'] = 'กฎราคา';
+$lang['module_action_search_sales'] = 'ค้นหาการขาย';
+$lang['deliveries_add_update'] = 'เพิ่มการจัดส่ง';
+$lang['deliveries_edit'] = 'แก้ไขการจัดส่ง';
+$lang['deliveries_delete'] = 'ลบการจัดส่ง';
+$lang['deliveries_search'] = 'ค้นหาการจัดส่ง';
+$lang['module_deliveries'] = 'การจัดส่ง';
+$lang['module_deliveries_desc'] = 'เพิ่ม, อัปเดต, ลบ และค้นหาการจัดส่ง';
 ?>

@@ -333,8 +333,8 @@ if (is_on_demo_host()) { ?>
 						<?php if (is_on_demo_host() || $this->config->item('show_language_switcher')) { ?>
 						<?php 
 						$languages = array(
+							'thai'  => 'ภาษาไทย',
 							'english'  => 'English',
-							'thai'  => 'Thai',
 							'indonesia'    => 'Indonesia',
 							'spanish'   => 'Español', 
 							'french'    => 'Fançais',
@@ -342,7 +342,7 @@ if (is_on_demo_host()) { ?>
 							'german'    => 'Deutsch',
 							'dutch'    => 'Nederlands',
 							'portugues'    => 'Portugues',
-							'arabic' => 'العَرَبِيةُ‎‎',
+							'arabic' => 'العَرَبِيةُ',
 							'khmer' => 'Khmer',
 							'chinese' => '中文',
 							'chinese_traditional' => '繁體中文'

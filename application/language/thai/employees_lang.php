@@ -1,74 +1,45 @@
 <?php
 
-$lang['employees_new']='New Employee';
-$lang['employees_update']='Update Employee';
-$lang['employees_confirm_delete']='Are you sure you want to delete the selected employees?';
-$lang['employees_none_selected']='You have not selected any employees to delete';
+$lang['employees_new']='พนักงานใหม่';
+$lang['employees_update']='อัปเดตพนักงาน';
+$lang['employees_confirm_delete']='คุณแน่ใจหรือไม่ว่าต้องการลบพนักงานที่เลือก?';
+$lang['employees_none_selected']='คุณยังไม่ได้เลือกพนักงานที่จะลบ';
 
+$lang['employees_successful_deleted']='คุณได้ลบสำเร็จ';
+$lang['employees_one_or_multiple']='พนักงาน';
+$lang['employees_cannot_be_deleted']='ไม่สามารถลบพนักงานที่เลือกได้ เนื่องจากพนักงานบางคนมียอดขายหรือคุณกำลังพยายามลบตัวเอง';
 
+$lang['employees_username_exists']='ชื่อผู้ใช้นี้มีอยู่แล้ว';
+$lang['employees_password_required']='กรุณากรอกรหัสผ่าน';
 
-$lang['employees_successful_deleted']='You have successfully deleted';
-$lang['employees_one_or_multiple']='employee(s)';
-$lang['employees_cannot_be_deleted']='Could not deleted selected employees, one or more of the employees has processed sales or you are trying to delete yourself :)';
+$lang['employees_basic_information']='ข้อมูลพื้นฐานพนักงาน';
 
+$lang['employees_permission_info']='สิทธิ์และการเข้าถึงของพนักงาน';
+$lang['employees_permission_desc']='ทำเครื่องหมายในช่องด้านล่างเพื่อให้สิทธิ์เข้าถึงโมดูล';
 
+$lang['employees_error_deleting_demo_admin'] = 'คุณไม่สามารถลบผู้ดูแลระบบเดโม่ได้';
+$lang['employees_duplicate_exists'] = 'ชื่อพนักงานที่คล้ายกันมีอยู่แล้ว คุณต้องการดำเนินการต่อหรือไม่?';
+$lang['employees_cleanup_old_customers'] = 'ล้างข้อมูลพนักงานเก่า';
+$lang['employees_cleanup_sucessful'] = 'ล้างข้อมูลพนักงานสำเร็จ';
+$lang['employees_confirm_cleanup'] = 'คุณแน่ใจหรือไม่ว่าต้องการล้างข้อมูลพนักงานที่ถูกลบทั้งหมด?';
 
+$lang['employees_one_location_required'] = 'พนักงานต้องมีอย่างน้อยหนึ่งสาขา';
+$lang['employees_cannot_delete_default_user'] = 'คุณไม่สามารถลบผู้ใช้เริ่มต้นได้';
 
+$lang['employees_subject'] = 'หัวข้อ';
 
-$lang['employees_username_exists']='The username already exists';
-$lang['employees_password_required']='Password is required';
+$lang['employees_force_password_change_upon_login'] = 'บังคับเปลี่ยนรหัสผ่านเมื่อเข้าสู่ระบบ';
+$lang['employees_inactive'] = 'ไม่ทำงาน';
+$lang['employees_reason_inactive'] = 'เหตุผลที่ไม่ทำงาน';
+$lang['employees_termination_date'] = 'วันที่เลิกจ้าง';
+$lang['employees_hire_date'] = 'วันที่จ้างงาน';
+$lang['employees_birthday'] = 'วันเกิด';
 
+$lang['employees_required'] = 'ต้องมีพนักงานอย่างน้อยหนึ่งคน';
 
-$lang['employees_basic_information']='Employee Basic Information';
-
-$lang['employees_permission_info']='Employee Permissions and Access';
-$lang['employees_permission_desc']='Check the boxes below to grant access to modules';
-
-$lang['employees_error_deleting_demo_admin'] = 'You can not delete the demo admin user';
-$lang['employees_duplicate_exists'] = 'A similar employee name already exists. Do you want to continue?';
-$lang['employees_cleanup_old_customers'] = 'Cleanup old employees';
-$lang['employees_cleanup_sucessful'] = 'Employees cleaned successfuly';
-$lang['employees_confirm_cleanup'] = 'Are you sure you want to clean ALL deleted employees?';
-
-$lang['employees_one_location_required'] = 'At least one location is required for an employee';
-$lang['employees_cannot_delete_default_user'] = 'You cannot delete the default user';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$lang['employees_subject'] = 'Subject';
-
-
-$lang['employees_force_password_change_upon_login'] = 'Force password change upon login';
-$lang['employees_inactive'] = 'Inactive';
-$lang['employees_reason_inactive'] = 'Reason inactive';
-$lang['employees_termination_date'] = 'Termination date';
-$lang['employees_hire_date'] = 'Hire date';
-$lang['employees_birthday'] = 'Birthday';
-
-
-
-
-
-
-
-
-
-$lang['employees_required'] = 'At least one employee is required';
-
-$lang['reports_view_all_employee_commissions'] = 'View all employee commissions';
-$lang['employees_not_required_to_clock_in'] = 'Not required to clock in';
-$lang['employees_always_require_password'] = 'Always require password when switching user';
-$lang['reports_view_dashboard_stats'] = 'View Dashboard Statistics';
-$lang['employees_new_message'] = 'New Message';
+$lang['reports_view_all_employee_commissions'] = 'ดูค่าคอมมิชชั่นพนักงานทั้งหมด';
+$lang['employees_not_required_to_clock_in'] = 'ไม่จำเป็นต้องบันทึกเวลาเข้า';
+$lang['employees_always_require_password'] = 'ต้องใช้รหัสผ่านเสมอเมื่อสลับผู้ใช้';
+$lang['reports_view_dashboard_stats'] = 'ดูสถิติแดชบอร์ด';
+$lang['employees_new_message'] = 'ข้อความใหม่';
 ?>

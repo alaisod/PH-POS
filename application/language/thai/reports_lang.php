@@ -1,371 +1,342 @@
 <?php
-$lang['reports_reports'] = 'Reports';
-$lang['reports_report'] = 'Report';
-$lang['reports_welcome_message'] = 'Welcome to the reports panel. Please select a report to view.';
-$lang['reports_sales_summary_report'] = 'Sales Summary Report';
-$lang['reports_categories_summary_report'] = 'Categories Summary Report';
-$lang['reports_customers_summary_report'] = 'Customers Summary Report';
-$lang['reports_suppliers_summary_report'] = 'Suppliers Summary Report';
-$lang['reports_items_summary_report'] = 'Items Summary Report';
-$lang['reports_employees_summary_report'] = 'Employees Summary Report';
-$lang['reports_taxes_summary_report'] = 'Taxes Summary Report';
+$lang['reports_reports'] = 'รายงาน';
+$lang['reports_report'] = 'รายงาน';
+$lang['reports_welcome_message'] = 'ยินดีต้อนรับสู่แผงรายงาน กรุณาเลือกรายงานที่ต้องการดู';
+$lang['reports_sales_summary_report'] = 'รายงานสรุปการขาย';
+$lang['reports_categories_summary_report'] = 'รายงานสรุปหมวดหมู่';
+$lang['reports_customers_summary_report'] = 'รายงานสรุปลูกค้า';
+$lang['reports_suppliers_summary_report'] = 'รายงานสรุปผู้จัดจำหน่าย';
+$lang['reports_items_summary_report'] = 'รายงานสรุปสินค้า';
+$lang['reports_employees_summary_report'] = 'รายงานสรุปพนักงาน';
+$lang['reports_taxes_summary_report'] = 'รายงานสรุปภาษี';
 
-$lang['reports_name'] = 'Name';
+$lang['reports_name'] = 'ชื่อ';
 
+$lang['reports_sold_by'] = 'ขายโดย';
+$lang['reports_sold_to'] = 'ขายให้';
+$lang['reports_category'] = 'หมวดหมู่';
 
+$lang['reports_supplier'] = 'ผู้จัดจำหน่าย';
 
-$lang['reports_sold_by'] = 'Sold By';
-$lang['reports_sold_to'] = 'Sold To';
-$lang['reports_category'] = 'Category';
+$lang['reports_subtotal'] = 'ยอดรวมก่อนภาษี';
+$lang['reports_total'] = 'รวม';
 
+$lang['reports_report_input'] = 'ข้อมูลนำเข้ารายงาน';
 
+$lang['reports_date_range'] = 'ช่วงวันที่';
+$lang['reports_today'] = 'วันนี้';
+$lang['reports_yesterday'] = 'เมื่อวาน';
+$lang['reports_last_7'] = '7 วันที่ผ่านมา';
+$lang['reports_this_month'] = 'เดือนนี้';
+$lang['reports_last_month'] = 'เดือนที่แล้ว';
+$lang['reports_this_year'] = 'ปีนี้';
+$lang['reports_last_year'] = 'ปีที่แล้ว';
+$lang['reports_all_time'] = 'ทั้งหมด';
+$lang['reports_detailed_sales_report'] = 'รายงานการขายแบบละเอียด';
+$lang['reports_comments'] = 'ความคิดเห็น';
 
+$lang['reports_customer'] = 'ลูกค้า';
 
-$lang['reports_supplier'] = 'Supplier';
+$lang['reports_tax_percent'] = 'อัตราภาษี';
+$lang['reports_quantity_purchased'] = 'จำนวนที่ซื้อ';
+$lang['reports_serial_number'] = 'หมายเลขซีเรียล';
+$lang['reports_description'] = 'คำอธิบาย';
+$lang['reports_date'] = 'วันที่';
+$lang['reports_sales_amount'] = 'ยอดขาย';
+$lang['reports_revenue'] = 'รายได้';
 
-$lang['reports_subtotal'] = 'Subtotal';
-$lang['reports_total'] = 'Total';
+$lang['reports_discounts_summary_report'] = 'รายงานสรุปส่วนลด';
 
+$lang['reports_summary_reports'] = 'รายงานสรุป';
+$lang['reports_graphical_reports'] = 'รายงานกราฟิก';
+$lang['reports_detailed_reports'] = 'รายงานแบบละเอียด';
 
+$lang['reports_low_inventory'] = 'สต็อกต่ำ';
+$lang['reports_inventory_summary'] = 'สรุปสต็อก';
 
-$lang['reports_report_input'] = 'Report Input';
+$lang['reports_reorder_level'] = 'ระดับสั่งซื้อซ้ำ';
+$lang['reports_low_inventory_report'] = 'รายงานสต็อกต่ำ';
+$lang['reports_item_name'] = 'ชื่อสินค้า';
+$lang['reports_inventory_summary_report'] = 'รายงานสรุปสต็อก';
+$lang['reports_payment_type'] = 'ประเภทการชำระเงิน';
+$lang['reports_payments_summary_report'] = 'รายงานสรุปการชำระเงิน';
 
-$lang['reports_date_range'] = 'Date Range';
-$lang['reports_today'] = 'Today';
-$lang['reports_yesterday'] = 'Yesterday';
-$lang['reports_last_7'] = 'Last 7 Days';
-$lang['reports_this_month'] = 'This Month';
-$lang['reports_last_month'] = 'Last Month';
-$lang['reports_this_year'] = 'This Year';
-$lang['reports_last_year'] = 'Last Year';
-$lang['reports_all_time'] = 'All Time';
-$lang['reports_detailed_sales_report'] = 'Detailed Sales Report';
-$lang['reports_comments'] = 'Comments';
+$lang['reports_received_by'] = 'รับโดย';
+$lang['reports_supplied_by'] = 'จัดหาโดย';
+$lang['reports_items_ordered'] = 'สินค้าที่สั่งซื้อ';
+$lang['reports_detailed_receivings_report'] = 'รายงานการรับสินค้าแบบละเอียด';
+$lang['reports_sale_type'] = 'ประเภทการขาย';
+$lang['reports_all'] = 'ทั้งหมด';
+$lang['reports_returns'] = 'การคืนสินค้า';
 
+$lang['reports_deleted_sales_report'] = 'รายงานการขายที่ถูกลบ';
+$lang['reports_receiving_id'] = 'รหัสการรับสินค้า';
+$lang['reports_item_kits_summary_report'] = 'รายงานสรุปชุดสินค้า';
+$lang['reports_export_to_excel'] = 'ส่งออกเป็น Excel';
+$lang['reports_month_01'] = 'มกราคม';
+$lang['reports_month_02'] = 'กุมภาพันธ์';
+$lang['reports_month_03'] = 'มีนาคม';
+$lang['reports_month_04'] = 'เมษายน';
+$lang['reports_month_05'] = 'พฤษภาคม';
+$lang['reports_month_06'] = 'มิถุนายน';
+$lang['reports_month_07'] = 'กรกฎาคม';
+$lang['reports_month_08'] = 'สิงหาคม';
+$lang['reports_month_09'] = 'กันยายน';
+$lang['reports_month_10'] = 'ตุลาคม';
+$lang['reports_month_11'] = 'พฤศจิกายน';
+$lang['reports_month_12'] = 'ธันวาคม';
 
+$lang['reports_giftcard_summary_report'] = 'รายงานสรุปบัตรของขวัญ';
+$lang['reports_store_account_summary_report'] = 'รายงานสรุปบัญชีร้านค้า';
 
+$lang['reports_register_log_open'] = 'เครื่องบันทึกเงินสดยังเปิดอยู่';
+$lang['reports_employee'] = 'พนักงาน';
+$lang['reports_shift_start'] = 'เริ่มกะ';
+$lang['reports_shift_end'] = 'สิ้นสุดกะ';
 
+$lang['reports_close_amount'] = 'ยอดปิด';
 
+$lang['reports_difference'] = 'ส่วนต่าง';
 
+$lang['reports_total_cash_sales'] = 'ยอดขายเงินสดทั้งหมด';
+$lang['reports_total_shortages'] = 'ยอดขาดทั้งหมด';
+$lang['reports_total_overages'] = 'ยอดเกินทั้งหมด';
+$lang['reports_total_difference'] = 'ส่วนต่างทั้งหมด';
+$lang['reports_inventory_total'] = 'มูลค่าสต็อกทั้งหมด';
+$lang['reports_inventory_sale_total'] = 'มูลค่าสต็อกทั้งหมดตามราคาขาย';
+$lang['reports_no_customer'] = 'ไม่มีลูกค้า';
 
-
-
-
-$lang['reports_customer'] = 'Customer';
-
-$lang['reports_tax_percent'] = 'Tax Percent';
-$lang['reports_quantity_purchased'] = 'Quantity Purchased';
-$lang['reports_serial_number'] = 'Serial #';
-$lang['reports_description'] = 'Description';
-$lang['reports_date'] = 'Date';
-$lang['reports_sales_amount'] = 'Sales amount';
-$lang['reports_revenue'] = 'Revenue';
-
-$lang['reports_discounts_summary_report'] = 'Discounts Summary Report';
-
-
-$lang['reports_summary_reports'] = 'Summary Reports';
-$lang['reports_graphical_reports'] = 'Graphical Reports';
-$lang['reports_detailed_reports'] = 'Detailed Reports';
-
-$lang['reports_low_inventory'] = 'Low Inventory';
-$lang['reports_inventory_summary'] = 'Inventory Summary';
-
-$lang['reports_reorder_level'] = 'Reorder Level';
-$lang['reports_low_inventory_report'] = 'Low Inventory Report';
-$lang['reports_item_name'] = 'Item Name';
-$lang['reports_inventory_summary_report'] = 'Inventory Summary Report';
-$lang['reports_payment_type'] = 'Payment Type';
-$lang['reports_payments_summary_report'] = 'Payments Summary Report';
-
-
-$lang['reports_received_by'] = 'Received By';
-$lang['reports_supplied_by'] = 'Supplied by';
-$lang['reports_items_ordered'] = 'Items Ordered';
-$lang['reports_detailed_receivings_report'] = 'Detailed Receivings Report';
-$lang['reports_sale_type'] = 'Sale Type';
-$lang['reports_all'] = 'All';
-$lang['reports_returns'] = 'Returns';
-
-$lang['reports_deleted_sales_report'] = 'Deleted Sales Report';
-$lang['reports_receiving_id'] = 'Receiving ID';
-$lang['reports_item_kits_summary_report'] = 'Item Kits Summary Report';
-$lang['reports_export_to_excel'] = 'Export to Excel';
-$lang['reports_month_01'] = 'January';
-$lang['reports_month_02'] = 'February';
-$lang['reports_month_03'] = 'March';
-$lang['reports_month_04'] = 'April';
-$lang['reports_month_05'] = 'May';
-$lang['reports_month_06'] = 'June';
-$lang['reports_month_07'] = 'July';
-$lang['reports_month_08'] = 'August';
-$lang['reports_month_09'] = 'September';
-$lang['reports_month_10'] = 'October';
-$lang['reports_month_11'] = 'November';
-$lang['reports_month_12'] = 'December';
-
-$lang['reports_giftcard_summary_report'] = 'Giftcard Summary Report';
-$lang['reports_store_account_summary_report'] = 'Store Accounts Summary Report';
-
-
-$lang['reports_register_log_open'] = 'Register Still Open';
-$lang['reports_employee'] = 'Employee';
-$lang['reports_shift_start'] = 'Shift Start';
-$lang['reports_shift_end'] = 'Shift End';
-
-$lang['reports_close_amount'] = 'Close Amount';
-
-$lang['reports_difference'] = 'Difference';
-
-$lang['reports_total_cash_sales'] = 'Total Cash Sales';
-$lang['reports_total_shortages'] = 'Total Shortages';
-$lang['reports_total_overages'] = 'Total Overages';
-$lang['reports_total_difference'] = 'Total Difference';
-$lang['reports_inventory_total'] = 'Total Inventory Value';
-$lang['reports_inventory_sale_total'] = 'Total Inventory Value By Unit Price';
-$lang['reports_no_customer'] = 'No Customer';
-
-
-$lang['reports_sales_search'] = 'Detailed Search Report';
-$lang['reports_sales_report_generator'] = 'Report Generator';
-$lang['reports_sales_generator_matchType'] = 'Match Type';
-$lang['reports_sales_generator_matchType_All'] = 'Match all rules (AND condition)';
-$lang['reports_sales_generator_matchType_Or'] = 'Match any rule (OR condition)';
-$lang['reports_sales_generator_matchType_Help'] = 'Help: How do you want the sales report rules you create below to be applied? Choose \'Match all rules\' to only see the sales who match every rule you create. Choose \'Match any rule\' to see the sales who match one or more rules.';
+$lang['reports_sales_search'] = 'รายงานการค้นหาแบบละเอียด';
+$lang['reports_sales_report_generator'] = 'เครื่องสร้างรายงาน';
+$lang['reports_sales_generator_matchType'] = 'ประเภทการจับคู่';
+$lang['reports_sales_generator_matchType_All'] = 'จับคู่ทุกกฎ (เงื่อนไข AND)';
+$lang['reports_sales_generator_matchType_Or'] = 'จับคู่กฎใดก็ได้ (เงื่อนไข OR)';
+$lang['reports_sales_generator_matchType_Help'] = 'ช่วยเหลือ: คุณต้องการให้ใช้กฎรายงานการขายที่คุณสร้างด้านล่างอย่างไร? เลือก "จับคู่ทุกกฎ" เพื่อดูเฉพาะการขายที่ตรงกับทุกกฎที่คุณสร้าง เลือก "จับคู่กฎใดก็ได้" เพื่อดูการขายที่ตรงกับกฎอย่างน้อยหนึ่งข้อ';
 $lang['reports_sales_generator_matchType_All_TEXT'] = 'AND';
 $lang['reports_sales_generator_matchType_Or_TEXT'] = 'OR';
 
-$lang['reports_sales_generator_addCondition'] = 'Add Condition';
-$lang['reports_sales_generator_delCondition'] = 'Remove Condition';
+$lang['reports_sales_generator_addCondition'] = 'เพิ่มเงื่อนไข';
+$lang['reports_sales_generator_delCondition'] = 'ลบเงื่อนไข';
 
-$lang['reports_sales_generator_autocomplete_hintText'] = 'Type in a search term';
-$lang['reports_sales_generator_autocomplete_noResultsText'] = 'No results';
-$lang['reports_sales_generator_autocomplete_searchingText'] = 'Searching...';
+$lang['reports_sales_generator_autocomplete_hintText'] = 'พิมพ์คำค้นหา';
+$lang['reports_sales_generator_autocomplete_noResultsText'] = 'ไม่มีผลลัพธ์';
+$lang['reports_sales_generator_autocomplete_searchingText'] = 'กำลังค้นหา...';
 
-$lang['reports_sales_generator_selectField_0'] = 'Please Select';
-$lang['reports_sales_generator_selectField_1'] = 'Customer Name';
-$lang['reports_sales_generator_selectField_2'] = 'Item Serial number';
-$lang['reports_sales_generator_selectField_3'] = 'Employee Name';
-$lang['reports_sales_generator_selectField_4'] = 'Item Category';
-$lang['reports_sales_generator_selectField_5'] = 'Supplier Name';
-$lang['reports_sales_generator_selectField_6'] = 'Sale Type';
-$lang['reports_sales_generator_selectField_7'] = 'Sale Amount';
-$lang['reports_sales_generator_selectField_8'] = 'Item Kit Name';
-$lang['reports_sales_generator_selectField_9'] = 'Item Name/UPC/Product ID';
-$lang['reports_sales_generator_selectField_10'] = 'Sale ID';
+$lang['reports_sales_generator_selectField_0'] = 'กรุณาเลือก';
+$lang['reports_sales_generator_selectField_1'] = 'ชื่อลูกค้า';
+$lang['reports_sales_generator_selectField_2'] = 'หมายเลขซีเรียลสินค้า';
+$lang['reports_sales_generator_selectField_3'] = 'ชื่อพนักงาน';
+$lang['reports_sales_generator_selectField_4'] = 'หมวดหมู่สินค้า';
+$lang['reports_sales_generator_selectField_5'] = 'ชื่อผู้จัดจำหน่าย';
+$lang['reports_sales_generator_selectField_6'] = 'ประเภทการขาย';
+$lang['reports_sales_generator_selectField_7'] = 'ยอดขาย';
+$lang['reports_sales_generator_selectField_8'] = 'ชื่อชุดสินค้า';
+$lang['reports_sales_generator_selectField_9'] = 'ชื่อสินค้า/UPC/รหัสสินค้า';
+$lang['reports_sales_generator_selectField_10'] = 'รหัสการขาย';
 
-$lang['reports_sales_generator_selectCondition_1'] = 'is';
-$lang['reports_sales_generator_selectCondition_2'] = 'is not';
-$lang['reports_sales_generator_selectCondition_5'] = 'is IN';
-$lang['reports_sales_generator_selectCondition_6'] = 'is not IN';
-$lang['reports_sales_generator_selectCondition_7'] = 'Greater Than (>)';
-$lang['reports_sales_generator_selectCondition_8'] = 'Less Than (<)';
-$lang['reports_sales_generator_selectCondition_9'] = 'Equal To (=)';
-$lang['reports_sales_generator_selectCondition_10'] = 'Sale';
-$lang['reports_sales_generator_selectCondition_11'] = 'Return';
+$lang['reports_sales_generator_selectCondition_1'] = 'คือ';
+$lang['reports_sales_generator_selectCondition_2'] = 'ไม่ใช่';
+$lang['reports_sales_generator_selectCondition_5'] = 'อยู่ใน';
+$lang['reports_sales_generator_selectCondition_6'] = 'ไม่ได้อยู่ใน';
+$lang['reports_sales_generator_selectCondition_7'] = 'มากกว่า (>)';
+$lang['reports_sales_generator_selectCondition_8'] = 'น้อยกว่า (<)';
+$lang['reports_sales_generator_selectCondition_9'] = 'เท่ากับ (=)';
+$lang['reports_sales_generator_selectCondition_10'] = 'การขาย';
+$lang['reports_sales_generator_selectCondition_11'] = 'การคืนสินค้า';
 
-$lang['reports_sales_report_generator_results_found'] = 'results found';
-$lang['reports_quantity'] = 'Quantity';
+$lang['reports_sales_report_generator_results_found'] = 'พบผลลัพธ์';
+$lang['reports_quantity'] = 'จำนวน';
 
-$lang['reports_sales_generator_selectField_11'] = 'Payment Type';
-$lang['reports_id'] = 'ID';
-$lang['reports_time'] = 'Time';
-$lang['reports_sale_id'] = 'Sale Id';
-$lang['reports_debit'] = 'Debit';
-$lang['reports_credit'] = 'Credit';
-$lang['reports_balance'] = 'Balance';
-$lang['reports_balance_to_pay'] = 'balance';
-$lang['reports_comment'] = 'Comment';
-$lang['reports_detailed_store_account_report'] = 'Detailed Store Account for ';
-$lang['reports_sales_generator_show_only_matched_items'] = 'Show Only Matched Items In Sale';
-$lang['reports_store_account_statements'] = 'Store Account Statements';
-$lang['reports_sales_generator_selectField_12'] = 'Sale Item Description';
+$lang['reports_sales_generator_selectField_11'] = 'ประเภทการชำระเงิน';
+$lang['reports_id'] = 'รหัส';
+$lang['reports_time'] = 'เวลา';
+$lang['reports_sale_id'] = 'รหัสการขาย';
+$lang['reports_debit'] = 'เดบิต';
+$lang['reports_credit'] = 'เครดิต';
+$lang['reports_balance'] = 'ยอดคงเหลือ';
+$lang['reports_balance_to_pay'] = 'ยอดคงเหลือ';
+$lang['reports_comment'] = 'ความคิดเห็น';
+$lang['reports_detailed_store_account_report'] = 'รายงานบัญชีร้านค้าแบบละเอียดสำหรับ';
+$lang['reports_sales_generator_show_only_matched_items'] = 'แสดงเฉพาะสินค้าที่ตรงกันในการขาย';
+$lang['reports_store_account_statements'] = 'ใบแจ้งยอดบัญชีร้านค้า';
+$lang['reports_sales_generator_selectField_12'] = 'คำอธิบายสินค้าที่ขาย';
 
-$lang['reports_confirm_register_log_delete'] = 'Are you sure you want to delete this register log entry?';
-$lang['reports_make_a_selection'] = 'Make a selection';
-$lang['reports_detailed_customers_report'] = 'Detailed Customers Report';
-$lang['reports_detailed_employees_report'] = 'Detailed Employees Report';
-$lang['reports_detailed_giftcards_report'] = 'Detailed Gift Cards Report';
-$lang['reports_detailed_store_accounts_report'] = 'Detailed Store Accounts Report';
-$lang['reports_detailed_suppliers_report'] = 'Detailed Suppliers Report';
-$lang['reports_custom_range'] = 'Custom Range';
-$lang['reports_detailed_inventory_report'] = 'Detailed Inventory Report';
-$lang['reports_show_manual_adjustments_only'] = 'Show manual Adjustments Only';
-$lang['reports_non_taxable'] = 'Non-Taxable';
+$lang['reports_confirm_register_log_delete'] = 'คุณแน่ใจหรือไม่ว่าต้องการลบรายการบันทึกเครื่องบันทึกเงินสดนี้?';
+$lang['reports_make_a_selection'] = 'ทำการเลือก';
+$lang['reports_detailed_customers_report'] = 'รายงานลูกค้าแบบละเอียด';
+$lang['reports_detailed_employees_report'] = 'รายงานพนักงานแบบละเอียด';
+$lang['reports_detailed_giftcards_report'] = 'รายงานบัตรของขวัญแบบละเอียด';
+$lang['reports_detailed_store_accounts_report'] = 'รายงานบัญชีร้านค้าแบบละเอียด';
+$lang['reports_detailed_suppliers_report'] = 'รายงานผู้จัดจำหน่ายแบบละเอียด';
+$lang['reports_custom_range'] = 'ช่วงที่กำหนดเอง';
+$lang['reports_detailed_inventory_report'] = 'รายงานสต็อกแบบละเอียด';
+$lang['reports_show_manual_adjustments_only'] = 'แสดงเฉพาะการปรับด้วยตนเอง';
+$lang['reports_non_taxable'] = 'ไม่เสียภาษี';
 
+$lang['reports_detailed_suspended_sales_report'] = 'รายงานการขายที่ถูกระงับแบบละเอียด';
+$lang['reports_show_sales_from_past'] = 'แสดงการขายจากอดีต';
+$lang['reports_days'] = 'วัน';
+$lang['reports_payment_date'] = 'วันที่ชำระเงิน';
 
+$lang['reports_hide_items'] = 'ซ่อนสินค้า';
+$lang['reports_detailed_payments_report'] = 'รายงานการชำระเงินแบบละเอียด';
+$lang['reports_total_liabilities'] = 'หนี้สินทั้งหมด';
+$lang['reports_employee_open'] = 'พนักงานที่เปิด';
+$lang['reports_close_employee'] = 'พนักงานที่ปิด';
+$lang['reports_register'] = 'เครื่องบันทึกเงินสด';
+$lang['reports_pull_payments_by'] = 'ดึงการชำระเงินและการขายโดย';
 
-$lang['reports_detailed_suspended_sales_report'] = 'Suspended Detailed Sales Report';
-$lang['reports_show_sales_from_past'] = 'Show sales from past';
-$lang['reports_days'] = 'Days';
-$lang['reports_payment_date'] = 'Payment date';
+$lang['reports_summary_commission_report'] = 'รายงานสรุปค่าคอมมิชชั่น';
+$lang['reports_detailed_commission_report'] = 'รายงานค่าคอมมิชชั่นแบบละเอียด';
+$lang['reports_comissions_summary_report'] = 'รายงานสรุปค่าคอมมิชชั่น';
+$lang['reports_fixed_range'] = 'ช่วงคงที่';
 
-$lang['reports_hide_items'] = 'Hide Items';
-$lang['reports_detailed_payments_report'] = 'Detailed Payments Report';
-$lang['reports_total_liabilities'] = 'Total Liabilities';
-$lang['reports_employee_open'] = 'Open Employee';
-$lang['reports_close_employee'] = 'Close Employee';
-$lang['reports_register'] = 'Register';
-$lang['reports_pull_payments_by'] = 'Pull payments and sales by';
+$lang['reports_not_clocked_out'] = 'ยังไม่ได้บันทึกเวลาออก';
+$lang['reports_detailed_timeclock_report'] = 'รายงานเวลาทำงานแบบละเอียด';
+$lang['reports_hours'] = 'ชั่วโมง';
+$lang['reports_summary_timeclock_report'] = 'รายงานเวลาทำงานสรุป';
+$lang['reports_confirm_timeclock_delete'] = 'คุณแน่ใจหรือไม่ว่าต้องการลบรายการเวลาทำงานนี้?';
+$lang['reports_edit_timeclock'] = 'แก้ไขรายการเวลาทำงาน';
 
-$lang['reports_summary_commission_report'] = 'Commission Summary Report';
-$lang['reports_detailed_commission_report'] = 'Commission Detailed Report';
-$lang['reports_comissions_summary_report'] = 'Commissions Summary Report';
-$lang['reports_fixed_range'] = 'Fixed range';
+$lang['reports_new_timeclock'] = 'เพิ่มรายการบันทึกเวลาที่ขาดหายไป';
+$lang['reports_completed_layaway'] = 'วางเงินมัดจำเสร็จสมบูรณ์';
+$lang['reports_all_open_layaways_and_estimates'] = 'การวางเงินมัดจำและประมาณการที่เปิดอยู่ทั้งหมด';
+$lang['reports_completed_estimate'] = 'ประมาณการที่เสร็จสมบูรณ์';
+$lang['reports_this_week'] = 'สัปดาห์นี้';
+$lang['reports_last_week'] = 'สัปดาห์ที่แล้ว';
+$lang['reports_notes'] = 'บันทึก';
 
+$lang['reports_tiers_summary_report'] = 'รายงานสรุประดับราคา';
 
-$lang['reports_not_clocked_out'] = 'Not clocked out';
-$lang['reports_detailed_timeclock_report'] = 'Detailed time clock report';
-$lang['reports_hours'] = 'Hours';
-$lang['reports_summary_timeclock_report'] = 'Summary time clock report';
-$lang['reports_confirm_timeclock_delete'] = 'Are you sure you want to delete this time clock entry?';
-$lang['reports_edit_timeclock'] = 'Edit time clock entry';
+$lang['reports_day'] = 'วัน';
+$lang['reports_data'] = 'ข้อมูล';
+$lang['reports_total_sales'] = 'ยอดขายทั้งหมด';
+$lang['reports_total_returned'] = 'ยอดคืนทั้งหมด';
+$lang['reports_items_returned'] = 'สินค้าที่คืน';
 
-$lang['reports_new_timeclock'] = 'Add missed time clock punch in/out';
-$lang['reports_completed_layaway'] = 'Completed layaway';
-$lang['reports_all_open_layaways_and_estimates'] = 'All open layaways and estimates';
-$lang['reports_completed_estimate'] = 'Completed estimate';
-$lang['reports_this_week'] = 'This Week';
-$lang['reports_last_week'] = 'Last Week';
-$lang['reports_notes'] = 'Notes';
+$lang['reports_from'] = 'จาก';
+$lang['reports_to'] = 'ถึง';
+$lang['reports_graphical_receiving_reports'] = 'รายงานการรับสินค้ากราฟิก';
+$lang['reports_summary_receiving_reports'] = 'รายงานสรุปการรับสินค้า';
+$lang['reports_detailed_receiving_reports'] = 'รายงานการรับสินค้าแบบละเอียด';
+$lang['reports_suppliers_receivings_summary_report'] = 'รายงานสรุปการรับสินค้าจากผู้จัดจำหน่าย';
+$lang['reports_recevings_report'] = 'รายงานการรับสินค้า';
+$lang['reports_store_account_statement'] = 'ใบแจ้งยอดบัญชีร้านค้า';
+$lang['reports_email_statement'] = 'ส่งอีเมลใบแจ้งยอด';
+$lang['reports_email_sent'] = 'ส่งอีเมลแล้ว';
+$lang['reports_number_of_transactions'] = 'จำนวนธุรกรรม';
+$lang['reports_activity'] = 'รายงานกิจกรรม';
+$lang['reports_store_account_activity_report'] = 'รายงานกิจกรรมบัญชีร้านค้า';
+$lang['reports_total_balance_of_all_store_accounts'] = 'ยอดคงเหลือรวมของบัญชีร้านค้าทั้งหมด';
+$lang['reports_debits'] = 'เดบิต';
+$lang['reports_credits'] = 'เครดิต';
+$lang['reports_gift_card_sales_reports'] = 'รายงานยอดขายบัตรของขวัญ';
+$lang['reports_giftcard_sale_amount'] = 'ยอดขายบัตรของขวัญ';
 
-$lang['reports_tiers_summary_report'] = 'Tiers Summary Report';
+$lang['reports_detailed_count_report'] = 'รายงานการนับแบบละเอียด';
+$lang['reports_summary_count_report'] = 'รายงานสรุปการนับ';
+$lang['reports_count_date'] = 'วันที่นับ';
+$lang['reports_number_items_counted'] = 'จำนวนสินค้าที่นับ';
+$lang['reports_amount_over_under_from_actual_on_hand'] = 'จำนวนที่เกิน/ขาดจากจำนวนจริงในมือ';
 
-$lang['reports_day'] = 'Day';
-$lang['reports_data'] = 'Data';
-$lang['reports_total_sales'] = 'Total sales';
-$lang['reports_total_returned'] = 'Total returns';
-$lang['reports_items_returned'] = 'Items returned';
+$lang['reports_actual_count'] = 'จำนวนจริงที่รายงานโดย POS';
+$lang['reports_total_profit_and_loss'] = 'ยอดขายทั้งหมด - การคืนสินค้า - ส่วนลด - ภาษี';
 
-$lang['reports_from'] = 'From';
-$lang['reports_to'] = 'To';
-$lang['reports_graphical_receiving_reports'] = 'Graphical Receivings Reports';
-$lang['reports_summary_receiving_reports'] = 'Summary Receivings Reports';
-$lang['reports_detailed_receiving_reports'] = 'Detailed Receivings Reports';
-$lang['reports_suppliers_receivings_summary_report'] = 'Suppliers Receivings Summary Report';
-$lang['reports_recevings_report'] = 'Receivings Report';
-$lang['reports_store_account_statement'] = 'Store account statement';
-$lang['reports_email_statement'] = 'Email statement';
-$lang['reports_email_sent'] = 'Email sent';
-$lang['reports_number_of_transactions'] = 'Number of transactions';
-$lang['reports_activity'] = 'Activity reports';
-$lang['reports_store_account_activity_report'] = 'Store account activity report';
-$lang['reports_total_balance_of_all_store_accounts'] = 'Total balance of all store accounts';
-$lang['reports_debits'] = 'Debits';
-$lang['reports_credits'] = 'Credits';
-$lang['reports_gift_card_sales_reports'] = 'Gift Card Sales Reports';
-$lang['reports_giftcard_sale_amount'] = 'Gift Card Sale Amount';
+$lang['reports_tags_summary_report'] = 'รายงานสรุปแท็ก';
+$lang['reports_total_items_in_inventory'] = 'จำนวนสินค้าทั้งหมดในสต็อก';
+$lang['reports_show_accounts_over_credit_limit'] = 'แสดงบัญชีร้านค้าที่เกินวงเงินเครดิต';
+$lang['reports_expiring_items_report'] = 'รายงานสินค้าที่จะหมดอายุ';
 
-$lang['reports_detailed_count_report'] = 'Detailed Count Report';
-$lang['reports_summary_count_report'] = 'Summary Count Report';
-$lang['reports_count_date'] = 'Count Date';
-$lang['reports_number_items_counted'] = 'Number of Items Counted';
-$lang['reports_amount_over_under_from_actual_on_hand'] = 'Amount Over/Under from Actual on hand';
+$lang['reports_expired_inventory_report'] = 'รายงานสต็อกที่หมดอายุ';
 
+$lang['reports_register_log_id'] = 'รหัสบันทึกเครื่องบันทึกเงินสด';
+$lang['reports_adds_and_subs'] = 'การเพิ่มและลดเงินสด';
+$lang['reports_in_stock'] = 'ในสต็อก';
+$lang['reports_out_of_stock'] = 'หมดสต็อก';
+$lang['reports_other'] = 'อื่นๆ';
 
+$lang['reports_expenses_detailed_report'] = 'รายงานค่าใช้จ่ายแบบละเอียด';
+$lang['reports_register_log_details_report'] = 'รายละเอียดบันทึกเครื่องบันทึกเงินสด';
+$lang['reports_deleted_recv_reports'] = 'รายงานการรับสินค้าที่ถูกลบ';
+$lang['reports_graphical_summary_taxes_reports'] = 'รายงานภาษีสรุปกราฟิก';
+$lang['reports_summary_taxes_reports'] = 'รายงานสรุปภาษี';
+$lang['reports_summary_taxes_receivings_report'] = 'รายงานสรุปภาษีการรับสินค้า';
+$lang['reports_summary_sales_time_reports'] = 'รายงานสรุปการขายตามเวลา';
+$lang['reports_summary_sales_graphical_time_reports'] = 'รายงานสรุปการขายตามเวลากราฟิก';
+$lang['reports_sales_summary_by_time_report'] = 'รายงานสรุปการขายตามเวลา';
+$lang['reports_time_range'] = 'ช่วงเวลา';
+$lang['reports_time_interval'] = 'ช่วงระยะเวลา';
 
+$lang['reports_total_taxes'] = 'ภาษีรวม';
 
-$lang['reports_actual_count'] = 'Actual Quantity Reported By POS';
-$lang['reports_total_profit_and_loss'] = 'Total Sales - Returns - Discounts - Taxes';
+$lang['reports_average_ticket_size'] = 'ขนาดใบเสร็จเฉลี่ย';
+$lang['reports_current_selling_price'] = 'ราคาขายปัจจุบัน';
+$lang['reports_total_receivings'] = 'การรับสินค้าทั้งหมด';
 
-$lang['reports_tags_summary_report'] = 'Tag Summary Report';
-$lang['reports_total_items_in_inventory'] = 'Total items in inventory';
-$lang['reports_show_accounts_over_credit_limit'] = 'Show store accounts over credit limit';
-$lang['reports_expiring_items_report'] = 'Expiring Items Report';
+$lang['reports_quantity_expiring'] = 'จำนวนที่กำลังจะหมดอายุ';
+$lang['reports_audit_report'] = 'รายงานการตรวจสอบ';
+$lang['reports_giftcards_audit_report'] = 'รายงานการตรวจสอบบัตรของขวัญ';
+$lang['reports_compare_to_date_range'] = 'เปรียบเทียบกับช่วงวันที่';
+$lang['reports_compare_to'] = 'เปรียบเทียบกับ';
+$lang['reports_points_used'] = 'คะแนนที่ใช้';
+$lang['reports_points_earned'] = 'คะแนนที่ได้รับ';
 
-$lang['reports_expired_inventory_report'] = 'Expired Inventory Report';
+$lang['reports_items_recved'] = 'สินค้าที่รับ';
+$lang['reports_show_only_reorder'] = 'แสดงเฉพาะสินค้าที่มีระดับสั่งซื้อซ้ำ';
+$lang['reports_weighted_cost'] = 'ราคาต้นทุนเฉลี่ยถ่วงน้ำหนัก';
+$lang['reports_tax_exempt'] = 'ยกเว้นภาษี';
 
+$lang['reports_detailed_suspended_receivings_report'] = 'รายงานการรับสินค้าที่ถูกระงับแบบละเอียด';
+$lang['reports_pending_inventory'] = 'สต็อกที่รอดำเนินการ (ถูกระงับ)';
+$lang['reports_show_pending_only'] = 'แสดงเฉพาะสินค้าที่มีสต็อกรอดำเนินการ';
 
-$lang['reports_register_log_id'] = 'Register log ID';
-$lang['reports_adds_and_subs'] = 'Cash Additions and Subtractions';
-$lang['reports_in_stock'] = 'In stock';
-$lang['reports_out_of_stock'] = 'out of stock';
-$lang['reports_other'] = 'Other';
+$lang['reports_total_spent'] = 'ใช้ไปทั้งหมด';
+$lang['reports_any_amount'] = 'จำนวนใดๆ';
+$lang['reports_expenses'] = 'ค่าใช้จ่าย';
+$lang['reports_tax'] = 'ภาษี';
+$lang['reports_profit'] = 'กำไร';
+$lang['reports_items_with_tax'] = 'รวมภาษี';
+$lang['reports_total_expenses'] = 'ค่าใช้จ่ายทั้งหมด';
+$lang['reports_employee_type'] = 'ประเภทพนักงาน';
+$lang['reports_sale_person'] = 'พนักงานขาย';
+$lang['reports_expenses_summary_report'] = 'รายงานสรุปค่าใช้จ่าย';
+$lang['reports_giftcard_number'] = 'หมายเลขบัตรของขวัญ';
+$lang['reports_giftcard'] = 'บัตรของขวัญ';
+$lang['reports_loyalty'] = 'โปรแกรมสมนาคุณ';
 
-$lang['reports_expenses_detailed_report'] = 'Expenses Detailed Report';
-$lang['reports_register_log_details_report'] = 'Register Log Details';
-$lang['reports_deleted_recv_reports'] = 'Deleted Receivings Report';
-$lang['reports_graphical_summary_taxes_reports'] = 'Graphical summary taxes report';
-$lang['reports_summary_taxes_reports'] = 'Summary taxes report';
-$lang['reports_summary_taxes_receivings_report'] = 'Receivings Taxes Summary Report';
-$lang['reports_summary_sales_time_reports'] = 'Summary Sales by Time Reports';
-$lang['reports_summary_sales_graphical_time_reports'] = 'Graphical Summary Sales by Time Reports';
-$lang['reports_sales_summary_by_time_report'] = 'Summary Sales by Time Report';
-$lang['reports_time_range'] = 'Time Range';
-$lang['reports_time_interval'] = 'Time Interval';
+$lang['reports_all_transactions'] = 'ธุรกรรมทั้งหมด';
+$lang['reports_number_of_discounts'] = 'จำนวนส่วนลด';
+$lang['reports_show_all_items'] = 'แสดงสินค้าทั้งหมดแม้ไม่ได้ขาย';
+$lang['reports_outstanding_sales'] = 'ยอดขายที่ค้างชำระ';
+$lang['reports_outstanding_sales_report'] = 'รายงานยอดขายค้างชำระของบัญชีร้านค้า';
+$lang['reports_mark_as_paid'] = 'ทำเครื่องหมายว่าชำระแล้ว';
+$lang['reports_confirm_mark_as_paid'] = 'คุณแน่ใจหรือไม่ว่าต้องการทำเครื่องหมายการขายนี้ว่าชำระแล้ว?';
+$lang['reports_mark_all_as_paid'] = 'ทำเครื่องหมายทั้งหมดว่าชำระแล้ว';
+$lang['reports_confirm_all_mark_as_paid'] = 'คุณแน่ใจหรือไม่ว่าต้องการทำเครื่องหมายการขายทั้งหมดว่าชำระแล้ว?';
+$lang['reports_mark_as_unpaid'] = 'ทำเครื่องหมายว่ายังไม่ชำระ';
+$lang['reports_confirm_mark_as_unpaid'] = 'คุณแน่ใจหรือไม่ว่าต้องการทำเครื่องหมายนี้ว่ายังไม่ชำระ?';
+$lang['reports_show_paid_sales'] = 'แสดงการขายที่ชำระแล้ว';
+$lang['reports_receiving_date'] = 'วันที่รับสินค้า';
+$lang['reports_outstanding_recv'] = 'การรับสินค้าที่ค้างอยู่';
+$lang['reports_show_paid_receivings'] = 'แสดงการรับสินค้าที่ชำระแล้ว';
+$lang['reports_outstanding_receivings_report'] = 'รายงานการรับสินค้าที่ค้างอยู่';
 
-$lang['reports_total_taxes'] = 'Total Taxes';
+$lang['reports_taxable_sales'] = 'ยอดขายที่ต้องเสียภาษี';
+$lang['reports_taxable_recv'] = 'การรับสินค้าที่ต้องเสียภาษี';
+$lang['reports_price_variance_report'] = 'รายงานความแปรปรวนของราคา';
+$lang['reports_variance'] = 'ความแปรปรวน';
+$lang['reports_this_quarter'] = 'ไตรมาสนี้';
+$lang['reports_last_quarter'] = 'ไตรมาสที่แล้ว';
+$lang['reports_ip_address_clock_in'] = 'ที่อยู่ IP เวลาเข้า';
+$lang['reports_ip_address_clock_out'] = 'ที่อยู่ IP เวลาออก';
+$lang['reports_manufacturers_report'] = 'รายงานผู้ผลิต';
+$lang['reports_current_cost_price'] = 'ราคาต้นทุนปัจจุบัน';
 
-$lang['reports_average_ticket_size'] = 'Average Ticket Size';
-$lang['reports_current_selling_price'] = 'Current Selling Price';
-$lang['reports_total_receivings'] = 'Total Receivings';
+$lang['reports_show_deleted_items'] = 'แสดงสินค้าที่ถูกลบ';
 
+$lang['reports_exchanges'] = 'การแลกเปลี่ยน';
 
-$lang['reports_quantity_expiring'] = 'Quantity Expiring';
-$lang['reports_audit_report'] = 'Audit Report';
-$lang['reports_giftcards_audit_report'] = 'Gift cards audit report';
-$lang['reports_compare_to_date_range'] = 'Compare to Date Range';
-$lang['reports_compare_to'] = 'Compare To';
-$lang['reports_points_used'] = 'Points Used';
-$lang['reports_points_earned'] = 'Pointed Earned';
-
-$lang['reports_items_recved'] = 'Items received';
-$lang['reports_show_only_reorder'] = 'Show only items with reorder level';
-$lang['reports_weighted_cost'] = 'Weighted Average Cost Price';
-$lang['reports_tax_exempt'] = 'Tax Exempt';
-
-$lang['reports_detailed_suspended_receivings_report'] = 'Detailed Suspended Receivings Report';
-$lang['reports_pending_inventory'] = 'Pending Inventory (Suspended)';
-$lang['reports_show_pending_only'] = 'Only show items with pending inventory';
-
-
-$lang['reports_total_spent'] = 'Total Spent';
-$lang['reports_any_amount'] = 'Any Amount';
-$lang['reports_expenses'] = 'Expenses';
-$lang['reports_tax'] = 'Tax';
-$lang['reports_profit'] = 'Profit';
-$lang['reports_items_with_tax'] = 'With tax';
-$lang['reports_total_expenses'] = 'Total Expenses';
-$lang['reports_employee_type'] = 'Employee type';
-$lang['reports_sale_person'] = 'Sale person';
-$lang['reports_expenses_summary_report'] = 'Expenses Summary Report';
-$lang['reports_giftcard_number'] = 'Gift Card Number';
-$lang['reports_giftcard'] = 'Giftcard';
-$lang['reports_loyalty'] = 'Loyalty';
-
-$lang['reports_all_transactions'] = 'All Transactions';
-$lang['reports_number_of_discounts'] = 'Number of Discounts';
-$lang['reports_show_all_items'] = 'Show all items even if not sold';
-$lang['reports_outstanding_sales'] = 'Outstanding Sales';
-$lang['reports_outstanding_sales_report'] = 'Store Account Outstanding Sales Report';
-$lang['reports_mark_as_paid'] = 'Mark as Paid';
-$lang['reports_confirm_mark_as_paid'] = 'Are you sure you want to mark this sale as paid?';
-$lang['reports_mark_all_as_paid'] = 'Mark ALL as Paid';
-$lang['reports_confirm_all_mark_as_paid'] = 'Are you sure you want to mark ALL sales as paid?';
-$lang['reports_mark_as_unpaid'] = 'Mark as Unpaid';
-$lang['reports_confirm_mark_as_unpaid'] = 'Are you sure you want to mark this as unpaid?';
-$lang['reports_show_paid_sales'] = 'Show Paid Sales';
-$lang['reports_receiving_date'] = 'Receiving Date';
-$lang['reports_outstanding_recv'] = 'Outstanding Receivings';
-$lang['reports_show_paid_receivings'] = 'Show Paid Receivings';
-$lang['reports_outstanding_receivings_report'] = 'Outstanding Receivings Report';
-
-$lang['reports_taxable_sales'] = 'Taxable Sales';
-$lang['reports_taxable_recv'] = 'Taxable Receivings';
-$lang['reports_price_variance_report'] = 'Price Variance Report';
-$lang['reports_variance'] = 'Variance';
-$lang['reports_this_quarter'] = 'This Quarter';
-$lang['reports_last_quarter'] = 'Last Quarter';
-$lang['reports_ip_address_clock_in'] = 'IP Address Clock In';
-$lang['reports_ip_address_clock_out'] = 'IP Address Clock Out';
-$lang['reports_manufacturers_report'] = 'Manufacturers Report';
-$lang['reports_current_cost_price'] = 'Current Cost Price';
-
-$lang['reports_show_deleted_items'] = 'Show Deleted Items';
-
-$lang['reports_exchanges'] = 'Exchanges';
-
-$lang['reports_total_paid'] = 'Total Paid';
-$lang['reports_total_due'] = 'Total Due';
-$lang['reports_receivings'] = 'Receiving';
+$lang['reports_total_paid'] = 'ชำระแล้วทั้งหมด';
+$lang['reports_total_due'] = 'ค้างชำระทั้งหมด';
+$lang['reports_receivings'] = 'การรับสินค้า';
 ?>
