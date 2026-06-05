@@ -1820,8 +1820,8 @@ class Items extends Secure_area implements Idata_controller
 		
 		$file_info = pathinfo($_FILES["file"]["name"]);		
 		$file = $this->Appfile->get($this->session->userdata('excel_import_file_id'));
-		//$tmpFilename = tempnam("\tmp", 'iexcel');
-                $tmpFilename = tempnam("/tem", 'iexcel'); //edit Temp Location By GomonX
+		//$tmpFilename = tempnam(sys_get_temp_dir(), 'iexcel');
+                $tmpFilename = tempnam(sys_get_temp_dir(), 'iexcel'); //edit Temp Location By GomonX
 		file_put_contents($tmpFilename,$file->file_data);
 		$this->load->helper('spreadsheet');
 		
@@ -1831,7 +1831,7 @@ class Items extends Secure_area implements Idata_controller
 		$fields = $this->_get_database_fields_for_import_as_array();
 		
 		$k=0;
-		foreach($first_row as $col_name)
+		foreach(is_array($first_row) ? $first_row : array() as $col_name)
 		{
 			$column =  array('Spreadsheet Column' => $col_name, 'Index' => $k);
 			
@@ -1866,7 +1866,7 @@ class Items extends Secure_area implements Idata_controller
 		
 		$file = $this->Appfile->get($this->session->userdata('excel_import_file_id'));
 
-		$tmpFilename = tempnam("\tmp", 'iexcel');
+		$tmpFilename = tempnam(sys_get_temp_dir(), 'iexcel');
 		file_put_contents($tmpFilename,$file->file_data);
 		$this->load->helper('spreadsheet');
 		$file_info = pathinfo($file->file_name);

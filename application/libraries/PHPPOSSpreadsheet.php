@@ -3,32 +3,14 @@ abstract class PHPPOSSpreadsheet
 {
 	public static function getSpreadsheetClass($inputFileName = null, $type='xlsx')
 	{
-		if (version_compare(PHP_VERSION, '5.4.0') >= 0)
-		{			
-			require_once APPPATH.'libraries/Spout/Autoloader/autoload.php';		
-			require_once (APPPATH.'libraries/PHPPOSSpreadsheetSpout.php');
-			return new PHPPOSSpreadsheetSpout($inputFileName, $type);
-		}
-		else
-		{
-			require_once (APPPATH.'libraries/PHPPOSSpreadsheetPHPExcel.php');
-			return new PHPPOSSpreadsheetPHPExcel($inputFileName,$type);
-		}
+		require_once (APPPATH.'libraries/PHPPOSSpreadsheetNative.php');
+		return new PHPPOSSpreadsheetNative($inputFileName, $type);
 	}
 	
 	public static function getFirstRow($inputFileName, $type='xlsx')
 	{
-		if (version_compare(PHP_VERSION, '5.4.0') >= 0)
-		{			
-			require_once APPPATH.'libraries/Spout/Autoloader/autoload.php';		
-			require_once (APPPATH.'libraries/PHPPOSSpreadsheetSpout.php');
-			return PHPPOSSpreadsheetSpout::getFirstRow($inputFileName, $type);
-		}
-		else
-		{
-			require_once (APPPATH.'libraries/PHPPOSSpreadsheetPHPExcel.php');
-			return PHPPOSSpreadsheetPHPExcel::getFirstRow($inputFileName,$type);
-		}
+		require_once (APPPATH.'libraries/PHPPOSSpreadsheetNative.php');
+		return PHPPOSSpreadsheetNative::getFirstRow($inputFileName, $type);
 	}
 	
 	//$column starts at 0 and row starts at 1
