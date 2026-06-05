@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$base_url = 'https://pos.noobtohero.com/';
+$base_url = 'https://phpos.asmth.co.th/';
 // The regular expression is only a basic validation for a valid "Host" header.
 // It's not exhaustive, only checks for valid characters.
 if (isset($_SERVER['HTTP_HOST']) && preg_match('/^((\[[0-9a-f:]+\])|(\d{1,3}(\.\d{1,3}){3})|[a-z0-9\-\.]+)(:\d+)?$/i', $_SERVER['HTTP_HOST']))

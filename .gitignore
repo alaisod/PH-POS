@@ -1,4 +1,4 @@
-application/config/database.php
+# application/config/database.php
 application/logs
 application/libraries/tfpdf/font/unifont/dejavusanscondensed.cw.dat
 application/libraries/tfpdf/font/unifont/dejavusanscondensed.mtx.php
