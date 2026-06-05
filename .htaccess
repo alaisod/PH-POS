@@ -2,7 +2,7 @@
 RewriteEngine On
 
 RewriteCond %{HTTP_HOST} ^demo
-RewriteCond %{HTTP_HOST} pos.noobtohero.com
+RewriteCond %{HTTP_HOST} phpos.asmth.co.th
 RewriteRule ^robots\.txt$ robots_allow.txt
 </IfModule>
 
