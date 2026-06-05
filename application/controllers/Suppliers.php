@@ -548,11 +548,6 @@ class Suppliers extends Person_controller
 		
 		if($this->Supplier->save_supplier($person_data,$supplier_data,$supplier_id))
 		{			
-			if ($this->Location->get_info_for_key('mailchimp_api_key'))
-			{
-				$this->Person->update_mailchimp_subscriptions($this->input->post('email'), $this->input->post('first_name'), $this->input->post('last_name'), $this->input->post('mailing_lists'));
-			}
-			
 			$success_message = '';
 			
 			//New supplier
@@ -568,6 +563,19 @@ class Suppliers extends Person_controller
 				$success_message = lang('suppliers_successful_updating').' '.$supplier_data['company_name'];
 				$this->session->set_flashdata('manage_success_message', $success_message);
 				echo json_encode(array('success'=>true,'redirect'=> $redirect, 'message'=>$success_message,'person_id'=>$supplier_id));
+			}
+			
+			//Flush response to browser before potentially slow post-processing
+			session_write_close();
+			if (ob_get_level())
+			{
+				ob_flush();
+			}
+			flush();
+			
+			if ($this->Location->get_info_for_key('mailchimp_api_key'))
+			{
+				$this->Person->update_mailchimp_subscriptions($this->input->post('email'), $this->input->post('first_name'), $this->input->post('last_name'), $this->input->post('mailing_lists'));
 			}
 			
 			$suppliers_taxes_data = array();

@@ -338,12 +338,6 @@ class Customers extends Person_controller
 		
 		if($this->Customer->save_customer($person_data,$customer_data,$customer_id))
 		{
-			if ($this->Location->get_info_for_key('mailchimp_api_key'))
-			{
-				$this->Person->update_mailchimp_subscriptions($this->input->post('email'), $this->input->post('first_name'), $this->input->post('last_name'), $this->input->post('mailing_lists'));
-			}
-	
-
 			$success_message = '';
 			
 			//New customer
@@ -360,6 +354,20 @@ class Customers extends Person_controller
 				$this->session->set_flashdata('manage_success_message', $success_message);
 				echo json_encode(array('success'=>true,'message'=>$success_message,'person_id'=>$customer_id,'redirect_code'=>$redirect_code));
 			}
+			
+			//Flush response to browser before potentially slow post-processing
+			session_write_close();
+			if (ob_get_level())
+			{
+				ob_flush();
+			}
+			flush();
+			
+			if ($this->Location->get_info_for_key('mailchimp_api_key'))
+			{
+				$this->Person->update_mailchimp_subscriptions($this->input->post('email'), $this->input->post('first_name'), $this->input->post('last_name'), $this->input->post('mailing_lists'));
+			}
+	
 			
 			$customers_taxes_data = array();
 			$tax_names = $this->input->post('tax_names') ?: array();
