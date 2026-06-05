@@ -111,7 +111,7 @@ $lang['items_date']='Date';
 $lang['items_remarks']='Remarks';
 
 
-$lang['items_item_number_exists']='UPC/EAN/ISBN already exists';
+$lang['items_item_number_exists']='BARCODE already exists';
 $lang['items_image']='Image';
 
 $lang['items_pricing_and_inventory'] = 'Pricing and Inventory';
@@ -142,9 +142,9 @@ $lang['items_select_category_or_all'] = 'Select Category/All';
 
 $lang['items_are_you_sure_cancel'] = 'Are you sure you wish to cancel adding this item?';
 
-$lang['items_product_id_exists'] = 'Product Id already exists';
+$lang['items_product_id_exists'] = 'SKU already exists';
 
-$lang['items_add_item_number'] = 'Add item number';
+$lang['items_add_item_number'] = 'Add BARCODE';
 $lang['items_confirm_cleanup'] = 'Are you sure you want to clean ALL deleted items? (This will remove item numbers from deleted items so they can be reused)';
 
 
@@ -226,13 +226,13 @@ $lang['items_category_image'] = 'Category Image';
 
 
 
-$lang['items_duplicate_item_numbers_product_ids'] = 'There are duplicate values in the speadsheet for Item Numbers and or Product Ids.';
-$lang['items_no_duplicate_item_numbers_product_ids'] = 'There are no duplicate values in the speadsheet for Item Numbers and or Product Ids.';
+$lang['items_duplicate_item_numbers_product_ids'] = 'There are duplicate values in the speadsheet for BARCODEs and or SKUs.';
+$lang['items_no_duplicate_item_numbers_product_ids'] = 'There are no duplicate values in the speadsheet for BARCODEs and or SKUs.';
 
 
 $lang['items_in_spreadsheet'] = 'in Spreadsheet';
-$lang['items_duplicate_item_number'] = 'Duplicate Item Number';
-$lang['items_duplicate_product_id'] = 'Duplicate Product Id';
+$lang['items_duplicate_item_number'] = 'Duplicate BARCODE';
+$lang['items_duplicate_product_id'] = 'Duplicate SKU';
 $lang['items_item_existed_warning'] = 'This item existed previously but \'item id\' was not provided in the spreadsheet.';
 
 $lang['items_import_items'] = 'Import Items';

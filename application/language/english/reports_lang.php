@@ -151,7 +151,7 @@ $lang['reports_sales_generator_selectField_5'] = 'Supplier Name';
 $lang['reports_sales_generator_selectField_6'] = 'Sale Type';
 $lang['reports_sales_generator_selectField_7'] = 'Sale Amount';
 $lang['reports_sales_generator_selectField_8'] = 'Item Kit Name';
-$lang['reports_sales_generator_selectField_9'] = 'Item Name/UPC/Product ID';
+$lang['reports_sales_generator_selectField_9'] = 'Item Name/UPC/SKU';
 $lang['reports_sales_generator_selectField_10'] = 'Sale ID';
 
 $lang['reports_sales_generator_selectCondition_1'] = 'is';

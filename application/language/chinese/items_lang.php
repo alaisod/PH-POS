@@ -142,7 +142,7 @@ $lang['items_date'] = '日期';
 //Remarks
 $lang['items_remarks'] = '备注';
 //UPC/EAN/ISBN already exists
-$lang['items_item_number_exists'] = 'UPC / EAN / ISBN已经存在';
+$lang['items_item_number_exists'] = 'BARCODE 已经存在';
 //Image
 $lang['items_image'] = '图片';
 //Pricing and Inventory

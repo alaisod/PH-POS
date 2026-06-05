@@ -155,7 +155,7 @@ $lang['common_cost_price'] = 'Cost Price';
 $lang['common_unit_price'] = 'Selling Price';
 $lang['common_clone'] = 'Clone';
 $lang['common_must_select_item_for_barcode'] = 'You must select at least 1 item to generate barcodes';
-$lang['common_product_id'] = 'Product ID';
+$lang['common_product_id'] = 'SKU';
 
 $lang['common_category'] = 'Category';
 $lang['items_manage_categories'] = 'Manage categories';
@@ -279,8 +279,8 @@ $lang['common_register_name'] = 'Register Name';
 $lang['common_customer'] = 'Customer';
 
 
-$lang['common_item_number'] = 'Item Number';
-$lang['common_item_number_expanded'] = 'UPC/EAN/ISBN';
+$lang['common_item_number'] = 'BARCODE';
+$lang['common_item_number_expanded'] = 'BARCODE';
 $lang['common_giftcards_basic_information'] = 'Giftcard Information';
 $lang['common_giftcards_giftcard_number'] = 'Giftcard Number';
 $lang['common_giftcards_card_value'] = 'Value';
@@ -516,7 +516,7 @@ $lang['common_calendar_of'] = 'Calendar of';
 $lang['common_calendar'] = 'Calendar';
 $lang['common_exchange_to'] = 'Payment Currency';
 $lang['common_cancel_edit'] = 'Cancel Edit';
-$lang['common_additional_item_numbers'] = 'Additional Item Numbers';
+$lang['common_additional_item_numbers'] = 'Additional BARCODEs';
 $lang['common_serial_numbers'] = 'Serial Numbers';
 $lang['save_item_from_phppos_to_ecommerce'] = 'Save Item from PHP POS To E-Commerce';
 $lang['common_EXCEPTION'] = 'Exception';

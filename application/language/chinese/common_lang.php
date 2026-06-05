@@ -514,7 +514,7 @@ $lang['common_customer'] = '顾客';
 //Item Number
 $lang['common_item_number'] = '项目编号';
 //UPC/EAN/ISBN
-$lang['common_item_number_expanded'] = 'UPC / EAN / ISBN';
+$lang['common_item_number_expanded'] = 'BARCODE';
 //Giftcard Information
 $lang['common_giftcards_basic_information'] = '礼品卡信息';
 //Giftcard Number

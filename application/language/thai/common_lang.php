@@ -278,8 +278,8 @@ $lang['common_register_name'] = 'ชื่อเครื่องขาย';
 $lang['common_customer'] = 'ลูกค้า';
 
 
-$lang['common_item_number'] = 'รหัสสินค้า';
-$lang['common_item_number_expanded'] = 'UPC/EAN/ISBN';
+$lang['common_item_number'] = 'BARCODE';
+$lang['common_item_number_expanded'] = 'BARCODE';
 $lang['common_giftcards_basic_information'] = 'ข้อมูลบัตรของขวัญ';
 $lang['common_giftcards_giftcard_number'] = 'เลขที่บัตรของขวัญ';
 $lang['common_giftcards_card_value'] = 'มูลค่า';
@@ -515,7 +515,7 @@ $lang['common_calendar_of'] = 'ปฏิทินของ';
 $lang['common_calendar'] = 'ปฏิทิน';
 $lang['common_exchange_to'] = 'สกุลเงินชำระเงิน';
 $lang['common_cancel_edit'] = 'ยกเลิกการแก้ไข';
-$lang['common_additional_item_numbers'] = 'หมายเลขสินค้าเพิ่มเติม';
+$lang['common_additional_item_numbers'] = 'BARCODEสินค้าเพิ่มเติม';
 $lang['common_serial_numbers'] = 'หมายเลขซีเรียล';
 $lang['save_item_from_phppos_to_ecommerce'] = 'บันทึกสินค้าจาก PHP POS ไปยัง E-Commerce';
 $lang['common_EXCEPTION'] = 'ข้อยกเว้น';

@@ -131,7 +131,7 @@ $lang['reports_sales_generator_selectField_5'] = 'ชื่อผู้จัด
 $lang['reports_sales_generator_selectField_6'] = 'ประเภทการขาย';
 $lang['reports_sales_generator_selectField_7'] = 'ยอดขาย';
 $lang['reports_sales_generator_selectField_8'] = 'ชื่อชุดสินค้า';
-$lang['reports_sales_generator_selectField_9'] = 'ชื่อสินค้า/UPC/รหัสสินค้า';
+$lang['reports_sales_generator_selectField_9'] = 'ชื่อสินค้า/UPC/SKU';
 $lang['reports_sales_generator_selectField_10'] = 'รหัสการขาย';
 
 $lang['reports_sales_generator_selectCondition_1'] = 'คือ';
