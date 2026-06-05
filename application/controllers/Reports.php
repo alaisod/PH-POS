@@ -5068,8 +5068,15 @@ class Reports extends Secure_area
 		
 		//allow parallel searchs to improve performance.
 		session_write_close();
-		$suggestions = $this->Customer->get_customer_search_suggestions($this->input->get('term'),100);
-		echo json_encode($suggestions);
+		try
+		{
+			$suggestions = $this->Customer->get_customer_search_suggestions($this->input->get('term'),100);
+			echo json_encode($suggestions);
+		}
+		catch(\Throwable $e)
+		{
+			echo json_encode(array('error' => $e->getMessage()));
+		}
 	}
 
 	function item_search()
