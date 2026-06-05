@@ -210,7 +210,7 @@ $lang['items_no_duplicate_item_numbers_product_ids'] = 'ไม่มีค่า
 
 $lang['items_in_spreadsheet'] = 'ในสเปรดชีต';
 $lang['items_duplicate_item_number'] = 'หมายเลขสินค้าซ้ำ';
-$lang['items_duplicate_product_id'] = 'รหัสสินค้าซ้ำ';
+$lang['items_duplicate_product_id'] = 'SKU ซ้ำ';
 $lang['items_item_existed_warning'] = 'สินค้านี้มีอยู่ก่อนแล้วแต่ไม่ได้ระบุรหัสสินค้าในสเปรดชีต';
 
 $lang['items_import_items'] = 'นำเข้าสินค้า';

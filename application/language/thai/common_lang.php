@@ -155,7 +155,7 @@ $lang['common_cost_price'] = 'ราคาต้นทุน';
 $lang['common_unit_price'] = 'ราคาขาย';
 $lang['common_clone'] = 'ทำสำเนา';
 $lang['common_must_select_item_for_barcode'] = 'เลือกอย่างน้อย 1 รายการเพื่อสร้างบาร์โค้ด';
-$lang['common_product_id'] = 'รหัสสินค้า';
+$lang['common_product_id'] = 'SKU';
 
 $lang['common_category'] = 'หมวดหมู่';
 $lang['items_manage_categories'] = 'จัดการหมวดหมู่';
