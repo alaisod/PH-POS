@@ -11,10 +11,10 @@ function force_http_if_needed()
 				{	
 						$CI->load->model('Appconfig');
 					//If we have setup credit card processing enabled
-					if (!$CI->Appconfig->get_do_not_force_http() && ($CI->Location->get_info_for_key('enable_credit_card_processing') || $CI->uri->segment(1) == 'locations'))
+					if (!$CI->Appconfig->get_do_not_force_http() && $CI->Location->get_info_for_key('enable_credit_card_processing'))
 					{	
 						//EMV
-						if ($CI->uri->segment(1) == 'locations' || ($CI->Location->get_info_for_key('emv_merchant_id') && $CI->Location->get_info_for_key('com_port') && $CI->Location->get_info_for_key('listener_port')))
+						if ($CI->Location->get_info_for_key('emv_merchant_id') && $CI->Location->get_info_for_key('com_port') && $CI->Location->get_info_for_key('listener_port'))
 						{
 							$full_url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 							header('HTTP/1.1 307 Temporary Redirect');
