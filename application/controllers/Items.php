@@ -1943,7 +1943,7 @@ class Items extends Secure_area implements Idata_controller
 		}
 		
 		$fields[] = array('Name' => 'Price Includes Tax', 'key' => 'tax_included');
-		$fields[] = array('Name' => 'Is Service Item', 'key' => 'is_service');
+		$fields[] = array('Name' => 'Is Service Item (Does not have quantity)?', 'key' => 'is_service');
 		$fields[] = array('Name' => 'Quantity', 'key' => 'quantity');
 		$fields[] = array('Name' => 'Reorder Level', 'key' => 'reorder_level');
 		$fields[] = array('Name' => 'Replenish Level', 'key' => 'replenish_level');
