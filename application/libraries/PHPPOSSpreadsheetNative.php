@@ -147,7 +147,19 @@ class PHPPOSSpreadsheetNative extends PHPPOSSpreadsheet
 			}
 
 			ksort($rowData);
-			$allRows[$rowIndex] = array_values($rowData);
+			
+			// Fill in gaps for empty columns (e.g., if A,B empty but C has data)
+			if (!empty($rowData)) {
+				$maxCol = max(array_keys($rowData));
+				for ($i = 0; $i <= $maxCol; $i++) {
+					if (!isset($rowData[$i])) {
+						$rowData[$i] = null;
+					}
+				}
+				ksort($rowData);
+			}
+			
+			$allRows[$rowIndex] = $rowData;
 		}
 
 		$this->data = $allRows;
@@ -307,7 +319,7 @@ class PHPPOSSpreadsheetNative extends PHPPOSSpreadsheet
 	 */
 	public function getCellByColumnAndRow($column, $row)
 	{
-		if (isset($this->data[$row][$column])) {
+		if (isset($this->data[$row]) && is_array($this->data[$row]) && array_key_exists($column, $this->data[$row])) {
 			return $this->data[$row][$column];
 		}
 		return null;
