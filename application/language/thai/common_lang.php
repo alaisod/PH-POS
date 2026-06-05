@@ -325,7 +325,7 @@ $lang['common_qty_received'] = 'จำนวนที่รับ';
 $lang['common_comment'] = 'ความคิดเห็น';
 
 $lang['common_pay'] = 'ชำระ';
-$lang['common_update'] = 'อัปเดตลูกค้า';
+$lang['common_update'] = 'อัปเดต';
 $lang['common_credit_limit'] = 'วงเงินเชื่อ';
 $lang['common_balance'] = 'คงเหลือ';
 $lang['common_layaway'] = 'จอง';
