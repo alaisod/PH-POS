@@ -284,7 +284,7 @@ class Customer extends Person
 				$data = array(
 					'name' => $name_label,
 					'email' => $row->email,
-					'avatar' => $this->_safe_customer_avatar_url($row->image_id) 
+					'avatar' => $this->_safe_avatar_url($row->image_id) 
 					 );
 				$temp_suggestions[$row->person_id] = $data;
 			}
@@ -312,7 +312,7 @@ class Customer extends Person
 				$data = array(
 						'name' => $row->account_number,
 						'email' => $row->email,
-						'avatar' => $this->_safe_customer_avatar_url($row->image_id) 
+						'avatar' => $this->_safe_avatar_url($row->image_id) 
 						);
 
 				$temp_suggestions[$row->person_id] = $data;
@@ -354,7 +354,7 @@ class Customer extends Person
 						$data = array(
 								'name' => $row->custom_field,
 								'email' => $row->email,
-								'avatar' => $this->_safe_customer_avatar_url($row->image_id) 
+								'avatar' => $this->_safe_avatar_url($row->image_id) 
 								);
 
 						$temp_suggestions[$row->person_id] = $data;
@@ -392,7 +392,7 @@ class Customer extends Person
 				$data = array(
 						'name' => $email_name_label,
 						'email' => $row->email,
-						'avatar' => $this->_safe_customer_avatar_url($row->image_id) 
+						'avatar' => $this->_safe_avatar_url($row->image_id) 
 						);
 
 				$temp_suggestions[$row->person_id] = $data;
@@ -421,7 +421,7 @@ class Customer extends Person
 				$data = array(
 						'name' => $row->phone_number,
 						'email' => $row->email,
-						'avatar' => $this->_safe_customer_avatar_url($row->image_id) 
+						'avatar' => $this->_safe_avatar_url($row->image_id) 
 						);
 
 				$temp_suggestions[$row->person_id] = $data;
@@ -448,7 +448,7 @@ class Customer extends Person
 				$data = array(
 						'name' => $row->company_name,
 						'email' => $row->email,
-						'avatar' => $this->_safe_customer_avatar_url($row->image_id) 
+						'avatar' => $this->_safe_avatar_url($row->image_id) 
 						);
 
 				$temp_suggestions[$row->person_id] = $data;
@@ -483,23 +483,6 @@ class Customer extends Person
 
 	}
 	
-	private function _safe_customer_avatar_url($image_id)
-	{
-		try
-		{
-			if ($image_id)
-			{
-				return app_file_url($image_id);
-			}
-		}
-		catch (\Throwable $e)
-		{
-			// Fall through to default
-		}
-		
-		return base_url()."assets/img/user.png";
-	}
-
 	/*
 	Preform a search on customers
 	*/
