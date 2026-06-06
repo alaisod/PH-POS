@@ -486,6 +486,7 @@
   flex-shrink: 0;
 }
 .register .register-right .customer-badge .avatar img {
+  display: block;
   width: 100% !important;
   height: 100% !important;
   min-width: 100%;
@@ -550,6 +551,7 @@
   flex-shrink: 0;
 }
 .register .register-right .customer-badge.suggestions .avatar img {
+  display: block;
   width: 100% !important;
   height: 100% !important;
   min-width: 100%;
@@ -3441,6 +3443,7 @@ html {
   flex-shrink: 0;
 }
 .customer-badge .avatar img {
+  display: block;
   width: 100% !important;
   height: 100% !important;
   min-width: 100%;
@@ -3517,6 +3520,7 @@ html {
   flex-shrink: 0;
 }
 .customer-badge.suggestions .avatar img {
+  display: block;
   width: 100% !important;
   height: 100% !important;
   min-width: 100%;
