@@ -197,6 +197,8 @@ class Customers extends Person_controller
 	*/
 	function view($customer_id=-1,$redirect_code=0)
 	{
+		try
+		{
 		$this->check_action_permission('add_update');
 		$this->load->model('Tier');
 		$tiers = array();
@@ -230,6 +232,11 @@ class Customers extends Person_controller
 		
 		$data['redirect_code']=$redirect_code;
 		$this->load->view("customers/form",$data);
+		}
+		catch(\Throwable $e)
+		{
+			show_error($e->getMessage());
+		}
 	}
 	
 	function account_number_exists()
