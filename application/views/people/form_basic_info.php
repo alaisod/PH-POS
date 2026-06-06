@@ -27,9 +27,12 @@
 			</div>
 		</div>
 
-		<?php if ($controller_name == "customers") { ?>
+		<?php if ($controller_name == "customers" || $controller_name == "suppliers") { 
+			$company_label = ($controller_name == "suppliers") ? lang('suppliers_company_name') : lang('customers_company_name');
+			$company_required = ($controller_name == "suppliers") ? 'required ' : '';
+		?>
 		<div class="form-group">	
-			<?php echo form_label(lang('customers_company_name').':', 'company_name',array('class'=>'col-sm-3 col-md-3 col-lg-2 control-label ')); ?>
+			<?php echo form_label($company_label.':', 'company_name',array('class'=>$company_required.'col-sm-3 col-md-3 col-lg-2 control-label')); ?>
 			<div class="col-sm-9 col-md-9 col-lg-10">
 				<?php echo form_input(array(
 					'name'=>'company_name',

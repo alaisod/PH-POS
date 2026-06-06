@@ -485,6 +485,8 @@
 }
 .register .register-right .customer-badge .avatar img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
 }
 .register .register-right .customer-badge .details {
@@ -537,7 +539,13 @@
 }
 .register .register-right .customer-badge.suggestions .avatar {
   width: 35px;
-  height: auto;
+  height: 35px;
+}
+.register .register-right .customer-badge.suggestions .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .register .register-right .customer-badge.suggestions:hover,
 .register .register-right .customer-badge.suggestions.active,
@@ -1272,6 +1280,8 @@ ul.ui-autocomplete {
 }
 .item-suggestions .item-image img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
 }
 .item-suggestions .details {
@@ -1390,8 +1400,9 @@ ul.ui-autocomplete {
 .modal-item-info .modal-item-avatar img {
   float: left;
   border-radius: 4px;
-  width: auto;
+  width: 100px;
   height: 100px;
+  object-fit: cover;
   margin-bottom: 10px;
   margin-right: 20px;
 }
@@ -1998,6 +2009,7 @@ html {
   border-radius: 50%;
   height: 35px;
   width: 35px;
+  object-fit: cover;
 }
 .top-bar .top-elements .dropdown > a {
   height: 60px;
@@ -2315,6 +2327,8 @@ html {
 .top-bar .top-elements .image-holder img {
   border-radius: 50%;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   padding-right: 15px;
 }
 .top-bar .top-elements .icon-notification {
@@ -3414,6 +3428,8 @@ html {
 }
 .customer-badge .avatar img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
 }
 .customer-badge .details {
@@ -3478,7 +3494,13 @@ html {
 }
 .customer-badge.suggestions .avatar {
   width: 35px !important;
-  height: auto;
+  height: 35px !important;
+}
+.customer-badge.suggestions .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .customer-badge.suggestions .details {
   padding-top: 5px;
@@ -3651,7 +3673,13 @@ input {
 }
 .customer-suggestion-badge.suggestions .avatar {
   width: 35px;
-  height: auto;
+  height: 35px;
+}
+.customer-suggestion-badge.suggestions .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .customer-suggestion-badge.suggestions:hover,
 .customer-suggestion-badge.suggestions.active {
@@ -3765,7 +3793,8 @@ input {
 }
 .user-badge .user-badge-avatar img {
   width: 50px !important;
-  height: auto;
+  height: 50px !important;
+  object-fit: cover;
   border-radius: 4px;
   float: left;
 }

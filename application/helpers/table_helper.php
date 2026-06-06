@@ -173,7 +173,7 @@ function get_person_data_row($person,$controller)
 		}	
 	if ($avatar_url)
 	{	
-		$table_data_row.="<td><a href='$avatar_url' class='rollover'><img src='".$avatar_url."' alt='".H($person->full_name)."' class='img-polaroid' width='45' /></a></td>";
+		$table_data_row.="<td><a href='$avatar_url' class='rollover'><img src='".$avatar_url."' alt='".H($person->full_name)."' class='img-polaroid' width='45' height='45' /></a></td>";
 	}
 	
 	$table_data_row.='</tr>';
@@ -320,7 +320,7 @@ function get_item_data_row($item,$controller)
 		}	
 	if ($avatar_url)
 	{	
-		$table_data_row.="<td><a href='$avatar_url' class='rollover'><img src='".$avatar_url."' alt='".H($item->name)."' class='img-polaroid' width='45' /></a></td>";
+		$table_data_row.="<td><a href='$avatar_url' class='rollover'><img src='".$avatar_url."' alt='".H($item->name)."' class='img-polaroid' width='45' height='45' /></a></td>";
 	}
 	
 	$table_data_row.='</tr>';

@@ -43,19 +43,7 @@
 	                </h3>
 		        </div>
 
-			<div class="panel-body">
-				<div class="form-group">
-				
-						<?php echo form_label(lang('suppliers_company_name').':', 'company_name', array('class'=>'required col-sm-3 col-md-3 col-lg-2 control-label')); ?>
-						<div class="col-sm-9 col-md-9 col-lg-10 cmp-inps">
-						<?php echo form_input(array(
-							'class'=>'form-control form-inps',
-							'name'=>'company_name',
-							'id'=>'company_name',
-							'value'=>$person_info->company_name)
-							);?>
-						</div>
-					</div>
+			<div class="panel-body">					
 				
 					<?php $this->load->view("people/form_basic_info"); ?>
 					<div class="form-group">

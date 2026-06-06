@@ -240,7 +240,7 @@ class Supplier extends Person
 				$data = array(
 						'name' => $row->company_name,
 						'email' => $row->email,
-						'avatar' => $row->image_id ?  app_file_url($row->image_id) : base_url()."assets/img/user.png" 
+						'avatar' => $this->_safe_supplier_avatar_url($row->image_id) 
 						);
 
 				$temp_suggestions[$row->person_id] = $data;
@@ -271,7 +271,7 @@ class Supplier extends Person
 				$data = array(
 						'name' => $row->first_name.' '.$row->last_name,
 						'email' => $row->email,
-						'avatar' => $row->image_id ?  app_file_url($row->image_id) : base_url()."assets/img/user.png" 
+						'avatar' => $this->_safe_supplier_avatar_url($row->image_id) 
 						);
 
 				$temp_suggestions[$row->person_id] = $data;
@@ -300,7 +300,7 @@ class Supplier extends Person
 				$data = array(
 						'name' => $row->first_name.' '.$row->last_name,
 						'email' => $row->email,
-						'avatar' => $row->image_id ?  app_file_url($row->image_id) : base_url()."assets/img/user.png" 
+						'avatar' => $this->_safe_supplier_avatar_url($row->image_id) 
 						);
 
 				$temp_suggestions[$row->person_id] = $data;
@@ -328,7 +328,7 @@ class Supplier extends Person
 				$data = array(
 						'name' => $row->phone_number,
 						'email' => $row->email,
-						'avatar' => $row->image_id ?  app_file_url($row->image_id) : base_url()."assets/img/user.png" 
+						'avatar' => $this->_safe_supplier_avatar_url($row->image_id) 
 						);
 
 				$temp_suggestions[$row->person_id] = $data;
@@ -355,7 +355,7 @@ class Supplier extends Person
 				$data = array(
 						'name' => $row->account_number,
 						'email' => $row->email,
-						'avatar' => $row->image_id ?  app_file_url($row->image_id) : base_url()."assets/img/user.png" 
+						'avatar' => $this->_safe_supplier_avatar_url($row->image_id) 
 						);
 
 				$temp_suggestions[$row->person_id] = $data;
@@ -403,7 +403,7 @@ class Supplier extends Person
 						$data = array(
 								'name' => $row->custom_field,
 								'email' => $row->email,
-								'avatar' => $row->image_id ?  app_file_url($row->image_id) : base_url()."assets/img/user.png" 
+								'avatar' => $this->_safe_supplier_avatar_url($row->image_id) 
 								);
 
 						$temp_suggestions[$row->person_id] = $data;
@@ -427,6 +427,23 @@ class Supplier extends Person
 		}
 		return $suggestions;
 	
+	}
+	
+	private function _safe_supplier_avatar_url($image_id)
+	{
+		try
+		{
+			if ($image_id)
+			{
+				return app_file_url($image_id);
+			}
+		}
+		catch (\Throwable $e)
+		{
+			// Fall through to default
+		}
+		
+		return base_url()."assets/img/user.png";
 	}
 
 	/*

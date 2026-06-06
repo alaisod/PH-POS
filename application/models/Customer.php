@@ -284,7 +284,7 @@ class Customer extends Person
 				$data = array(
 					'name' => $name_label,
 					'email' => $row->email,
-					'avatar' => $row->image_id ?  app_file_url($row->image_id) : base_url()."assets/img/user.png" 
+					'avatar' => $this->_safe_customer_avatar_url($row->image_id) 
 					 );
 				$temp_suggestions[$row->person_id] = $data;
 			}
@@ -312,7 +312,7 @@ class Customer extends Person
 				$data = array(
 						'name' => $row->account_number,
 						'email' => $row->email,
-						'avatar' => $row->image_id ?  app_file_url($row->image_id) : base_url()."assets/img/user.png" 
+						'avatar' => $this->_safe_customer_avatar_url($row->image_id) 
 						);
 
 				$temp_suggestions[$row->person_id] = $data;
@@ -354,7 +354,7 @@ class Customer extends Person
 						$data = array(
 								'name' => $row->custom_field,
 								'email' => $row->email,
-								'avatar' => $row->image_id ?  app_file_url($row->image_id) : base_url()."assets/img/user.png" 
+								'avatar' => $this->_safe_customer_avatar_url($row->image_id) 
 								);
 
 						$temp_suggestions[$row->person_id] = $data;
@@ -392,7 +392,7 @@ class Customer extends Person
 				$data = array(
 						'name' => $email_name_label,
 						'email' => $row->email,
-						'avatar' => $row->image_id ?  app_file_url($row->image_id) : base_url()."assets/img/user.png" 
+						'avatar' => $this->_safe_customer_avatar_url($row->image_id) 
 						);
 
 				$temp_suggestions[$row->person_id] = $data;
@@ -421,7 +421,7 @@ class Customer extends Person
 				$data = array(
 						'name' => $row->phone_number,
 						'email' => $row->email,
-						'avatar' => $row->image_id ?  app_file_url($row->image_id) : base_url()."assets/img/user.png" 
+						'avatar' => $this->_safe_customer_avatar_url($row->image_id) 
 						);
 
 				$temp_suggestions[$row->person_id] = $data;
@@ -448,7 +448,7 @@ class Customer extends Person
 				$data = array(
 						'name' => $row->company_name,
 						'email' => $row->email,
-						'avatar' => $row->image_id ?  app_file_url($row->image_id) : base_url()."assets/img/user.png" 
+						'avatar' => $this->_safe_customer_avatar_url($row->image_id) 
 						);
 
 				$temp_suggestions[$row->person_id] = $data;
@@ -482,6 +482,24 @@ class Customer extends Person
 		return $suggestions;
 
 	}
+	
+	private function _safe_customer_avatar_url($image_id)
+	{
+		try
+		{
+			if ($image_id)
+			{
+				return app_file_url($image_id);
+			}
+		}
+		catch (\Throwable $e)
+		{
+			// Fall through to default
+		}
+		
+		return base_url()."assets/img/user.png";
+	}
+
 	/*
 	Preform a search on customers
 	*/
@@ -670,7 +688,7 @@ class Customer extends Person
 	
 	function get_default_columns()
 	{
-		return array('person_id','full_name','email','phone_number');
+		return array('person_id','company_name','first_name','phone_number');
 	}
 	
 	function get_custom_field($number,$key="name")
