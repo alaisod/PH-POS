@@ -232,13 +232,12 @@ class Customers extends Person_controller
 		
 		$data['redirect_code']=$redirect_code;
 		$this->load->view("customers/form",$data);
-		}
-		catch(\Throwable $e)
+		}		catch(\Throwable $e)
 		{
-			show_error($e->getMessage());
+			show_error($e->getMessage().' in '.$e->getFile().' on line '.$e->getLine());
 		}
 	}
-	
+
 	function account_number_exists()
 	{
 		if($this->Customer->account_number_exists($this->input->post('account_number')))

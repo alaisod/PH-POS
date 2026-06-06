@@ -29,7 +29,7 @@
 								<div class="amount">								
 									<?php echo lang('common_sales_until_discount').': '; ?>
 									<?php 
-								   $sales_until_discount = $this->config->item('number_of_sales_for_discount') - $person_info->current_sales_for_discount;
+								   $sales_until_discount = (float)$this->config->item('number_of_sales_for_discount') - (float)$person_info->current_sales_for_discount;
 									
 									echo to_quantity($sales_until_discount); ?>
 								</div>
@@ -50,10 +50,8 @@
 								</div>
 								
 								<div class="amount">
-									<?php echo lang('customers_amount_to_spend_for_next_point').': '; ?>
-									<?php echo to_currency($spend_amount_for_points - $person_info->current_spend_for_points); ?>
+									<?php echo lang('customers_amount_to_spend_for_next_point').': '; ?>									<?php echo to_currency((float)$spend_amount_for_points - (float)$person_info->current_spend_for_points); ?>
 								</div>								
-								
 								<?php
 								}
 								?>
@@ -158,7 +156,7 @@
 				
 				if ($this->config->item('enable_customer_loyalty_system') && $this->config->item('loyalty_option') == 'simple')
 				{
-				   $sales_until_discount = $this->config->item('number_of_sales_for_discount') - $person_info->current_sales_for_discount;
+				   $sales_until_discount = (float)$this->config->item('number_of_sales_for_discount') - (float)$person_info->current_sales_for_discount;
 				
 					if ($this->Employee->has_module_action_permission('customers', 'edit_customer_points', $this->Employee->get_logged_in_employee_info()->person_id))
 					{
@@ -207,7 +205,7 @@
 									'name'=>'amount_to_spend_for_next_point',
 									'id'=>'amount_to_spend_for_next_point',
 									'class'=>'form-control amount_to_spend_for_next_point',
-									'value'=>to_currency_no_money($spend_amount_for_points - $person_info->current_spend_for_points))
+									'value'=>to_currency_no_money((float)$spend_amount_for_points - (float)$person_info->current_spend_for_points))
 									);?>
 							</div>
 						</div>
@@ -220,11 +218,11 @@
 						<div class="form-group quantity-input">
 							<?php echo form_label(lang('customers_amount_to_spend_for_next_point').':', '', array('class'=>'col-sm-3 col-md-3 col-lg-2 control-label wide')); ?>
 							<div class="col-sm-9 col-md-9 col-lg-10">
-								<h5><?php echo to_currency($spend_amount_for_points - $person_info->current_spend_for_points); ?></h5>
+								<h5><?php echo to_currency((float)$spend_amount_for_points - (float)$person_info->current_spend_for_points); ?></h5>
 							</div>
 						</div>
 						<?php 
-						echo form_hidden('amount_to_spend_for_next_point', to_currency_no_money($spend_amount_for_points - $person_info->current_spend_for_points));
+						echo form_hidden('amount_to_spend_for_next_point', to_currency_no_money((float)$spend_amount_for_points - (float)$person_info->current_spend_for_points));
 						?>
 					<?php
 					}
