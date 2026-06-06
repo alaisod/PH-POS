@@ -15,7 +15,8 @@ $lang['common_address_2']='ที่อยู่ 2';
 $lang['common_city']='อำเภอ';
 $lang['common_state']='จังหวัด';
 $lang['common_zip']='รหัสไปรษณีย์';
-$lang['common_country']='ประเทศ';
+$lang['common_latitude']='ละติจูด';
+$lang['common_longitude']='ลองจิจูด';
 
 $lang['common_edit']='แก้ไข';
 $lang['common_print_receipt']='พิมพ์ใบเสร็จ';

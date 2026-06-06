@@ -624,7 +624,8 @@ class Customer extends Person
 			'city' => 													array('sort_column' => $this->db->dbprefix('people').'.city','label' => lang('common_city')),
 			'state' => 													array('sort_column' => $this->db->dbprefix('people').'.state','label' => lang('common_state')),
 			'zip' => 														array('sort_column' => $this->db->dbprefix('people').'.zip','label' => lang('common_zip')),
-			'country' => 												array('sort_column' => $this->db->dbprefix('people').'.country','label' => lang('common_country')),
+			'latitude' => array('sort_column' => $this->db->dbprefix('people').'.latitude','label' => lang('common_latitude')),
+			'longitude' => array('sort_column' => $this->db->dbprefix('people').'.longitude','label' => lang('common_longitude')),
 			'override_default_tax' => 					array('sort_column' => $this->db->dbprefix('customers').'.override_default_tax','label' => lang('customers_override_default_tax_for_sale'),'format_function' => 'boolean_as_string'),			
 		);
 		

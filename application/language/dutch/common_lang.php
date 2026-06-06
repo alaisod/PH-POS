@@ -15,7 +15,8 @@ $lang['common_address_2']='Adres 2';
 $lang['common_city']='Woonplaats';
 $lang['common_state']='Provincie';
 $lang['common_zip']='Postcode';
-$lang['common_country']='Land';
+$lang['common_latitude']='Breedtegraad';
+$lang['common_longitude']='Lengtegraad';
 
 $lang['common_edit']='Bewerken';
 $lang['common_print_receipt']='Print Bon';

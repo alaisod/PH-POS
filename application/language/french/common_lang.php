@@ -15,7 +15,8 @@ $lang['common_address_2']='Adresse 2';
 $lang['common_city']='Ville';
 $lang['common_state']='État/Province';
 $lang['common_zip']='Code postal'; 
-$lang['common_country']='Pays'; 
+$lang['common_latitude']='Latitude';
+$lang['common_longitude']='Longitude'; 
 
 $lang['common_edit']='Modifier';
 $lang['common_search']='Recherche';

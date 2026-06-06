@@ -145,7 +145,8 @@ class Customers extends Person_controller
 			$label['city'] = $customer_info->city;
 			$label['state'] = $customer_info->state;
 			$label['zip'] = $customer_info->zip;
-			$label['country'] = $customer_info->country;
+			$label['latitude'] = $customer_info->latitude;
+			$label['longitude'] = $customer_info->longitude;
 			
 			$data['mailing_labels'][] = $label;
 			
@@ -172,7 +173,8 @@ class Customers extends Person_controller
 			$label['city'] = $customer_info->city;
 			$label['state'] = $customer_info->state;
 			$label['zip'] = $customer_info->zip;
-			$label['country'] = $customer_info->country;
+			$label['latitude'] = $customer_info->latitude;
+			$label['longitude'] = $customer_info->longitude;
 			
 			$data['mailing_labels'][] = $label;
 			
@@ -268,7 +270,8 @@ class Customers extends Person_controller
 		'city'=>$this->input->post('city'),
 		'state'=>$this->input->post('state'),
 		'zip'=>$this->input->post('zip'),
-		'country'=>$this->input->post('country'),
+		'latitude'=>$this->input->post('latitude'),
+		'longitude'=>$this->input->post('longitude'),
 		'comments'=>$this->input->post('comments')
 		);
 		
@@ -468,7 +471,7 @@ class Customers extends Person_controller
 	
 	function _excel_get_header_row()
 	{		
-		$return = array(lang('common_first_name'),lang('common_last_name'),lang('common_email'),lang('common_phone_number'),lang('common_address_1'),lang('common_address_2'),lang('common_city'),	lang('common_state'),lang('common_zip'),lang('common_country'),lang('common_comments'),lang('customers_account_number'),lang('customers_taxable'),lang('customers_tax_certificate'), lang('customers_company_name'),lang('common_tier_name'));
+		$return = array(lang('common_first_name'),lang('common_last_name'),lang('common_email'),lang('common_phone_number'),lang('common_address_1'),lang('common_address_2'),lang('common_city'),	lang('common_state'),lang('common_zip'),lang('common_latitude'),lang('common_longitude'),lang('common_comments'),lang('customers_account_number'),lang('customers_taxable'),lang('customers_tax_certificate'), lang('customers_company_name'),lang('common_tier_name'));
 		for($k=1;$k<=NUMBER_OF_PEOPLE_CUSTOM_FIELDS;$k++)
 		{
 			if ($this->Customer->get_custom_field($k) !== FALSE)
@@ -558,7 +561,8 @@ class Customers extends Person_controller
 				$r->city,
 				$r->state,
 				$r->zip,
-				$r->country,
+				$r->latitude,
+				$r->longitude,
 				$r->comments,
 				$r->account_number,
 				$r->taxable ? 'y' : 'n',
@@ -745,7 +749,8 @@ class Customers extends Person_controller
 		$fields[] = array('Name' => 'City', 'key' => 'city');
 		$fields[] = array('Name' => 'State/Province', 'key' => 'state');
 		$fields[] = array('Name' => 'Zip', 'key' => 'zip');
-		$fields[] = array('Name' => 'Country', 'key' => 'country');
+		$fields[] = array('Name' => 'Latitude', 'key' => 'latitude');
+		$fields[] = array('Name' => 'Longitude', 'key' => 'longitude');
 		$fields[] = array('Name' => 'Comments', 'key' => 'comments');
 		$fields[] = array('Name' => 'Account Number', 'key' => 'account_number');
 		$fields[] = array('Name' => 'Taxable', 'key' => 'taxable');
@@ -922,7 +927,7 @@ class Customers extends Person_controller
 			$customer_data = array();
 			$person_data = array();
 			
-			$person_data_keys = array("first_name", "last_name", "email", "phone_number", "address_1", "address_2", "city", "state", "zip", "country", "comments");
+			$person_data_keys = array("first_name", "last_name", "email", "phone_number", "address_1", "address_2", "city", "state", "zip", "latitude", "longitude", "comments");
 			$customer_data_keys = array("account_number", "taxable", "tax_certificate", "company_name", "balance", "credit_limit", "tier_id", "points", "current_spend_for_points","disable_loyalty","custom_field_1_value","custom_field_2_value","custom_field_3_value","custom_field_4_value","custom_field_5_value");
 			
 			foreach($fields as $field)
@@ -1087,12 +1092,19 @@ class Customers extends Person_controller
 			}
 			return $value;
 		}
-		if ($key == 'country'){
+		if ($key == 'latitude'){
 			if(!$value)
 			{
-				 return '';
+				 return 0.00000000;
 			}
-			return $value;
+			return (float)$value;
+		}
+		if ($key == 'longitude'){
+			if(!$value)
+			{
+				 return 0.00000000;
+			}
+			return (float)$value;
 		}
 		if ($key == 'comments'){
 			if(!$value)

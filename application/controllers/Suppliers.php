@@ -85,7 +85,7 @@ class Suppliers extends Person_controller
 	
 	function _excel_get_header_row()
 	{
-		$return = array(lang('suppliers_company_name'),lang('common_first_name'),lang('common_last_name'),lang('common_email'),lang('common_phone_number'),lang('common_address_1'),lang('common_address_2'),lang('common_city'),	lang('common_state'),lang('common_zip'),lang('common_country'),lang('common_comments'),lang('suppliers_account_number'));
+		$return = array(lang('suppliers_company_name'),lang('common_first_name'),lang('common_last_name'),lang('common_email'),lang('common_phone_number'),lang('common_address_1'),lang('common_address_2'),lang('common_city'),	lang('common_state'),lang('common_zip'),lang('common_latitude'),lang('common_longitude'),lang('common_comments'),lang('suppliers_account_number'));
 		
 		for($k=1;$k<=NUMBER_OF_PEOPLE_CUSTOM_FIELDS;$k++)
 		{
@@ -216,10 +216,16 @@ class Suppliers extends Person_controller
 						$zip = '';
 					}
 
-					$country = $sheet->getCellByColumnAndRow(10, $k);
-					if (!$country)
+					$latitude = $sheet->getCellByColumnAndRow(10, $k);
+					if (!$latitude)
 					{
-						$country = '';
+						$latitude = 0.00000000;
+					}
+					
+					$longitude = $sheet->getCellByColumnAndRow(11, $k);
+					if (!$longitude)
+					{
+						$longitude = 0.00000000;
 					}
 
 					$comments = $sheet->getCellByColumnAndRow(11, $k);
@@ -251,7 +257,8 @@ class Suppliers extends Person_controller
 					'city'=>$city,
 					'state'=>$state,
 					'zip'=>$zip,
-					'country'=>$country,
+					'latitude'=>$latitude,
+					'longitude'=>$longitude,
 					'comments'=>$comments
 					);
 					
@@ -365,7 +372,8 @@ class Suppliers extends Person_controller
 				$r->city,
 				$r->state,
 				$r->zip,
-				$r->country,
+				$r->latitude,
+				$r->longitude,
 				$r->comments,
 				$r->account_number,
 			);
@@ -446,7 +454,8 @@ class Suppliers extends Person_controller
 			$label['city'] = $supplier_info->city;
 			$label['state'] = $supplier_info->state;
 			$label['zip'] = $supplier_info->zip;
-			$label['country'] = $supplier_info->country;
+			$label['latitude'] = $supplier_info->latitude;
+			$label['longitude'] = $supplier_info->longitude;
 			
 			$data['mailing_labels'][] = $label;
 			
@@ -505,7 +514,8 @@ class Suppliers extends Person_controller
 		'city'=>$this->input->post('city'),
 		'state'=>$this->input->post('state'),
 		'zip'=>$this->input->post('zip'),
-		'country'=>$this->input->post('country'),
+		'latitude'=>$this->input->post('latitude'),
+		'longitude'=>$this->input->post('longitude'),
 		'comments'=>$this->input->post('comments')
 		);
 		$supplier_data=array(

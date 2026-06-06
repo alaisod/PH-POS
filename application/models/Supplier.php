@@ -594,7 +594,8 @@ class Supplier extends Person
 			'city' => 													array('sort_column' => $this->db->dbprefix('people').'.city','label' => lang('common_city')),
 			'state' => 													array('sort_column' => $this->db->dbprefix('people').'.state','label' => lang('common_state')),
 			'zip' => 														array('sort_column' => $this->db->dbprefix('people').'.zip','label' => lang('common_zip')),
-			'country' => 												array('sort_column' => $this->db->dbprefix('people').'.country','label' => lang('common_country')),
+			'latitude' => array('sort_column' => $this->db->dbprefix('people').'.latitude','label' => lang('common_latitude')),
+			'longitude' => array('sort_column' => $this->db->dbprefix('people').'.longitude','label' => lang('common_longitude')),
 		);
 		
 		for($k=1;$k<=NUMBER_OF_PEOPLE_CUSTOM_FIELDS;$k++)

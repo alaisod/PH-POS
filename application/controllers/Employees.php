@@ -112,7 +112,7 @@ class Employees extends Person_controller
 		
 		$this->load->helper('report');
 		$rows = array();
-		$row = array(lang('common_username'),lang('common_first_name'),lang('common_last_name'),lang('common_email'),lang('common_phone_number'),lang('common_address_1'),lang('common_address_2'),lang('common_city'),	lang('common_state'),lang('common_zip'),lang('common_country'),lang('common_comments'));
+		$row = array(lang('common_username'),lang('common_first_name'),lang('common_last_name'),lang('common_email'),lang('common_phone_number'),lang('common_address_1'),lang('common_address_2'),lang('common_city'),	lang('common_state'),lang('common_zip'),lang('common_latitude'),lang('common_longitude'),lang('common_comments'));
 		$rows[] = $row;
 		foreach ($data as $r) {
 			$row = array(
@@ -126,7 +126,8 @@ class Employees extends Person_controller
 				$r->city,
 				$r->state,
 				$r->zip,
-				$r->country,
+				$r->latitude,
+				$r->longitude,
 				$r->comments
 			);
 			$rows[] = $row;
@@ -181,7 +182,8 @@ class Employees extends Person_controller
 			$label['city'] = $employee_info->city;
 			$label['state'] = $employee_info->state;
 			$label['zip'] = $employee_info->zip;
-			$label['country'] = $employee_info->country;
+			$label['latitude'] = $employee_info->latitude;
+			$label['longitude'] = $employee_info->longitude;
 			
 			$data['mailing_labels'][] = $label;
 			
@@ -294,7 +296,8 @@ class Employees extends Person_controller
 		'city'=>$this->input->post('city'),
 		'state'=>$this->input->post('state'),
 		'zip'=>$this->input->post('zip'),
-		'country'=>$this->input->post('country'),
+		'latitude'=>$this->input->post('latitude'),
+		'longitude'=>$this->input->post('longitude'),
 		'comments'=>$this->input->post('comments')
 		);
 		$permission_data = $this->input->post("permissions")!=false ? $this->input->post("permissions"):array();

@@ -15,7 +15,8 @@ $lang['common_address_2']='Indirizzo 2';
 $lang['common_city']='Città';
 $lang['common_state']='Regione/Provincia';
 $lang['common_zip']='C.A.P.';
-$lang['common_country']='Paese';
+$lang['common_latitude']='Latitudine';
+$lang['common_longitude']='Longitudine';
 
 $lang['common_edit']='Modifica';
 $lang['common_print_receipt']='Stampa Ricevuta';
