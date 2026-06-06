@@ -1036,7 +1036,7 @@ class Receivings extends Secure_area
 			}
 			
 			$data['supplier_email']=$info->email;
-			$data['avatar']=$info->image_id ?  app_file_url($info->image_id) : base_url()."assets/img/user.png";
+			$data['avatar']=$this->Supplier->_safe_avatar_url($info->image_id);
 			
 			
 			$data['supplier_id']=$supplier_id;

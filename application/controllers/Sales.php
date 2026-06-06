@@ -2453,7 +2453,7 @@ class Sales extends Secure_area
 			$data['customer_cc_preview'] = $cust_info->cc_preview;
 			$data['save_credit_card_info'] = $this->sale_lib->get_save_credit_card_info();
 			$data['use_saved_cc_info'] = $this->sale_lib->get_use_saved_cc_info();
-			$data['avatar']=$cust_info->image_id ?  app_file_url($cust_info->image_id) : base_url()."assets/img/user.png"; //can be changed to  base_url()."img/avatar.png" if it is required
+			$data['avatar']=$this->Customer->_safe_avatar_url($cust_info->image_id);
 			if(count($customer_giftcards))
 			{
 				$data['customer_giftcards'] = $customer_giftcards;

@@ -671,7 +671,7 @@ class Customer extends Person
 	
 	function get_default_columns()
 	{
-		return array('person_id','company_name','first_name','phone_number');
+		return array('last_name','company_name','first_name','phone_number');
 	}
 	
 	function get_custom_field($number,$key="name")

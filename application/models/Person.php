@@ -134,7 +134,7 @@ class Person extends CI_Model
 	    return $this->db->update('people');
 	}
 	
-	protected function _safe_avatar_url($image_id)
+	public function _safe_avatar_url($image_id)
 	{
 		try
 		{
