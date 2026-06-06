@@ -271,6 +271,11 @@ class Customer extends Person
 			{
 				$name_label = $row->first_name.' '.$row->last_name.' ('.$row->person_id.')';
 				
+				if ($row->company_name)
+				{
+					$name_label.=' - '.$row->company_name;
+				}
+				
 				if ($row->phone_number)
 				{
 					$name_label.=' ('.$row->phone_number.')';
@@ -377,8 +382,15 @@ class Customer extends Person
 		
 			foreach($by_email->result() as $row)
 			{
+				$email_name_label = $row->first_name.'&nbsp;'.$row->last_name;
+				
+				if ($row->company_name)
+				{
+					$email_name_label.=' - '.$row->company_name;
+				}
+				
 				$data = array(
-						'name' => $row->first_name.'&nbsp;'.$row->last_name,
+						'name' => $email_name_label,
 						'email' => $row->email,
 						'avatar' => $row->image_id ?  app_file_url($row->image_id) : base_url()."assets/img/user.png" 
 						);

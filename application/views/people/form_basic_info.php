@@ -27,6 +27,20 @@
 			</div>
 		</div>
 
+		<?php if ($controller_name == "customers") { ?>
+		<div class="form-group">	
+			<?php echo form_label(lang('customers_company_name').':', 'company_name',array('class'=>'col-sm-3 col-md-3 col-lg-2 control-label ')); ?>
+			<div class="col-sm-9 col-md-9 col-lg-10">
+				<?php echo form_input(array(
+					'name'=>'company_name',
+					'id'=>'company_name',
+					'class'=>'company_names form-control',
+					'value'=>$person_info->company_name)
+				);?>
+				</div>
+			</div>
+		<?php } ?>
+
 		<div class="form-group">
 			<?php echo form_label(lang('common_email').':', 'email',array('class'=>'col-sm-3 col-md-3 col-lg-2 control-label '.($controller_name == 'employees' || $controller_name == 'login' ? 'required' : 'not_required'))); ?>
 			<div class="col-sm-9 col-md-9 col-lg-10">
