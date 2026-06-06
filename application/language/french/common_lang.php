@@ -17,6 +17,8 @@ $lang['common_state']='État/Province';
 $lang['common_zip']='Code postal'; 
 $lang['common_latitude']='Latitude';
 $lang['common_longitude']='Longitude'; 
+$lang['common_click_on_map_to_set_location']='Cliquez sur la carte pour définir l\'emplacement';
+$lang['common_search_address']='Rechercher une adresse';
 
 $lang['common_edit']='Modifier';
 $lang['common_search']='Recherche';

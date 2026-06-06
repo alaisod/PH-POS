@@ -17,6 +17,8 @@ $lang['common_state']='State/Province';
 $lang['common_zip']='Zip';
 $lang['common_latitude']='Latitude';
 $lang['common_longitude']='Longitude';
+$lang['common_click_on_map_to_set_location']='Click on the map to set location';
+$lang['common_search_address']='Search address';
 
 $lang['common_edit']='Edit';
 $lang['common_print_receipt']='Print Receipt';

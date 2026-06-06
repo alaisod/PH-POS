@@ -157,15 +157,163 @@
 </div>
 
 			<div class="form-group">	
-<?php echo form_label(lang('common_country').':', 'country',array('class'=>'col-sm-3 col-md-3 col-lg-2 control-label ')); ?>
+<?php echo form_label(lang('common_latitude').':', 'latitude',array('class'=>'col-sm-3 col-md-3 col-lg-2 control-label ')); ?>
 	<div class="col-sm-9 col-md-9 col-lg-10">
 	<?php echo form_input(array(
 		'class'=>'form-control ',
-		'name'=>'country',
-		'id'=>'country',
-		'value'=>$person_info->country));?>
+		'name'=>'latitude',
+		'id'=>'latitude',
+		'step'=>'any',
+		'placeholder'=>'13.756331',
+		'value'=>$person_info->latitude ? (float)$person_info->latitude : ''));?>
 	</div>
 </div>
+
+			<div class="form-group">	
+<?php echo form_label(lang('common_longitude').':', 'longitude',array('class'=>'col-sm-3 col-md-3 col-lg-2 control-label ')); ?>
+	<div class="col-sm-9 col-md-9 col-lg-10">
+	<?php echo form_input(array(
+		'class'=>'form-control ',
+		'name'=>'longitude',
+		'id'=>'longitude',
+		'step'=>'any',
+		'placeholder'=>'100.501762',
+		'value'=>$person_info->longitude ? (float)$person_info->longitude : ''));?>
+	</div>
+</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-md-offset-3 col-lg-offset-2 col-sm-9 col-md-9 col-lg-10">
+					<div class="input-group">
+						<input type="text" id="map-search" class="form-control" placeholder="<?php echo lang('common_search_address'); ?>">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button" id="map-search-btn"><i class="ion-search"></i></button>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-md-offset-3 col-lg-offset-2 col-sm-9 col-md-9 col-lg-10">
+					<div id="location-map" style="height: 320px; border-radius: 4px; border: 1px solid #ddd; z-index: 1;"></div>
+					<p class="help-block"><?php echo lang('common_click_on_map_to_set_location'); ?></p>
+				</div>
+			</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+	.leaflet-container { font-family: inherit; }
+</style>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+(function() {
+	var latField = document.getElementById('latitude');
+	var lngField = document.getElementById('longitude');
+	var mapContainer = document.getElementById('location-map');
+	
+	if (!mapContainer) return;
+	
+	var lat = parseFloat(latField.value) || 13.756331;
+	var lng = parseFloat(lngField.value) || 100.501762;
+	
+	var map = L.map('location-map', {
+		center: [lat, lng],
+		zoom: latField.value ? 15 : 6,
+		zoomControl: true
+	});
+	
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>',
+		maxZoom: 19
+	}).addTo(map);
+	
+	var marker = L.marker([lat, lng], {
+		draggable: true
+	}).addTo(map);
+	
+	if (!latField.value) {
+		map.removeLayer(marker);
+		marker = null;
+	}
+	
+	function setPosition(lat, lng) {
+		latField.value = lat.toFixed(8);
+		lngField.value = lng.toFixed(8);
+		
+		if (marker) {
+			marker.setLatLng([lat, lng]);
+		} else {
+			marker = L.marker([lat, lng], {draggable: true}).addTo(map);
+			marker.on('dragend', function() {
+				var pos = marker.getLatLng();
+				setPosition(pos.lat, pos.lng);
+			});
+		}
+		map.setView([lat, lng], 15);
+	}
+	
+	map.on('click', function(e) {
+		setPosition(e.latlng.lat, e.latlng.lng);
+	});
+	
+	if (marker) {
+		marker.on('dragend', function() {
+			var pos = marker.getLatLng();
+			setPosition(pos.lat, pos.lng);
+		});
+	}
+	
+	// Nominatim search
+	var searchInput = document.getElementById('map-search');
+	var searchBtn = document.getElementById('map-search-btn');
+	
+	function doSearch() {
+		var query = searchInput.value.trim();
+		if (!query) return;
+		
+		searchBtn.innerHTML = '<i class="ion-load-c"></i>';
+		
+		fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(query) + '&limit=5&countrycodes=', { headers: { 'User-Agent': 'PHPPOS/1.0' } })
+			.then(function(r) { return r.json(); })
+			.then(function(data) {
+				searchBtn.innerHTML = '<i class="ion-search"></i>';
+				if (data.length > 0) {
+					var r = data[0];
+					setPosition(parseFloat(r.lat), parseFloat(r.lon));
+					searchInput.value = r.display_name;
+				} else {
+					alert('No results found');
+				}
+			})
+			.catch(function() {
+				searchBtn.innerHTML = '<i class="ion-search"></i>';
+				alert('Search failed');
+			});
+	}
+	
+	searchBtn.addEventListener('click', doSearch);
+	searchInput.addEventListener('keypress', function(e) {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			doSearch();
+		}
+	});
+	
+	// If we have lat/lng, reverse geocode on load
+	if (latField.value) {
+		fetch('https://nominatim.openstreetmap.org/reverse?format=json&lat=' + lat + '&lon=' + lng, { headers: { 'User-Agent': 'PHPPOS/1.0' } })
+			.then(function(r) { return r.json(); })
+			.then(function(data) {
+				if (data && data.display_name) {
+					searchInput.value = data.display_name;
+				}
+			})
+			.catch(function() {});
+	}
+})();
+</script>
+
 
 	<div class="form-group">	
 <?php echo form_label(lang('common_comments').':', 'comments',array('class'=>'col-sm-3 col-md-3 col-lg-2 control-label ')); ?>

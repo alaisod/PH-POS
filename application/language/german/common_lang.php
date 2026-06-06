@@ -17,6 +17,8 @@ $lang['common_state'] = 'Bundesland';
 $lang['common_zip'] = 'PLZ';
 $lang['common_latitude'] = 'Breitengrad';
 $lang['common_longitude'] = 'Längengrad';
+$lang['common_click_on_map_to_set_location']='Klicken Sie auf die Karte, um den Standort festzulegen';
+$lang['common_search_address']='Adresse suchen';
 
 $lang['common_edit'] = 'bearb.';
 $lang['common_print_receipt'] = 'Beleg drucken';
