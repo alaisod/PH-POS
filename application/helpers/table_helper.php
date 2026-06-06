@@ -171,6 +171,17 @@ function get_person_data_row($person,$controller)
 			//Unset for next round of the loop
 			unset($data);
 		}	
+	// Map navigation button (for customers/suppliers with lat/long)
+	if (($controller_name == 'customers' || $controller_name == 'suppliers') && isset($person->latitude) && isset($person->longitude) && (float)$person->latitude != 0 && (float)$person->longitude != 0)
+	{
+		$map_url = 'https://www.google.com/maps/dir/?api=1&destination=' . $person->latitude . ',' . $person->longitude;
+		$table_data_row.='<td style="text-align:center"><a href="' . $map_url . '" target="_blank" class="btn btn-primary btn-sm" title="' . lang('common_open_in_map') . '"><i class="ion-location"></i> ' . lang('common_open_in_map') . '</a></td>';
+	}
+	else
+	{
+		$table_data_row.='<td>&nbsp;</td>';
+	}
+	
 	if ($avatar_url)
 	{	
 		$table_data_row.="<td><a href='$avatar_url' class='rollover'><img src='".$avatar_url."' alt='".H($person->full_name)."' class='img-polaroid' width='45' height='45' /></a></td>";

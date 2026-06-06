@@ -18,6 +18,7 @@ $lang['common_zip']='รหัสไปรษณีย์';
 $lang['common_latitude']='ละติจูด';
 $lang['common_longitude']='ลองจิจูด';
 $lang['common_click_on_map_to_set_location']='คลิกบนแผนที่เพื่อเลือกตำแหน่ง';
+$lang['common_open_in_map']='เปิดแผนที่';
 $lang['common_search_address']='ค้นหาที่อยู่';
 
 $lang['common_edit']='แก้ไข';

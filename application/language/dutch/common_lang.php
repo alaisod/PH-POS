@@ -18,6 +18,7 @@ $lang['common_zip']='Postcode';
 $lang['common_latitude']='Breedtegraad';
 $lang['common_longitude']='Lengtegraad';
 $lang['common_click_on_map_to_set_location']='Klik op de kaart om locatie in te stellen';
+$lang['common_open_in_map']='Open in kaart';
 $lang['common_search_address']='Zoek adres';
 
 $lang['common_edit']='Bewerken';

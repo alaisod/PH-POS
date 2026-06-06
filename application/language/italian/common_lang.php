@@ -18,6 +18,7 @@ $lang['common_zip']='C.A.P.';
 $lang['common_latitude']='Latitudine';
 $lang['common_longitude']='Longitudine';
 $lang['common_click_on_map_to_set_location']='Clicca sulla mappa per impostare la posizione';
+$lang['common_open_in_map']='Apri nella mappa';
 $lang['common_search_address']='Cerca indirizzo';
 
 $lang['common_edit']='Modifica';

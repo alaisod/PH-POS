@@ -164,7 +164,7 @@
 		'name'=>'latitude',
 		'id'=>'latitude',
 		'step'=>'any',
-		'placeholder'=>'13.756331',
+		'placeholder'=>'16.4322',
 		'value'=>$person_info->latitude ? (float)$person_info->latitude : ''));?>
 	</div>
 </div>
@@ -177,7 +177,7 @@
 		'name'=>'longitude',
 		'id'=>'longitude',
 		'step'=>'any',
-		'placeholder'=>'100.501762',
+		'placeholder'=>'102.8236',
 		'value'=>$person_info->longitude ? (float)$person_info->longitude : ''));?>
 	</div>
 </div>
@@ -200,11 +200,11 @@
 				</div>
 			</div>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/leaflet.css" />
 <style>
 	.leaflet-container { font-family: inherit; }
 </style>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/leaflet.js"></script>
 
 <script>
 (function() {
@@ -214,8 +214,8 @@
 	
 	if (!mapContainer) return;
 	
-	var lat = parseFloat(latField.value) || 13.756331;
-	var lng = parseFloat(lngField.value) || 100.501762;
+	var lat = parseFloat(latField.value) || 16.4322;
+	var lng = parseFloat(lngField.value) || 102.8236;
 	
 	var map = L.map('location-map', {
 		center: [lat, lng],

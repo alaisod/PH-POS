@@ -18,6 +18,7 @@ $lang['common_zip'] = 'PLZ';
 $lang['common_latitude'] = 'Breitengrad';
 $lang['common_longitude'] = 'Längengrad';
 $lang['common_click_on_map_to_set_location']='Klicken Sie auf die Karte, um den Standort festzulegen';
+$lang['common_open_in_map']='In Karte öffnen';
 $lang['common_search_address']='Adresse suchen';
 
 $lang['common_edit'] = 'bearb.';
