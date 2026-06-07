@@ -2184,6 +2184,23 @@ class Items extends Secure_area implements Idata_controller
 			return;
 		}
 		
+		//Verify that 'data' key exists in columns (do_excel_import_map must have run successfully)
+		$has_data = FALSE;
+		foreach($columns_with_data as $col)
+		{
+			if (isset($col['data']) && is_array($col['data']))
+			{
+				$has_data = TRUE;
+				break;
+			}
+		}
+		
+		if (!$has_data)
+		{
+			echo json_encode(array('type'=> 'error','message'=> lang('common_excel_import_failed'), 'title' => lang('common_error')));
+			return;
+		}
+		
 		$current_location_id= $this->Employee->get_logged_in_employee_current_location_id();
 		
 		$this->load->model('Tier');
