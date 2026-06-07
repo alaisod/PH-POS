@@ -2237,7 +2237,7 @@ class Items extends Secure_area implements Idata_controller
 					if($field['key'] == 'commission')
 					{
 						
-						if (strpos($columns_with_data[$key]['data'][$i], '%') === FALSE)
+						if (strpos(($columns_with_data[$key]['data'][$i] ?? ''), '%') === FALSE)
 						{
 							$field['key'] = 'commission_fixed';
 						}

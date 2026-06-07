@@ -29,7 +29,11 @@ function setup_mysql()
 	$CI =& get_instance();
 
 	//Makes sure we have a simple mode that doesn't have strict restrictions
-	$CI->db->query('SET SESSION sql_mode="NO_AUTO_CREATE_USER"');	
+	//NO_AUTO_CREATE_USER was removed in MySQL 8.0.11, check version first
+	if (version_compare($CI->db->version(), '8.0.11', '<'))
+	{
+		$CI->db->query('SET SESSION sql_mode="NO_AUTO_CREATE_USER"');
+	}
 }
 
 //Loads configuration from database into global CI config
