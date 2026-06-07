@@ -424,20 +424,28 @@ $("#complete_import").on("click", function(e){
 			method: 'POST'
   }).done(function(response2){	
 			
-			show_feedback(response2.type, response2.message, response2.title);
 			if(response2.type == 'error')
 			{
+				console.error('Dedup Error:', response2.message);
 				$('#grid-loader3').hide();
 				display_import_errors(response2.type);
 				return;
 			}
+			show_feedback(response2.type, response2.message, response2.title);
 			
 	    $.ajax({
 	        url: <?php echo json_encode(site_url('items/complete_excel_import')); ?>,
 					dataType: "json"
 	    }).done(function(response3) {
 				$('#grid-loader3').hide();
-				show_feedback(response3.type, response3.message, response3.title);
+				if(response3.type == 'error')
+				{
+					console.error('Import Error:', response3.message);
+				}
+				else
+				{
+					show_feedback(response3.type, response3.message, response3.title);
+				}
 				display_import_errors(response3.type);
 	    });
 	});
