@@ -1905,7 +1905,7 @@ class Items extends Secure_area implements Idata_controller
 	    $col_data = array();
 			for ($i = 2; $i <= $numRows; $i++) 
 			{
-	  		$col_data[] = clean_string(trim($sheet->getCellByColumnAndRow($k,$i)));
+	  		$col_data[] = clean_string(trim(($sheet->getCellByColumnAndRow($k,$i) ?? '')));
 			}
 
 			$column["data"] = $col_data;
@@ -2321,7 +2321,7 @@ class Items extends Secure_area implements Idata_controller
 					}
 					elseif($field['key'] == 'item_number')
 					{
-						$item_numbers = explode('|', $columns_with_data[$key]['data'][$i], 2);
+						$item_numbers = explode('|', ($columns_with_data[$key]['data'][$i] ?? ''), 2);
 						
 						$item_data[$field['key']]  = $this->_clean($field['key'], $item_numbers[0]);
 							
@@ -2682,7 +2682,7 @@ class Items extends Secure_area implements Idata_controller
 		}
 		if ($key == 'tax_included') {
 			$true_values = array("true", "yes", "y", "1");
-			if (in_array(strtolower($value), $true_values)) {
+			if (in_array(strtolower($value ?? ''), $true_values)) {
 			    return 1;
 			}
 		
@@ -2690,7 +2690,7 @@ class Items extends Secure_area implements Idata_controller
 		}
 		if ($key == 'is_service') {
 			$true_values = array("true", "yes", "y", "1");
-			if (in_array(strtolower($value), $true_values)) {
+			if (in_array(strtolower($value ?? ''), $true_values)) {
 			    return 1;
 			}
 			
@@ -2717,7 +2717,7 @@ class Items extends Secure_area implements Idata_controller
 		}
 		if ($key == 'allow_alt_description'){
 			$true_values = array("true", "yes", "y", "1");
-			if (in_array(strtolower($value), $true_values)) {
+			if (in_array(strtolower($value ?? ''), $true_values)) {
 			    return 1;
 			}
 			
@@ -2725,7 +2725,7 @@ class Items extends Secure_area implements Idata_controller
 		}
 		if ($key == 'is_serialized'){
 			$true_values = array("true", "yes", "y", "1");
-			if (in_array(strtolower($value), $true_values)) {
+			if (in_array(strtolower($value ?? ''), $true_values)) {
 			    return 1;
 			}
 			
@@ -2760,7 +2760,7 @@ class Items extends Secure_area implements Idata_controller
 		if ($key == 'commission_percent_type')
 		{
 			$true_values = array("true", "yes", "y", "1");
-			if (in_array(strtolower($value), $true_values)) {
+			if (in_array(strtolower($value ?? ''), $true_values)) {
 			    return 'profit';
 			}
 			
@@ -2789,7 +2789,7 @@ class Items extends Secure_area implements Idata_controller
 		}
 		if ($key == 'change_cost_price'){
 			$true_values = array("true", "yes", "y", "1");
-			if (in_array(strtolower($value), $true_values)) {
+			if (in_array(strtolower($value ?? ''), $true_values)) {
 			    return 1;
 			}
 			
@@ -2815,7 +2815,7 @@ class Items extends Secure_area implements Idata_controller
 		}
 		if ($key == 'disable_loyalty'){
 			$true_values = array("true", "yes", "y", "1");
-			if (in_array(strtolower($value), $true_values)) {
+			if (in_array(strtolower($value ?? ''), $true_values)) {
 			    return 1;
 			}
 			
@@ -2824,7 +2824,7 @@ class Items extends Secure_area implements Idata_controller
 		}
 		if ($key == 'is_ebt_item'){
 			$true_values = array("true", "yes", "y", "1");
-			if (in_array(strtolower($value), $true_values)) {
+			if (in_array(strtolower($value ?? ''), $true_values)) {
 			    return 1;
 			}
 			
@@ -2890,7 +2890,7 @@ class Items extends Secure_area implements Idata_controller
 		if($key == 'is_ecommerce')
 		{
 			$true_values = array("true", "yes", "y", "1");
-			if (in_array(strtolower($value), $true_values)) {
+			if (in_array(strtolower($value ?? ''), $true_values)) {
 			    return 1;
 			}
 			
