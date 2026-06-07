@@ -2318,8 +2318,30 @@ class Items extends Secure_area implements Idata_controller
 			}
 			
 			
-			//Item must have a name to save
-			if($item_data['name'] && !$this->Item->save($item_data, $item_id))
+			//Resolve item_id from item_number or product_id if not provided (allows updating existing items without Item Name)
+			if ($item_id === NULL)
+			{
+				if (isset($item_data['item_number']) && $item_data['item_number'])
+				{
+					$lookup_item_id = $this->Item->get_item_id($item_data['item_number']);
+					if ($lookup_item_id !== FALSE)
+					{
+						$item_id = $lookup_item_id;
+					}
+				}
+				
+				if ($item_id === NULL && isset($item_data['product_id']) && $item_data['product_id'])
+				{
+					$lookup_item_id = $this->Item->get_item_id($item_data['product_id']);
+					if ($lookup_item_id !== FALSE)
+					{
+						$item_id = $lookup_item_id;
+					}
+				}
+			}
+			
+			//Item must have a name to save (new item) OR item_id must be resolved (existing item update)
+			if(($item_data['name'] || $item_id !== NULL) && !$this->Item->save($item_data, $item_id))
 			{
 				if($item_id === NULL)
 				{					
