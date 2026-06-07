@@ -2090,11 +2090,54 @@ class Items extends Secure_area implements Idata_controller
 					$this->_log_validation_error($row, $message, 'Error');
 				}
 			}
-		}		
+		}
+		
+		//Check for barcodes already existing in the database before import (only for new items, not updates)
+		$barcode_db_dups = array();
+		
+		//Find the field ID for 'item_id' to detect if Item Id column is mapped (updating existing items)
+		$item_id_field_id = NULL;
+		foreach($this->_get_database_fields_for_import_as_array() as $field)
+		{
+			if ($field['key'] == 'item_id')
+			{
+				$item_id_field_id = $field['Id'];
+				break;
+			}
+		}
+		$has_item_id_column = $item_id_field_id !== NULL && isset($fieldId_to_colIndex[$item_id_field_id]);
+		
+		//Only check database duplicates when Item Id column is NOT mapped (importing new items)
+		if (!$has_item_id_column && isset($fieldId_to_colIndex[0]) && count($item_number_dups) == 0)
+		{
+			$item_number_index = $fieldId_to_colIndex[0];
+			$item_numbers = $columns_with_data[$item_number_index]['data'] ? $columns_with_data[$item_number_index]['data'] : array();
+			
+			foreach($item_numbers as $idx => $item_number)
+			{
+				$item_numbers_arr = explode('|', $item_number);
+				$primary_item_number = $item_numbers_arr[0];
+				
+				if ($primary_item_number && $this->Item->account_number_exists($primary_item_number))
+				{
+					$row = $idx+2;
+					$message = lang('items_duplicate_barcode_in_database').' "'. $primary_item_number .'" ' .lang('items_in_spreadsheet');
+					$this->_log_validation_error($row, $message, 'Error');
+					$barcode_db_dups[] = $primary_item_number;
+				}
+			}
+		}
+		
 		if(count($item_number_dups) > 0 || count($product_id_dups) > 0)
 		{
 			echo json_encode(array('type'=> 'error','message'=>lang('items_duplicate_item_numbers_product_ids'), 'title' =>  lang('common_error')));
-		} else {
+		}
+		elseif (count($barcode_db_dups) > 0)
+		{
+			echo json_encode(array('type'=> 'error','message'=>lang('items_duplicate_barcode_in_database'), 'title' =>  lang('common_error')));
+		}
+		else
+		{
 			echo json_encode(array('type'=> 'success','message'=>lang('items_no_duplicate_item_numbers_product_ids'), 'title' =>  lang('common_success')));
 		}
 	}

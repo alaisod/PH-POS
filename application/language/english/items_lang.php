@@ -237,6 +237,8 @@ $lang['items_item_existed_warning'] = 'This item existed previously but \'item i
 
 $lang['items_import_items'] = 'Import Items';
 
+$lang['items_duplicate_barcode_in_database'] = 'BARCODE already exists in the database';
+
 
 
 
