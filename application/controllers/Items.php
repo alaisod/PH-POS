@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once ("Secure_area.php");
 require_once ("interfaces/Idata_controller.php");
 class Items extends Secure_area implements Idata_controller
@@ -2037,6 +2037,8 @@ class Items extends Secure_area implements Idata_controller
 	//dedup
 	function dedup_excel_import_data()
 	{
+		try
+		{
 		$this->session->set_userdata('items_excel_import_error_log', NULL);
 		
 		//Apply any manual column mapping changes from the user (merged from set_excel_columns_map to eliminate a separate AJAX call)
@@ -2073,7 +2075,7 @@ class Items extends Secure_area implements Idata_controller
 			
 			foreach($item_numbers as $item_number)
 			{
-				$all_item_numbers = array_merge($all_item_numbers, explode('|', $item_number));
+				$all_item_numbers = array_merge($all_item_numbers, explode('|', ($item_number ?? '')));
 			}
 			
 			$item_number_dups = $this->_get_keys_for_duplicate_values($all_item_numbers);
@@ -2132,7 +2134,7 @@ class Items extends Secure_area implements Idata_controller
 			
 			foreach($item_numbers as $idx => $item_number)
 			{
-				$item_numbers_arr = explode('|', $item_number);
+				$item_numbers_arr = explode('|', ($item_number ?? ''));
 				$primary_item_number = $item_numbers_arr[0];
 				
 				if ($primary_item_number && $this->Item->account_number_exists($primary_item_number))
@@ -2156,6 +2158,14 @@ class Items extends Secure_area implements Idata_controller
 		else
 		{
 			echo json_encode(array('type'=> 'success','message'=>lang('items_no_duplicate_item_numbers_product_ids'), 'title' =>  lang('common_success')));
+		}
+		}
+		catch(\Throwable $e)
+		{
+			$error_msg = 'PHP Error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine();
+			log_message('error', 'dedup_excel_import_data failed: ' . $error_msg);
+			echo json_encode(array('type'=> 'error','message'=> $error_msg, 'title' => lang('common_error')));
+			return;
 		}
 	}
 	
@@ -2989,7 +2999,8 @@ class Items extends Secure_area implements Idata_controller
 	
 	public function get_import_errors()
 	{
-		echo json_encode($this->session->userdata('items_excel_import_error_log'));
+		$errors = $this->session->userdata('items_excel_import_error_log');
+		echo json_encode($errors !== NULL ? $errors : array());
 	}
 	
 	function cleanup()

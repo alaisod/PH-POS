@@ -450,10 +450,12 @@ function display_import_errors(type)
       url: <?php echo json_encode(site_url('items/get_import_errors')); ?>,
 			dataType: "json"
   }).done(function(errors) {
+		//Guard against null errors (jsGrid crashes if data is null)
+		errors = errors || [];
 		$("#Complete").slideUp("slow", function() {
     	$('#Errors').slideDown("slow", function(){
 				$("#"+type).toggle("slide");
-				if(type !== 'success')
+				if(type !== 'success' && errors.length > 0)
 				{
 					$("#grid2").jsGrid({
 					    width: "100%",
