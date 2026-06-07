@@ -2006,26 +2006,7 @@ class Items extends Secure_area implements Idata_controller
 		echo json_encode($data);
 	}
 	
-	public function set_excel_columns_map()
-	{	
-		$data = $this->session->userdata("items_excel_import_column_map");
-		
-		$mapKeys = json_decode($this->input->post('mapKeys'), true);
-		
-		foreach($mapKeys as $mapKey)
-		{
-			foreach ($data as $key => $col) 
-			{
-	       if ($col['Index'] == $mapKey["Index"])
-				 {
-					 $data[$key]["Database Field"] = $mapKey["Database Field"];
-	       }
-			}
-		}	
-		
-		$this->session->set_userdata("items_excel_import_column_map", $data);
-	}
-	
+
 	private function _indexColumnArray($n)
 	{
 		if (isset($n['Database Field']))
@@ -2040,6 +2021,25 @@ class Items extends Secure_area implements Idata_controller
 	function dedup_excel_import_data()
 	{
 		$this->session->set_userdata('items_excel_import_error_log', NULL);
+		
+		//Apply any manual column mapping changes from the user (merged from set_excel_columns_map to eliminate a separate AJAX call)
+		$mapKeys = $this->input->post('mapKeys') ? json_decode($this->input->post('mapKeys'), true) : array();
+		if (!empty($mapKeys))
+		{
+			$data = $this->session->userdata("items_excel_import_column_map");
+			foreach($mapKeys as $mapKey)
+			{
+				foreach ($data as $key => $col) 
+				{
+					if ($col['Index'] == $mapKey["Index"])
+					{
+						$data[$key]["Database Field"] = $mapKey["Database Field"];
+					}
+				}
+			}	
+			$this->session->set_userdata("items_excel_import_column_map", $data);
+		}
+		
 		$columns_with_data = $this->session->userdata("items_excel_import_column_map");
 		
 		$fieldId_to_colIndex = array_flip(array_map(array($this, '_indexColumnArray'), $columns_with_data));

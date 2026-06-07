@@ -418,14 +418,11 @@ $("#complete_import").on("click", function(e){
 	$('#grid-loader3').show();
 	
   $.ajax({
-      url: <?php echo json_encode(site_url('items/set_excel_columns_map')); ?>,
+      url: <?php echo json_encode(site_url('items/dedup_excel_import_data')); ?>,
 			data: {mapKeys: JSON.stringify($.map(column_map, function(v) { return v; }))},
+			dataType: "json",
 			method: 'POST'
-  }).done(function(response1) {
-    $.ajax({
-        url: <?php echo json_encode(site_url('items/dedup_excel_import_data')); ?>,
-				dataType: "json"
-		}).done(function(response2){	
+  }).done(function(response2){	
 			
 			show_feedback(response2.type, response2.message, response2.title);
 			if(response2.type == 'error')
@@ -443,7 +440,6 @@ $("#complete_import").on("click", function(e){
 				show_feedback(response3.type, response3.message, response3.title);
 				display_import_errors(response3.type);
 	    });
-		});
 	});
 });
 
