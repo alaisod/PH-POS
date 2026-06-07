@@ -1868,54 +1868,71 @@ class Items extends Secure_area implements Idata_controller
 	
 	function do_excel_import_map()
 	{
-		$this->load->helper('text');
- 	 	$this->load->model('Appfile');
-		
-		$file = $this->Appfile->get($this->session->userdata('excel_import_file_id'));
-
-		$tmpFilename = tempnam(sys_get_temp_dir(), 'iexcel');
-		file_put_contents($tmpFilename,$file->file_data);
-		$this->load->helper('spreadsheet');
-		$file_info = pathinfo($file->file_name);
-		$sheet = file_to_spreadsheet($tmpFilename,$file_info['extension']);
-		unlink($tmpFilename);
-
-		$this->sheet_data = array();
-
-		$columns = array();
-		$k=0;
-
-		$fields = $this->_get_database_fields_for_import_as_array();
-		$numRows = $sheet->getNumberOfRows();
-
-		while($col_name = $sheet->getCellByColumnAndRow($k,1))
+		try
 		{
-			$column =  array('Spreadsheet Column' => $col_name, 'Index' => $k);
+			$this->load->helper('text');
+			$this->load->model('Appfile');
 			
-			$cols = array_column($fields, 'Name');
-			$cols = array_map('strtolower', $cols);
-			$search = strtolower($column['Spreadsheet Column']);
-			$matchIndex = array_search($search, $cols);
+			$file = $this->Appfile->get($this->session->userdata('excel_import_file_id'));
 
-			if (is_numeric($matchIndex))
+			$tmpFilename = tempnam(sys_get_temp_dir(), 'iexcel');
+			file_put_contents($tmpFilename,$file->file_data);
+			$this->load->helper('spreadsheet');
+			$file_info = pathinfo($file->file_name);
+			$sheet = file_to_spreadsheet($tmpFilename,$file_info['extension']);
+			unlink($tmpFilename);
+
+			$this->sheet_data = array();
+
+			$columns = array();
+			$k=0;
+
+			$fields = $this->_get_database_fields_for_import_as_array();
+			$numRows = $sheet->getNumberOfRows();
+
+			while($col_name = $sheet->getCellByColumnAndRow($k,1))
 			{
-				$column['Database Field'] = $fields[$matchIndex]['Id'];
+				$column =  array('Spreadsheet Column' => $col_name, 'Index' => $k);
+				
+				$cols = array_column($fields, 'Name');
+				$cols = array_map('strtolower', $cols);
+				$search = strtolower($column['Spreadsheet Column']);
+				$matchIndex = array_search($search, $cols);
+
+				if (is_numeric($matchIndex))
+				{
+					$column['Database Field'] = $fields[$matchIndex]['Id'];
+				}
+
+				$col_data = array();
+				for ($i = 2; $i <= $numRows; $i++) 
+				{
+					$col_data[] = clean_string(trim(($sheet->getCellByColumnAndRow($k,$i) ?? '')));
+				}
+
+				$column["data"] = $col_data;
+
+				$columns[] = $column;
+				$k++;
 			}
-
-	    $col_data = array();
-			for ($i = 2; $i <= $numRows; $i++) 
-			{
-	  		$col_data[] = clean_string(trim(($sheet->getCellByColumnAndRow($k,$i) ?? '')));
-			}
-
-			$column["data"] = $col_data;
-
-			$columns[] = $column;
-			$k++;
+			
+			$this->session->set_userdata("items_excel_import_num_rows", $numRows);
+			$this->session->set_userdata("items_excel_import_column_map", $columns);
 		}
-		
-		$this->session->set_userdata("items_excel_import_num_rows", $numRows);
-		$this->session->set_userdata("items_excel_import_column_map", $columns);
+		catch(\Throwable $e)
+		{
+			log_message('error', 'do_excel_import_map failed: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
+			
+			//Store a minimal column map with an error marker so complete_excel_import can report it
+			$error_data = array(array(
+				'Spreadsheet Column' => 'ERROR',
+				'Index' => 0,
+				'Database Field' => -1,
+				'data' => array('PHP Error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine())
+			));
+			$this->session->set_userdata("items_excel_import_num_rows", 2);
+			$this->session->set_userdata("items_excel_import_column_map", $error_data);
+		}
 	}
 	
 	function get_database_fields_for_import()
@@ -2170,6 +2187,8 @@ class Items extends Secure_area implements Idata_controller
 	//new function
 	function complete_excel_import()
 	{
+		try
+		{
 		set_time_limit(0);
 		$this->check_action_permission('add_update');
 		
@@ -2197,7 +2216,10 @@ class Items extends Secure_area implements Idata_controller
 		
 		if (!$has_data)
 		{
-			echo json_encode(array('type'=> 'error','message'=> lang('common_excel_import_failed'), 'title' => lang('common_error')));
+			$error_msg = isset($columns_with_data[0]['data'][0]) && strpos($columns_with_data[0]['data'][0], 'PHP Error:') === 0 
+				? $columns_with_data[0]['data'][0] 
+				: lang('common_excel_import_failed');
+			echo json_encode(array('type'=> 'error','message'=> $error_msg, 'title' => lang('common_error')));
 			return;
 		}
 		
@@ -2219,7 +2241,7 @@ class Items extends Secure_area implements Idata_controller
 		
 		foreach($this->Manufacturer->get_all() as $id => $row)
 		{
-		 	$this->manufacturers_map[strtoupper($row['name'])] = $id;
+		 	$this->manufacturers_map[strtoupper(($row['name'] ?? ''))] = $id;
 		}
 				
 		$fieldId_to_colIndex = array_flip(array_map(array($this, '_indexColumnArray'), $columns_with_data));
@@ -2576,6 +2598,20 @@ class Items extends Secure_area implements Idata_controller
 			
 			echo json_encode(array('type'=> 'success','message'=>lang('common_import_successful'), 'title' =>  lang('common_success')));			
 		}
+	}
+	catch(\Throwable $e)
+	{
+		//Rollback transaction if one was started
+		if ($this->db->trans_status() !== FALSE)
+		{
+			$this->db->trans_rollback();
+		}
+		
+		$error_msg = 'PHP Error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine();
+		log_message('error', 'complete_excel_import failed: ' . $error_msg);
+		echo json_encode(array('type'=> 'error','message'=> $error_msg, 'title' => lang('common_error')));
+		return;
+	}
 	}
 	
 	private function _clean($key, $value, $row = NULL)
