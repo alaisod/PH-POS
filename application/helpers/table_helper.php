@@ -175,7 +175,7 @@ function get_person_data_row($person,$controller)
 	if (($controller_name == 'customers' || $controller_name == 'suppliers') && isset($person->latitude) && isset($person->longitude) && (float)$person->latitude != 0 && (float)$person->longitude != 0)
 	{
 		$map_url = 'https://www.google.com/maps/dir/?api=1&destination=' . $person->latitude . ',' . $person->longitude;
-		$table_data_row.='<td style="text-align:center"><a href="' . $map_url . '" target="_blank" class="btn btn-primary btn-sm" title="' . lang('common_open_in_map') . '"><i class="ion-location"></i> ' . lang('common_open_in_map') . '</a></td>';
+		$table_data_row.='<td style="text-align:center"><a href="' . $map_url . '" target="_blank" class="btn btn-default btn-xs" title="' . lang('common_open_in_map') . '"><i class="ion-location"></i> <small>' . lang('common_open_in_map') . '</small></a></td>';
 	}
 	else
 	{
