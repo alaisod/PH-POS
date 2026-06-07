@@ -20,6 +20,7 @@ $lang['common_longitude']='Longitude';
 $lang['common_click_on_map_to_set_location']='Cliquez sur la carte pour définir l\'emplacement';
 $lang['common_open_in_map']='Ouvrir dans la carte';
 $lang['common_search_address']='Rechercher une adresse';
+$lang['common_use_my_location']='Ma position';
 
 $lang['common_edit']='Modifier';
 $lang['common_search']='Recherche';

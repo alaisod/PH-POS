@@ -187,8 +187,9 @@
 					<div class="input-group">
 						<input type="text" id="map-search" class="form-control" placeholder="<?php echo lang('common_search_address'); ?>">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="button" id="map-search-btn"><i class="ion-search"></i></button>
-						</span>
+						<button class="btn btn-default" type="button" id="map-search-btn"><i class="ion-search"></i></button>
+						<button class="btn btn-info" type="button" id="map-locate-btn" title="<?php echo lang('common_use_my_location'); ?>"><i class="ion-android-locate"></i></button>
+					</span>
 					</div>
 				</div>
 			</div>
@@ -318,6 +319,57 @@
 				}
 			})
 			.catch(function() {});
+	}
+	
+	// Geolocation: find my location
+	var locateBtn = document.getElementById('map-locate-btn');
+	if (locateBtn) {
+		locateBtn.addEventListener('click', function() {
+			if (!navigator.geolocation) {
+				alert('Geolocation is not supported by your browser');
+				return;
+			}
+			
+			locateBtn.innerHTML = '<i class="ion-load-c"></i>';
+			locateBtn.disabled = true;
+			
+			navigator.geolocation.getCurrentPosition(
+				function(position) {
+					locateBtn.innerHTML = '<i class="ion-android-locate"></i>';
+					locateBtn.disabled = false;
+					
+					var lat = position.coords.latitude;
+					var lng = position.coords.longitude;
+					
+					setPosition(lat, lng);
+					
+					// Reverse geocode the location
+					fetch('https://nominatim.openstreetmap.org/reverse?format=json&lat=' + lat + '&lon=' + lng, { headers: { 'User-Agent': 'PHPPOS/1.0' } })
+						.then(function(r) { return r.json(); })
+						.then(function(data) {
+							if (data && data.display_name) {
+								searchInput.value = data.display_name;
+							}
+						})
+						.catch(function() {});
+				},
+				function(error) {
+					locateBtn.innerHTML = '<i class="ion-android-locate"></i>';
+					locateBtn.disabled = false;
+					
+					var msg = 'Unable to retrieve your location';
+					if (error.code === 1) msg = 'Location access denied. Please enable GPS.';
+					else if (error.code === 2) msg = 'Location unavailable. Try again.';
+					else if (error.code === 3) msg = 'Location request timed out.';
+					alert(msg);
+				},
+				{
+					enableHighAccuracy: true,
+					timeout: 10000,
+					maximumAge: 0
+				}
+			);
+		});
 	}
 })();
 </script>
