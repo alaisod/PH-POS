@@ -2134,6 +2134,13 @@ class Items extends Secure_area implements Idata_controller
 		
 		$numRows = $this->session->userdata("items_excel_import_num_rows");
 		$columns_with_data = $this->session->userdata("items_excel_import_column_map");
+		
+		if (!is_array($columns_with_data) || !is_numeric($numRows) || $numRows < 1)
+		{
+			echo json_encode(array('type'=> 'error','message'=> lang('common_excel_import_failed'), 'title' => lang('common_error')));
+			return;
+		}
+		
 		$current_location_id= $this->Employee->get_logged_in_employee_current_location_id();
 		
 		$this->load->model('Tier');
@@ -2166,6 +2173,10 @@ class Items extends Secure_area implements Idata_controller
 			$item_id = NULL;
 			$item_data = array();
 			$tier_datas = array();
+			$quantity = NULL;
+			$tags = NULL;
+			$additional_item_numbers = NULL;
+			$location_at_store = NULL;
 			
 			foreach($fields as $field)
 			{
@@ -2835,7 +2846,7 @@ class Items extends Secure_area implements Idata_controller
 		}
 		if($key == 'is_ecommerce')
 		{
-			$true_values = array("","true", "yes", "y", "1");
+			$true_values = array("true", "yes", "y", "1");
 			if (in_array(strtolower($value), $true_values)) {
 			    return 1;
 			}
