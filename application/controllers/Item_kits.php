@@ -127,11 +127,11 @@ class Item_kits extends Secure_area implements Idata_controller
 		
 		$this->load->helper('report');
 		$rows = array();
-		$row = array(lang('common_item_number'),lang('common_product_id'), lang('item_kits_name'),lang('common_category'),lang('common_manufacturer'),lang('common_cost_price'),lang('common_unit_price'),lang('item_kits_tax_1_name'),lang('item_kits_tax_1_percent'),lang('item_kits_tax_2_name'),lang('item_kits_tax_2_percent'),lang('item_kits_tax_2_cummulative'),lang('item_kits_description'));
+		$row = array('Item Number', 'Product ID', 'Item Kit Name', 'Category', 'Manufacturer', 'Cost Price', 'Unit Price', 'Tax 1 Name', 'Tax 1 Percent', 'Tax 2 Name', 'Tax 2 Percent', 'Tax 2 Cumulative', 'Description');
 		
 		if ($this->config->item('enable_customer_loyalty_system') && $this->config->item('loyalty_option') == 'advanced')
 		{
-			$row[] = lang('common_disable_loyalty');
+			$row[] = 'Disable Loyalty';
 		}
 		
 		$rows[] = $row;

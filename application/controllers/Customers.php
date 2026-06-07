@@ -471,7 +471,7 @@ class Customers extends Person_controller
 	
 	function _excel_get_header_row()
 	{		
-		$return = array(lang('common_first_name'),lang('common_last_name'),lang('common_email'),lang('common_phone_number'),lang('common_address_1'),lang('common_address_2'),lang('common_city'),	lang('common_state'),lang('common_zip'),lang('common_latitude'),lang('common_longitude'),lang('common_comments'),lang('customers_account_number'),lang('customers_taxable'),lang('customers_tax_certificate'), lang('customers_company_name'),lang('common_tier_name'));
+		$return = array('First Name', 'Last Name', 'E-Mail', 'Phone Number', 'Address 1', 'Address 2', 'City', 'State/Province', 'Zip', 'Latitude', 'Longitude', 'Comments', 'Account Number', 'Taxable', 'Tax Certificate', 'Company Name', 'Tier Name');
 		for($k=1;$k<=NUMBER_OF_PEOPLE_CUSTOM_FIELDS;$k++)
 		{
 			if ($this->Customer->get_custom_field($k) !== FALSE)
@@ -482,15 +482,15 @@ class Customers extends Person_controller
 	
 		if ($this->config->item('customers_store_accounts'))
 		{
-			$return[] = lang('common_balance');
-			$return[] = lang('common_credit_limit');
+			$return[] = 'Balance';
+			$return[] = 'Credit limit';
 		}
 		
 		if ($this->config->item('enable_customer_loyalty_system') && $this->config->item('loyalty_option') == 'advanced')
 		{
-			$return[] = lang('common_points');
-			$return[] = lang('customers_amount_to_spend_for_next_point');
-			$return[] = lang('common_disable_loyalty');
+			$return[] = 'Points';
+			$return[] = 'Amount To Spend For Next Point';
+			$return[] = 'Disable Loyalty';
 		}
 		
 		
@@ -547,7 +547,7 @@ class Customers extends Person_controller
 		$rows = array();
 		
 		$header_row = $this->_excel_get_header_row();
-		$header_row[] = lang('customers_customer_id');
+		$header_row[] = 'Customer Id';
 		$rows[] = $header_row;
 		
 		foreach ($data as $r) {

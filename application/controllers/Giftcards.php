@@ -94,7 +94,7 @@ class Giftcards extends Secure_area implements Idata_controller
 
 	function _excel_get_header_row()
 	{
-		return array(lang('giftcards_giftcard_number'),lang('common_description'),lang('giftcards_card_value'), lang('common_inactive'));
+		return array('Gift Card Number', 'Description', 'Card Value', 'Inactive');
 	}
 	/* added for excel expert */
 	function excel_export() {

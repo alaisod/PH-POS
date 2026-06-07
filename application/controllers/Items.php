@@ -1563,61 +1563,61 @@ class Items extends Secure_area implements Idata_controller
 		
 		$header_row = array();
 	
-		$header_row[] = lang('common_item_number');
-		$header_row[] = lang('common_product_id');
-		$header_row[] = lang('common_item_name');
-		$header_row[] = lang('common_category');
-		$header_row[] = lang('common_supplier_id');
-		$header_row[] = lang('common_cost_price');
-		$header_row[] = lang('common_unit_price');
+		$header_row[] = 'Item Number';
+		$header_row[] = 'Product ID';
+		$header_row[] = 'Item Name';
+		$header_row[] = 'Category';
+		$header_row[] = 'Supplier Id';
+		$header_row[] = 'Cost Price';
+		$header_row[] = 'Selling Price';
 		
 		if ($this->config->item('limit_manual_price_adj'))
 		{
-			$header_row[] = lang('common_min_edit_price');
-			$header_row[] = lang('common_max_edit_price');
-			$header_row[] = lang('common_max_discount_percent');
+			$header_row[] = 'Minimum Manual Edit Price';
+			$header_row[] = 'Maximum Manual Edit Price';
+			$header_row[] = 'Max Discount';
 		}
 		
-		$header_row[] = lang('items_promo_price');
-		$header_row[] = lang('items_promo_start_date');
-		$header_row[] = lang('items_promo_end_date');
+		$header_row[] = 'Promo Price';
+		$header_row[] = 'Promo Start Date';
+		$header_row[] = 'Promo End Date';
 		
 		foreach($this->Tier->get_all()->result() as $tier)
 		{
 			$header_row[] =$tier->name;
 		}
 	
-		$header_row[] = lang('items_price_includes_tax');
-		$header_row[] = lang('items_is_service');
-		$header_row[] = lang('items_quantity');
-		$header_row[] = lang('items_reorder_level');
-		$header_row[] = lang('common_replenish_level');
-		$header_row[] = lang('common_description');
-		$header_row[] = lang('items_allow_alt_desciption');
-		$header_row[] = lang('items_is_serialized');
-		$header_row[] = lang('common_size');
-		$header_row[] = lang('reports_commission');
-		$header_row[] = lang('items_commission_percent_based_on_profit');
-		$header_row[] = lang('common_tax_class');
-		$header_row[] = lang('common_tags');
-		$header_row[] = lang('items_days_to_expiration');
-		$header_row[] = lang('common_change_cost_price_during_sale');
-		$header_row[] = lang('common_manufacturer');
-		$header_row[] = lang('items_location_at_store');
+		$header_row[] = 'Price Includes Tax';
+		$header_row[] = 'Is Service Item (Does not have quantity)?';
+		$header_row[] = 'Quantity';
+		$header_row[] = 'Reorder Level';
+		$header_row[] = 'Replenish Level';
+		$header_row[] = 'Description';
+		$header_row[] = 'Allow Alt Description';
+		$header_row[] = 'Item Has Serial Number';
+		$header_row[] = 'Size';
+		$header_row[] = 'Commission';
+		$header_row[] = 'Commission Percent Based On Profit?';
+		$header_row[] = 'Tax Group';
+		$header_row[] = 'Tags';
+		$header_row[] = 'Days To Expiration';
+		$header_row[] = 'Change Cost Price During Sale';
+		$header_row[] = 'Manufacturer';
+		$header_row[] = 'Location At Store';
 		
 		if ($this->config->item('enable_customer_loyalty_system') && $this->config->item('loyalty_option') == 'advanced')
 		{
-			$header_row[] = lang('common_disable_loyalty');
+			$header_row[] = 'Disable Loyalty';
 		}
 		
 		if ($this->config->item('enable_ebt_payments'))
 		{
-			$header_row[] = lang('common_ebt');			
+			$header_row[] = 'EBT';			
 		}
 		
 		if($this->config->item("ecommerce_platform"))
 		{
-			$header_row[] = lang('items_is_ecommerce');
+			$header_row[] = 'Is Ecommerce';
 		}
 		
 		return $header_row;
@@ -1662,7 +1662,7 @@ class Items extends Secure_area implements Idata_controller
 		$this->load->helper('report');
 		
 		$header_row = $this->_excel_get_header_row();
-		$header_row[] = lang('common_item_id');
+		$header_row[] = 'Item Id';
 		$rows[] = $header_row;
 		
 		$tiers = $this->Tier->get_all()->result();

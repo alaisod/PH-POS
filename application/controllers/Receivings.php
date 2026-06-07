@@ -707,7 +707,7 @@ class Receivings extends Secure_area
 	
 	function _excel_get_header_row()
 	{
-		return array(lang('common_item_id').'/'.lang('common_item_number').'/'.lang('common_product_id'),lang('cost_price'),lang('quantity'),lang('discount_percent'));
+		return array('Item Id/Item Number/Product ID', 'Cost Price', 'Quantity', 'Discount Percent');
 	}
 	
 	function batch_receiving()

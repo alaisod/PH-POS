@@ -112,7 +112,7 @@ class Employees extends Person_controller
 		
 		$this->load->helper('report');
 		$rows = array();
-		$row = array(lang('common_username'),lang('common_first_name'),lang('common_last_name'),lang('common_email'),lang('common_phone_number'),lang('common_address_1'),lang('common_address_2'),lang('common_city'),	lang('common_state'),lang('common_zip'),lang('common_latitude'),lang('common_longitude'),lang('common_comments'));
+		$row = array('Username', 'First Name', 'Last Name', 'E-Mail', 'Phone Number', 'Address 1', 'Address 2', 'City', 'State/Province', 'Zip', 'Latitude', 'Longitude', 'Comments');
 		$rows[] = $row;
 		foreach ($data as $r) {
 			$row = array(

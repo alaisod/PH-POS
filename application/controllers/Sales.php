@@ -2684,7 +2684,7 @@ class Sales extends Secure_area
 	
 	function _excel_get_header_row()
 	{
-		return array(lang('common_item_id').'/'.lang('common_item_number').'/'.lang('common_product_id'),lang('common_unit_price'),lang('common_quantity'),lang('common_discount_percent'),lang('common_description'));
+		return array('Item Id/Item Number/Product ID', 'Unit Price', 'Quantity', 'Discount Percent', 'Description');
 	}
 	
 	//Export Sale items for Sale-Import  GomonX

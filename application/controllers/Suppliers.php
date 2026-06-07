@@ -85,7 +85,7 @@ class Suppliers extends Person_controller
 	
 	function _excel_get_header_row()
 	{
-		$return = array(lang('suppliers_company_name'),lang('common_first_name'),lang('common_last_name'),lang('common_email'),lang('common_phone_number'),lang('common_address_1'),lang('common_address_2'),lang('common_city'),	lang('common_state'),lang('common_zip'),lang('common_latitude'),lang('common_longitude'),lang('common_comments'),lang('suppliers_account_number'));
+		$return = array('Company Name', 'First Name', 'Last Name', 'E-Mail', 'Phone Number', 'Address 1', 'Address 2', 'City', 'State/Province', 'Zip', 'Latitude', 'Longitude', 'Comments', 'Account Number');
 		
 		for($k=1;$k<=NUMBER_OF_PEOPLE_CUSTOM_FIELDS;$k++)
 		{
@@ -357,7 +357,7 @@ class Suppliers extends Person_controller
 		$this->load->helper('report');
 		$rows = array();
 		$header_row = $this->_excel_get_header_row();
-		$header_row[] = lang('suppliers_id');
+		$header_row[] = 'Supplier Id';
 		$rows[] = $header_row;
 		
 		foreach ($data as $r) {
