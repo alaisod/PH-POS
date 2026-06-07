@@ -228,6 +228,14 @@
 		maxZoom: 19
 	}).addTo(map);
 	
+	// Fix: set marker icon path (Leaflet default path breaks with local files)
+	delete L.Icon.Default.prototype._getIconUrl;
+	L.Icon.Default.mergeOptions({
+		iconRetinaUrl: '<?php echo base_url(); ?>assets/img/marker-icon-2x.png',
+		iconUrl: '<?php echo base_url(); ?>assets/img/marker-icon.png',
+		shadowUrl: '<?php echo base_url(); ?>assets/img/marker-shadow.png',
+	});
+	
 	var marker = L.marker([lat, lng], {
 		draggable: true
 	}).addTo(map);
