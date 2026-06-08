@@ -176,12 +176,12 @@ function get_person_data_row($person,$controller)
 	{
 		$map_url = 'https://www.google.com/maps/dir/?api=1&destination=' . $person->latitude . ',' . $person->longitude;
 		$table_data_row.='<td style="text-align:center">'.
-			'<div class="piluku-dropdown dropup btn-group">
-				<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false" title="' . lang('common_open_in_map') . '">
-					<i class="ion-location" style="font-size:18px;"></i>
+			'<div class="piluku-dropdown dropup btn-group table_buttons">
+				<button type="button" class="btn btn-more dropdown-toggle" data-toggle="dropdown" aria-expanded="false" title="' . lang('common_open_in_map') . '">
+					<i class="ion-map"></i>
 				</button>
 				<ul class="dropdown-menu dropdown-menu-right" role="menu">
-					<li><a href="' . $map_url . '" target="_blank"><i class="ion-location"></i> ' . lang('common_open_in_map') . '</a></li>
+					<li><a href="' . $map_url . '" target="_blank"><i class="ion-navigate"></i> ' . lang('common_open_in_map') . '</a></li>
 					<li><a href="javascript:void(0);" class="copy-plus-code" data-lat="'.$person->latitude.'" data-lng="'.$person->longitude.'"><i class="ion-code"></i> ' . lang('common_copy_plus_code') . '</a></li>
 				</ul>
 			</div>'.

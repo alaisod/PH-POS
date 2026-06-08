@@ -468,15 +468,19 @@ function do_link_confirm(message, ele)
 
 $(document).on('click', '.copy-plus-code', function(e) {
 	e.preventDefault();
+	
+	// Close parent dropdown
+	$(this).closest('.btn-group').removeClass('open');
+	$(this).closest('.dropdown').removeClass('open');
+	
 	var lat = parseFloat($(this).data('lat'));
 	var lng = parseFloat($(this).data('lng'));
 	
 	if (typeof OpenLocationCode !== 'undefined') {
 		try {
 			var code = OpenLocationCode.encode(lat, lng);
-			var copyText = code + ' Copied to clipboard';
 			navigator.clipboard.writeText(code).then(function() {
-				show_feedback('success', copyText, COMMON_SUCCESS);
+				show_feedback('success', code + ' ' + 'Copied to clipboard', COMMON_SUCCESS);
 			}).catch(function() {
 				// Fallback for older browsers
 				var textarea = document.createElement('textarea');
@@ -485,7 +489,7 @@ $(document).on('click', '.copy-plus-code', function(e) {
 				textarea.select();
 				document.execCommand('copy');
 				document.body.removeChild(textarea);
-				show_feedback('success', copyText, COMMON_SUCCESS);
+				show_feedback('success', code + ' ' + 'Copied to clipboard', COMMON_SUCCESS);
 			});
 		} catch(e) {
 			show_feedback('error', 'Error generating Plus Code', COMMON_ERROR);
