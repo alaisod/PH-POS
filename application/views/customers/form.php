@@ -586,11 +586,11 @@
 			{
 				if ($("#taxable").prop('checked'))
 				{
-					$("#tax_certificate_holder").hide();
+					$("#tax_certificate_holder").show();
 				}
 				else
 				{
-					$("#tax_certificate_holder").show();
+					$("#tax_certificate_holder").hide();
 				}
 			}
 		
