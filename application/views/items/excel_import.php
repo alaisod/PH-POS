@@ -480,6 +480,7 @@ $("#complete_import").on("click", function(e){
 				else
 				{
 					console.log('[EXCEL IMPORT] Import result:', response3.type, response3.message);
+					console.log('[EXCEL IMPORT] Debug fields - can_commit:', response3._debug_can_commit, 'trans_status:', response3._debug_trans_status);
 					show_feedback(response3.type, response3.message, response3.title);
 				}
 				display_import_errors(response3.type);
@@ -508,6 +509,11 @@ function display_import_errors(type)
 		console.log('[EXCEL IMPORT] Import errors/warnings:', errors);
 		//Guard against null errors (jsGrid crashes if data is null)
 		errors = errors || [];
+		if (errors.length > 0) {
+			console.warn('[EXCEL IMPORT] There are ' + errors.length + ' error(s)/warning(s) in the import!');
+			// Force type to 'warning' so errors show in UI even when response says success
+			type = 'warning';
+		}
 		$("#Complete").slideUp("slow", function() {
     	$('#Errors').slideDown("slow", function(){
 				$("#"+type).toggle("slide");

@@ -1926,6 +1926,42 @@ class Items extends Secure_area implements Idata_controller
 				$k++;
 			}
 			
+			//Trim trailing empty rows (user may have extra blank rows at end of spreadsheet)
+			if (!empty($columns))
+			{
+				$lastNonEmptyRow = -1;
+				$numCols = count($columns);
+				$numDataRows = count($columns[0]['data']);
+				
+				for ($rowIdx = $numDataRows - 1; $rowIdx >= 0; $rowIdx--)
+				{
+					$rowHasData = false;
+					for ($colIdx = 0; $colIdx < $numCols; $colIdx++)
+					{
+						if (isset($columns[$colIdx]['data'][$rowIdx]) && $columns[$colIdx]['data'][$rowIdx] !== '')
+						{
+							$rowHasData = true;
+							break;
+						}
+					}
+					if ($rowHasData)
+					{
+						$lastNonEmptyRow = $rowIdx;
+						break;
+					}
+				}
+				
+				if ($lastNonEmptyRow >= 0 && $lastNonEmptyRow < $numDataRows - 1)
+				{
+					//Trim all column data arrays
+					for ($colIdx = 0; $colIdx < $numCols; $colIdx++)
+					{
+						$columns[$colIdx]['data'] = array_slice($columns[$colIdx]['data'], 0, $lastNonEmptyRow + 1);
+					}
+					$numRows = $lastNonEmptyRow + 2; // +1 for 1-indexed data rows, +1 for header row
+				}
+			}
+			
 			$this->session->set_userdata("items_excel_import_num_rows", $numRows);
 			$this->session->set_userdata("items_excel_import_column_map", $columns);
 		}
@@ -2241,6 +2277,38 @@ class Items extends Secure_area implements Idata_controller
 				: lang('common_excel_import_failed');
 			echo json_encode(array('type'=> 'error','message'=> $error_msg, 'title' => lang('common_error')));
 			return;
+		}
+		
+		//Safety trim: remove trailing empty rows (blank rows at bottom of spreadsheet)
+		$numCols = count($columns_with_data);
+		$numDataRows = count($columns_with_data[0]['data']);
+		$lastNonEmptyRow = -1;
+		for ($rowIdx = $numDataRows - 1; $rowIdx >= 0; $rowIdx--)
+		{
+			$rowHasData = false;
+			for ($colIdx = 0; $colIdx < $numCols; $colIdx++)
+			{
+				if (isset($columns_with_data[$colIdx]['data'][$rowIdx]) && $columns_with_data[$colIdx]['data'][$rowIdx] !== '')
+				{
+					$rowHasData = true;
+					break;
+				}
+			}
+			if ($rowHasData)
+			{
+				$lastNonEmptyRow = $rowIdx;
+				break;
+			}
+		}
+		if ($lastNonEmptyRow >= 0 && $lastNonEmptyRow < $numDataRows - 1)
+		{
+			$trimmedCount = $numDataRows - ($lastNonEmptyRow + 1);
+			log_message('info', 'complete_excel_import: Trimmed ' . $trimmedCount . ' empty trailing row(s), numRows adjusted from ' . $numRows . ' to ' . ($lastNonEmptyRow + 2));
+			for ($colIdx = 0; $colIdx < $numCols; $colIdx++)
+			{
+				$columns_with_data[$colIdx]['data'] = array_slice($columns_with_data[$colIdx]['data'], 0, $lastNonEmptyRow + 1);
+			}
+			$numRows = $lastNonEmptyRow + 2;
 		}
 		
 		$current_location_id= $this->Employee->get_logged_in_employee_current_location_id();
@@ -2609,14 +2677,15 @@ class Items extends Secure_area implements Idata_controller
 			$this->db->trans_rollback();
 		}
 		
-		//if there were any errors or warnings
-		if ($this->db->trans_status() === FALSE && !$can_commit)
+		//Use can_commit as primary decision (works with MyISAM too)
+		if (!$can_commit)
 		{
-			echo json_encode(array('type'=> 'error','message'=> lang('common_errors_occured_durring_import'), 'title' => lang('common_error')));
+			//Rolled back or MyISAM (no-op rollback) - either way, there were errors
+			echo json_encode(array('type'=> 'error','message'=> lang('common_errors_occured_durring_import'), 'title' => lang('common_error'), '_debug_can_commit' => $can_commit, '_debug_trans_status' => $this->db->trans_status()));
 		}
-		elseif ($this->db->trans_status() === FALSE && $can_commit)
+		elseif ($this->db->trans_status() === FALSE)
 		{	
-			echo json_encode(array('type'=> 'warning','message'=> lang('common_warnings_occured_durring_import'), 'title' => lang('common_warning')));
+			echo json_encode(array('type'=> 'warning','message'=> lang('common_warnings_occured_durring_import'), 'title' => lang('common_warning'), '_debug_can_commit' => $can_commit, '_debug_trans_status' => $this->db->trans_status()));
 		}
 		else
 		{
@@ -2625,7 +2694,7 @@ class Items extends Secure_area implements Idata_controller
 			$this->session->unset_userdata('items_excel_import_column_map');
 			$this->session->unset_userdata('items_excel_import_num_rows');
 			
-			echo json_encode(array('type'=> 'success','message'=>lang('common_import_successful'), 'title' =>  lang('common_success')));			
+			echo json_encode(array('type'=> 'success','message'=>lang('common_import_successful'), 'title' =>  lang('common_success'), '_debug_can_commit' => $can_commit, '_debug_trans_status' => $this->db->trans_status()));			
 		}
 	}
 	catch(\Throwable $e)
