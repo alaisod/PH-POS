@@ -2159,6 +2159,7 @@ class Items extends Secure_area implements Idata_controller
 		
 		//Check for barcodes already existing in the database before import (only for new items, not updates)
 		$barcode_db_dups = array();
+		$name_db_dups = array();
 		
 		//Find the field ID for 'item_id' to detect if Item Id column is mapped (updating existing items)
 		$item_id_field_id = NULL;
@@ -2193,6 +2194,28 @@ class Items extends Secure_area implements Idata_controller
 			}
 		}
 		
+		//Check for item names already existing in the database (only for new items, not updates)
+		if (!$has_item_id_column && isset($fieldId_to_colIndex[2]) && count($item_number_dups) == 0 && count($barcode_db_dups) == 0)
+		{
+			$name_index = $fieldId_to_colIndex[2];
+			$item_names = $columns_with_data[$name_index]['data'] ? $columns_with_data[$name_index]['data'] : array();
+			
+			//Batch check: single query for all names
+			$existing_names = $this->Item->get_existing_names(array_filter($item_names));
+			$existing_names_map = array_flip($existing_names);
+			
+			foreach($item_names as $idx => $item_name)
+			{
+				if ($item_name && isset($existing_names_map[$item_name]))
+				{
+					$row = $idx+2;
+					$message = lang('items_duplicate_name_in_database').' "'. $item_name .'"';
+					$this->_log_validation_error($row, $message, 'Error');
+					$name_db_dups[] = $item_name;
+				}
+			}
+		}
+		
 		if(count($item_number_dups) > 0 || count($product_id_dups) > 0)
 		{
 			echo json_encode(array('type'=> 'error','message'=>lang('items_duplicate_item_numbers_product_ids'), 'title' =>  lang('common_error')));
@@ -2200,6 +2223,10 @@ class Items extends Secure_area implements Idata_controller
 		elseif (count($barcode_db_dups) > 0)
 		{
 			echo json_encode(array('type'=> 'error','message'=>lang('items_duplicate_barcode_in_database'), 'title' =>  lang('common_error')));
+		}
+		elseif (count($name_db_dups) > 0)
+		{
+			echo json_encode(array('type'=> 'error','message'=>lang('items_duplicate_name_in_database'), 'title' =>  lang('common_error')));
 		}
 		else
 		{
@@ -2336,6 +2363,7 @@ class Items extends Secure_area implements Idata_controller
 		unset($fieldId_to_colIndex['N/A']);
 		
 		$can_commit = TRUE;
+		$import_count = 0;
 		$this->db->trans_begin();
 		
 		for ($i = 0; $i < $numRows -1; $i++)
@@ -2572,6 +2600,7 @@ class Items extends Secure_area implements Idata_controller
 				continue;
 			}
 
+			$import_count++;
 			
 			if(isset($tags))
 			{
@@ -2694,7 +2723,7 @@ class Items extends Secure_area implements Idata_controller
 			$this->session->unset_userdata('items_excel_import_column_map');
 			$this->session->unset_userdata('items_excel_import_num_rows');
 			
-			echo json_encode(array('type'=> 'success','message'=>lang('common_import_successful'), 'title' =>  lang('common_success'), '_debug_can_commit' => $can_commit, '_debug_trans_status' => $this->db->trans_status()));			
+			echo json_encode(array('type'=> 'success','message'=>lang('common_import_successful'), 'title' =>  lang('common_success'), 'import_count' => $import_count, '_debug_can_commit' => $can_commit, '_debug_trans_status' => $this->db->trans_status()));			
 		}
 	}
 	catch(\Throwable $e)

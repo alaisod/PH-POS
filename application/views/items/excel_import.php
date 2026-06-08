@@ -481,7 +481,13 @@ $("#complete_import").on("click", function(e){
 				{
 					console.log('[EXCEL IMPORT] Import result:', response3.type, response3.message);
 					console.log('[EXCEL IMPORT] Debug fields - can_commit:', response3._debug_can_commit, 'trans_status:', response3._debug_trans_status);
-					show_feedback(response3.type, response3.message, response3.title);
+					console.log('[EXCEL IMPORT] Items imported:', response3.import_count);
+					
+					var successMsg = response3.message;
+					if (response3.import_count && response3.type === 'success') {
+						successMsg = <?php echo json_encode(lang('items_import_success_count')); ?>.replace('%1', response3.import_count);
+					}
+					show_feedback(response3.type, successMsg, response3.title);
 				}
 				display_import_errors(response3.type);
 	    }).fail(function(jqXHR, textStatus, errorThrown) {

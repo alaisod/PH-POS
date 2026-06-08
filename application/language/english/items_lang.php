@@ -239,6 +239,8 @@ $lang['items_import_items'] = 'Import Items';$lang['items_duplicate_barcode_in_d
 $lang['items_unable_to_create_item'] = 'Unable to create item; no Item Name or Item ID provided';
 
 
+$lang['items_duplicate_name_in_database'] = 'Item Name already exists in the database';
+$lang['items_import_success_count'] = 'Successfully imported %1 items';
 
 
 $lang['items_is_ecommerce'] = 'Is Ecommerce Item';

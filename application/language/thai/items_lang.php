@@ -218,6 +218,9 @@ $lang['items_import_items'] = 'นำเข้าสินค้า';
 $lang['items_duplicate_barcode_in_database'] = 'BARCODE มีอยู่ในฐานข้อมูลแล้ว';
 $lang['items_unable_to_create_item'] = 'ไม่สามารถสร้างสินค้าได้; ไม่มีชื่อสินค้าหรือรหัสสินค้า';
 
+$lang['items_duplicate_name_in_database'] = 'ชื่อสินค้ามีอยู่ในฐานข้อมูลแล้ว';
+$lang['items_import_success_count'] = 'นำเข้าสำเร็จ %1 รายการ';
+
 $lang['items_is_ecommerce'] = 'เป็นสินค้าอีคอมเมิร์ซ';
 $lang['items_inventory_count_error'] = 'เกิดข้อผิดพลาดในการค้นหาสินค้า';
 

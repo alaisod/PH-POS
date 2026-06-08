@@ -279,6 +279,37 @@ class Item extends CI_Model
 		
 		return ($query->num_rows()==1);
 	}
+
+	function name_exists($name)
+	{
+		$this->db->from('items');
+		$this->db->where('name',$name);
+		$this->db->where('deleted',0);
+		$query = $this->db->get();
+		
+		return ($query->num_rows() >= 1);
+	}
+
+	//Batch check: returns array of existing names from the given list (much faster for imports)
+	function get_existing_names($names)
+	{
+		if (empty($names))
+		{
+			return array();
+		}
+		
+		$this->db->from('items');
+		$this->db->where_in('name', $names);
+		$this->db->where('deleted',0);
+		$query = $this->db->get();
+		
+		$existing = array();
+		foreach ($query->result() as $row)
+		{
+			$existing[] = $row->name;
+		}
+		return $existing;
+	}
 	
 	function get_main_image($item_id)
 	{
