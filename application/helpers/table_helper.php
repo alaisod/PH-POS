@@ -100,34 +100,7 @@ function get_person_data_row($person,$controller)
 	if ($controller_name != 'employees')
 	{
 		$table_data_row.="<td><input type='checkbox' id='${controller_name}_$person->person_id' value='".$person->person_id."'/><label for='${controller_name}_$person->person_id'><span></span></label></td>";
-		
-		if ($controller_name == 'customers')
-		{
-			$has_location = isset($person->latitude) && isset($person->longitude) && (float)$person->latitude != 0 && (float)$person->longitude != 0;
-			
-			$table_data_row.='<td class="rightmost">'.
-			'<div class="piluku-dropdown dropup btn-group table_buttons">
-				<button type="button" class="btn btn-more dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-					<span class="ion-edit"></span>
-				</button>
-				<ul class="dropdown-menu dropdown-menu-right" role="menu">
-					<li>'.anchor($controller_name."/view/$person->person_id/2", '<i class="ion-compose"></i> ' . lang('common_edit'), array('class'=>'','title'=>lang($controller_name.'_update'))).'</li>';
-					
-					if ($has_location)
-					{
-						$map_url = 'https://www.google.com/maps/dir/?api=1&destination=' . $person->latitude . ',' . $person->longitude;
-						$table_data_row.= '<li>'.anchor($map_url, '<i class="ion-location"></i> ' . lang('common_open_in_map'), array('class'=>'','title'=>lang('common_open_in_map'), 'target'=>'_blank')).'</li>';
-						$table_data_row.= '<li><a href="javascript:void(0);" class="copy-plus-code" data-lat="'.$person->latitude.'" data-lng="'.$person->longitude.'" title="'.lang('common_copy_plus_code').'"><i class="ion-code"></i> ' . lang('common_copy_plus_code') . '</a></li>';
-					}
-					
-				$table_data_row.= '</ul>
-			</div>'
-			.'</td>';
-		}
-		else
-		{
-			$table_data_row.='<td class="rightmost">'.anchor($controller_name."/view/$person->person_id/2	", lang('common_edit') ,array('class'=>' ','title'=>lang($controller_name.'_update'))).'</li>'.'</td>';
-		}
+		$table_data_row.='<td class="rightmost">'.anchor($controller_name."/view/$person->person_id/2	", lang('common_edit') ,array('class'=>' ','title'=>lang($controller_name.'_update'))).'</li>'.'</td>';	
 	}
 	else
 	{
@@ -198,11 +171,21 @@ function get_person_data_row($person,$controller)
 			//Unset for next round of the loop
 			unset($data);
 		}	
-	// Map icon button (for customers/suppliers with lat/long)
+	// Map dropdown button (for customers/suppliers with lat/long)
 	if (($controller_name == 'customers' || $controller_name == 'suppliers') && isset($person->latitude) && isset($person->longitude) && (float)$person->latitude != 0 && (float)$person->longitude != 0)
 	{
 		$map_url = 'https://www.google.com/maps/dir/?api=1&destination=' . $person->latitude . ',' . $person->longitude;
-		$table_data_row.='<td style="text-align:center"><a href="' . $map_url . '" target="_blank" class="btn btn-default btn-xs" title="' . lang('common_open_in_map') . '"><i class="ion-location" style="font-size:18px;"></i></a></td>';
+		$table_data_row.='<td style="text-align:center">'.
+			'<div class="piluku-dropdown dropup btn-group">
+				<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false" title="' . lang('common_open_in_map') . '">
+					<i class="ion-location" style="font-size:18px;"></i>
+				</button>
+				<ul class="dropdown-menu dropdown-menu-right" role="menu">
+					<li><a href="' . $map_url . '" target="_blank"><i class="ion-location"></i> ' . lang('common_open_in_map') . '</a></li>
+					<li><a href="javascript:void(0);" class="copy-plus-code" data-lat="'.$person->latitude.'" data-lng="'.$person->longitude.'"><i class="ion-code"></i> ' . lang('common_copy_plus_code') . '</a></li>
+				</ul>
+			</div>'.
+		'</td>';
 	}
 	else
 	{
