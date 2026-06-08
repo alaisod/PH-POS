@@ -3334,7 +3334,6 @@ function do_link_confirm(message, ele)
 
 $(document).on('click', '.copy-plus-code', function(e) {
 	e.preventDefault();
-	e.stopPropagation();
 	
 	var lat = parseFloat($(this).data('lat'));
 	var lng = parseFloat($(this).data('lng'));
@@ -3342,79 +3341,86 @@ $(document).on('click', '.copy-plus-code', function(e) {
 	if (typeof OpenLocationCode !== 'undefined') {
 		try {
 			var code = OpenLocationCode.encode(lat, lng);
-			copyToClipboard(
+			copyPlusCodeToClipboard(
 				code,
 				function() {
-					// Close parent dropdown after successful copy
 					$(e.target).closest('.btn-group, .dropdown').removeClass('open');
 					show_feedback('success', code + ' ' + 'Copied to clipboard', COMMON_SUCCESS);
 				},
 				function() {
-					// Close parent dropdown even if copy failed
 					$(e.target).closest('.btn-group, .dropdown').removeClass('open');
 					show_feedback('success', 'Plus Code: ' + code, COMMON_SUCCESS);
 				}
 			);
 		} catch(e) {
+			$(e.target).closest('.btn-group, .dropdown').removeClass('open');
 			show_feedback('error', 'Error generating Plus Code', COMMON_ERROR);
 		}
 	} else {
+		$(e.target).closest('.btn-group, .dropdown').removeClass('open');
 		show_feedback('error', 'OpenLocationCode library not loaded', COMMON_ERROR);
 	}
 });
 
-function copyToClipboard(text, onSuccess, onError) {
-	// Strategy 1: Clipboard API (works on HTTPS, iOS 13+, Android)
-	// Must try FIRST because it preserves user gesture context
-	if (navigator.clipboard && navigator.clipboard.writeText) {
-		navigator.clipboard.writeText(text).then(function() {
-			onSuccess();
-		}).catch(function() {
-			// Fallback to execCommand
-			copyUsingTextarea(text, onSuccess, onError);
-		});
-	} else {
-		copyUsingTextarea(text, onSuccess, onError);
-	}
-}
-
-function copyUsingTextarea(text, onSuccess, onError) {
-	// Strategy 2: textarea + execCommand (works on desktop HTTP from user gesture)
-	// Must be in-viewport (not off-screen) for iOS text selection
+function copyPlusCodeToClipboard(text, onSuccess, onError) {
+	// Create a temporary textarea positioned near the click
+	// Must be in viewport for iOS selection
 	var textarea = document.createElement('textarea');
 	textarea.value = text;
-	textarea.readOnly = true;
 	textarea.style.position = 'fixed';
-	textarea.style.left = '10px';
-	textarea.style.top = '10px';
-	textarea.style.width = '1px';
-	textarea.style.height = '1px';
-	textarea.style.padding = '0';
+	textarea.style.left = '0';
+	textarea.style.top = '0';
+	textarea.style.width = '100%';
+	textarea.style.height = '40px';
+	textarea.style.padding = '10px';
 	textarea.style.border = 'none';
 	textarea.style.outline = 'none';
-	textarea.style.boxShadow = 'none';
-	textarea.style.background = 'transparent';
-	textarea.style.opacity = '0.01';
-	textarea.style.zIndex = '-1';
+	textarea.style.fontSize = '16px';
+	textarea.style.zIndex = '999999';
+	textarea.style.background = '#fff';
+	textarea.style.color = '#333';
+	textarea.style.opacity = '0';
+	textarea.readOnly = true;
 	document.body.appendChild(textarea);
 	
-	// Focus and select (needs to be visible in viewport on iOS)
+	// Focus and select
 	textarea.focus();
-	textarea.setSelectionRange(0, text.length);
+	textarea.select();
 	
-	var succeeded = false;
-	try {
-		succeeded = document.execCommand('copy');
-	} catch (e) {
-		succeeded = false;
-	}
+	var copied = false;
 	
-	document.body.removeChild(textarea);
-	
-	if (succeeded) {
-		onSuccess();
+	// Try Clipboard API first (works on HTTPS - all platforms)
+	if (navigator.clipboard && navigator.clipboard.writeText) {
+		navigator.clipboard.writeText(text).then(function() {
+			document.body.removeChild(textarea);
+			onSuccess();
+		}).catch(function() {
+			// Fallback: try execCommand
+			try {
+				copied = document.execCommand('copy');
+			} catch(e) {
+				copied = false;
+			}
+			document.body.removeChild(textarea);
+			if (copied) {
+				onSuccess();
+			} else {
+				onError();
+			}
+		});
 	} else {
-		onError();
+		// No Clipboard API - try execCommand
+		try {
+			copied = document.execCommand('copy');
+		} catch(e) {
+			copied = false;
+		}
+		document.body.removeChild(textarea);
+		if (copied) {
+			onSuccess();
+		} else {
+			onError();
+		}
 	}
 }
 /*!
