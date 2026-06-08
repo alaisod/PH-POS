@@ -2485,6 +2485,15 @@ class Items extends Secure_area implements Idata_controller
 			}
 		
 			$item_id = isset($item_data['item_id']) ? $item_data['item_id'] :  $item_id;
+
+			//Guard: if we still do not have an item_id, skip this row
+			if (!$item_id)
+			{
+				$this->_log_validation_error($i+2, lang('items_unable_to_create_item'));
+				$can_commit = FALSE;
+				continue;
+			}
+
 			
 			if(isset($tags))
 			{

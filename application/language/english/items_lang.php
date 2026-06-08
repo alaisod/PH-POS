@@ -235,9 +235,8 @@ $lang['items_duplicate_item_number'] = 'Duplicate BARCODE';
 $lang['items_duplicate_product_id'] = 'Duplicate SKU';
 $lang['items_item_existed_warning'] = 'This item existed previously but \'item id\' was not provided in the spreadsheet.';
 
-$lang['items_import_items'] = 'Import Items';
-
-$lang['items_duplicate_barcode_in_database'] = 'BARCODE already exists in the database';
+$lang['items_import_items'] = 'Import Items';$lang['items_duplicate_barcode_in_database'] = 'BARCODE already exists in the database';
+$lang['items_unable_to_create_item'] = 'Unable to create item; no Item Name or Item ID provided';
 
 
 
