@@ -193,20 +193,23 @@ $(document).ready(function() {
 		});
 		
 		$('#file').on('change', function(){
+			console.log('[EXCEL IMPORT] File selected, starting upload...');
 			$('#grid-loader').show();
 			
 			$("#item_form").ajaxSubmit({
 						success:function(response)
 						{
-							
+							console.log('[EXCEL IMPORT] Upload response:', response);
 							$('#grid-loader').hide();
 			        
 							if(!response.success)
 							{ 
+								console.error('[EXCEL IMPORT] Upload failed:', response.message);
 								show_feedback('error', response.message, <?php echo json_encode(lang('common_error')); ?>);
 							}
 							else
 							{
+								console.log('[EXCEL IMPORT] Upload success, loading column grid...');
 								$("#grid").jsGrid("loadData");		
 				        $('ul.setup-panel li:eq(1)').removeClass('disabled');
 								
@@ -215,11 +218,19 @@ $(document).ready(function() {
 								$('#step1_next_button').show();
 							}							
 						},
+						error: function(jqXHR, textStatus, errorThrown) {
+							console.error('[EXCEL IMPORT] Upload AJAX error:', textStatus, errorThrown);
+							console.error('[EXCEL IMPORT] Response text:', jqXHR.responseText.substring(0, 1000));
+							$('#grid-loader').hide();
+							show_feedback('error', 'Upload AJAX error: ' + textStatus + '. Check browser console (F12) for details.', <?php echo json_encode(lang('common_error')); ?>);
+						},
 						dataType:'json',
 						resetForm: false
 					});
 		});
 });
+
+console.log('[EXCEL IMPORT] Page loaded, waiting for file input...');
 
 var databaseFields = [];
 var columns;
@@ -248,10 +259,12 @@ jsGrid.validators.unique = {
     }
 }
 
+console.log('[EXCEL IMPORT] Fetching database fields for import...');
 $.ajax({
     url: <?php echo json_encode(site_url('items/get_database_fields_for_import')); ?>,
     dataType: "json"
 }).done(function(response) {
+		console.log('[EXCEL IMPORT] Database fields loaded:', response.length, 'fields');
 		//remove spinner
     databaseFields = response;
 		
@@ -269,24 +282,38 @@ $.ajax({
 				controller: {
 		        loadData: function() {
 		            var d = $.Deferred();
+								console.log('[EXCEL IMPORT] Loading uploaded excel columns...');
 								//add load indicator
 		            $.ajax({
 		                url: <?php echo json_encode(site_url('items/get_uploaded_excel_columns')); ?>,
 		                dataType: "json"
 		            }).done(function(response) {
-									$.get(<?php echo json_encode(site_url('items/do_excel_import_map')); ?>);
+										console.log('[EXCEL IMPORT] Uploaded columns:', response);
+										console.log('[EXCEL IMPORT] Calling do_excel_import_map...');
+										$.get(<?php echo json_encode(site_url('items/do_excel_import_map')); ?>).done(function() {
+											console.log('[EXCEL IMPORT] do_excel_import_map complete');
+										}).fail(function(jqXHR, textStatus, errorThrown) {
+											console.error('[EXCEL IMPORT] do_excel_import_map AJAX error:', textStatus, errorThrown);
+											console.error('[EXCEL IMPORT] do_excel_import_map response:', jqXHR.responseText.substring(0, 1000));
+										});
 										//remove spinner
 		                d.resolve(response);
 			
-		            });
+		            }).fail(function(jqXHR, textStatus, errorThrown) {
+									console.error('[EXCEL IMPORT] get_uploaded_excel_columns AJAX error:', textStatus, errorThrown);
+									console.error('[EXCEL IMPORT] Response text:', jqXHR.responseText.substring(0, 1000));
+									d.reject();
+								});
 
 		            return d.promise();
 		        },
 						updateItem: function(column) {
+								console.log('[EXCEL IMPORT] Column mapped:', column["Spreadsheet Column"], '->', column["Database Field"]);
 								column_map[column["Spreadsheet Column"]] = column;
 		        },
 		    },
 				onDataLoaded: function(args) {
+					console.log('[EXCEL IMPORT] Grid data loaded, columns:', args.data.length);
 					columns = args.data;
 					//check to see if completely done
 					var done = function(){
@@ -367,6 +394,9 @@ $.ajax({
 		        { title: <?php echo json_encode(lang('common_database_field')); ?>, name: "Database Field", type: "select", align: "left", items: databaseFields, valueField: "Id", textField: "Name", valueType: "number", selectedIndex: -1, validate: "unique"},
 		    ]
 		});
+}).fail(function(jqXHR, textStatus, errorThrown) {
+		console.error('[EXCEL IMPORT] get_database_fields_for_import AJAX error:', textStatus, errorThrown);
+		console.error('[EXCEL IMPORT] Response text:', jqXHR.responseText.substring(0, 1000));
 });
 
 //select change event listener		
@@ -415,6 +445,8 @@ $('#step3_previous_button').on("click", function(e){
 });
 
 $("#complete_import").on("click", function(e){
+	console.log('[EXCEL IMPORT] ===== Starting Complete Import =====');
+	console.log('[EXCEL IMPORT] Column map:', column_map);
 	$('#grid-loader3').show();
 	
   $.ajax({
@@ -423,41 +455,57 @@ $("#complete_import").on("click", function(e){
 			dataType: "json",
 			method: 'POST'
   }).done(function(response2){	
+			console.log('[EXCEL IMPORT] dedup_excel_import_data response:', response2);
 			
 			if(response2.type == 'error')
 			{
-				console.error('Dedup Error:', response2.message);
+				console.error('[EXCEL IMPORT] Dedup Error:', response2.message);
 				$('#grid-loader3').hide();
 				display_import_errors(response2.type);
 				return;
 			}
+			console.log('[EXCEL IMPORT] Dedup passed, calling complete_excel_import...');
 			show_feedback(response2.type, response2.message, response2.title);
 			
 	    $.ajax({
 	        url: <?php echo json_encode(site_url('items/complete_excel_import')); ?>,
 					dataType: "json"
 	    }).done(function(response3) {
+				console.log('[EXCEL IMPORT] complete_excel_import response:', response3);
 				$('#grid-loader3').hide();
 				if(response3.type == 'error')
 				{
-					console.error('Import Error:', response3.message);
+					console.error('[EXCEL IMPORT] Import Error:', response3.message);
 				}
 				else
 				{
+					console.log('[EXCEL IMPORT] Import result:', response3.type, response3.message);
 					show_feedback(response3.type, response3.message, response3.title);
 				}
 				display_import_errors(response3.type);
-	    });
+	    }).fail(function(jqXHR, textStatus, errorThrown) {
+				console.error('[EXCEL IMPORT] complete_excel_import AJAX error:', textStatus, errorThrown);
+				console.error('[EXCEL IMPORT] Response text:', jqXHR.responseText.substring(0, 1000));
+				$('#grid-loader3').hide();
+				show_feedback('error', 'Import AJAX error: ' + textStatus + '. Check browser console (F12) for details.', <?php echo json_encode(lang('common_error')); ?>);
+			});
+  }).fail(function(jqXHR, textStatus, errorThrown) {
+		console.error('[EXCEL IMPORT] dedup_excel_import_data AJAX error:', textStatus, errorThrown);
+		console.error('[EXCEL IMPORT] Response text:', jqXHR.responseText.substring(0, 1000));
+		$('#grid-loader3').hide();
+		show_feedback('error', 'Dedup AJAX error: ' + textStatus + '. Check browser console (F12) for details.', <?php echo json_encode(lang('common_error')); ?>);
 	});
 });
 
 function display_import_errors(type)
 {
+	console.log('[EXCEL IMPORT] Fetching import errors (type=' + type + ')...');
 	
   $.ajax({
       url: <?php echo json_encode(site_url('items/get_import_errors')); ?>,
 			dataType: "json"
   }).done(function(errors) {
+		console.log('[EXCEL IMPORT] Import errors/warnings:', errors);
 		//Guard against null errors (jsGrid crashes if data is null)
 		errors = errors || [];
 		$("#Complete").slideUp("slow", function() {
@@ -492,7 +540,10 @@ function display_import_errors(type)
 			});
   	});
 		
-  });
+  }).fail(function(jqXHR, textStatus, errorThrown) {
+		console.error('[EXCEL IMPORT] get_import_errors AJAX error:', textStatus, errorThrown);
+		console.error('[EXCEL IMPORT] Response text:', jqXHR.responseText.substring(0, 1000));
+	});
 }
 </script>
 <?php $this->load->view('partial/footer'); ?>

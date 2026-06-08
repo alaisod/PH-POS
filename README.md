@@ -1,4 +1,3 @@
 # PH-POS
 point of sale for PH-EASY
-- test webhook
-- change public folder
+run on PHP 8.3.x

@@ -1817,6 +1817,8 @@ class Items extends Secure_area implements Idata_controller
 	
 	function do_excel_upload()
 	{
+		try
+		{
 		$this->load->helper('demo');
 		
 		//Write to app files
@@ -1864,6 +1866,14 @@ class Items extends Secure_area implements Idata_controller
 		
 		$this->session->set_userdata("items_excel_import_column_map", $columns);
 		echo json_encode(array('success'=>true,'message'=>lang('common_import_successful')));
+		}
+		catch(\Throwable $e)
+		{
+			$error_msg = 'PHP Error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine();
+			log_message('error', 'do_excel_upload failed: ' . $error_msg);
+			echo json_encode(array('success'=>false,'message'=> $error_msg));
+			return;
+		}
 	}
 	
 	function do_excel_import_map()
