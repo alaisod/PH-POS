@@ -555,4 +555,5 @@ $lang['common_min_edit_price'] = 'Minimum Manual Edit Price';
 $lang['common_max_edit_price'] = 'Maximum Manual Edit Price';
 $lang['common_last_payment_date'] = 'Last Payment Date';
 $lang['update_category_from_phppos_to_woocommerce'] = 'Update Category From PHP POS To WooCommerce';
+$lang['common_copy_plus_code'] = 'Copy Plus Code';
 ?>

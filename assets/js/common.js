@@ -465,3 +465,32 @@ function do_link_confirm(message, ele)
 	});
 	return false;
 }
+
+$(document).on('click', '.copy-plus-code', function(e) {
+	e.preventDefault();
+	var lat = parseFloat($(this).data('lat'));
+	var lng = parseFloat($(this).data('lng'));
+	
+	if (typeof OpenLocationCode !== 'undefined') {
+		try {
+			var code = OpenLocationCode.encode(lat, lng);
+			var copyText = code + ' Copied to clipboard';
+			navigator.clipboard.writeText(code).then(function() {
+				show_feedback('success', copyText, COMMON_SUCCESS);
+			}).catch(function() {
+				// Fallback for older browsers
+				var textarea = document.createElement('textarea');
+				textarea.value = code;
+				document.body.appendChild(textarea);
+				textarea.select();
+				document.execCommand('copy');
+				document.body.removeChild(textarea);
+				show_feedback('success', copyText, COMMON_SUCCESS);
+			});
+		} catch(e) {
+			show_feedback('error', 'Error generating Plus Code', COMMON_ERROR);
+		}
+	} else {
+		show_feedback('error', 'OpenLocationCode library not loaded', COMMON_ERROR);
+	}
+});

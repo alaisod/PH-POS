@@ -108,11 +108,13 @@ function get_js_files()
 			array('path' => 'assets/js/jqbtk.js'),
 			array('path' => 'assets/js/jsgrid.js'),
 			array('path' => 'assets/js/bootstrap-tokenfield.js'),
+			array('path' => 'assets/js/openlocationcode.min.js'),
 		);
 	}
 
 	return array(
 		array('path' =>'assets/js/all.js'),
+		array('path' =>'assets/js/openlocationcode.min.js'),
 	);
 
 }
