@@ -494,19 +494,26 @@ $(document).on('click', '.copy-plus-code', function(e) {
 
 function copyToClipboard(text, onSuccess, onError) {
 	// Strategy 1: textarea + execCommand (works on desktop HTTP from user gesture)
+	// Must be in-viewport (not off-screen) for iOS selection to work
 	var textarea = document.createElement('textarea');
 	textarea.value = text;
 	textarea.readOnly = true;
-	textarea.contentEditable = true;
 	textarea.style.position = 'fixed';
-	textarea.style.left = '-9999px';
-	textarea.style.top = '-9999px';
+	textarea.style.left = '10px';
+	textarea.style.top = '10px';
 	textarea.style.width = '1px';
 	textarea.style.height = '1px';
-	textarea.style.opacity = '0';
+	textarea.style.padding = '0';
+	textarea.style.border = 'none';
+	textarea.style.outline = 'none';
+	textarea.style.boxShadow = 'none';
+	textarea.style.background = 'transparent';
+	textarea.style.opacity = '0.01';
+	textarea.style.zIndex = '-1';
+	textarea.style.webkitUserSelect = 'text';
 	document.body.appendChild(textarea);
 	
-	// Focus and select
+	// Focus and select (needs to be visible in viewport on iOS)
 	textarea.focus();
 	textarea.setSelectionRange(0, text.length);
 	

@@ -3331,6 +3331,85 @@ function do_link_confirm(message, ele)
 	});
 	return false;
 }
+
+$(document).on('click', '.copy-plus-code', function(e) {
+	e.preventDefault();
+	
+	// Close parent dropdown
+	$(this).closest('.btn-group').removeClass('open');
+	$(this).closest('.dropdown').removeClass('open');
+	
+	var lat = parseFloat($(this).data('lat'));
+	var lng = parseFloat($(this).data('lng'));
+	
+	if (typeof OpenLocationCode !== 'undefined') {
+		try {
+			var code = OpenLocationCode.encode(lat, lng);
+			copyToClipboard(
+				code,
+				function() { show_feedback('success', code + ' ' + 'Copied to clipboard', COMMON_SUCCESS); },
+				function() { show_feedback('success', 'Plus Code: ' + code, COMMON_SUCCESS); }
+			);
+		} catch(e) {
+			show_feedback('error', 'Error generating Plus Code', COMMON_ERROR);
+		}
+	} else {
+		show_feedback('error', 'OpenLocationCode library not loaded', COMMON_ERROR);
+	}
+});
+
+function copyToClipboard(text, onSuccess, onError) {
+	// Strategy 1: textarea + execCommand (works on desktop HTTP from user gesture)
+	// Must be in-viewport (not off-screen) for iOS selection to work
+	var textarea = document.createElement('textarea');
+	textarea.value = text;
+	textarea.readOnly = true;
+	textarea.style.position = 'fixed';
+	textarea.style.left = '10px';
+	textarea.style.top = '10px';
+	textarea.style.width = '1px';
+	textarea.style.height = '1px';
+	textarea.style.padding = '0';
+	textarea.style.border = 'none';
+	textarea.style.outline = 'none';
+	textarea.style.boxShadow = 'none';
+	textarea.style.background = 'transparent';
+	textarea.style.opacity = '0.01';
+	textarea.style.zIndex = '-1';
+	textarea.style.webkitUserSelect = 'text';
+	document.body.appendChild(textarea);
+	
+	// Focus and select (needs to be visible in viewport on iOS)
+	textarea.focus();
+	textarea.setSelectionRange(0, text.length);
+	
+	var succeeded = false;
+	try {
+		succeeded = document.execCommand('copy');
+	} catch (e) {
+		succeeded = false;
+	}
+	
+	if (succeeded) {
+		document.body.removeChild(textarea);
+		onSuccess();
+		return;
+	}
+	
+	// Strategy 2: Clipboard API (works on HTTPS)
+	if (navigator.clipboard && navigator.clipboard.writeText) {
+		navigator.clipboard.writeText(text).then(function() {
+			document.body.removeChild(textarea);
+			onSuccess();
+		}).catch(function() {
+			document.body.removeChild(textarea);
+			onError();
+		});
+	} else {
+		document.body.removeChild(textarea);
+		onError();
+	}
+}
 /*!
  * jQuery Form Plugin
  * version: 3.50.0-2014.02.05
