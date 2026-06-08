@@ -3334,10 +3334,7 @@ function do_link_confirm(message, ele)
 
 $(document).on('click', '.copy-plus-code', function(e) {
 	e.preventDefault();
-	
-	// Close parent dropdown
-	$(this).closest('.btn-group').removeClass('open');
-	$(this).closest('.dropdown').removeClass('open');
+	e.stopPropagation();
 	
 	var lat = parseFloat($(this).data('lat'));
 	var lng = parseFloat($(this).data('lng'));
@@ -3347,8 +3344,16 @@ $(document).on('click', '.copy-plus-code', function(e) {
 			var code = OpenLocationCode.encode(lat, lng);
 			copyToClipboard(
 				code,
-				function() { show_feedback('success', code + ' ' + 'Copied to clipboard', COMMON_SUCCESS); },
-				function() { show_feedback('success', 'Plus Code: ' + code, COMMON_SUCCESS); }
+				function() {
+					// Close parent dropdown after successful copy
+					$(e.target).closest('.btn-group, .dropdown').removeClass('open');
+					show_feedback('success', code + ' ' + 'Copied to clipboard', COMMON_SUCCESS);
+				},
+				function() {
+					// Close parent dropdown even if copy failed
+					$(e.target).closest('.btn-group, .dropdown').removeClass('open');
+					show_feedback('success', 'Plus Code: ' + code, COMMON_SUCCESS);
+				}
 			);
 		} catch(e) {
 			show_feedback('error', 'Error generating Plus Code', COMMON_ERROR);
@@ -3359,8 +3364,23 @@ $(document).on('click', '.copy-plus-code', function(e) {
 });
 
 function copyToClipboard(text, onSuccess, onError) {
-	// Strategy 1: textarea + execCommand (works on desktop HTTP from user gesture)
-	// Must be in-viewport (not off-screen) for iOS selection to work
+	// Strategy 1: Clipboard API (works on HTTPS, iOS 13+, Android)
+	// Must try FIRST because it preserves user gesture context
+	if (navigator.clipboard && navigator.clipboard.writeText) {
+		navigator.clipboard.writeText(text).then(function() {
+			onSuccess();
+		}).catch(function() {
+			// Fallback to execCommand
+			copyUsingTextarea(text, onSuccess, onError);
+		});
+	} else {
+		copyUsingTextarea(text, onSuccess, onError);
+	}
+}
+
+function copyUsingTextarea(text, onSuccess, onError) {
+	// Strategy 2: textarea + execCommand (works on desktop HTTP from user gesture)
+	// Must be in-viewport (not off-screen) for iOS text selection
 	var textarea = document.createElement('textarea');
 	textarea.value = text;
 	textarea.readOnly = true;
@@ -3376,7 +3396,6 @@ function copyToClipboard(text, onSuccess, onError) {
 	textarea.style.background = 'transparent';
 	textarea.style.opacity = '0.01';
 	textarea.style.zIndex = '-1';
-	textarea.style.webkitUserSelect = 'text';
 	document.body.appendChild(textarea);
 	
 	// Focus and select (needs to be visible in viewport on iOS)
@@ -3390,23 +3409,11 @@ function copyToClipboard(text, onSuccess, onError) {
 		succeeded = false;
 	}
 	
-	if (succeeded) {
-		document.body.removeChild(textarea);
-		onSuccess();
-		return;
-	}
+	document.body.removeChild(textarea);
 	
-	// Strategy 2: Clipboard API (works on HTTPS)
-	if (navigator.clipboard && navigator.clipboard.writeText) {
-		navigator.clipboard.writeText(text).then(function() {
-			document.body.removeChild(textarea);
-			onSuccess();
-		}).catch(function() {
-			document.body.removeChild(textarea);
-			onError();
-		});
+	if (succeeded) {
+		onSuccess();
 	} else {
-		document.body.removeChild(textarea);
 		onError();
 	}
 }
