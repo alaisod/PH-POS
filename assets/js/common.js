@@ -479,18 +479,11 @@ $(document).on('click', '.copy-plus-code', function(e) {
 	if (typeof OpenLocationCode !== 'undefined') {
 		try {
 			var code = OpenLocationCode.encode(lat, lng);
-			navigator.clipboard.writeText(code).then(function() {
-				show_feedback('success', code + ' ' + 'Copied to clipboard', COMMON_SUCCESS);
-			}).catch(function() {
-				// Fallback for older browsers
-				var textarea = document.createElement('textarea');
-				textarea.value = code;
-				document.body.appendChild(textarea);
-				textarea.select();
-				document.execCommand('copy');
-				document.body.removeChild(textarea);
-				show_feedback('success', code + ' ' + 'Copied to clipboard', COMMON_SUCCESS);
-			});
+			copyToClipboard(
+				code,
+				function() { show_feedback('success', code + ' ' + 'Copied to clipboard', COMMON_SUCCESS); },
+				function() { show_feedback('success', 'Plus Code: ' + code, COMMON_SUCCESS); }
+			);
 		} catch(e) {
 			show_feedback('error', 'Error generating Plus Code', COMMON_ERROR);
 		}
@@ -498,3 +491,49 @@ $(document).on('click', '.copy-plus-code', function(e) {
 		show_feedback('error', 'OpenLocationCode library not loaded', COMMON_ERROR);
 	}
 });
+
+function copyToClipboard(text, onSuccess, onError) {
+	// Strategy 1: textarea + execCommand (works on desktop HTTP from user gesture)
+	var textarea = document.createElement('textarea');
+	textarea.value = text;
+	textarea.readOnly = true;
+	textarea.contentEditable = true;
+	textarea.style.position = 'fixed';
+	textarea.style.left = '-9999px';
+	textarea.style.top = '-9999px';
+	textarea.style.width = '1px';
+	textarea.style.height = '1px';
+	textarea.style.opacity = '0';
+	document.body.appendChild(textarea);
+	
+	// Focus and select
+	textarea.focus();
+	textarea.setSelectionRange(0, text.length);
+	
+	var succeeded = false;
+	try {
+		succeeded = document.execCommand('copy');
+	} catch (e) {
+		succeeded = false;
+	}
+	
+	if (succeeded) {
+		document.body.removeChild(textarea);
+		onSuccess();
+		return;
+	}
+	
+	// Strategy 2: Clipboard API (works on HTTPS)
+	if (navigator.clipboard && navigator.clipboard.writeText) {
+		navigator.clipboard.writeText(text).then(function() {
+			document.body.removeChild(textarea);
+			onSuccess();
+		}).catch(function() {
+			document.body.removeChild(textarea);
+			onError();
+		});
+	} else {
+		document.body.removeChild(textarea);
+		onError();
+	}
+}
