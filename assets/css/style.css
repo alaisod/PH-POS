@@ -4199,6 +4199,22 @@ span.compare_worse {
     flex: 0 0 25% !important;
     max-width: 25% !important;
   }
+  /* ป้องกัน table cut กลางหน้า */
+  .reports-printable table {
+    page-break-inside: auto;
+  }
+  .reports-printable table thead {
+    display: table-header-group;
+  }
+  .reports-printable table tbody {
+    display: table-row-group;
+  }
+  .reports-printable table tfoot {
+    display: table-footer-group;
+  }
+  .reports-printable table tr {
+    page-break-inside: avoid;
+  }
 }
 .summary-data span.compare {
   color: white;
@@ -4226,6 +4242,21 @@ span.compare_worse {
   }
   .content {
     margin-left: 0px !important;
+  }
+  .reports-printable table {
+    page-break-inside: auto;
+  }
+  .reports-printable table thead {
+    display: table-header-group;
+  }
+  .reports-printable table tbody {
+    display: table-row-group;
+  }
+  .reports-printable table tfoot {
+    display: table-footer-group;
+  }
+  .reports-printable table tr {
+    page-break-inside: avoid;
   }
 }
 .location-suggest {
