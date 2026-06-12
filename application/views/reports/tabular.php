@@ -25,7 +25,7 @@ if($export_excel == 1)
 }
 ?>
 <?php $this->load->view("partial/header"); ?>
-<div class="row">
+<div class="row summary-row">
 	<?php foreach($summary_data as $name=>$value) { ?>
 	    <div class="col-md-3 col-xs-12 col-sm-6 summary-data">
 	        <div class="info-seven primarybg-info">

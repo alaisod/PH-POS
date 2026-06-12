@@ -102,7 +102,7 @@ if($export_excel == 1)
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div class="row">
+<div class="row summary-row">
 	<?php foreach($overall_summary_data as $name=>$value) { ?>
 	    <div class="col-md-3 col-xs-12 col-sm-6 summary-data">
 	        <div class="info-seven primarybg-info">

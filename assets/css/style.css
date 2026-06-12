@@ -4188,9 +4188,16 @@ span.compare_worse {
   color: red;
 }
 @media print {
+  .summary-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
   .summary-data.col-xs-12 {
     width: 25% !important;
-    float: left !important;
+    float: none !important;
+    display: block !important;
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
   }
 }
 .summary-data span.compare {
