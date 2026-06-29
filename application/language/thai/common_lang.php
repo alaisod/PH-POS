@@ -203,7 +203,7 @@ $lang['reports_register_log_title'] = 'บันทึกการขาย';
 $lang['reports_sales'] = 'รายงานการขาย';
 $lang['reports_store_account'] = 'รายงานเงินเชื่อ';
 $lang['reports_suppliers'] = 'ผู้จัดจำหน่าย';
-$lang['reports_suspended_sales'] = 'รายการขายที่ถูกระงับ';
+$lang['reports_suspended_sales'] = 'รายการพักการขาย';
 $lang['reports_taxes'] = 'ภาษี';
 $lang['reports_tiers'] = 'ระดับราคา';
 $lang['reports_show_profit'] = 'แสดงกำไรในรายงานทั้งหมด';
@@ -266,7 +266,7 @@ $lang['common_email_receipt'] = 'ใบเสร็จทาง E-mail';
 
 
 $lang['common_comments'] = 'ความคิดเห็น';
-$lang['common_unsuspend'] = 'ยกเลิกระงับ';
+$lang['common_unsuspend'] = 'ยกเลิกพักการขาย';
 $lang['common_recp'] = 'ใบเสร็จ';
 $lang['common_receipt_sent'] = 'ส่งใบเสร็จแล้ว';
 $lang['common_mass_import_from_excel'] = 'นำเข้าข้อมูลจำนวนมากจาก Excel';
@@ -295,7 +295,7 @@ $lang['common_giftcards_value_required'] = 'กรุณากรอกมูล
 $lang['common_giftcards_value'] = 'มูลค่าบัตรของขวัญต้องเป็นตัวเลข';
 $lang['common_items_successful_updating'] = 'อัปเดตสินค้าสำเร็จ';
 $lang['common_error_adding_updating'] = 'ข้อผิดพลาดในการเพิ่ม/อัปเดตสินค้า';
-$lang['common_suspended_receivings'] = 'การรับสินค้าที่ถูกระงับ';
+$lang['common_suspended_receivings'] = 'การรับสินค้าที่พักไว้';
 $lang['common_locations'] = 'สาขา';
 $lang['common_count'] = 'นับ';
 $lang['common_open_amount'] = 'จำนวนเงินเปิด';
