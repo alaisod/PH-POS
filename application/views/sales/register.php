@@ -590,16 +590,7 @@
 						</li>
 						<?php } ?>
 						
-						<?php if (!is_on_demo_host()) { ?>
-								
-							<li>
-							<?php if (!$this->config->item('test_mode') && !$this->config->item('disable_test_mode')) { ?>
-								<?php echo anchor(site_url('sales/enable_test_mode'), '<i class="ion-ios-settings-strong"></i> '.lang('common_enable_test_mode'),array('class'=>'')); ?>
-							<?php } elseif(!$this->config->item('disable_test_mode')) { ?>								
-								<?php echo anchor(site_url('sales/disable_test_mode'), '<i class="ion-ios-settings-strong"></i> '.lang('common_disable_test_mode'),array('class'=>'')); ?>
-							<?php } ?>
-							</li>	
-						<?php } ?>
+						
 						
 
 					</ul>
