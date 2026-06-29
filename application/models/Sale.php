@@ -448,6 +448,21 @@ class Sale extends CI_Model
 		
 		$is_new_sale = $sale_id ? false : true;
 		$this->load->model('Item_serial_number');
+		
+		//we need to check the sale library for deleted taxes during sale
+		$this->load->library('sale_lib');
+		
+		if(count($items)==0)
+			return -1;
+		
+		// --- Generate sequential sale_id for new sales to prevent gaps ---
+		$next_sale_id = FALSE;
+		if (!$sale_id)
+		{
+			$this->db->query("SELECT GET_LOCK('sale_id_seq', 10)");
+			$query = $this->db->query("SELECT IFNULL(MAX(sale_id), 0) + 1 AS next_id FROM ".$this->db->dbprefix('sales'));
+			$next_sale_id = (int)$query->row()->next_id;
+		}
 		//Run these queries as a transaction, we want to make sure we do all or nothing
 		$this->db->trans_start();
 			
@@ -467,11 +482,6 @@ class Sale extends CI_Model
 		{
 			$before_save_sale_info = FALSE;
 		}
-		//we need to check the sale library for deleted taxes during sale
-		$this->load->library('sale_lib');
-		
-		if(count($items)==0)
-			return -1;
 		
 		$tier_id = $this->sale_lib->get_selected_tier_id();
 		$deleted_taxes = $this->sale_lib->get_deleted_taxes();
@@ -611,8 +621,9 @@ class Sale extends CI_Model
 		}
 		else
 		{
+			$sales_data['sale_id'] = $next_sale_id;
 			$this->db->insert('sales',$sales_data);
-			$sale_id = $this->db->insert_id();
+			$sale_id = $next_sale_id;
 		}
 		
 		//store_accounts_paid_sales
@@ -1396,6 +1407,11 @@ class Sale extends CI_Model
 		
 		
 		$this->db->trans_complete();
+		
+		if ($next_sale_id)
+		{
+			$this->db->query("SELECT RELEASE_LOCK('sale_id_seq')");
+		}
 		
 		if ($this->db->trans_status() === FALSE)
 		{
