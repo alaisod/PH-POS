@@ -3168,6 +3168,7 @@ class Reports extends Secure_area
 				$summary_data_row[] = array('data'=>to_currency($row['profit']), 'align'=>'right');
 			}
 			
+			log_message('debug', 'Reports::detailed_sales payment_type=[' . $row['payment_type'] . '] sale_id=[' . $row['sale_id'] . ']');
 			$summary_data_row[] = array('data'=>$row['payment_type'], 'align'=>'right');
 			$summary_data_row[] = array('data'=>$row['comment'], 'align'=>'right');
 			$summary_data_row[] = array('data'=>$row['discount_reason'], 'align'=>'right');
