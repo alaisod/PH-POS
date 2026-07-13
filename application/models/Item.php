@@ -13,22 +13,9 @@ class Item extends CI_Model
 		return ($query->num_rows()==1);
 	}
 
-	function get_all_tiers_cache()
-	{
-		static $tiers_cache = NULL;
-		
-		if ($tiers_cache === NULL)
-		{
-			$this->load->model('Tier');
-			$tiers_cache = $this->Tier->get_all()->result_array();
-		}
-		
-		return $tiers_cache;
-	}
-	
 	function get_displayable_columns()
 	{
-		$columns = array(
+		return array(
 			'item_id' => 												array('sort_column' => 'items.item_id', 'label' => lang('common_item_id')),
 			'item_number' => 										array('sort_column' => 'items.item_number','label' => lang('common_item_number_expanded')),
 			'product_id' => 										array('sort_column' => 'items.product_id','label' => lang('common_product_id')),
@@ -66,15 +53,6 @@ class Item extends CI_Model
 			'max_edit_price'  => 								array('sort_column' => 'items.max_edit_price','label' => lang('common_max_edit_price'),'format_function' => 'to_currency'),
 			'inventory' => 											array('sort_column' => 'quantity','label' => lang('common_inv'),'data_function' => 'item_id_data_function','format_function' => 'item_inventory_formatter','html' => TRUE),
 		);
-		
-		// Dynamically add tier price columns from database
-		$tiers = $this->get_all_tiers_cache();
-		foreach ($tiers as $tier)
-		{
-			$columns['tier_'.$tier['id']] = array('sort_column' => '','label' => $tier['name'],'format_function' => 'to_currency');
-		}
-		
-		return $columns;
 	}
 	
 	/*
@@ -82,26 +60,12 @@ class Item extends CI_Model
 	*/
 	function get_all($limit=10000, $offset=0,$col='item_id',$order='desc')
 	{
-		$current_location=$this->Employee->get_logged_in_employee_current_location_id();
-		
+		$current_location=$this->Employee->get_logged_in_employee_current_location_id();		
 		$this->db->select('"'.lang('common_inv').'" as inventory, suppliers.company_name as supplier_company_name, location_items.location as location, items.*, item_images.image_id as image_id, GROUP_CONCAT('.$this->db->dbprefix('tags').'.name) as tags, categories.id as category_id,categories.name as category,
 		location_items.quantity as quantity, 
 		location_items.reorder_level as location_reorder_level,
 		location_items.cost_price as location_cost_price,
-		location_items.unit_price as location_unit_price,');
-		
-		// Dynamically add tier price subqueries for ALL tiers
-		$tiers = $this->get_all_tiers_cache();
-		foreach ($tiers as $tier)
-		{
-			$tier_subquery = "(SELECT unit_price FROM ".$this->db->dbprefix('items_tier_prices')." 
-				INNER JOIN ".$this->db->dbprefix('price_tiers')." ON ".$this->db->dbprefix('items_tier_prices').".tier_id = ".$this->db->dbprefix('price_tiers').".id
-				WHERE ".$this->db->dbprefix('price_tiers').".id = ".$this->db->escape($tier['id'])."
-				AND ".$this->db->dbprefix('items_tier_prices').".item_id = ".$this->db->dbprefix('items').".item_id
-				LIMIT 1) as tier_".$tier['id'];
-			
-			$this->db->select($tier_subquery, FALSE);
-		}
+		location_items.unit_price as location_unit_price');
 		
 		$this->db->from('items');
 		$this->db->join('suppliers', 'items.supplier_id = suppliers.person_id', 'left');
@@ -1716,20 +1680,7 @@ class Item extends CI_Model
 		location_items.quantity as quantity, 
 		location_items.reorder_level as location_reorder_level,
 		location_items.cost_price as location_cost_price,
-		location_items.unit_price as location_unit_price,');
-		
-		// Dynamically add tier price subqueries for ALL tiers
-		$tiers = $this->get_all_tiers_cache();
-		foreach ($tiers as $tier)
-		{
-			$tier_subquery = "(SELECT unit_price FROM ".$this->db->dbprefix('items_tier_prices')." 
-				INNER JOIN ".$this->db->dbprefix('price_tiers')." ON ".$this->db->dbprefix('items_tier_prices').".tier_id = ".$this->db->dbprefix('price_tiers').".id
-				WHERE ".$this->db->dbprefix('price_tiers').".id = ".$this->db->escape($tier['id'])."
-				AND ".$this->db->dbprefix('items_tier_prices').".item_id = ".$this->db->dbprefix('items').".item_id
-				LIMIT 1) as tier_".$tier['id'];
-			
-			$this->db->select($tier_subquery, FALSE);
-		}
+		location_items.unit_price as location_unit_price');
 		$this->db->from('items');
 		$this->db->join('items_tags', 'items_tags.item_id = items.item_id', 'left');
 		$this->db->join('tags', 'tags.id = items_tags.tag_id', 'left');
@@ -2261,16 +2212,7 @@ class Item extends CI_Model
 	
 	function get_default_columns()
 	{
-		$defaults = array('item_number','product_id','name','category','cost_price','unit_price','quantity');
-		
-		// Dynamically add tier price columns from database
-		$tiers = $this->get_all_tiers_cache();
-		foreach ($tiers as $tier)
-		{
-			$defaults[] = 'tier_'.$tier['id'];
-		}
-		
-		return $defaults;
+		return array('item_number','product_id','name','category','cost_price','unit_price','quantity');
 	}
 }
 ?>
