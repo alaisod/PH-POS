@@ -22,21 +22,7 @@ class Item_kit extends CI_Model
 
 		$this->db->select('item_kits.*, categories.name as category,
 		location_item_kits.unit_price as location_unit_price,
-		location_item_kits.cost_price as location_cost_price,');
-		
-		// Dynamically add tier price subqueries for ALL tiers
-		$tiers = $this->get_all_tiers_cache();
-		foreach ($tiers as $tier)
-		{
-			$tier_subquery = "(SELECT unit_price FROM ".$this->db->dbprefix('item_kits_tier_prices')." 
-				INNER JOIN ".$this->db->dbprefix('price_tiers')." ON ".$this->db->dbprefix('item_kits_tier_prices').".tier_id = ".$this->db->dbprefix('price_tiers').".id
-				WHERE ".$this->db->dbprefix('price_tiers').".id = ".$this->db->escape($tier['id'])."
-				AND ".$this->db->dbprefix('item_kits_tier_prices').".item_kit_id = ".$this->db->dbprefix('item_kits').".item_kit_id
-				LIMIT 1) as tier_".$tier['id'];
-			
-			$this->db->select($tier_subquery, FALSE);
-		}
-		
+		location_item_kits.cost_price as location_cost_price');
 		$this->db->from('item_kits');
 		$this->db->join('categories', 'categories.id = item_kits.category_id','left');
 		$this->db->join('location_item_kits', 'location_item_kits.item_kit_id = item_kits.item_kit_id and location_id = '.$current_location, 'left');
@@ -580,21 +566,7 @@ class Item_kit extends CI_Model
 		
 		$this->db->select('item_kits.*, categories.name as category,
 		location_item_kits.unit_price as location_unit_price,
-		location_item_kits.cost_price as location_cost_price,');
-		
-		// Dynamically add tier price subqueries for ALL tiers
-		$tiers = $this->get_all_tiers_cache();
-		foreach ($tiers as $tier)
-		{
-			$tier_subquery = "(SELECT unit_price FROM ".$this->db->dbprefix('item_kits_tier_prices')." 
-				INNER JOIN ".$this->db->dbprefix('price_tiers')." ON ".$this->db->dbprefix('item_kits_tier_prices').".tier_id = ".$this->db->dbprefix('price_tiers').".id
-				WHERE ".$this->db->dbprefix('price_tiers').".id = ".$this->db->escape($tier['id'])."
-				AND ".$this->db->dbprefix('item_kits_tier_prices').".item_kit_id = ".$this->db->dbprefix('item_kits').".item_kit_id
-				LIMIT 1) as tier_".$tier['id'];
-			
-			$this->db->select($tier_subquery, FALSE);
-		}
-		
+		location_item_kits.cost_price as location_cost_price');
 		$this->db->from('item_kits');		
 		$this->db->join('location_item_kits', 'location_item_kits.item_kit_id = item_kits.item_kit_id and location_id = '.$current_location, 'left');
 		$this->db->join('item_kits_tags', 'item_kits_tags.item_kit_id = item_kits.item_kit_id', 'left');
@@ -754,24 +726,11 @@ class Item_kit extends CI_Model
 		return $this->db->update('item_kits',$item_kit_data);
 	}
 	
-	function get_all_tiers_cache()
-	{
-		static $tiers_cache = NULL;
-		
-		if ($tiers_cache === NULL)
-		{
-			$this->load->model('Tier');
-			$tiers_cache = $this->Tier->get_all()->result_array();
-		}
-		
-		return $tiers_cache;
-	}
-	
 	function get_displayable_columns()
 	{
 		$this->lang->load('items');
 		$this->load->helper('items');
-		$columns = array(
+		return array(
 			'item_kit_id' => 										array('sort_column' => 'item_kits.item_kit_id', 'label' => lang('common_item_kit_id')),
 			'item_kit_number' => 								array('sort_column' => 'item_kits.item_kit_number','label' => lang('common_item_number_expanded')),
 			'product_id' => 										array('sort_column' => 'item_kits.product_id','label' => lang('common_product_id')),
@@ -794,29 +753,11 @@ class Item_kit extends CI_Model
 			'min_edit_price'  => 								array('sort_column' => 'item_kits.min_edit_price','label' => lang('common_min_edit_price'),'format_function' => 'to_currency'),
 			'max_edit_price'  => 								array('sort_column' => 'item_kits.max_edit_price','label' => lang('common_max_edit_price'),'format_function' => 'to_currency'),
 		);
-		
-		// Dynamically add tier price columns from database
-		$tiers = $this->get_all_tiers_cache();
-		foreach ($tiers as $tier)
-		{
-			$columns['tier_'.$tier['id']] = array('sort_column' => '','label' => $tier['name'],'format_function' => 'to_currency');
-		}
-		
-		return $columns;
 	}
 	
 	function get_default_columns()
 	{
-		$defaults = array('item_kit_id','item_kit_number','name','category_id','cost_price','unit_price');
-		
-		// Dynamically add tier price columns from database
-		$tiers = $this->get_all_tiers_cache();
-		foreach ($tiers as $tier)
-		{
-			$defaults[] = 'tier_'.$tier['id'];
-		}
-		
-		return $defaults;
+		return array('item_kit_id','item_kit_number','name','category_id','cost_price','unit_price');
 	}
 }
 ?>
