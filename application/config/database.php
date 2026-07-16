@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default']['hostname'] = '127.0.0.1';
 $db['default']['dsn'] = '';
-$db['default']['username'] = 'allinser_phpos';
+$db['default']['username'] = 'allinser_devpos';
 $db['default']['password'] = 'kozDP6Qde6?iem_7';
-$db['default']['database'] = 'allinser_phpos';
+$db['default']['database'] = 'allinser_devpos';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = 'phppos_';
 $db['default']['pconnect'] = FALSE;
