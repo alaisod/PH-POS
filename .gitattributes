@@ -22,3 +22,5 @@
 *.RTF	 diff=astextplain
 
 application/config/constants.php merge=ours
+application/config/database.php merge=ours
+application/config/config.php merge=ours
