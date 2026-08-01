@@ -128,7 +128,7 @@ $lang['sales_cannot_delete_taxes_if_using_tax_inclusive_items'] = 'ไม่ส�
 
 $lang['sales_gift_receipt'] = 'ใบเสร็จของขวัญ';
 $lang['sales_regular_receipt'] = 'ใบเสร็จปกติ';
-$lang['sales_fulfillment_sheet'] = 'ใบจัดส่งสินค้า';
+$lang['sales_fulfillment_sheet'] = 'ใบจัดส่งสินค้า/ใบแจ้งหนี้';
 $lang['sales_list_of_suspended_sales'] = 'รายการขายที่ถูกพัก';
 $lang['sales_set_focus_cancel'] = 'ตั้งค่าจุดโฟกัสไปที่ปุ่ม "ยกเลิกการขาย"';
 $lang['sales_will_trigger'] = 'จะเรียกใช้ฟังก์ชัน';
