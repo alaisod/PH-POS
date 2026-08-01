@@ -81,6 +81,7 @@ class Detailed_sales extends Report
 		}
 		$this->sale_time_where();
 		$this->db->where('sales.deleted', 0);
+		$this->db->where('store_account_payment', 0); // gomonx: don't include store account payments in detailed sales report since they are included in the store account report
 		
 		$this->db->order_by('sale_time', ($this->config->item('report_sort_order')) ? $this->config->item('report_sort_order') : 'asc');
 		
@@ -139,9 +140,11 @@ class Detailed_sales extends Report
 		
 		$this->sale_time_where();
 		$this->db->where('deleted', 0);
+		$this->db->where('store_account_payment', 0); // gomonx: don't include store account payments in detailed sales report since they are included in the store account report
 		
 		return $this->db->count_all_results();
 	}
+
 	public function getSummaryData()
 	{
 		$this->db->select('sum(subtotal) as subtotal, sum(total) as total, sum(tax) as tax, sum(profit) as profit', false);
@@ -163,6 +166,7 @@ class Detailed_sales extends Report
 		
 		$this->sale_time_where();
 		$this->db->where('deleted', 0);
+		$this->db->where('store_account_payment', 0);
 		
 		$return = array(
 			'subtotal' => 0,

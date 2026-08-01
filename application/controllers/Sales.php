@@ -2512,6 +2512,7 @@ class Sales extends Secure_area
 									
 			$this->db->select('sales.sale_id, sale_time,SUM(payment_amount) as payment_amount,sales.comment', false);
 			$this->db->from('sales');
+			$this->db->where('sales.deleted', 0);//edit by gomonx
 			$this->db->join('sales_payments', 'sales.sale_id = sales_payments.sale_id');
 			
 			
