@@ -1948,6 +1948,30 @@ class Sales extends Secure_area
 	function fulfillment($sale_id)
 	{
 		$sale_info = $this->Sale->get_info($sale_id)->row_array();
+		//Before changing the sale session data, we need to save our current state in case they were in the middle of a sale
+		$this->sale_lib->save_current_sale_state();
+		$this->sale_lib->clear_all();
+		$this->sale_lib->copy_entire_sale($sale_id, true);
+		$data['cart']=$this->sale_lib->get_cart();
+		$data['payments']=$this->sale_lib->get_payments();
+		$data['is_sale_cash_payment'] = $this->sale_lib->is_sale_cash_payment();
+		$data['show_payment_times'] = TRUE;
+		$data['subtotal']=$this->sale_lib->get_subtotal($sale_id);
+		$data['taxes']=$this->sale_lib->get_taxes($sale_id);
+		$data['total']=$this->sale_lib->get_total($sale_id);
+		$data['amount_change']=$this->sale_lib->get_amount_due($sale_id) * -1;
+		$data['ref_no'] = $sale_info['cc_ref_no'] ? $sale_info['cc_ref_no'] : '';
+		$data['auth_code'] = $sale_info['auth_code'] ? $sale_info['auth_code'] : '';
+		$data['disable_loyalty'] = 0;
+
+		$exchange_rate = $this->sale_lib->get_exchange_rate() ? $this->sale_lib->get_exchange_rate() : 1;
+		$data['exchange_rate'] = $exchange_rate;
+		$data['exchange_name'] = $this->sale_lib->get_exchange_name();
+		$data['exchange_symbol'] = $this->sale_lib->get_exchange_currency_symbol();
+		$data['exchange_symbol_location'] = $this->sale_lib->get_exchange_currency_symbol_location();
+		$data['exchange_number_of_decimals'] = $this->sale_lib->get_exchange_currency_number_of_decimals();
+		$data['exchange_thousands_separator'] = $this->sale_lib->get_exchange_currency_thousands_separator();
+		$data['exchange_decimal_point'] = $this->sale_lib->get_exchange_currency_decimal_point();
 		$data['override_location_id'] = $sale_info['location_id'];
 		$data['comment'] = $this->Sale->get_comment($sale_id);
 		$data['show_comment_on_receipt'] = $this->Sale->get_comment_on_receipt($sale_id);
@@ -1970,6 +1994,14 @@ class Sales extends Secure_area
 			$data['customer_country'] = $cust_info->country;
 			$data['customer_phone'] = $cust_info->phone_number;
 			$data['customer_email'] = $cust_info->email;
+			$data['customer_points'] = $cust_info->points;
+			$data['sales_until_discount'] = ($this->config->item('number_of_sales_for_discount') ? $this->config->item('number_of_sales_for_discount') : 0) - $cust_info->current_sales_for_discount;
+			$data['disable_loyalty'] = $cust_info->disable_loyalty;
+
+			if ($cust_info->balance !=0)
+			{
+				$data['customer_balance_for_sale'] = $cust_info->balance;
+			}
 		}
 		
 		$data['sale_id']=$this->config->item('sale_prefix').' '.$sale_id;
@@ -1990,6 +2022,11 @@ class Sales extends Secure_area
 		}
 		
 		$this->load->view("sales/fulfillment",$data);
+		$this->sale_lib->clear_all();
+
+		//Restore previous state saved above
+		$this->sale_lib->restore_current_sale_state();
+
 	}
 	
 	function _does_discount_exists($cart)
