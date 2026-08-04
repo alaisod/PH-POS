@@ -15,3 +15,4 @@ web.config
 config.codekit
 assets/css/all-ck.css
 demo/*
+application/config/database.php
