@@ -356,13 +356,13 @@ class Reports extends Secure_area
 				$summary_data_row[] = array('data'=>to_quantity($row['items_purchased']), 'align'=>'center');
 				$summary_data_row[] = array('data'=>$row['employee_name'].($row['sold_by_employee'] && $row['sold_by_employee'] != $row['employee_name'] ? '/'. $row['sold_by_employee']: ''), 'align'=>'left');
 				$summary_data_row[] = array('data'=>$row['customer_name'].(isset($row['account_number']) && $row['account_number'] ? ' ('.$row['account_number'].')' : ''), 'align'=>'left');
-				$summary_data_row[] = array('data'=>to_currency($row['subtotal']), 'align'=>'right');
-				$summary_data_row[] = array('data'=>to_currency($row['total']), 'align'=>'right');
-				$summary_data_row[] = array('data'=>to_currency($row['tax']), 'align'=>'right');
+				$summary_data_row[] = array('data'=>to_currency($row['subtotal']), 'align'=>'right', 'numeric'=>TRUE);
+				$summary_data_row[] = array('data'=>to_currency($row['total']), 'align'=>'right', 'numeric'=>TRUE);
+				$summary_data_row[] = array('data'=>to_currency($row['tax']), 'align'=>'right', 'numeric'=>TRUE);
 				
 				if($this->has_profit_permission)
 				{
-					$summary_data_row[] = array('data'=>to_currency($row['profit']), 'align'=>'right');
+					$summary_data_row[] = array('data'=>to_currency($row['profit']), 'align'=>'right', 'numeric'=>TRUE);
 				}
 								
 				$summary_data_row[] = array('data'=>$row['payment_type'], 'align'=>'right');
@@ -378,28 +378,28 @@ class Reports extends Secure_area
 				{
 					$details_data_row = array();
 				
-					$details_data_row[] = array('data'=>$drow['item_number'], 'align'=>'left');
-				$details_data_row[] = array('data'=>$drow['item_product_id'], 'align'=>'left');
+					$details_data_row[] = array('data'=>$drow['item_number'], 'align'=>'left', 'force_text'=>TRUE);
+				$details_data_row[] = array('data'=>$drow['item_product_id'], 'align'=>'left', 'force_text'=>TRUE);
 				$details_data_row[] = array('data'=>$drow['item_name'], 'align'=>'left');
 				
 				$details_data_row[] = array('data'=>$this->Category->get_full_path($drow['category_id']), 'align'=>'left');
 				$details_data_row[] = array('data'=>$drow['size'], 'align'=>'left');
 				$details_data_row[] = array('data'=>$drow['serialnumber'], 'align'=>'left');
 				$details_data_row[] = array('data'=>$drow['description'], 'align'=>'left');
-				$details_data_row[] = array('data'=>to_currency($drow['current_selling_price']), 'align'=>'left');
+				$details_data_row[] = array('data'=>to_currency($drow['current_selling_price']), 'align'=>'left', 'numeric'=>TRUE);
 				$details_data_row[] = array('data'=>to_quantity($drow['quantity_purchased']), 'align'=>'left');
-				$details_data_row[] = array('data'=>to_currency($drow['subtotal']), 'align'=>'right');
-				$details_data_row[] = array('data'=>to_currency($drow['total']), 'align'=>'right');
-				$details_data_row[] = array('data'=>to_currency($drow['tax']), 'align'=>'right');
+				$details_data_row[] = array('data'=>to_currency($drow['subtotal']), 'align'=>'right', 'numeric'=>TRUE);
+				$details_data_row[] = array('data'=>to_currency($drow['total']), 'align'=>'right', 'numeric'=>TRUE);
+				$details_data_row[] = array('data'=>to_currency($drow['tax']), 'align'=>'right', 'numeric'=>TRUE);
 				
 					if($this->has_profit_permission)
 					{
-						$details_data_row[] = array('data'=>to_currency($drow['profit']), 'align'=>'right');					
+						$details_data_row[] = array('data'=>to_currency($drow['profit']), 'align'=>'right', 'numeric'=>TRUE);					
 					}
 					
 					if($this->has_cost_price_permission)
 					{
-						$details_data_row[] = array('data'=>to_currency($drow['cost_prices']), 'align'=>'right');
+						$details_data_row[] = array('data'=>to_currency($drow['cost_prices']), 'align'=>'right', 'numeric'=>TRUE);
 					}
 									
 					$details_data_row[] = array('data'=>$drow['discount_percent'].'%', 'align'=>'left');
@@ -3159,13 +3159,13 @@ class Reports extends Secure_area
 			$summary_data_row[] = array('data'=>to_quantity($row['items_purchased']), 'align'=>'left');
 			$summary_data_row[] = array('data'=>$row['employee_name'].($row['sold_by_employee'] && $row['sold_by_employee'] != $row['employee_name'] ? '/'. $row['sold_by_employee']: ''), 'align'=>'left');
 			$summary_data_row[] = array('data'=>'<a href="'.$link.'" target="_blank">'.$row['customer_name'].(isset($row['account_number']) && $row['account_number'] ? ' ('.$row['account_number'].')' : '').'</a>', 'align'=>'left');
-			$summary_data_row[] = array('data'=>to_currency($row['subtotal']), 'align'=>'right');
-			$summary_data_row[] = array('data'=>to_currency($row['total']), 'align'=>'right');
-			$summary_data_row[] = array('data'=>to_currency($row['tax']), 'align'=>'right');
+			$summary_data_row[] = array('data'=>to_currency($row['subtotal']), 'align'=>'right', 'numeric'=>TRUE);
+			$summary_data_row[] = array('data'=>to_currency($row['total']), 'align'=>'right', 'numeric'=>TRUE);
+			$summary_data_row[] = array('data'=>to_currency($row['tax']), 'align'=>'right', 'numeric'=>TRUE);
 			
 			if($this->has_profit_permission)
 			{
-				$summary_data_row[] = array('data'=>to_currency($row['profit']), 'align'=>'right');
+				$summary_data_row[] = array('data'=>to_currency($row['profit']), 'align'=>'right', 'numeric'=>TRUE);
 			}
 			
 			log_message('debug', 'Reports::detailed_sales payment_type=[' . $row['payment_type'] . '] sale_id=[' . $row['sale_id'] . ']');
@@ -3180,23 +3180,23 @@ class Reports extends Secure_area
 				{
 					$details_data_row = array();
 					
-					$details_data_row[] = array('data'=>$drow['item_number'], 'align'=>'left');
-					$details_data_row[] = array('data'=>$drow['item_product_id'], 'align'=>'left');
+					$details_data_row[] = array('data'=>$drow['item_number'], 'align'=>'left', 'force_text'=>TRUE);
+					$details_data_row[] = array('data'=>$drow['item_product_id'], 'align'=>'left', 'force_text'=>TRUE);
 					$details_data_row[] = array('data'=>$drow['item_name'], 'align'=>'left');
 					$details_data_row[] = array('data'=>$this->Category->get_full_path($drow['category_id']), 'align'=>'left');
 					$details_data_row[] = array('data'=>$drow['size'], 'align'=>'left');
 					$details_data_row[] = array('data'=>$drow['supplier_name']. ' ('.$drow['supplier_id'].')', 'align'=>'left');
 					$details_data_row[] = array('data'=>$drow['serialnumber'], 'align'=>'left');
 					$details_data_row[] = array('data'=>$drow['description'], 'align'=>'left');
-					$details_data_row[] = array('data'=>to_currency($drow['current_selling_price']), 'align'=>'left');
+					$details_data_row[] = array('data'=>to_currency($drow['current_selling_price']), 'align'=>'left', 'numeric'=>TRUE);
 					$details_data_row[] = array('data'=>to_quantity($drow['quantity_purchased']), 'align'=>'left');
-					$details_data_row[] = array('data'=>to_currency($drow['subtotal']), 'align'=>'right');
-					$details_data_row[] = array('data'=>to_currency($drow['total']), 'align'=>'right');
-					$details_data_row[] = array('data'=>to_currency($drow['tax']), 'align'=>'right');
+					$details_data_row[] = array('data'=>to_currency($drow['subtotal']), 'align'=>'right', 'numeric'=>TRUE);
+					$details_data_row[] = array('data'=>to_currency($drow['total']), 'align'=>'right', 'numeric'=>TRUE);
+					$details_data_row[] = array('data'=>to_currency($drow['tax']), 'align'=>'right', 'numeric'=>TRUE);
 					
 					if($this->has_profit_permission)
 					{
-						$details_data_row[] = array('data'=>to_currency($drow['profit']), 'align'=>'right');					
+						$details_data_row[] = array('data'=>to_currency($drow['profit']), 'align'=>'right', 'numeric'=>TRUE);					
 					}
 					
 					$details_data_row[] = array('data'=>$drow['discount_percent'].'%', 'align'=>'left');
@@ -3215,7 +3215,7 @@ class Reports extends Secure_area
 			"overall_summary_data" => $model->getSummaryData(),
 			"export_excel" => $export_excel,
 			"pagination" => $this->pagination->create_links(),
-			"report_model" => 'Detailed_sales'
+			"report_model" => 'Detailed_sales',
 		);
 		isset($details_data) && !empty($details_data) ? $data["details_data"]=$details_data: '' ;
 				

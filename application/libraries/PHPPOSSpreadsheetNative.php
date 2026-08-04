@@ -343,15 +343,17 @@ class PHPPOSSpreadsheetNative extends PHPPOSSpreadsheet
 	 * @param array $arr 2D array of data (rows of cells)
 	 * @param string $filename Output filename (with extension)
 	 * @param bool $is_report Whether this is a report (affects formatting)
+	 * @param array $force_text_columns 0-based column indexes that must always be written as text (only trimmed at start/end)
+	 * @param array $force_numeric_columns 0-based column indexes that are currency amounts and must be written as numbers
 	 */
-	public function arrayToSpreadsheet($arr, $filename, $is_report = false)
+	public function arrayToSpreadsheet($arr, $filename, $is_report = false, $force_text_columns = array(), $force_numeric_columns = array())
 	{
 		$CI =& get_instance();
 
 		if ($CI->config->item('spreadsheet_format') == 'XLSX') {
-			$this->arrayToXLSX($arr, $filename, $is_report);
+			$this->arrayToXLSX($arr, $filename, $is_report, $force_text_columns, $force_numeric_columns);
 		} else {
-			$this->arrayToCSV($arr, $filename, $is_report);
+			$this->arrayToCSV($arr, $filename, $is_report, $force_text_columns, $force_numeric_columns);
 		}
 	}
 
@@ -362,8 +364,10 @@ class PHPPOSSpreadsheetNative extends PHPPOSSpreadsheet
 	 * @param array $arr 2D array of data
 	 * @param string $filename Output filename
 	 * @param bool $is_report Whether this is a report
+	 * @param array $force_text_columns 0-based column indexes that must always be written as text (only trimmed at start/end)
+	 * @param array $force_numeric_columns 0-based column indexes that are currency amounts and must be written as numbers
 	 */
-	private function arrayToCSV($arr, $filename, $is_report)
+	private function arrayToCSV($arr, $filename, $is_report, $force_text_columns = array(), $force_numeric_columns = array())
 	{
 		$CI =& get_instance();
 
@@ -380,8 +384,18 @@ class PHPPOSSpreadsheetNative extends PHPPOSSpreadsheet
 		foreach ($arr as $row) {
 			if ($is_report) {
 				$processedRow = array();
+				$colIndex = 0;
 				foreach ($row as $cell) {
-					$processedRow[] = $this->stripCurrency((string)$cell);
+					if (in_array($colIndex, $force_text_columns, true)) {
+						// force text columns (item_number/product_id): only trim at start/end, do not strip anything else
+						$processedRow[] = trim((string)$cell);
+					} elseif (in_array($colIndex, $force_numeric_columns, true)) {
+						// force numeric columns (currency amounts): strip symbol/separators even if the symbol is not present
+						$processedRow[] = $this->stripCurrency((string)$cell, true);
+					} else {
+						$processedRow[] = $this->stripCurrency((string)$cell);
+					}
+					$colIndex++;
 				}
 				fputcsv($output, $processedRow);
 			} else {
@@ -408,15 +422,17 @@ class PHPPOSSpreadsheetNative extends PHPPOSSpreadsheet
 	 * @param array $arr 2D array of data
 	 * @param string $filename Output filename
 	 * @param bool $is_report Whether this is a report
+	 * @param array $force_text_columns 0-based column indexes that must always be written as text (only trimmed at start/end)
+	 * @param array $force_numeric_columns 0-based column indexes that are currency amounts and must be written as numbers
 	 */
-	private function arrayToXLSX($arr, $filename, $is_report)
+	private function arrayToXLSX($arr, $filename, $is_report, $force_text_columns = array(), $force_numeric_columns = array())
 	{
 		$CI =& get_instance();
 
 		if (!class_exists('ZipArchive')) {
 			// Fallback to CSV if ZipArchive not available
 			$csvFilename = preg_replace('/\.xlsx$/i', '.csv', $filename);
-			$this->arrayToCSV($arr, $csvFilename, $is_report);
+			$this->arrayToCSV($arr, $csvFilename, $is_report, $force_text_columns, $force_numeric_columns);
 			return;
 		}
 
@@ -434,11 +450,20 @@ class PHPPOSSpreadsheetNative extends PHPPOSSpreadsheet
 				$colLetter = $this->indexToColumnLetter($colIndex);
 				$cellValue = (string)$cellValue;
 
-				if ($is_report) {
+				$force_text = in_array($colIndex, $force_text_columns, true);
+				$force_numeric = in_array($colIndex, $force_numeric_columns, true);
+
+				if ($force_text) {
+					// force text columns (item_number/product_id): only trim at start/end, always keep as text
+					$cellValue = trim($cellValue);
+				} elseif ($force_numeric) {
+					// force numeric columns (currency amounts): strip symbol/separators even if the symbol is not present
+					$cellValue = $this->stripCurrency($cellValue, true);
+				} elseif ($is_report) {
 					$cellValue = $this->stripCurrency($cellValue);
 				}
 
-				if ($is_report && is_numeric($cellValue) && $cellValue !== '') {
+				if ($is_report && !$force_text && is_numeric($cellValue) && $cellValue !== '') {
 					// Report mode: keep numbers as numeric values
 					if (strpos($cellValue, '.') !== false) {
 						$sheetRows .= '<c r="' . $colLetter . $rowIndex . '" t="n"><v>' . floatval($cellValue) . '</v></c>';

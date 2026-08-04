@@ -4,6 +4,10 @@ if($export_excel == 1)
 	if (!$this->config->item('legacy_detailed_report_export'))
 	{
 		$rows = array();
+		// column indexes to force as text / force as numeric are derived from the cells marked by the controller
+		// ('force_text' / 'numeric'), so this stays correct even if the report columns are reordered
+		$force_text_columns = array();
+		$force_numeric_columns = array();
 	
 		$row = array();
 		foreach ($headers['details'] as $header) 
@@ -22,14 +26,33 @@ if($export_excel == 1)
 			foreach($details_data[$key] as $datarow2)
 			{
 				$row = array();
+				$col_index = 0;
 				foreach($datarow2 as $cell)
 				{
-					$row[] = str_replace('<span style="white-space:nowrap;">-</span>', '-', strip_tags($cell['data']));				
+					if (!empty($cell['force_text']))
+					{
+						$force_text_columns[$col_index] = TRUE;
+					}
+					if (!empty($cell['numeric']))
+					{
+						$force_numeric_columns[$col_index] = TRUE;
+					}
+					$row[] = str_replace('<span style="white-space:nowrap;">-</span>', '-', strip_tags($cell['data']));
+					$col_index++;
 				}
 			
 				foreach($datarow as $cell)
 				{
+					if (!empty($cell['force_text']))
+					{
+						$force_text_columns[$col_index] = TRUE;
+					}
+					if (!empty($cell['numeric']))
+					{
+						$force_numeric_columns[$col_index] = TRUE;
+					}
 					$row[] = str_replace('<span style="white-space:nowrap;">-</span>', '-', strip_tags($cell['data']));
+					$col_index++;
 				}
 				$rows[] = $row;
 			}
@@ -38,6 +61,10 @@ if($export_excel == 1)
 	}
 	else
 	{
+		// legacy layout has a different column order, so do not force text/numeric columns here
+		$force_text_columns = array();
+		$force_numeric_columns = array();
+
 		$rows = array();
 		$row = array();
 		foreach ($headers['summary'] as $header) 
@@ -76,7 +103,7 @@ if($export_excel == 1)
 		}
 	}
 	$this->load->helper('spreadsheet');
-	array_to_spreadsheet($rows, strip_tags($title) . '.'.($this->config->item('spreadsheet_format') == 'XLSX' ? 'xlsx' : 'csv'), true);
+	array_to_spreadsheet($rows, strip_tags($title) . '.'.($this->config->item('spreadsheet_format') == 'XLSX' ? 'xlsx' : 'csv'), true, array_keys($force_text_columns), array_keys($force_numeric_columns));
 	exit;
 }
 

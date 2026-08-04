@@ -1,9 +1,9 @@
 <?php
 require_once (APPPATH.'libraries/PHPPOSSpreadsheet.php');
-function array_to_spreadsheet($arr,$filename,$is_report=FALSE)
+function array_to_spreadsheet($arr,$filename,$is_report=FALSE,$force_text_columns=array(),$force_numeric_columns=array())
 {	
 	$spreadsheet = PHPPOSSpreadsheet::getSpreadsheetClass();
-	$spreadsheet->arrayToSpreadsheet($arr,$filename, $is_report);
+	$spreadsheet->arrayToSpreadsheet($arr,$filename, $is_report, $force_text_columns, $force_numeric_columns);
 }
 
 function file_to_spreadsheet($inputFileName,$type = 'xlsx')
