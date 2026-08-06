@@ -1,5 +1,5 @@
-application/config/database.php
-# application/config/config.php
+/application/config/database.php
+/application/config/config.php
 application/logs
 application/libraries/tfpdf/font/unifont/dejavusanscondensed.cw.dat
 application/libraries/tfpdf/font/unifont/dejavusanscondensed.mtx.php
@@ -15,5 +15,3 @@ web.config
 config.codekit
 assets/css/all-ck.css
 demo/*
-application/config/database.php
-application/config/config.php
