@@ -72,6 +72,12 @@ if (!$lazy_load)
 					force_http_if_needed();
 				}
 			}
+
+			//MySQL 8 defaults to ONLY_FULL_GROUP_BY which breaks this app's legacy report queries (written for MySQL 5.x); relax it per-session.
+			if ($CI->db->conn_id)
+			{
+				$CI->db->query("SET SESSION sql_mode = REPLACE(@@SESSION.sql_mode, 'ONLY_FULL_GROUP_BY', '')");
+			}
 		}
 	}
 }
@@ -102,6 +108,12 @@ else
 				{
 					force_http_if_needed();
 				}
+			}
+
+			//MySQL 8 defaults to ONLY_FULL_GROUP_BY which breaks this app's legacy report queries (written for MySQL 5.x); relax it per-session.
+			if ($CI->db->conn_id)
+			{
+				$CI->db->query("SET SESSION sql_mode = REPLACE(@@SESSION.sql_mode, 'ONLY_FULL_GROUP_BY', '')");
 			}
 		}
 	

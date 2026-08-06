@@ -91,7 +91,7 @@ if (is_on_demo_host()) { ?>
                     <div class="heading login-logo">
                         <?php echo img(array('src' => $this->Appconfig->get_logo_image())); ?>
                     </div> 
-                    <?php echo form_open('login?continue='.rawurlencode($this->input->get('continue')), array('class' => 'form login-form', 'id'=>'loginform', 'autocomplete'=> 'off')) ?>            
+                    <?php echo form_open('login?continue='.rawurlencode($this->input->get('continue')), array('class' => 'form login-form', 'id'=>'loginform', 'autocomplete'=> 'off')) ?>
                         <p>
 									<?php 
 									echo lang('login_welcome_message'); 

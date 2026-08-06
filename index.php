@@ -53,8 +53,8 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
-//define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+// define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
+define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -66,7 +66,16 @@ define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'producti
 switch (ENVIRONMENT)
 {
 	case 'development':
-		error_reporting(-1);
+		// Suppress E_DEPRECATED on PHP 8.x: CI 3 emits deprecation notices for dynamic
+		// properties and other legacy patterns. If printed, they break header()/redirect().
+		if (version_compare(PHP_VERSION, '8.0', '>='))
+		{
+			error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+		}
+		else
+		{
+			error_reporting(-1);
+		}
 		ini_set('display_errors', 1);
 	break;
 
@@ -120,7 +129,11 @@ switch (ENVIRONMENT)
 | Make sure that php tries to detect line endings. This is important
 | when uploading .csv files created on the mac.
 */
-ini_set('auto_detect_line_endings', true);
+// auto_detect_line_endings ini option was removed/deprecated in PHP 8.1+ (it's now always on)
+if (PHP_VERSION_ID < 80100)
+{
+	ini_set('auto_detect_line_endings', true);
+}
 
 
 /*
