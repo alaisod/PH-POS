@@ -16,3 +16,4 @@ config.codekit
 assets/css/all-ck.css
 demo/*
 application/config/database.php
+application/config/config.php
