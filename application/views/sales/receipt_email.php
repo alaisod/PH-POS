@@ -382,7 +382,6 @@ a {
 													<b><?php echo lang('common_customer') ?> : </b> <?php echo $customer; ?> <br />
 													<?php if (!empty($customer_city)) { echo "<b>".$customer_address_1. ' '.$customer_address_2." : </b>".$customer_city.' '.$customer_state.', '.$customer_zip;} ?>
 
-													<?php if (!empty($customer_country)) { echo "<br />".$customer_country; } ?>
 
 													<b><?php echo lang('common_phone_number') ?> : </b><?php echo $customer_phone; ?> <br />
 													<b><?php echo lang('common_email') ?> : </b><?php echo $customer_email; ?> <br />

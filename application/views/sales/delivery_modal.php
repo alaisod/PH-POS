@@ -240,12 +240,6 @@
 								</div>
 							</div>
 
-							<div class="form-group row">	
-								<label for="country" class="col-sm-3 col-md-3 col-lg-3 control-label "><?php echo lang("common_country"); ?> :</label>
-								<div class="col-sm-9 col-md-9 col-lg-9">
-									<input type="text" name="country" value="<?php echo $delivery_person_info['country']; ?>" class="form-control " id="country">
-								</div>
-							</div>
 					
 		     	 </div><!-- end tab-pane -->
 					 
@@ -544,8 +538,7 @@
 			address_2: $('#address_2').val(),
 			city: $('#city').val(),
 			state: $('#state').val(),
-			zip: $('#zip').val(),
-			country: $('#country').val(),
+			zip: $('#zip').val()
 		}
 		
 		return delivery_person_info;

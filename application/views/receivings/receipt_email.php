@@ -370,7 +370,6 @@ a {
 													<b><?php echo lang('common_supplier') ?> : </b> <?php echo $supplier; ?> <br />
 													<?php if (!empty($supplier_city)) { echo "<b>".$supplier_address_1. ' '.$supplier_address_2." : </b>".$supplier_city.' '.$supplier_state.', '.$supplier_zip;} ?>
 
-													<?php if (!empty($supplier_country)) { echo "<br />".$supplier_country; } ?>
 
 													<b><?php echo lang('common_phone_number') ?> : </b><?php echo $supplier_phone; ?> <br />
 													<b><?php echo lang('common_email') ?> : </b><?php echo $supplier_email; ?> <br />

@@ -48,14 +48,6 @@
 				</tr>
 				<tr>
 					<td>
-						<?php echo lang('common_country'); ?>
-					</td>
-					<td>
-						<?php echo H($customer_info->country); ?>
-					</td>
-				</tr>
-				<tr>
-					<td>
 						<?php echo lang('common_zip'); ?>
 					</td>
 					<td>

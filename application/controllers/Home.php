@@ -326,7 +326,6 @@ class Home extends Secure_area
 		'city'=>$this->input->post('city'),
 		'state'=>$this->input->post('state'),
 		'zip'=>$this->input->post('zip'),
-		'country'=>$this->input->post('country'),
 		'comments'=>$this->input->post('comments')
 		);
 		//Password has been changed OR first time password set

@@ -1373,7 +1373,6 @@ class Sales extends Secure_area
 			$data['customer_city'] = $cust_info->city;
 			$data['customer_state'] = $cust_info->state;
 			$data['customer_zip'] = $cust_info->zip;
-			$data['customer_country'] = $cust_info->country;
 			$data['customer_phone'] = $cust_info->phone_number;
 			$data['customer_email'] = $cust_info->email;
 		}
@@ -1570,7 +1569,6 @@ class Sales extends Secure_area
 			$data['customer_city'] = $cust_info->city;
 			$data['customer_state'] = $cust_info->state;
 			$data['customer_zip'] = $cust_info->zip;
-			$data['customer_country'] = $cust_info->country;
 			$data['customer_phone'] = $cust_info->phone_number;
 			$data['customer_email'] = $cust_info->email;			
 			$data['customer_points'] = $cust_info->points;			
@@ -1742,7 +1740,6 @@ class Sales extends Secure_area
 			$data['customer_city'] = $cust_info->city;
 			$data['customer_state'] = $cust_info->state;
 			$data['customer_zip'] = $cust_info->zip;
-			$data['customer_country'] = $cust_info->country;
 			$data['customer_phone'] = $cust_info->phone_number;
 			$data['customer_email'] = $cust_info->email;
 			$data['customer_points'] = $cust_info->points;
@@ -1884,7 +1881,6 @@ class Sales extends Secure_area
 			$data['customer_city'] = $cust_info->city;
 			$data['customer_state'] = $cust_info->state;
 			$data['customer_zip'] = $cust_info->zip;
-			$data['customer_country'] = $cust_info->country;
 			$data['customer_phone'] = $cust_info->phone_number;
 			$data['customer_email'] = $cust_info->email;
             $data['customer_tax_certificate'] = $cust_info->tax_certificate; //add by gomonx
@@ -1991,7 +1987,6 @@ class Sales extends Secure_area
 			$data['customer_city'] = $cust_info->city;
 			$data['customer_state'] = $cust_info->state;
 			$data['customer_zip'] = $cust_info->zip;
-			$data['customer_country'] = $cust_info->country;
 			$data['customer_phone'] = $cust_info->phone_number;
 			$data['customer_email'] = $cust_info->email;
 			$data['customer_points'] = $cust_info->points;
@@ -3260,7 +3255,6 @@ class Sales extends Secure_area
 			$delivery_person_info['city'] = $customer_info->city;
 			$delivery_person_info['state'] = $customer_info->state;
 			$delivery_person_info['zip'] = $customer_info->zip;
-			$delivery_person_info['country'] = $customer_info->country;
 						
 			$this->sale_lib->set_delivery_person_info($delivery_person_info);
 		}

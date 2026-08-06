@@ -55,7 +55,7 @@ class Delivery extends CI_Model
 	function search($search, $filters = array(), $limit=20, $offset=0, $column='estimated_shipping_date', $orderby='asc')
 	{
 		$this->db->select('shipping_zones.name as shipping_zone_name, sales_deliveries.*,
-		CONCAT(address_1, " ", address_2, " ", city, " ", state, " ", zip, " ", country) as full_address,
+		CONCAT(address_1, " ", address_2, " ", city, " ", state, " ", zip) as full_address,
 		people.*,
 		shipping_methods.name as `shipping_method_name`,
 		shipping_providers.name as `shipping_provider_name`,
@@ -77,7 +77,7 @@ class Delivery extends CI_Model
 			city LIKE '%".$this->db->escape_like_str($search)."%' or
 			state LIKE '%".$this->db->escape_like_str($search)."%' or
 			zip LIKE '%".$this->db->escape_like_str($search)."%' or
-			CONCAT(address_1,', ',address_2,', ',city,', ',state,', ',zip,', ',country)  = ".$this->db->escape($search)." or
+			CONCAT(address_1,', ',address_2,', ',city,', ',state,', ',zip)  = ".$this->db->escape($search)." or
 			sale_id  = ".$this->db->escape($search)." or
 			email LIKE '%".$this->db->escape_like_str($search)."%' or 
 			phone_number LIKE '%".$this->db->escape_like_str($search)."%' or 
@@ -139,7 +139,7 @@ class Delivery extends CI_Model
 	function search_count_all($search, $filters = array(),$limit=10000)
 	{
 		$this->db->select('shipping_zones.name as shipping_zone_name,sales_deliveries.*,
-		CONCAT(address_1, " ", address_2, " ", city, " ", state, " ", zip, " ", country) as full_address,
+		CONCAT(address_1, " ", address_2, " ", city, " ", state, " ", zip) as full_address,
 		people.*,
 		shipping_methods.name as `shipping_method_name`,
 		shipping_providers.name as `shipping_provider_name`,
@@ -161,7 +161,7 @@ class Delivery extends CI_Model
 			city LIKE '%".$this->db->escape_like_str($search)."%' or
 			state LIKE '%".$this->db->escape_like_str($search)."%' or
 			zip LIKE '%".$this->db->escape_like_str($search)."%' or
-			CONCAT(address_1,', ',address_2,', ',city,', ',state,', ',zip,', ',country)  = ".$this->db->escape($search)." or
+			CONCAT(address_1,', ',address_2,', ',city,', ',state,', ',zip)  = ".$this->db->escape($search)." or
 			sale_id  = ".$this->db->escape($search)." or
 			email LIKE '%".$this->db->escape_like_str($search)."%' or 
 			phone_number LIKE '%".$this->db->escape_like_str($search)."%' or 
@@ -245,7 +245,7 @@ class Delivery extends CI_Model
 			{
 				$data = array(
 					'name' => $row->first_name . ' ' .  $row->last_name,
-					'subtitle' => $row->address_1 . ', ' . $row->address_2 . ', ' . $row->city . ', ' . $row->state . ', ' . $row->zip . ', ' . $row->country,
+					'subtitle' => $row->address_1 . ', ' . $row->address_2 . ', ' . $row->city . ', ' . $row->state . ', ' . $row->zip,
 					'avatar' => base_url()."assets/img/giftcard.png",
 					 );
 				$temp_suggestions[$row->id] = $data;
@@ -279,7 +279,7 @@ class Delivery extends CI_Model
 			foreach($query->result() as $row)
 			{
 				$data = array(
-					'name' => $row->address_1 . ', ' . $row->address_2 . ', ' . $row->city . ', ' . $row->state . ', ' . $row->zip . ', ' . $row->country,
+					'name' => $row->address_1 . ', ' . $row->address_2 . ', ' . $row->city . ', ' . $row->state . ', ' . $row->zip,
 					'subtitle' => $row->first_name . ' ' .  $row->last_name,
 					'avatar' => base_url()."assets/img/giftcard.png",
 					 );
@@ -395,7 +395,7 @@ class Delivery extends CI_Model
 	function get_all_for_range($start_date,$end_date,$col='estimated_delivery_or_pickup_date')
 	{		
 		$this->db->select('shipping_zones.name as shipping_zone_name, sales_deliveries.id as delivery_id,sales_deliveries.*,sales.sale_time,
-		CONCAT(address_1, " ", address_2, " ", city, " ", state, " ", zip, " ", country) as full_address,
+		CONCAT(address_1, " ", address_2, " ", city, " ", state, " ", zip) as full_address,
 		people.*,
 		shipping_methods.name as `shipping_method_name`,
 		shipping_providers.name as `shipping_provider_name`');
@@ -415,7 +415,7 @@ class Delivery extends CI_Model
 	function get_all($limit=10000, $offset=0,$col='estimated_shipping_date',$order='asc',$filters = array())
 	{	
 		$this->db->select('shipping_zones.name as shipping_zone_name, sales_deliveries.*,
-		CONCAT(address_1, " ", address_2, " ", city, " ", state, " ", zip, " ", country) as full_address,
+		CONCAT(address_1, " ", address_2, " ", city, " ", state, " ", zip) as full_address,
 		people.*,
 		shipping_methods.name as `shipping_method_name`,
 		shipping_providers.name as `shipping_provider_name`');
@@ -559,7 +559,6 @@ class Delivery extends CI_Model
 			'city' =>                              array('sort_column' => 'people.city', 'label' => lang('common_city')),
 			'state' =>                             array('sort_column' => 'people.state', 'label' => lang('common_state')),
 			'zip' =>                               array('sort_column' => 'people.zip', 'label' => lang('common_zip')),
-			'country' =>                           array('sort_column' => 'people.country', 'label' => lang('common_country')),
 			'email' =>                             array('sort_column' => 'people.email', 'label' => lang('common_email'), 'format_function' => 'email_formatter', 'html' => TRUE),
 			'phone_number' =>                      array('sort_column' => 'people.phone_number', 'label' => lang('common_phone_number'), 'format_function' => 'tel', 'html' => TRUE),
 			'estimated_shipping_date' =>           array('sort_column' => 'sales_deliveries.estimated_shipping_date', 'label' => lang('deliveries_estimated_shipping_date'), 'format_function' => 'datetime_as_display_date', 'html' => FALSE),

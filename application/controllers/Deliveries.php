@@ -202,7 +202,7 @@ class Deliveries extends Secure_area implements Idata_controller
 		$data = array();
 		$data['delivery_info'] = $this->Delivery->get_info($delivery_id)->row_array();
 		
-		$shipping_address_person_id = $data['delivery_info']['shipping_address_person_id'];
+		$shipping_address_person_id = $data['delivery_info']['shipping_address_person_id'] ?? NULL;
 		if($shipping_address_person_id)
 		{
 			$data['delivery_person_info'] = (array)$this->Person->get_info($shipping_address_person_id);
@@ -240,7 +240,6 @@ class Deliveries extends Secure_area implements Idata_controller
 			'city' => $this->input->post('city'),
 			'state' => $this->input->post('state'),
 			'zip' => $this->input->post('zip'),
-			'country' => $this->input->post('country'),
 		);
 		
 		

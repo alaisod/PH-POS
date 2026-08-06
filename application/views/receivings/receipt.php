@@ -42,13 +42,10 @@ $company_logo = ($company_logo = $this->Location->get_info_for_key('company_logo
 					</li>
 					
 					<li>
-						<?php //add csv download button By GomonX;
-					if ($sale_id_raw != lang('sales_test_mode_transaction')){
-					?>	
-						
-							<a class="btn btn-primary btn-lg hidden-print" id="downloadcsv_sheet_button" href="<?php echo site_url('items/generate_csv_from_recv/'.$receiving_id_raw); ?>">Download Receipt</a>
-						
-					<?php } ?>
+    					<?php // add csv download button By GomonX
+    					if ($receiving_id_raw != lang('sales_test_mode_transaction')): ?>
+        				<a class="btn btn-primary btn-lg hidden-print" id="downloadcsv_sheet_button" href="<?php echo site_url('items/generate_csv_from_recv/'.$receiving_id_raw); ?>">Download Receipt</a>
+    					<?php endif; ?>
 					</li>
 					
 				</ul>
@@ -104,7 +101,6 @@ $company_logo = ($company_logo = $this->Location->get_info_for_key('company_logo
 								<li id="supplier"><?php echo lang('common_supplier').": ".$supplier; ?></li>
 								<?php if(!empty($supplier_address_1)){ ?><li><?php echo lang('common_address'); ?> : <?php echo $supplier_address_1. ' '.$supplier_address_2; ?></li><?php } ?>
 								<?php if (!empty($supplier_city)) { echo '<li>'.$supplier_city.' '.$supplier_state.', '.$supplier_zip.'</li>';} ?>
-								<?php if (!empty($supplier_country)) { echo '<li>'.$supplier_country.'</li>';} ?>			
 								<?php if(!empty($supplier_phone)){ ?><li><?php echo lang('common_phone_number'); ?> : <?php echo $supplier_phone; ?></li><?php } ?>
 								<?php if(!empty($supplier_email)){ ?><li><?php echo lang('common_email'); ?> : <?php echo $supplier_email; ?></li><?php } ?>
 								

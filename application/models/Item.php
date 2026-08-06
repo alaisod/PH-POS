@@ -402,7 +402,7 @@ class Item extends CI_Model
 		{
 			$cache[$item_id] = $query->row();
 			$main_image = $this->get_main_image($item_id);
-			$cache[$item_id]->image_id = $main_image['image_id'];
+			$cache[$item_id]->image_id = (is_array($main_image) && isset($main_image['image_id'])) ? $main_image['image_id'] : '';
 			return $cache[$item_id];
 		}
 		else

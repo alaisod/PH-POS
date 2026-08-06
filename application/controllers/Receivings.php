@@ -386,7 +386,6 @@ class Receivings extends Secure_area
 			$data['supplier_city'] = $suppl_info->city;
 			$data['supplier_state'] = $suppl_info->state;
 			$data['supplier_zip'] = $suppl_info->zip;
-			$data['supplier_country'] = $suppl_info->country;
 			$data['supplier_phone'] = $suppl_info->phone_number;
 			$data['supplier_email'] = $suppl_info->email;
 			
@@ -480,7 +479,6 @@ class Receivings extends Secure_area
 			$data['supplier_city'] = $supplier_info->city;
 			$data['supplier_state'] = $supplier_info->state;
 			$data['supplier_zip'] = $supplier_info->zip;
-			$data['supplier_country'] = $supplier_info->country;
 			$data['supplier_phone'] = $supplier_info->phone_number;
 			$data['supplier_email'] = $supplier_info->email;
 			
@@ -565,7 +563,6 @@ class Receivings extends Secure_area
 			$data['supplier_city'] = $suppl_info->city;
 			$data['supplier_state'] = $suppl_info->state;
 			$data['supplier_zip'] = $suppl_info->zip;
-			$data['supplier_country'] = $suppl_info->country;
 			$data['supplier_phone'] = $suppl_info->phone_number;
 			$data['supplier_email'] = $suppl_info->email;
 			
@@ -796,7 +793,6 @@ class Receivings extends Secure_area
 			$data['supplier_city'] = $supplier_info->city;
 			$data['supplier_state'] = $supplier_info->state;
 			$data['supplier_zip'] = $supplier_info->zip;
-			$data['supplier_country'] = $supplier_info->country;
 			$data['supplier_phone'] = $supplier_info->phone_number;
 			$data['supplier_email'] = $supplier_info->email;
 			

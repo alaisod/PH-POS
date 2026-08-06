@@ -21,7 +21,6 @@ if ($type == 'pdf')
 		$text = $label['name']."\n";
 		$text .= $label['address_1']."\n".($label['address_2'] ? $label['address_2']."\n" : '');
 		$text .= $label['city'].' '.$label['state'].' '.$label['zip']."\n";
-		$text .= $label['country'];
 		
 	    $pdf->AveryAddressCell($x,$y,$text);
 		 $counter++;
@@ -46,7 +45,7 @@ else
 	$this->load->helper('report');
 	$rows = array();
 
-	$header_row = array(lang('common_name'),lang('common_address_1'),lang('common_address_2'),lang('common_city'),	lang('common_state'),lang('common_zip'),lang('common_country'));
+	$header_row = array(lang('common_name'),lang('common_address_1'),lang('common_address_2'),lang('common_city'),	lang('common_state'),lang('common_zip'));
 	$rows[] = $header_row;
 
 	foreach ($mailing_labels as $r) {
@@ -57,7 +56,6 @@ else
 			$r['city'],
 			$r['state'],
 			$r['zip'],
-			$r['country'],
 		);
 	
 		$rows[] = $row;
