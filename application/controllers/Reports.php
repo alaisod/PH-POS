@@ -3181,7 +3181,7 @@ class Reports extends Secure_area
 					$details_data_row = array();
 					
 					$details_data_row[] = array('data'=>$drow['item_number'], 'align'=>'left', 'force_text'=>TRUE);
-					$details_data_row[] = array('data'=>$drow['item_product_id'], 'align'=>'left', 'force_text'=>TRUE);
+					$details_data_row[] = array('data'=>$drow['item_product_id'].'hello', 'align'=>'left', 'force_text'=>TRUE);
 					$details_data_row[] = array('data'=>$drow['item_name'], 'align'=>'left');
 					$details_data_row[] = array('data'=>$this->Category->get_full_path($drow['category_id']), 'align'=>'left');
 					$details_data_row[] = array('data'=>$drow['size'], 'align'=>'left');
