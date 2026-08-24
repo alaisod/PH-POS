@@ -378,14 +378,13 @@ class Reports extends Secure_area
 				{
 					$details_data_row = array();
 				
-					$details_data_row[] = array('data'=>$drow['item_number'], 'align'=>'left', 'force_text'=>TRUE);
-				$details_data_row[] = array('data'=>$drow['item_product_id'], 'align'=>'left', 'force_text'=>TRUE);
-				$details_data_row[] = array('data'=>$drow['item_name'], 'align'=>'left');
+					$details_data_row[] = array('data'=>$drow['item_number'], 'align'=>'left', 'force_text'=>TRUE);					$details_data_row[] = array('data'=>$drow['item_product_id'], 'align'=>'left', 'force_text'=>TRUE);
+					$details_data_row[] = array('data'=>$drow['item_name'], 'align'=>'left', 'force_text'=>TRUE);
 				
-				$details_data_row[] = array('data'=>$this->Category->get_full_path($drow['category_id']), 'align'=>'left');
-				$details_data_row[] = array('data'=>$drow['size'], 'align'=>'left');
-				$details_data_row[] = array('data'=>$drow['serialnumber'], 'align'=>'left');
-				$details_data_row[] = array('data'=>$drow['description'], 'align'=>'left');
+					$details_data_row[] = array('data'=>$this->Category->get_full_path($drow['category_id']), 'align'=>'left');
+					$details_data_row[] = array('data'=>$drow['size'], 'align'=>'left');
+					$details_data_row[] = array('data'=>$drow['serialnumber'], 'align'=>'left');
+					$details_data_row[] = array('data'=>$drow['description'], 'align'=>'left');
 				$details_data_row[] = array('data'=>to_currency($drow['current_selling_price']), 'align'=>'left', 'numeric'=>TRUE);
 				$details_data_row[] = array('data'=>to_quantity($drow['quantity_purchased']), 'align'=>'left');
 				$details_data_row[] = array('data'=>to_currency($drow['subtotal']), 'align'=>'right', 'numeric'=>TRUE);
@@ -2756,7 +2755,7 @@ class Reports extends Secure_area
 					$details_data_row = array();
 					$details_data_row[] = array('data'=>$drow['item_number'], 'align'=>'left', 'force_text'=>TRUE);
 					$details_data_row[] = array('data'=>$drow['item_product_id'], 'align'=>'left', 'force_text'=>TRUE);
-					$details_data_row[] = array('data'=>$drow['item_name'], 'align'=>'left');
+					$details_data_row[] = array('data'=>$drow['item_name'], 'align'=>'left', 'force_text'=>TRUE);
 					$details_data_row[] = array('data'=>$this->Category->get_full_path($drow['category_id']), 'align'=>'left');
 					$details_data_row[] = array('data'=>$drow['serialnumber'], 'align'=>'left');
 					$details_data_row[] = array('data'=>$drow['description'], 'align'=>'left');
@@ -3181,8 +3180,8 @@ class Reports extends Secure_area
 					$details_data_row = array();
 					
 					$details_data_row[] = array('data'=>$drow['item_number'], 'align'=>'left', 'force_text'=>TRUE);
-					$details_data_row[] = array('data'=>$drow['item_product_id'].'hello', 'align'=>'left', 'force_text'=>TRUE);
-					$details_data_row[] = array('data'=>$drow['item_name'], 'align'=>'left');
+					$details_data_row[] = array('data'=>$drow['item_product_id'], 'align'=>'left', 'force_text'=>TRUE);
+					$details_data_row[] = array('data'=>$drow['item_name'], 'align'=>'left', 'force_text'=>TRUE);
 					$details_data_row[] = array('data'=>$this->Category->get_full_path($drow['category_id']), 'align'=>'left');
 					$details_data_row[] = array('data'=>$drow['size'], 'align'=>'left');
 					$details_data_row[] = array('data'=>$drow['supplier_name']. ' ('.$drow['supplier_id'].')', 'align'=>'left');
@@ -3393,7 +3392,7 @@ class Reports extends Secure_area
 					
 					$details_data_row[] = array('data'=>$drow['item_number'], 'align'=>'left', 'force_text'=>TRUE);
 					$details_data_row[] = array('data'=>$drow['item_product_id'], 'align'=>'left', 'force_text'=>TRUE);
-					$details_data_row[] = array('data'=>$drow['item_name'], 'align'=>'left');
+					$details_data_row[] = array('data'=>$drow['item_name'], 'align'=>'left', 'force_text'=>TRUE);
 					$details_data_row[] = array('data'=>$this->Category->get_full_path($drow['category_id']), 'align'=>'left');
 					$details_data_row[] = array('data'=>$drow['size'], 'align'=>'left');
 					$details_data_row[] = array('data'=>$drow['serialnumber'], 'align'=>'left');
@@ -3707,7 +3706,7 @@ class Reports extends Secure_area
 				foreach($report_data['details'][$key] as $drow)
 				{
 					$details_data_row = array();
-					$details_data_row[] = array('data'=>$drow['item_name'], 'align'=>'left');
+					$details_data_row[] = array('data'=>$drow['item_name'], 'align'=>'left', 'force_text'=>TRUE);
 					$details_data_row[] = array('data'=>$this->Category->get_full_path($drow['category_id']), 'align'=>'left');
 					$details_data_row[] = array('data'=>$drow['serialnumber'], 'align'=>'left');
 					$details_data_row[] = array('data'=>$drow['description'], 'align'=>'left');
